@@ -7,13 +7,3 @@ title: Sementi
 
 
 ## Archivio genetico
-
-SPECIES:
-STATUS:
-ORIGIN:
-ADAPTATION:
-
-
-Semi locali.
-Varietà dimenticate.
-Biodiversità agricola.

@@ -1,9 +1,7 @@
 title: Soil Genesis
-description: Seed Recovery Protocol // Regenerative Agriculture Network
+description: Seed Recovery Protocol
 
-baseurl: ""
-url: ""
+baseurl: "/soil-genesis"
+url: "https://ms-smx.github.io"
 
 markdown: kramdown
-
-theme: minima
