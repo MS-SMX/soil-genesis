@@ -1,0 +1,41 @@
+nav{
+
+display:flex;
+
+justify-content:center;
+
+gap:40px;
+
+padding:20px;
+
+border-bottom:1px solid var(--line);
+
+background:rgba(0,0,0,.35);
+
+backdrop-filter:blur(6px);
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+}
+
+nav a{
+
+font-family:"Orbitron";
+
+font-size:.9rem;
+
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+}
+
+nav a:hover{
+
+text-shadow:0 0 8px var(--glow);
+
+}

@@ -1,0 +1,31 @@
+.terminal{
+
+max-width:900px;
+
+margin:40px auto;
+
+padding:20px;
+
+border:1px solid var(--line);
+
+background:rgba(7,18,18,.85);
+
+box-shadow:0 0 25px rgba(122,215,202,.08);
+
+}
+
+.terminal::before{
+
+content:"SOIL GENESIS BIOS";
+
+display:block;
+
+margin-bottom:15px;
+
+color:var(--secondary);
+
+letter-spacing:2px;
+
+font-size:.8rem;
+
+}
