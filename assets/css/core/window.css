@@ -1,26 +1,59 @@
 .window{
 
-border:1px solid var(--line);
+    position:relative;
 
-background:rgba(5,12,13,.75);
+    background:rgba(10,16,16,.82);
 
-box-shadow:
-0 0 20px rgba(122,216,202,.05);
+    border:none;
 
-margin:30px auto;
+    padding:2px;
 
-max-width:900px;
+    margin:35px auto;
 
-animation:windowBoot .8s ease;
+    backdrop-filter:blur(1px);
+
+}
+
+.window::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+left:0;
+
+width:40px;
+height:40px;
+
+border-top:1px solid var(--primary);
+border-left:1px solid var(--primary);
+
+opacity:.55;
+
+}
+
+.window::after{
+
+content:"";
+
+position:absolute;
+
+right:0;
+bottom:0;
+
+width:40px;
+height:40px;
+
+border-right:1px solid var(--primary);
+border-bottom:1px solid var(--primary);
+
+opacity:.55;
 
 }
 
 
 .window-header{
-
-height:40px;
-
-border-bottom:1px solid var(--line);
 
 display:flex;
 
@@ -28,25 +61,35 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:0 20px;
+padding:12px 20px;
 
-background:rgba(122,216,202,.04);
+border-bottom:1px dashed var(--line);
+
+background:none;
+
+text-transform:uppercase;
+
+letter-spacing:.18em;
+
+font-size:.75rem;
 
 }
-
 
 .window-title{
 
-font-family:"Orbitron";
+    font-family:"IBM Plex Mono", monospace;
 
-letter-spacing:2px;
+    font-size:.80rem;
 
-font-size:.85rem;
+    font-weight:500;
 
-color:var(--primary);
+    letter-spacing:.22em;
+
+    text-transform:uppercase;
+
+    color:var(--primary);
 
 }
-
 
 .window-status{
 
@@ -65,6 +108,23 @@ line-height:1.8;
 
 }
 
+.window-tag{
+
+position:absolute;
+
+right:14px;
+
+bottom:8px;
+
+font-size:.62rem;
+
+letter-spacing:.18em;
+
+opacity:.25;
+
+font-family:monospace;
+
+}
 
 
 @keyframes windowBoot{

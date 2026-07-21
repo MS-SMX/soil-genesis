@@ -153,7 +153,7 @@ function drawConnections(){
 
             ctx.strokeStyle="rgba(138,255,238,.35)";
 
-            ctx.shadowBlur=12;
+            ctx.shadowBlur=2;
             ctx.shadowColor="#8affee";
 
         }else{

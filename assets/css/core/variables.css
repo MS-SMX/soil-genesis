@@ -1,25 +1,24 @@
 :root{
 
---bg:#05090a;
+    --bg:#060909;
 
---panel:#091314;
+    --panel:#0b1111;
 
---panel-dark:#071011;
+    --panel-2:#101818;
 
---line:#214340;
+    --line:rgba(122,216,202,.15);
 
---text:#d8fff8;
+    --primary:#79d7c7;
 
---primary:#7ad7ca;
+    --secondary:#9ba8a5;
 
---secondary:#4fa798;
+    --text:#d7dfdc;
 
---warning:#ffb454;
+    --warning:#c49d4e;
 
---danger:#ff6b6b;
+    --danger:#b96565;
 
---glow:#8affee;
-
---content-width:1200px;
+    --crt-green:#9adfcf;
 
 }
+

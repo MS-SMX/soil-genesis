@@ -1,8 +1,8 @@
 .status-panel{
 
-background:rgba(7,16,17,.85);
+background:transparent;
 
-border:1px solid var(--line);
+border-left:1px solid var(--line);
 
 padding:25px;
 
@@ -14,9 +14,17 @@ box-shadow:
 
 .status-panel h3{
 
-font-size:.9rem;
+    font-family:"IBM Plex Mono", monospace;
 
-margin-bottom:25px;
+    font-size:.75rem;
+
+    font-weight:500;
+
+    letter-spacing:.22em;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
 
 }
 
@@ -28,9 +36,12 @@ justify-content:space-between;
 
 padding:10px 0;
 
-border-bottom:1px solid rgba(122,216,202,.08);
+border-bottom:
+
+1px dotted rgba(122,216,202,.08);
 
 font-size:.8rem;
+
 
 }
 
