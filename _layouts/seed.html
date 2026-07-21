@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<div class="window">
+
+    <div class="window-header">
+
+        <span class="window-title">
+
+            GENETIC RECORD
+
+        </span>
+
+        <span class="window-status">
+
+            VERIFIED
+
+        </span>
+
+    </div>
+
+    <div class="window-content">
+
+        <h1>{{ page.nome }}</h1>
+
+        <table class="seed-table">
+
+            <tr>
+                <td>ID</td>
+                <td>{{ page.seed_id }}</td>
+            </tr>
+
+            <tr>
+                <td>Specie</td>
+                <td>{{ page.specie }}</td>
+            </tr>
+
+            <tr>
+                <td>Origine</td>
+                <td>{{ page.origine }}</td>
+            </tr>
+
+            <tr>
+                <td>Impollinazione</td>
+                <td>{{ page.impollinazione }}</td>
+            </tr>
+
+            <tr>
+                <td>Stato</td>
+                <td>{{ page.stato }}</td>
+            </tr>
+
+        </table>
+
+        <hr>
+
+        {{ content }}
+
+    </div>
+
+</div>

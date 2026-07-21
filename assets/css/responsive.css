@@ -17,3 +17,19 @@ flex-wrap:wrap;
 }
 
 }
+
+@media(max-width:900px){
+
+.os-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.os-sidebar{
+
+position:static;
+
+}
+
+}

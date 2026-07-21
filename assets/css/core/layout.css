@@ -39,3 +39,31 @@ nav a:hover{
 text-shadow:0 0 8px var(--glow);
 
 }
+
+.os-layout{
+
+display:grid;
+
+grid-template-columns:
+
+1fr 280px;
+
+gap:30px;
+
+align-items:start;
+
+}
+
+.os-main{
+
+min-width:0;
+
+}
+
+.os-sidebar{
+
+position:sticky;
+
+top:90px;
+
+}

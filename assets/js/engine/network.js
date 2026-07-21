@@ -107,6 +107,16 @@ function buildNetwork(){
             }
 
             links.push([i,target]);
+const existing = links.some(link =>
+    (link[0]===i && link[1]===target) ||
+    (link[0]===target && link[1]===i)
+);
+
+if(!existing){
+
+    links.push([i,target]);
+
+}
 
         }
 

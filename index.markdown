@@ -3,8 +3,24 @@ layout: default
 title: Home
 ---
 
-# SOIL GENESIS
+{% include window.html
+title="CORE MODULE"
+content="
+Soil Genesis è un nodo della Rete per l'Agricoltura Naturale.
 
+Sistema dedicato al recupero,
+alla conservazione e alla diffusione
+di sementi tradizionali.
+
+STATUS:
+
+NODE ACTIVE
+
+NETWORK:
+
+RAN
+"
+%}
 SYSTEM ONLINE
 
 BIOLOGICAL DATABASE CONNECTED

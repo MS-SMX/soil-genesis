@@ -1,0 +1,57 @@
+.seed-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin:25px 0;
+
+}
+
+.seed-table td{
+
+padding:10px;
+
+border-bottom:1px solid rgba(122,216,202,.08);
+
+}
+
+.seed-table td:first-child{
+
+color:var(--secondary);
+
+width:180px;
+
+}
+
+.seed-list{
+
+list-style:none;
+
+margin-top:25px;
+
+}
+
+.seed-list li{
+
+padding:10px;
+
+border-bottom:1px solid rgba(122,216,202,.06);
+
+}
+
+#searchBox{
+
+width:100%;
+
+padding:12px;
+
+background:#091314;
+
+border:1px solid var(--line);
+
+color:var(--text);
+
+margin-bottom:20px;
+
+}

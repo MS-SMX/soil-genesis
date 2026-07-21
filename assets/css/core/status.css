@@ -1,0 +1,43 @@
+.status-panel{
+
+background:rgba(7,16,17,.85);
+
+border:1px solid var(--line);
+
+padding:25px;
+
+box-shadow:
+
+0 0 20px rgba(122,216,202,.05);
+
+}
+
+.status-panel h3{
+
+font-size:.9rem;
+
+margin-bottom:25px;
+
+}
+
+.status-row{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:10px 0;
+
+border-bottom:1px solid rgba(122,216,202,.08);
+
+font-size:.8rem;
+
+}
+
+.status-row strong{
+
+color:var(--primary);
+
+font-weight:500;
+
+}

@@ -8,3 +8,8 @@ markdown: kramdown
 
 plugins:
   - jekyll-feed
+
+collections:
+  seeds:
+    output: true
+    permalink: /sementi/:name/
