@@ -14,33 +14,32 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="{{ '/assets/css/boot.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/variables.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/layout.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/crt.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/responsive.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/network.css' | relative_url }}">
 
 </head>
 
 
 <body>
+<canvas id="network"></canvas>
 
+{% include boot.html %}
 {% include soil-terminal.html %}
 {% include navbar.html %}
 
-
 <main>
-
 {{ content }}
-
 </main>
 
 
-<script src="{{ '/assets/js/matrix.js' | relative_url }}"></script>
-
-
+<script src="{{ '/assets/js/network.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/boot.js' | relative_url }}"></script>
 </body>
 
 </html>
