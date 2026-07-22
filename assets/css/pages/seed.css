@@ -164,3 +164,17 @@ color:var(--primary);
 background:rgba(121,215,199,.06);
 
 }
+
+.passport-card{
+
+margin-top:50px;
+
+padding:25px;
+
+border:1px solid var(--primary);
+
+background:rgba(121,215,199,.04);
+
+font-family:"IBM Plex Mono",monospace;
+
+}

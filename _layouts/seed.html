@@ -4,4 +4,66 @@ layout: default
 
 {% include seed/header.html %}
 
-{{ content }}
+
+{% capture biology %}
+
+{% include seed/badge.html text=page.ciclo_vita %}
+
+{% include seed/badge.html text=page.impollinazione %}
+
+{% include seed/badge.html text=page.famiglia %}
+
+
+{% endcapture %}
+
+
+{% include seed/section.html
+title="BIOLOGIA"
+content=biology
+%}
+
+
+
+{% capture archive %}
+
+<p>
+
+Ultima riproduzione:
+
+{{ page.ultimo_anno_riproduzione }}
+
+</p>
+
+
+<p>
+
+Disponibilità:
+
+{{ page.disponibilita }}/5
+
+</p>
+
+
+<p>
+
+Completezza dati:
+
+{{ page.completezza_documentazione }}/5
+
+</p>
+
+
+{% endcapture %}
+
+
+{% include seed/section.html
+
+title="ARCHIVIO"
+
+content=archive
+
+%}
+
+
+
+{% include seed/passport.html %}
