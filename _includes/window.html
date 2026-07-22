@@ -6,25 +6,47 @@
             {{ include.title }}
         </span>
 
+        <div class="window">
+
+    <div class="window-header">
+
+        <div>
+
+            <div class="window-id">
+
+                {{ include.module }}
+
+            </div>
+
+            <div class="window-title">
+
+                {{ include.title }}
+
+            </div>
+
+        </div>
+
         <span class="window-status">
 
-INTEGRITY OK
+            ATTIVO
 
-</span>
-<div class="window-tag">
-
-SG-OS {{ site.time | date: "%Y" }}
-
-</div>
+        </span>
 
     </div>
-
 
     <div class="window-content">
 
         {{ include.content }}
 
     </div>
+
+    <div class="window-build">
+
+        SG-OS 0.5.0
+
+    </div>
+
+</div>
 
 
 </div>

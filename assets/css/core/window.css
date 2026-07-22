@@ -77,17 +77,13 @@ font-size:.75rem;
 
 .window-title{
 
-    font-family:"IBM Plex Mono", monospace;
+font-size:1.15rem;
 
-    font-size:.80rem;
+font-weight:500;
 
-    font-weight:500;
+letter-spacing:.08em;
 
-    letter-spacing:.22em;
-
-    text-transform:uppercase;
-
-    color:var(--primary);
+color:var(--text);
 
 }
 
@@ -145,5 +141,37 @@ opacity:1;
 transform:none;
 
 }
+
+}
+
+.window-id{
+
+font-family:"IBM Plex Mono",monospace;
+
+font-size:.62rem;
+
+letter-spacing:.18em;
+
+opacity:.45;
+
+margin-bottom:6px;
+
+}
+
+.window-build{
+
+position:absolute;
+
+right:16px;
+
+bottom:12px;
+
+font-size:.60rem;
+
+opacity:.28;
+
+letter-spacing:.20em;
+
+font-family:"IBM Plex Mono",monospace;
 
 }

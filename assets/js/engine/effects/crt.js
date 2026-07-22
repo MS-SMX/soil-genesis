@@ -12,9 +12,16 @@ function resizeCRT(){
 
 window.addEventListener("resize",resizeCRT);
 
+
 resizeCRT();
 
 function drawCRT(){
+canvas.style.opacity=
+
+0.05+
+
+Math.random()*0.008;
+
 
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
@@ -24,7 +31,7 @@ function drawCRT(){
 
     ctx.lineWidth=1;
 
-    for(let y=0;y<canvas.height;y+=3){
+    for(let y=0;y<canvas.height;y+=5){
 
         ctx.beginPath();
 

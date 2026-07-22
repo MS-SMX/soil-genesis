@@ -10,7 +10,6 @@ if (!sessionStorage.getItem("bios_seen")) {
         "BIOLOGICAL OPERATING SYSTEM",
         "",
         "INITIALIZING CORE.............OK",
-        "CHECKING MEMORY...............OK",
         "LOADING GENETIC DATABASE......OK",
         "CONNECTING MYCORRHIZAL NETWORK",
         "",
@@ -20,7 +19,10 @@ if (!sessionStorage.getItem("bios_seen")) {
         "",
         "NO PROPRIETARY GENOMES DETECTED",
         "",
-        "ACCESS GRANTED"
+        "ACCESS GRANTED",
+"",
+"",
+        "WELCOME CUSTIODIAN!"
 
     ];
 

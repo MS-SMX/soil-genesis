@@ -31,7 +31,6 @@ href="{{ '/assets/css/style.css' | relative_url }}">
 <canvas id="network"></canvas>
 
 {% include boot.html %}
-{% include soil-terminal.html %}
 <canvas id="crt-layer"></canvas>
 {% include navbar.html %}
 
@@ -57,12 +56,15 @@ href="{{ '/assets/css/style.css' | relative_url }}">
 <script src="{{ '/assets/js/engine/network.js' | relative_url }}"></script>
 
 <script src="{{ '/assets/js/engine/window.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/engine/activity.js' | relative_url }}"></script>
 
 <script src="{{ '/assets/js/engine/clock.js' | relative_url }}"></script>
 
 <script src="{{ '/assets/js/engine/search.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/engine/effects/crt.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/app.js' | relative_url }}"></script>
+{% include footer.html %}
+
 </body>
 
 </html>

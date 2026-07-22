@@ -1,3 +1,10 @@
+{% include window.html
+module="MOD-SEED-02"
+title="IDENTITÀ"
+content="..."
+%} 
+<body data-node="1">
+
 .seed-table{
 
 width:100%;
