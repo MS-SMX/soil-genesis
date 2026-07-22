@@ -1,48 +1,30 @@
 ---
 layout: default
-
 title: Archivio sementi
 ---
 
-<div class="window">
+{% include window.html
+module="MOD-SEED-02"
+title="ARCHIVIO SEMENTI"
+content="Consulta l'archivio delle varietà conservate da Soil Genesis."
+%}
 
-<div class="window-header">
 
-<span class="window-title">
+<div class="seed-list">
 
-SEED ARCHIVE
+{% for seed in site.seeds %}
 
-</span>
+<a class="seed-card"
+href="{{ seed.url | relative_url }}">
 
-</div>
+<h3>{{ seed.nome_comune }}</h3>
 
-<div class="window-content">
+<p><em>{{ seed.nome_scientifico }}</em></p>
 
-<input
-id="searchBox"
-type="text"
-placeholder="Cerca una varietà...">
-
-<ul class="seed-list">
-
-{% assign ordered = site.seeds | sort:"nome" %}
-
-{% for seed in ordered %}
-
-<li>
-
-<a href="{{ seed.url | relative_url }}">
-
-{{ seed.nome }}
+<span>{{ seed.id }}</span>
 
 </a>
 
-</li>
-
 {% endfor %}
-
-</ul>
-
-</div>
 
 </div>

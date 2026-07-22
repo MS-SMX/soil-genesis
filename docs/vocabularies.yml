@@ -1,0 +1,10 @@
+ciclo_vita:
+
+  annuale:
+    label: Annuale
+
+  biennale:
+    label: Biennale
+
+  perenne:
+    label: Perenne

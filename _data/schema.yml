@@ -1,0 +1,19 @@
+famiglia:
+  label: Famiglia botanica
+  required: true
+
+genere:
+  label: Genere
+  required: true
+
+specie:
+  label: Specie
+  required: true
+
+cultivar:
+  label: Cultivar
+  required: false
+
+periodo_semina:
+  label: Periodo di semina
+  required: false
