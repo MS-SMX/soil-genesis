@@ -1,0 +1,45 @@
+{% capture content %}
+
+<table>
+
+<tr>
+
+<td>Famiglia</td>
+
+<td>{{ page.famiglia }}</td>
+
+</tr>
+
+<tr>
+
+<td>Genere</td>
+
+<td>{{ page.genere }}</td>
+
+</tr>
+
+<tr>
+
+<td>Specie</td>
+
+<td>{{ page.specie }}</td>
+
+</tr>
+
+<tr>
+
+<td>Cultivar</td>
+
+<td>{{ page.cultivar }}</td>
+
+</tr>
+
+</table>
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title=site.data.core.ui.identity
+module=site.data.core.modules.identity.code
+content=content
+%}

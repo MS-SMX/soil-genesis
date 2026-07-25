@@ -1,17 +1,140 @@
-# Nome comune
+\# Schema Seed
 
-## Obbligatorio
-Sì
 
-## Tipo
-Testo
 
-## Esempio
-Cece Nero delle Murge
+\## Identità
 
-## Descrizione
 
-Nome con cui la varietà è conosciuta in Italia.
 
-Se esistono più nomi locali, indicare il principale
-e riportare gli altri nelle annotazioni.
+| Campo | Tipo | Obbligatorio |
+
+|-------|------|--------------|
+
+
+
+| id | string | ✓ |
+
+
+
+| nome\_comune | string | ✓ |
+
+
+
+| nome\_scientifico | string | ✓ |
+
+
+
+| famiglia | string | ✓ |
+
+
+
+| genere | string | ✓ |
+
+
+
+| specie | string | ✓ |
+
+
+
+\---
+
+
+
+\## Archivio
+
+
+
+| Campo | Tipo |
+
+
+
+| stato\_conservazione | enum |
+
+
+
+| ultimo\_anno\_riproduzione | integer |
+
+
+
+| immagini | array |
+
+
+
+| note | markdown |
+
+
+
+\---
+
+
+
+\## Coltivazione
+
+
+
+Periodo semina
+
+
+
+Periodo raccolta
+
+
+
+Terreno
+
+
+
+Esposizione
+
+
+
+Temperatura
+
+
+
+Rotazioni
+
+
+
+Consociazioni
+
+
+
+\---
+
+
+
+\## Ecologia
+
+
+
+Azotofissatrice
+
+
+
+Impollinatori
+
+
+
+Biomassa
+
+
+
+Siccità
+
+
+
+\---
+
+
+
+\## Gastronomia
+
+
+
+Usi
+
+
+
+Ricette
+

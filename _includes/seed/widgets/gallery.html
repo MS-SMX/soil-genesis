@@ -1,0 +1,69 @@
+{% if page.immagini and page.immagini.size > 0 %}
+
+<div class="sg-media-viewer">
+
+    {% assign first = page.immagini.first %}
+
+    <div class="media-main">
+
+        <img
+            id="media-main-image"
+            src="{{ '/assets/images/seeds/' | append: page.slug | append: '/' | append: first.file | relative_url }}"
+            alt="{{ first.tipo }}">
+
+    </div>
+
+    <div class="media-info">
+
+        <h3 id="media-title">
+
+            {{ first.tipo }}
+
+        </h3>
+
+        <p id="media-description">
+
+            {{ first.descrizione }}
+
+        </p>
+
+        <small id="media-meta">
+
+            {{ first.autore }}
+            {% if first.anno %}
+            • {{ first.anno }}
+            {% endif %}
+
+        </small>
+
+    </div>
+
+    <div class="media-strip">
+
+        {% for image in page.immagini %}
+
+        <img
+
+        class="media-thumb {% if forloop.first %}active{% endif %}"
+
+        src="{{ '/assets/images/seeds/' | append: page.slug | append: '/' | append: image.file | relative_url }}"
+
+        alt="{{ image.tipo }}"
+
+        data-full="{{ '/assets/images/seeds/' | append: page.slug | append: '/' | append: image.file | relative_url }}"
+
+        data-title="{{ image.tipo }}"
+
+        data-description="{{ image.descrizione }}"
+
+        data-author="{{ image.autore }}"
+
+        data-year="{{ image.anno }}">
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endif %}

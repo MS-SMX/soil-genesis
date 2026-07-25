@@ -4,7 +4,7 @@
 
 @import "core/layout.css";
 
-@import "core/crt.css";
+@import "effects/crt.css";
 
 @import "core/network.css";
 
@@ -17,3 +17,5 @@
 @import "pages/seed.css";
 
 @import "pages/resources.css";
+
+@import "pages/explorer.css";

@@ -1,0 +1,11 @@
+online:
+
+  label: ONLINE
+
+maintenance:
+
+  label: MAINTENANCE
+
+offline:
+
+  label: OFFLINE

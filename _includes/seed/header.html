@@ -1,31 +1,39 @@
-<div class="seed-header">
+<header class="seed-header">
 
-    <div class="seed-title">
+<div class="seed-code">
 
-        <h1>{{ page.nome_comune }}</h1>
-
-        <div class="latin">
-
-            <em>{{ page.nome_scientifico }}</em>
-
-        </div>
-
-    </div>
-
-    <div class="passport">
-
-        <div class="passport-id">
-
-            {{ page.id }}
-
-        </div>
-
-        <div class="passport-rating">
-
-            ★{{ page.disponibilita }}/5
-
-        </div>
-
-    </div>
+{{ page.id }}
 
 </div>
+
+<h1>
+
+{{ page.nome_comune }}
+
+</h1>
+
+<p class="seed-family">
+
+{{ page.famiglia_botanica }}
+
+</p>
+
+<div class="seed-status">
+
+<span class="badge badge-{{ page.stato_conservazione }}">
+
+{{ page.stato_conservazione | replace:"_"," " }}
+
+</span>
+
+<span>
+
+Ultima riproduzione:
+
+{{ page.ultimo_anno_riproduzione }}
+
+</span>
+
+</div>
+
+</header>

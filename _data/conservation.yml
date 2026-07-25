@@ -1,0 +1,35 @@
+critico:
+
+  label: CRITICO
+
+  color: "#D9534F"
+
+  description: >
+    Conservazione interna.
+
+da_rigenerare:
+
+  label: DA RIGENERARE
+
+  color: "#F0AD4E"
+
+  description: >
+    Disponibile per un solo seed saver.
+
+stabile:
+
+  label: STABILE
+
+  color: "#5CB85C"
+
+  description: >
+    Distribuzione controllata.
+
+in_espansione:
+
+  label: IN ESPANSIONE
+
+  color: "#5BC0DE"
+
+  description: >
+    Distribuzione aperta.

@@ -231,3 +231,47 @@ position:sticky;
 top:90px;
 
 }
+
+.dropdown{
+
+position:relative;
+
+display:inline-block;
+
+}
+
+.dropdown-content{
+
+display:none;
+
+position:absolute;
+
+top:100%;
+
+left:0;
+
+min-width:220px;
+
+background:rgba(8,18,18,.95);
+
+border:1px solid var(--line);
+
+z-index:1000;
+
+}
+
+.dropdown:hover .dropdown-content{
+
+display:block;
+
+}
+
+.sg-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+
+gap:24px;
+
+}

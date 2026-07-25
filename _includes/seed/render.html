@@ -1,0 +1,15 @@
+{% include seed/header.html %}
+
+{% if page.immagini %}
+  {% include seed/widgets/gallery.html %}
+{% endif %}
+
+{% include seed/widgets/identity.html %}
+
+{% include seed/widgets/cultivation.html %}
+
+{% include seed/widgets/ecology.html %}
+
+{% if page.cronologia %}
+  {% include seed/widgets/history.html %}
+{% endif %}

@@ -1,0 +1,22 @@
+famiglie:
+
+  Fabaceae:
+
+    colore: "#7abf88"
+
+    descrizione: >
+      Leguminose capaci di fissare l'azoto atmosferico.
+
+  Solanaceae:
+
+    colore: "#d17a65"
+
+    descrizione: >
+      Famiglia comprendente pomodori, peperoni, melanzane.
+
+  Poaceae:
+
+    colore: "#d9c76a"
+
+    descrizione: >
+      Cereali e graminacee.

@@ -1,10 +1,24 @@
-ciclo_vita:
 
-  annuale:
-    label: Annuale
+# Vocabolario
 
-  biennale:
-    label: Biennale
+## Custode
 
-  perenne:
-    label: Perenne
+Persona che conserva e riproduce una varietà.
+
+---
+
+## Seed Passport
+
+Carta d'identità della varietà.
+
+---
+
+## Nodo
+
+Archivio fisico appartenente alla rete Soil Genesis.
+
+---
+
+## Stato di conservazione
+
+Condizione attuale della varietà all'interno dell'archivio.

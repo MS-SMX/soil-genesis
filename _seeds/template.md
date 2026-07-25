@@ -123,7 +123,7 @@ note:
 
 {% endcapture %}
 
-{% include seed/section.html
+{% include seed/layout/section.html
 title="IDENTITÀ BOTANICA"
 content=identity
 %}

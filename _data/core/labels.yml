@@ -1,0 +1,30 @@
+stato_conservazione:
+
+  critico:
+    label: Critico
+    icon: "●"
+
+  da_rigenerare:
+    label: Da rigenerare
+    icon: "◐"
+
+  stabile:
+    label: Stabile
+    icon: "◉"
+
+  in_espansione:
+    label: In espansione
+    icon: "◎"
+
+impollinazione:
+
+  autogama: Autogama
+  eterogama: Eterogama
+
+fiori:
+
+  ermafroditi: Ermafroditi
+
+  monoici: Unisessuali monoiche
+
+  dioici: Unisessuali dioiche

@@ -1,0 +1,35 @@
+{% assign history = site.data.history[page.slug] %}
+
+{% capture content %}
+
+{% if history %}
+
+<ul class="sg-history">
+
+{% for event in history %}
+
+<li>
+
+<strong>{{ event.data }}</strong>
+
+{{ event.evento }}
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% else %}
+
+<p>Nessuna cronologia disponibile.</p>
+
+{% endif %}
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+module="ARC.001"
+title="Cronologia archivio"
+content=content
+%}

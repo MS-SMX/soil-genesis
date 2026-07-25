@@ -1,0 +1,26 @@
+<article
+class="explorer-card"
+data-name="{{ include.seed.nome_comune | downcase }}"
+data-family="{{ include.seed.famiglia }}">
+
+    <span class="seed-id">
+        {{ include.seed.id }}
+    </span>
+
+    <h2>
+        {{ include.seed.nome_comune }}
+    </h2>
+
+    <p class="scientific-name">
+        {{ include.seed.nome_scientifico }}
+    </p>
+
+    <p class="family">
+        {{ include.seed.famiglia }}
+    </p>
+
+    <a class="seed-link" href="{{ include.seed.url }}">
+        Apri dossier →
+    </a>
+
+</article>

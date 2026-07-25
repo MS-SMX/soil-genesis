@@ -26,12 +26,45 @@
 
 </header>
 
- <nav>
+<nav class="navbar">
 
-        <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/' | relative_url }}">HOME</a>
 
-        <a href="{{ '/sementi/' | relative_url }}">Sementi</a>
+    <div class="dropdown">
 
-        <a href="{{ '/risorse/' | relative_url }}">Risorse</a>
+        <button class="dropbtn">
 
-    </nav>
+            SEMENTI ▾
+
+        </button>
+
+        <div class="dropdown-content">
+
+            <a href="{{ '/sementi/' | relative_url }}">
+
+                Archivio
+
+            </a>
+
+            <a href="{{ '/famiglie/' | relative_url }}">
+
+                Famiglie botaniche
+
+            </a>
+<a href="{{ '/explorer/' | relative_url }}">
+
+Ricerca Avanzata
+
+</a>
+
+        </div>
+
+    </div>
+
+    <a href="{{ '/risorse/' | relative_url }}">
+
+        RISORSE
+
+    </a>
+
+</nav>

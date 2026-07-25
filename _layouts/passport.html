@@ -1,0 +1,94 @@
+---
+layout: null
+---
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+{{ page.nome_comune }}
+</title>
+
+
+<link rel="stylesheet"
+href="{{ '/assets/css/passport.css' | relative_url }}">
+
+</head>
+
+
+<body>
+
+
+<div class="passport-sheet">
+
+
+<h1>
+SOIL GENESIS
+</h1>
+
+
+<h2>
+{{ page.nome_comune }}
+</h2>
+
+
+<p>
+{{ page.nome_scientifico }}
+</p>
+
+
+<hr>
+
+
+<table>
+
+<tr>
+
+<td>ID</td>
+
+<td>{{ page.id }}</td>
+
+</tr>
+
+
+<tr>
+
+<td>Famiglia</td>
+
+<td>{{ page.famiglia }}</td>
+
+</tr>
+
+
+<tr>
+
+<td>Ciclo</td>
+
+<td>{{ page.ciclo_vita }}</td>
+
+</tr>
+
+
+<tr>
+
+<td>Impollinazione</td>
+
+<td>{{ page.impollinazione }}</td>
+
+</tr>
+
+
+</table>
+
+
+</div>
+
+
+</body>
+
+</html>

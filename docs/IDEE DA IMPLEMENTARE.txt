@@ -1,0 +1,47 @@
+IDEE DA IMPLEMENTARE
+
+URGENTI:
+-galleria immagini scheda
+
+DOPO 1.0:
+-elenco varietà rettangolari con nome in sovraimpressione
+-status panel integrato nella finestra in home, deve scomparire da tutte le altre pagine
+-Sezione LOG che rimanda ad articoli su Substack
+-mappa delle coltivazioni?
+-diario esperimenti
+-generatore di rapporti missione?
+-ottimizzazione mobile
+-MENU, Quando passi sopra una voce > diventa ▶ con un piccolo glitch.
+-effetti digitazione
+-Quando cambi pagina, Mai refresh brutali. Il terminale farà Loading module… 0.2 secondi, fade, pagina.
+cliccando "Sementi" la finestra non ricarichi la pagina, ma sembri cambiare modulo con un brevissimo glitch, una dissolvenza di 150 ms e l'aggiornamento del nodo illuminato nella rete.
+-Nella boot sequence, quando compare CONNECTING MYCORRHIZAL NETWORK… per un istante apparirà una sottile rete di linee turchesi che si espandono come ife fungine, poi svaniranno nel background. per circa 300 millisecondi apparirà sullo sfondo una rete ramificata che ricorda le ife fungine, realizzata in SVG e animata. La vera Boot (v0.2.2)
+Quella che ho in mente è molto più cinematografica. Ci saranno:
+✅ digitazione carattere per carattere
+✅ cursore lampeggiante
+✅ glitch
+✅ scansione CRT
+✅ barra di caricamento animata
+✅ rete miceliare SVG che cresce realmente
+✅ piccolo flash
+✅ dissolvenza
+✅ comparsa graduale dell'interfaccia
+-Alla fine del BIOS. Prima della dissolvenza. Compare per mezzo secondo. GENESIS PROTOCOL AUTHORIZED NODE ITALY-001 Poi entra il sito.
+-Vorrei inserire, in alto a destra, un piccolo indicatore. NETWORK MYCORRHIZAL LINK ● CONNECTED (con il pallino che pulsa)
+-la rete sullo sfondo smetterà di essere casuale e inizierà a ricordare una rete di radici o di micelio, con connessioni più organiche;
+i colori reagiranno alle stagioni: in estate il verde acqua sarà leggermente più caldo, in inverno più freddo, quasi impercettibilmente;
+
++
+
+×
+
+|
+
+/
+
+\
+
+[]
+
+<>
+
