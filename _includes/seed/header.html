@@ -1,39 +1,38 @@
-<header class="seed-header">
+<div class="seed-header">
 
-<div class="seed-code">
+<div class="seed-accession">
 
 {{ page.id }}
 
 </div>
 
-<h1>
+<h1 class="seed-title">
 
 {{ page.nome_comune }}
 
 </h1>
 
-<p class="seed-family">
+{% if page.nome_scientifico %}
 
-{{ page.famiglia_botanica }}
+<div class="seed-scientific">
 
-</p>
-
-<div class="seed-status">
-
-<span class="badge badge-{{ page.stato_conservazione }}">
-
-{{ page.stato_conservazione | replace:"_"," " }}
-
-</span>
-
-<span>
-
-Ultima riproduzione:
-
-{{ page.ultimo_anno_riproduzione }}
-
-</span>
+{{ page.nome_scientifico }}
 
 </div>
 
-</header>
+{% endif %}
+
+{% if page.famiglia %}
+
+<div class="seed-family">
+
+{{ page.famiglia }}
+
+</div>
+
+{% endif %}
+
+<hr class="seed-divider">
+
+</div>
+

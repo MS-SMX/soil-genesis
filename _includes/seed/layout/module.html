@@ -1,37 +1,33 @@
 <section class="sg-module">
 
-<button
-class="sg-module-header"
-type="button">
+    <header class="sg-module-header">
 
-<div>
+        <div>
 
-<span class="module-code">
+            {% if include.module %}
 
-{{ include.module }}
+            <div class="sg-module-id">
 
-</span>
+                {{ include.module }}
 
-<span class="module-title">
+            </div>
 
-{{ include.title }}
+            {% endif %}
 
-</span>
+            <h2 class="sg-module-title">
 
-</div>
+                {{ include.title }}
 
-<span class="module-toggle">
+            </h2>
 
-▼
+        </div>
 
-</span>
+    </header>
 
-</button>
+    <div class="sg-module-body">
 
-<div class="sg-module-content">
+        {{ include.content }}
 
-{{ include.content }}
-
-</div>
+    </div>
 
 </section>

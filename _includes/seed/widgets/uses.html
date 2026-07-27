@@ -1,0 +1,15 @@
+{% if page.usi %}
+
+{% capture content %}
+
+{{ page.usi | markdownify }}
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Usi"
+module="USE"
+content=content
+%}
+
+{% endif %}

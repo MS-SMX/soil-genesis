@@ -1,0 +1,24 @@
+{% assign status = include.value | downcase %}
+
+<span class="status status-{{ status | replace:'_','-' }}">
+
+{% case status %}
+
+{% when "critico" %}
+🔴 CRITICO
+
+{% when "da_rigenerare" %}
+🟠 DA RIGENERARE
+
+{% when "stabile" %}
+🟢 STABILE
+
+{% when "in_espansione" %}
+🔵 IN ESPANSIONE
+
+{% else %}
+⚪ NON DEFINITO
+
+{% endcase %}
+
+</span>

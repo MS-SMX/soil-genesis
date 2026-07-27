@@ -1,26 +1,66 @@
-<article
+<a
 class="explorer-card"
+href="{{ include.seed.url | relative_url }}"
+
 data-name="{{ include.seed.nome_comune | downcase }}"
-data-family="{{ include.seed.famiglia }}">
+data-family="{{ include.seed.famiglia | downcase }}"
+data-status="{{ include.seed.stato_conservazione }}"
+data-cycle="{{ include.seed.ciclo_vita }}"
+data-pollination="{{ include.seed.impollinazione }}">
 
-    <span class="seed-id">
-        {{ include.seed.id }}
-    </span>
+{% assign first = include.seed.immagini.first %}
 
-    <h2>
-        {{ include.seed.nome_comune }}
-    </h2>
+<div class="card-image">
 
-    <p class="scientific-name">
-        {{ include.seed.nome_scientifico }}
-    </p>
+{% if first %}
 
-    <p class="family">
-        {{ include.seed.famiglia }}
-    </p>
+<img
+src="{{ '/assets/images/seeds/' | append: include.seed.slug | append: '/' | append: first.file | relative_url }}"
+alt="{{ include.seed.nome_comune }}">
 
-    <a class="seed-link" href="{{ include.seed.url }}">
-        Apri dossier →
-    </a>
+{% else %}
 
-</article>
+<div class="card-placeholder">
+
+NO IMAGE
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="card-body">
+
+<h2>
+
+{{ include.seed.nome_comune }}
+
+</h2>
+
+{% if include.seed.nome_scientifico %}
+
+<p class="scientific">
+
+{{ include.seed.nome_scientifico }}
+
+</p>
+
+{% endif %}
+
+{% if include.seed.famiglia %}
+
+<p class="family">
+
+{{ include.seed.famiglia }}
+
+</p>
+
+{% endif %}
+
+{% include seed/components/status.html
+value=include.seed.stato_conservazione %}
+
+</div>
+
+</a>

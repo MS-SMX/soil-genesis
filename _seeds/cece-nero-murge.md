@@ -8,32 +8,32 @@ slug: cece-nero-murge
 # IDENTITÀ
 #────────────────────────
 
-nome_comune:
-nome_scientifico:
+nome_comune: Cece Nero della Murgia Carsica
+nome_scientifico: Cicer arietinum
+ 
+genere: Cicer
 
-genere:
+specie: arietinum
 
-specie:
+cultivar: 
 
-cultivar:
+famiglia: Fabaceae
 
-famiglia:
-
-origine:
+origine: Cercatori di Semi
 
 #────────────────────────
 # BIOLOGIA
 #────────────────────────
 
-ciclo_vita:
+ciclo_vita: Annuale
 
-impollinazione:
+impollinazione: autogama, entomofila
 
-fiori:
+fiori: ermafroditi
 
 progenitore_selvatico:
 
-miscuglio_evolutivo:
+miscuglio_evolutivo: false
 
 varieta_componenti:
 
@@ -41,11 +41,11 @@ varieta_componenti:
 # COLTIVAZIONE
 #────────────────────────
 
-periodo_semina:
+periodo_semina: 3, 4
 
-istruzioni_semina:
+istruzioni_semina: 
 
-difficolta:
+difficolta: 2
 
 sensibilita_gelo:
 
@@ -53,17 +53,17 @@ istruzioni_coltivazione:
 
 quantita_consigliata:
 
-periodo_raccolta_seme:
+periodo_raccolta_seme: 7
 
-distanza_minima:
+distanza_minima: 1000m
 
 #────────────────────────
 # CONSERVAZIONE
 #────────────────────────
 
-stato_conservazione:
+stato_conservazione: in_espansione
 
-ultimo_anno_riproduzione:
+ultimo_anno_riproduzione: 2026
 
 #────────────────────────
 # DOCUMENTAZIONE
@@ -71,23 +71,7 @@ ultimo_anno_riproduzione:
 
 immagini:
 
-  - file: fiore.avif
-    tipo: Seme
-    descrizione: Semi secchi
-    autore: Antonello Passini
-    anno: 2026
-
-  - file: pianta.png
-    tipo: Pianta
-    descrizione: Pianta adulta
-    autore: Antonello Passini
-    anno: 2026
-
   - file: semi.jpg
-    tipo: Pianta
-    descrizione: Bustina di semi
-    autore: Antonello Passini
-    anno: 2026
 
 bibliografia:
 
@@ -97,6 +81,13 @@ annotazioni:
 
 usi:
 
-cronologia:
+cronologia: 
+- data: 2026
+
+  evento: Inserita in archivio.
+
+- data: 2027
+
+  evento: Prima distribuzione.
 
 ---

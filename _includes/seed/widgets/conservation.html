@@ -1,17 +1,17 @@
-{% assign state = site.data.conservation[page.stato_conservazione] %}
+{% capture content %}
 
-<div class="state">
+<table class="sg-data-table">
 
-<span>
+{% include seed/layout/field.html label="Stato di conservazione" value=page.stato_conservazione %}
 
-{{ state.label }}
+{% include seed/layout/field.html label="Ultima riproduzione" value=page.ultimo_anno_riproduzione %}
 
-</span>
+</table>
 
-<p>
+{% endcapture %}
 
-{{ state.description }}
-
-</p>
-
-</div>
+{% include seed/layout/module.html
+title="Conservazione"
+module="CON"
+content=content
+%}

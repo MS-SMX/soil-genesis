@@ -1,0 +1,55 @@
+{% assign has_passport = false %}
+
+{% if page.id
+or page.famiglia
+or page.ciclo_vita
+or page.impollinazione
+or page.stato_conservazione
+or page.ultimo_anno_riproduzione %}
+
+{% assign has_passport = true %}
+
+{% endif %}
+
+{% if has_passport %}
+
+{% capture content %}
+
+<table class="sg-data-table">
+
+{% include seed/layout/field.html label="ID" value=page.id %}
+
+{% include seed/layout/field.html label="Famiglia" value=page.famiglia %}
+
+{% include seed/layout/field.html label="Ciclo" value=page.ciclo_vita %}
+
+{% include seed/layout/field.html label="Impollinazione" value=page.impollinazione %}
+
+<tr>
+
+<td>Conservazione</td>
+
+<td>
+
+{% include seed/components/status.html
+value=page.stato_conservazione %}
+
+</td>
+
+</tr>
+
+{% include seed/layout/field.html
+label="Ultima riproduzione"
+value=page.ultimo_anno_riproduzione %}
+
+</table>
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Passport"
+module="ACC"
+content=content
+%}
+
+{% endif %}

@@ -1,0 +1,13 @@
+identity:
+  - label: Famiglia
+    key: famiglia
+
+  - label: Genere
+    key: genere
+
+biology:
+  - label: Ciclo di vita
+    key: ciclo_vita
+
+  - label: Impollinazione
+    key: impollinazione

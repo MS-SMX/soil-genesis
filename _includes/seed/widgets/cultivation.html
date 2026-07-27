@@ -1,0 +1,29 @@
+{% capture content %}
+
+<table class="sg-data-table">
+
+{% include seed/layout/field.html label="Periodo di semina" value=page.periodo_semina %}
+
+{% include seed/layout/field.html label="Istruzioni di semina" value=page.istruzioni_semina %}
+
+{% include seed/layout/field.html label="Difficoltà" value=page.difficolta %}
+
+{% include seed/layout/field.html label="Sensibilità al gelo" value=page.sensibilita_gelo %}
+
+{% include seed/layout/field.html label="Istruzioni di coltivazione" value=page.istruzioni_coltivazione %}
+
+{% include seed/layout/field.html label="Piante consigliate" value=page.quantita_consigliata %}
+
+{% include seed/layout/field.html label="Periodo raccolta seme" value=page.periodo_raccolta_seme %}
+
+{% include seed/layout/field.html label="Distanza minima" value=page.distanza_minima %}
+
+</table>
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Coltivazione"
+module="COL"
+content=content
+%}

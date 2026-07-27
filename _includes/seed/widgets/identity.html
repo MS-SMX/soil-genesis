@@ -1,38 +1,16 @@
 {% capture content %}
 
-<table>
+<table class="sg-data-table">
 
-<tr>
+{% include seed/layout/field.html label="Famiglia" value=page.famiglia %}
 
-<td>Famiglia</td>
+{% include seed/layout/field.html label="Genere" value=page.genere %}
 
-<td>{{ page.famiglia }}</td>
+{% include seed/layout/field.html label="Specie" value=page.specie %}
 
-</tr>
+{% include seed/layout/field.html label="Cultivar" value=page.cultivar %}
 
-<tr>
-
-<td>Genere</td>
-
-<td>{{ page.genere }}</td>
-
-</tr>
-
-<tr>
-
-<td>Specie</td>
-
-<td>{{ page.specie }}</td>
-
-</tr>
-
-<tr>
-
-<td>Cultivar</td>
-
-<td>{{ page.cultivar }}</td>
-
-</tr>
+{% include seed/layout/field.html label="Origine" value=page.origine %}
 
 </table>
 

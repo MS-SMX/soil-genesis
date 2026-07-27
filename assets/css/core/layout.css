@@ -270,8 +270,18 @@ display:block;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
 
 gap:24px;
+
+}
+
+.application-layout{
+
+max-width:1500px;
+
+margin:40px auto;
+
+padding:0 40px;
 
 }

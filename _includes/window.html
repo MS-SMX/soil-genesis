@@ -1,5 +1,4 @@
 <div class="window">
-
     <div class="window-header">
 
         <span class="window-title">
@@ -26,11 +25,15 @@
 
         </div>
 
-        <span class="window-status">
+       {% if include.status %}
 
-            ATTIVO
+<span class="window-status">
 
-        </span>
+{{ include.status }}
+
+</span>
+
+{% endif %}
 
     </div>
 

@@ -1,17 +1,16 @@
 ---
-layout: default
+layout: application
 title: Archivio sementi
 ---
 
-{% include window.html
 <div class="explorer-layout">
 
-{% include explorer/sidebar.html %}
+    {% include explorer/sidebar.html %}
 
-<div class="explorer-content">
+    <div class="explorer-content">
 
-{% include explorer/results.html %}
+        {% include explorer/results.html %}
 
-</div>
+    </div>
 
 </div>
