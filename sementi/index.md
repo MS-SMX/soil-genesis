@@ -8,8 +8,9 @@ title: Archivio sementi
     {% include explorer/sidebar.html %}
 
     <div class="explorer-content">
+{% include explorer/header.html %}
 
-        {% include explorer/results.html %}
+{% include explorer/results.html %}
 
     </div>
 

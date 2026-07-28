@@ -3,7 +3,7 @@ layout: default
 title: Explorer
 ---
 
-{% include window.html
+{% include window.html 
 
 module="MOD-EXP-001"
 

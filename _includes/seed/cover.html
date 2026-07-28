@@ -1,0 +1,47 @@
+<div class="seed-cover">
+
+<h1 class="seed-title">
+
+{{ page.nome_comune }}
+
+</h1>
+
+{% if page.nome_scientifico %}
+
+<div class="seed-scientific">
+
+{{ page.nome_scientifico }}
+
+</div>
+
+{% endif %}
+
+<div class="seed-badges">
+
+{% if page.famiglia %}
+<div class="seed-badge">
+🌿 {{ page.famiglia }}
+</div>
+{% endif %}
+
+{% if page.origine %}
+<div class="seed-badge">
+📦 {{ page.origine }}
+</div>
+{% endif %}
+
+{% if page.ciclo_vita %}
+<div class="seed-badge">
+🔄 {{ page.ciclo_vita }}
+</div>
+{% endif %}
+
+{% if page.stato_conservazione %}
+<div class="seed-badge seed-state state-{{ page.stato_conservazione | slugify }}">
+{{ page.stato_conservazione }}
+</div>
+{% endif %}
+
+</div>
+
+</div>

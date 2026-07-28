@@ -12,6 +12,10 @@
 
     backdrop-filter:blur(1px);
 
+    width:100%;
+
+box-sizing:border-box;
+
 }
 
 .window::before{
@@ -101,6 +105,9 @@ color:var(--secondary);
 padding:35px;
 
 line-height:1.8;
+width:100%;
+
+box-sizing:border-box;
 
 }
 

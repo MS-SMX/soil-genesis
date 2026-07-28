@@ -1,7 +1,7 @@
 ---
 layout: seed
 
-id: SG-000001
+accession: SG-000001
 slug: cece-nero-murge
 
 #────────────────────────
@@ -16,7 +16,6 @@ genere: Cicer
 specie: arietinum
 
 cultivar: 
-
 famiglia: Fabaceae
 
 origine: Cercatori di Semi
@@ -41,29 +40,29 @@ varieta_componenti:
 # COLTIVAZIONE
 #────────────────────────
 
-periodo_semina: 3, 4
-
+periodo_semina: MAR - APR
 istruzioni_semina: 
 
 difficolta: 2
 
-sensibilita_gelo:
+sensibilita_gelo: Si
 
-istruzioni_coltivazione:
+istruzioni_coltivazione: Semina diretta, file distanziate 20cm.
 
-quantita_consigliata:
+quantita_consigliata: 20 esemplari
 
 periodo_raccolta_seme: 7
+distanza_minima: 100m
 
-distanza_minima: 1000m
 
 #────────────────────────
 # CONSERVAZIONE
 #────────────────────────
 
-stato_conservazione: in_espansione
+stato_conservazione: abbondante
 
 ultimo_anno_riproduzione: 2026
+
 
 #────────────────────────
 # DOCUMENTAZIONE
@@ -72,14 +71,15 @@ ultimo_anno_riproduzione: 2026
 immagini:
 
   - file: semi.jpg
+  - file: baccelli.jpg
 
-bibliografia:
+bibliografia: a
 
-ricette:
+ricette: a
 
-annotazioni:
+annotazioni: a
 
-usi:
+usi: a
 
 cronologia: 
 - data: 2026

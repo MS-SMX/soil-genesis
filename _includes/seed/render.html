@@ -1,40 +1,60 @@
-{% include seed/header.html %}
-<!-- {% include seed/passport.html %} -->
-{% if page.immagini %}
-  {% include seed/widgets/gallery.html %}
-{% endif %}
+{% include seed/cover.html %}
+<!--{% include seed/navigation.html %}-->
+{% capture dossier %}
+
+{% include seed/widgets/gallery.html %}
+
+<div class="seed-grid">
+
+<div>
 
 {% include seed/widgets/identity.html %}
-
-{% assign has_biology = false %}
-
-{% if page.ciclo_vita
-or page.impollinazione
-or page.fiori
-or page.progenitore_selvatico
-or page.miscuglio_evolutivo
-or page.varieta_componenti %}
-
-{% assign has_biology = true %}
-
-{% endif %}
-
-{% if has_biology %}
-{% include seed/widgets/biology.html %}
-{% endif %}
-
 {% include seed/widgets/cultivation.html %}
 
+</div>
+
+<div>
+
+{% include seed/widgets/biology.html %}
 {% include seed/widgets/conservation.html %}
 
+</div>
+
+</div>
+
+
+{% if page.usi %}
+<div class="sg-module-full">
 {% include seed/widgets/uses.html %}
+</div>
+{% endif %}
 
+{% if page.ricette %}
+<div class="sg-module-full">
 {% include seed/widgets/recipes.html %}
+</div>
+{% endif %}
 
+{% if page.bibliografia %}
+<div class="sg-module-full">
 {% include seed/widgets/bibliography.html %}
-
-{% include seed/widgets/ecology.html %}
+</div>
+{% endif %}
 
 {% if page.cronologia %}
-  {% include seed/widgets/history.html %}
+<div class="sg-module-full">
+{% include seed/widgets/timeline.html %}
+</div>
 {% endif %}
+{% endcapture %}
+
+{% include window.html
+
+title="DOSSIER"
+
+module=page.accession
+
+content=dossier
+
+%}
+

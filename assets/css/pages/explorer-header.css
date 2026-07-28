@@ -1,0 +1,49 @@
+.explorer-header{
+
+margin-bottom:28px;
+
+}
+
+.explorer-header h1{
+
+margin:0 0 18px;
+
+font-size:2rem;
+
+font-weight:500;
+
+}
+
+.explorer-toolbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:20px;
+
+}
+
+.explorer-toolbar input{
+
+flex:1;
+
+max-width:520px;
+
+}
+
+.explorer-count{
+
+font-family:"IBM Plex Mono";
+
+font-size:.72rem;
+
+letter-spacing:.16em;
+
+opacity:.55;
+
+text-transform:uppercase;
+
+}

@@ -12,8 +12,8 @@ stato_conservazione:
     label: Stabile
     icon: "◉"
 
-  in_espansione:
-    label: In espansione
+  abbondante:
+    label: Abbondante
     icon: "◎"
 
 impollinazione:

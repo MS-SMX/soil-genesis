@@ -1,6 +1,6 @@
 {% assign has_passport = false %}
 
-{% if page.id
+{% if page.accession
 or page.famiglia
 or page.ciclo_vita
 or page.impollinazione
@@ -17,7 +17,7 @@ or page.ultimo_anno_riproduzione %}
 
 <table class="sg-data-table">
 
-{% include seed/layout/field.html label="ID" value=page.id %}
+{% include seed/layout/field.html label="ID" value=page.accession %}
 
 {% include seed/layout/field.html label="Famiglia" value=page.famiglia %}
 

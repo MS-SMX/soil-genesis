@@ -1,37 +1,59 @@
-.badge{
+.seed-badge{
 
-padding:.35rem .7rem;
+display:inline-flex;
 
-border-radius:999px;
+align-items:center;
 
-font-size:.8rem;
+gap:8px;
+
+padding:8px 14px;
+
+font-family:"IBM Plex Mono";
+
+font-size:.70rem;
+
+letter-spacing:.14em;
 
 text-transform:uppercase;
 
-border:1px solid currentColor;
+background:rgba(255,255,255,.025);
+
+border:1px solid rgba(255,255,255,.06);
 
 }
 
-.badge-critico{
+.seed-state{
 
-color:#ff6b6b;
-
-}
-
-.badge-da_rigenerare{
-
-color:#ffb347;
+font-weight:500;
 
 }
 
-.badge-stabile{
+.state-new-entry{
 
-color:#8fd694;
+border-left:4px solid #9dd8ff;
 
 }
 
-.badge-in_espansione{
+.state-critico{
 
-color:#74c0fc;
+border-left:4px solid #d84747;
+
+}
+
+.state-da-rigenerare{
+
+border-left:4px solid #d8922b;
+
+}
+
+.state-stabile{
+
+border-left:4px solid #46b96d;
+
+}
+
+.state-abbondante{
+
+border-left:4px solid #4aa8ff;
 
 }

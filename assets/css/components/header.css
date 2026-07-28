@@ -1,3 +1,57 @@
+.seed-accession{
+
+font-family:"IBM Plex Mono";
+
+letter-spacing:.22em;
+
+font-size:.72rem;
+
+opacity:.55;
+
+margin-bottom:10px;
+
+}
+
+.seed-title{
+
+font-size:2.4rem;
+
+margin:0;
+
+line-height:1.1;
+
+}
+
+.seed-scientific{
+
+margin-top:12px;
+
+font-style:italic;
+
+font-size:1.15rem;
+
+opacity:.8;
+
+}
+
+.seed-family{
+
+margin-top:8px;
+
+font-size:.92rem;
+
+letter-spacing:.12em;
+
+text-transform:uppercase;
+
+opacity:.55;
+
+padding-bottom:26px;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
 .seed-header{
 
 margin-bottom:32px;
@@ -20,13 +74,6 @@ margin-bottom:6px;
 
 }
 
-.seed-family{
-
-opacity:.75;
-
-margin:.5rem 0 1rem;
-
-}
 
 .seed-status{
 

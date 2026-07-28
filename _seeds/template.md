@@ -1,7 +1,7 @@
 ---
 layout: seed
 
-id: SG-000000
+accession: SG-000000
 
 nome_comune:
 

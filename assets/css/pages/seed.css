@@ -103,17 +103,69 @@ transform:translateY(-2px);
 
 .seed-header{
 
+margin-bottom:34px;
+
+}
+
+.seed-title{
+
+margin:0;
+
+font-size:2.8rem;
+
+line-height:1.05;
+
+font-weight:500;
+
+letter-spacing:.02em;
+
+}
+
+.seed-scientific{
+
+margin-top:12px;
+
+font-size:1.18rem;
+
+font-style:italic;
+
+opacity:.82;
+
+}
+
+.seed-meta{
+
 display:flex;
 
-justify-content:space-between;
+flex-wrap:wrap;
 
-align-items:flex-start;
+gap:12px;
 
-margin-bottom:40px;
+margin-top:26px;
 
-padding-bottom:20px;
+}
 
-border-bottom:1px solid var(--line);
+.seed-meta span{
+
+display:inline-flex;
+
+align-items:center;
+
+padding:7px 14px;
+
+font-family:"IBM Plex Mono",monospace;
+
+font-size:.70rem;
+
+letter-spacing:.14em;
+
+text-transform:uppercase;
+
+border:1px solid rgba(255,255,255,.08);
+
+background:rgba(255,255,255,.02);
+
+opacity:.78;
 
 }
 
@@ -218,5 +270,27 @@ max-width:1100px;
 margin:auto;
 
 padding:30px 20px 80px;
+
+}
+
+.seed-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:24px;
+
+margin:30px 0;
+
+}
+
+@media(max-width:900px){
+
+.seed-grid{
+
+grid-template-columns:1fr;
+
+}
 
 }

@@ -1,16 +1,22 @@
 IDEE DA IMPLEMENTARE
 
 URGENTI:
--galleria immagini scheda
+- distanza minima non si riferisce alla distanza tra le piante, ma tra le diverse cultivar della stessa specie
+-separare meglio il campo dai valori / descrizione a livello visivo; sono troppo simili e vicini.
+- parametri leggibili dal sistema e quindi richiamabili tramite ricerca e filtri
+-widget timeline con grafica dedicata
+- in generale molti widget sono vuoti
 
 DOPO 1.0:
--elenco varietà rettangolari con nome in sovraimpressione
+-elenco varietà archivio rettangolari con nome in sovraimpressione
+-archivio con file da 3 anziché 2
 -status panel integrato nella finestra in home, deve scomparire da tutte le altre pagine
 -Sezione LOG che rimanda ad articoli su Substack
 -mappa delle coltivazioni?
 -diario esperimenti
 -generatore di rapporti missione?
 -ottimizzazione mobile
+-suoni ui
 -MENU, Quando passi sopra una voce > diventa ▶ con un piccolo glitch.
 -effetti digitazione
 -Quando cambi pagina, Mai refresh brutali. Il terminale farà Loading module… 0.2 secondi, fade, pagina.
@@ -30,6 +36,7 @@ Quella che ho in mente è molto più cinematografica. Ci saranno:
 -Vorrei inserire, in alto a destra, un piccolo indicatore. NETWORK MYCORRHIZAL LINK ● CONNECTED (con il pallino che pulsa)
 -la rete sullo sfondo smetterà di essere casuale e inizierà a ricordare una rete di radici o di micelio, con connessioni più organiche;
 i colori reagiranno alle stagioni: in estate il verde acqua sarà leggermente più caldo, in inverno più freddo, quasi impercettibilmente;
+- Il "Pannello del mese" che suggerisce cosa seminare
 
 +
 
@@ -45,3 +52,102 @@ i colori reagiranno alle stagioni: in estate il verde acqua sarà leggermente pi
 
 <>
 
+Flusso BOOT
+
+L'utente apre
+
+https://ms-smx.github.io/soil-genesis/
+
+vede solamente
+
+█
+
+che lampeggia.
+
+Pausa.
+
+Poi
+
+SOIL GENESIS BIOS
+
+compare lettera per lettera.
+
+Pausa.
+
+BIOLOGICAL OPERATING SYSTEM
+
+Poi inizia.
+
+INITIALIZING CORE...
+OK
+CHECKING MEMORY...
+16384 MB
+CHECKING GENETIC VAULT...
+127 SPECIES FOUND
+CONNECTING MYCORRHIZAL NETWORK...
+
+A questo punto...
+
+La sorpresa
+
+Lo schermo resta nero.
+
+Per circa 300 ms
+
+compare una rete ramificata.
+
+Non occupa tutto.
+
+Solo una porzione.
+
+Sembra una crescita fungina.
+
+Colorazione
+
+#7ad8ca
+
+con un glow molto tenue.
+
+Poi sparisce.
+L'utente penserà:
+
+"...l'ho visto davvero?"
+
+Esattamente quello che voglio.
+
+Poi continua.
+
+VERIFYING SEED INTEGRITY...
+██████████████████
+
+100%
+
+Poi
+
+NO PROPRIETARY GENOMES DETECTED
+
+(questa me la tengo assolutamente 😄)
+
+Infine
+
+ACCESS GRANTED
+
+piccolo glitch
+
+fade
+
+entra il sito.
+v0.2.3 - BIOS Evolution
+
+Digitazione carattere per carattere.
+Cursore lampeggiante.
+Barra di avanzamento reale.
+Glitch finale.
+Fade cinematografico.
+ ---
+
+Non voglio pagine.
+
+Voglio finestre.
+
+Ogni sezione si apre come una finestra di sistema.

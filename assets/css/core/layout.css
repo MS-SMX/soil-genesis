@@ -236,8 +236,6 @@ top:90px;
 
 position:relative;
 
-display:inline-block;
-
 }
 
 .dropdown-content{
@@ -250,19 +248,51 @@ top:100%;
 
 left:0;
 
-min-width:220px;
+min-width:240px;
 
-background:rgba(8,18,18,.95);
+background:rgba(10,16,16,.96);
 
 border:1px solid var(--line);
 
-z-index:1000;
+backdrop-filter:blur(6px);
+
+padding:8px 0;
+
+z-index:999;
 
 }
 
 .dropdown:hover .dropdown-content{
 
 display:block;
+
+}
+
+.dropdown-content a{
+
+display:block;
+
+padding:12px 18px;
+
+text-decoration:none;
+
+font-size:.78rem;
+
+letter-spacing:.08em;
+
+border-bottom:1px solid rgba(255,255,255,.04);
+
+}
+
+.dropdown-content a:last-child{
+
+border-bottom:none;
+
+}
+
+.dropdown-content a:hover{
+
+background:rgba(255,255,255,.04);
 
 }
 
@@ -283,5 +313,129 @@ max-width:1500px;
 margin:40px auto;
 
 padding:0 40px;
+
+}
+
+.navbar{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:34px;
+
+padding:18px 36px;
+
+border-bottom:1px solid var(--line);
+
+background:rgba(8,14,14,.55);
+
+backdrop-filter:blur(8px);
+
+}
+
+.navbar>a,
+
+.dropbtn{
+
+font-family:"Orbitron",sans-serif;
+
+font-size:.82rem;
+
+letter-spacing:.16em;
+
+text-transform:uppercase;
+
+color:var(--secondary);
+
+background:none;
+
+border:none;
+
+cursor:pointer;
+
+padding:8px 0;
+
+transition:.18s;
+
+}
+
+.navbar>a:hover,
+
+.dropbtn:hover{
+
+color:var(--primary);
+
+text-shadow:0 0 8px var(--glow);
+
+}
+
+.dropdown{
+
+position:relative;
+
+}
+
+.dropdown-content{
+
+display:none;
+
+position:absolute;
+
+top:100%;
+
+left:50%;
+
+transform:translateX(-50%);
+
+min-width:240px;
+
+padding:8px 0;
+
+background:rgba(8,14,14,.97);
+
+border:1px solid var(--line);
+
+backdrop-filter:blur(8px);
+
+z-index:500;
+
+}
+
+.dropdown:hover .dropdown-content{
+
+display:block;
+
+}
+
+.dropdown-content a{
+
+display:block;
+
+padding:12px 20px;
+
+font-family:"IBM Plex Mono";
+
+font-size:.76rem;
+
+letter-spacing:.08em;
+
+text-decoration:none;
+
+color:var(--text);
+
+transition:.18s;
+
+}
+
+.dropdown-content a:hover{
+
+background:rgba(255,255,255,.04);
+
+color:var(--primary);
+
+padding-left:26px;
 
 }
