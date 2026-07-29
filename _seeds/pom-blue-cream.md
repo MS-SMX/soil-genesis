@@ -1,37 +1,37 @@
 ---
 layout: seed
 
-id: SG-00000?
-slug:
+id: SG-000002
+slug: pom-blue-cream
 
 #────────────────────────
 # IDENTITÀ
 #────────────────────────
 
-nome_comune:
-nome_scientifico:
+nome_comune: Pomodoro Blue Cream Berries
+nome_scientifico: Solanum lycopersicum
 
-genere:
-specie:
-cultivar:
+genere: Solanum
+specie: lycopersicum
+cultivar: 
 
-famiglia:
+famiglia: Solanaceae
 
-fonte:
+fonte: Cercatori di Semi
 
 #────────────────────────
 # BIOLOGIA
 #────────────────────────
 
-ciclo_vita:
+ciclo_vita: Annuale
 
-impollinazione:
+impollinazione: autogama
 
-fiori:
+fiori: ermafroditi
 
-progenitore_selvatico:
+progenitore_selvatico: Solanum pimpinellifolium
 
-miscuglio_evolutivo:
+miscuglio_evolutivo: false
 
 varieta_componenti:
 
@@ -77,9 +77,9 @@ selezione:
 # CONSERVAZIONE
 #────────────────────────
 
-stato_conservazione:
+stato_conservazione: da rigenerare
 
-ultimo_anno_riproduzione:
+ultimo_anno_riproduzione: 2026
 
 #────────────────────────
 # OSSERVAZIONI
@@ -92,6 +92,9 @@ osservazioni:
 #────────────────────────
 
 immagini:
+  - file: frutto.jpg
+  - file: frutto_imm.jpg
+  - file: plant.jpg
 
 bibliografia:
 
@@ -105,3 +108,4 @@ ricette:
 
 cronologia:
 ---
+

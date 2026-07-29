@@ -1,47 +1,19 @@
 identity:
 
-  code: BOT.001
+  title: Identità
 
-  order: 10
+biology:
 
-gallery:
-
-  code: MED.001
-
-  order: 20
-
-passport:
-
-  code: PSP-001
-
-  order: 30
+  title: Biologia
 
 cultivation:
 
-  code: AGR-001
+  title: Coltivazione
 
-  order: 40
+reproduction:
 
-ecology:
+  title: Riproduzione
 
-  code: ECO-001
+conservation:
 
-  order: 50
-
-gastronomy:
-
-  code: GAS-001
-
-  order: 60
-
-sources:
-
-  code: REF-001
-
-  order: 70
-
-notes:
-
-  code: DOC-001
-
-  order: 80
+  title: Conservazione

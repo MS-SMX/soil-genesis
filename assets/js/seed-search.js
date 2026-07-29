@@ -1,27 +1,133 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
-const input=document.querySelector("#filter-name");
+const search = document.querySelector("#seed-search");
+const cards = [...document.querySelectorAll(".explorer-card")];
+const container = document.querySelector("#explorer-filters");
 
-if(!input)return;
+if (!container || cards.length === 0) return;
 
-const cards=document.querySelectorAll(".explorer-card");
+const FILTERS = [
 
-input.addEventListener("input",()=>{
+{
+title:"Conservazione",
+attribute:"status"
+},
 
-const value=input.value.toLowerCase();
+{
+title:"Famiglia",
+attribute:"family"
+},
+
+{
+title:"Ciclo di vita",
+attribute:"cycle"
+},
+
+{
+title:"Impollinazione",
+attribute:"pollination"
+}
+
+];
+
+FILTERS.forEach(filter=>{
+
+const values=[...new Set(
+
+cards
+.map(card=>card.dataset[filter.attribute])
+.filter(Boolean)
+
+)].sort();
+
+if(values.length===0) return;
+
+const group=document.createElement("div");
+group.className="filter-group";
+
+const title=document.createElement("h4");
+title.textContent=filter.title;
+
+group.appendChild(title);
+
+values.forEach(value=>{
+
+const label=document.createElement("label");
+
+const input=document.createElement("input");
+
+input.type="checkbox";
+
+input.dataset.filter=filter.attribute;
+
+input.value=value;
+
+label.appendChild(input);
+
+label.append(" "+value.replaceAll("-"," "));
+
+group.appendChild(label);
+
+});
+
+container.appendChild(group);
+
+});
+
+function update(){
+
+const text=(search?.value||"").toLowerCase();
 
 cards.forEach(card=>{
 
+let visible=true;
+
+if(text.length){
+
+visible=card.textContent
+.toLowerCase()
+.includes(text);
+
+}
+
+FILTERS.forEach(filter=>{
+
+const active=[
+
+...container.querySelectorAll(
+
+`input[data-filter="${filter.attribute}"]:checked`
+
+)
+
+].map(i=>i.value);
+
+if(active.length){
+
+visible =
+
+visible &&
+
+active.includes(card.dataset[filter.attribute]);
+
+}
+
+});
+
 card.style.display=
 
-card.dataset.name.includes(value)
+visible
 
 ? ""
 
-: "none";
+:"none";
 
 });
 
-});
+}
+
+search?.addEventListener("input",update);
+
+container.addEventListener("change",update);
 
 });

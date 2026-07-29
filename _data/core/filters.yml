@@ -1,0 +1,41 @@
+conservation:
+
+  title: Conservazione
+
+  fields:
+
+    - stato_conservazione
+
+
+biology:
+
+  title: Biologia
+
+  fields:
+
+    - famiglia
+    - ciclo_vita
+    - impollinazione
+
+
+cultivation:
+
+  title: Coltivazione
+
+  fields:
+
+    - periodo_semina_semenzaio
+    - periodo_semina_diretta
+    - aridocoltura
+    - zone_usda
+    - difficolta_coltivazione
+
+
+reproduction:
+
+  title: Riproduzione
+
+  fields:
+
+    - distanza_minima
+    - metodo_isolamento

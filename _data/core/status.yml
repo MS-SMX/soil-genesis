@@ -1,11 +1,39 @@
-online:
+new_entry:
 
-  label: ONLINE
+  label: "⚪ New Entry"
 
-maintenance:
+  value: new_entry
 
-  label: MAINTENANCE
+  color: lime
 
-offline:
+critico:
 
-  label: OFFLINE
+  label: "🔴 Critico"
+
+  value: critico
+
+  color: red
+
+da_rigenerare:
+
+  label: "🟠 Da rigenerare"
+
+  value: da_rigenerare
+
+  color: orange
+
+stabile:
+
+  label: "🟢 Stabile"
+
+  value: stabile
+
+  color: green
+
+abbondante:
+
+  label: "🔵 Abbondante"
+
+  value: abbondante
+
+  color: teal

@@ -1,49 +1,69 @@
 .explorer-header{
 
-margin-bottom:28px;
-
-}
-
-.explorer-header h1{
-
-margin:0 0 18px;
-
-font-size:2rem;
-
-font-weight:500;
-
-}
-
-.explorer-toolbar{
-
 display:flex;
 
 justify-content:space-between;
 
-align-items:center;
+align-items:flex-end;
 
-gap:20px;
+gap:40px;
 
-}
+margin-bottom:36px;
 
-.explorer-toolbar input{
+padding-bottom:22px;
 
-flex:1;
-
-max-width:520px;
+border-bottom:1px solid rgba(255,255,255,.06);
 
 }
 
-.explorer-count{
+.explorer-title h1{
 
-font-family:"IBM Plex Mono";
+margin:0;
 
-font-size:.72rem;
+font-size:2.3rem;
 
-letter-spacing:.16em;
+letter-spacing:.14em;
+
+}
+
+.explorer-title p{
+
+margin-top:8px;
 
 opacity:.55;
 
-text-transform:uppercase;
+font-family:"IBM Plex Mono",monospace;
+
+font-size:.85rem;
+
+letter-spacing:.10em;
+
+}
+
+.explorer-search input{
+
+width:320px;
+
+padding:12px 16px;
+
+background:rgba(255,255,255,.02);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:inherit;
+
+font-family:"IBM Plex Mono",monospace;
+
+transition:.18s;
+
+}
+
+.explorer-search input:focus{
+
+outline:none;
+
+border-color:var(--primary);
+
+box-shadow:0 0 10px rgba(79,216,200,.18);
 
 }

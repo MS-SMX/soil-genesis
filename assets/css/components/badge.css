@@ -57,3 +57,17 @@ border-left:4px solid #46b96d;
 border-left:4px solid #4aa8ff;
 
 }
+
+.seed-badge{
+
+border-radius:4px;
+
+transition:.2s;
+
+}
+
+.seed-badge:hover{
+
+border-color:var(--primary);
+
+}

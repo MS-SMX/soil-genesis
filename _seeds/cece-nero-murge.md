@@ -1,7 +1,7 @@
 ---
 layout: seed
 
-accession: SG-000001
+id: SG-000001
 slug: cece-nero-murge
 
 #────────────────────────
@@ -10,15 +10,14 @@ slug: cece-nero-murge
 
 nome_comune: Cece Nero della Murgia Carsica
 nome_scientifico: Cicer arietinum
- 
+
 genere: Cicer
-
 specie: arietinum
-
 cultivar: 
+
 famiglia: Fabaceae
 
-origine: Cercatori di Semi
+fonte: Cercatori di Semi
 
 #────────────────────────
 # BIOLOGIA
@@ -40,20 +39,39 @@ varieta_componenti:
 # COLTIVAZIONE
 #────────────────────────
 
-periodo_semina: MAR - APR
-istruzioni_semina: 
+periodo_semina_semenzaio:
 
-difficolta: 2
+periodo_semina_diretta:
 
-sensibilita_gelo: Si
+temperatura_germinazione:
 
-istruzioni_coltivazione: Semina diretta, file distanziate 20cm.
+istruzioni_semina:
 
-quantita_consigliata: 20 esemplari
+istruzioni_coltivazione:
 
-periodo_raccolta_seme: 7
-distanza_minima: 100m
+difficolta_coltivazione:
 
+sensibilita_gelo:
+
+zone_usda:
+
+aridocoltura:
+
+#────────────────────────
+# RIPRODUZIONE
+#────────────────────────
+
+quantita_consigliata:
+
+periodo_raccolta_seme:
+
+distanza_minima:
+
+metodo_isolamento:
+
+tempo_isolamento:
+
+selezione:
 
 #────────────────────────
 # CONSERVAZIONE
@@ -63,31 +81,30 @@ stato_conservazione: abbondante
 
 ultimo_anno_riproduzione: 2026
 
+#────────────────────────
+# OSSERVAZIONI
+#────────────────────────
+
+osservazioni:
 
 #────────────────────────
 # DOCUMENTAZIONE
 #────────────────────────
 
 immagini:
-
   - file: semi.jpg
   - file: baccelli.jpg
 
-bibliografia: a
+bibliografia:
 
-ricette: a
+usi:
 
-annotazioni: a
+ricette:
 
-usi: a
+#────────────────────────
+# CRONOLOGIA
+#────────────────────────
 
-cronologia: 
-- data: 2026
-
-  evento: Inserita in archivio.
-
-- data: 2027
-
-  evento: Prima distribuzione.
-
+cronologia:
 ---
+

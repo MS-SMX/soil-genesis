@@ -1,13 +1,94 @@
 identity:
-  - label: Famiglia
-    key: famiglia
 
-  - label: Genere
-    key: genere
+  nome_comune:
+    label: Nome comune
+
+  nome_scientifico:
+    label: Nome scientifico
+
+  famiglia:
+    label: Famiglia
+
+  fonte:
+    label: Fonte
+
 
 biology:
-  - label: Ciclo di vita
-    key: ciclo_vita
 
-  - label: Impollinazione
-    key: impollinazione
+  ciclo_vita:
+    label: Ciclo di vita
+
+  impollinazione:
+    label: Impollinazione
+
+  fiori:
+    label: Fiori
+
+  progenitore_selvatico:
+    label: Progenitore selvatico
+
+  miscuglio_evolutivo:
+    label: Miscuglio evolutivo
+
+  varieta_componenti:
+    label: Varietà componenti
+
+
+cultivation:
+
+  periodo_semina_semenzaio:
+    label: Semenzaio
+
+  periodo_semina_diretta:
+    label: Campo
+
+  temperatura_germinazione:
+    label: Germinazione
+
+  istruzioni_semina:
+    label: Semina
+
+  istruzioni_coltivazione:
+    label: Coltivazione
+
+  difficolta_coltivazione:
+    label: Difficoltà
+
+  sensibilita_gelo:
+    label: Sensibilità al gelo
+
+  zone_usda:
+    label: Zone USDA
+
+  aridocoltura:
+    label: Aridocoltura
+
+
+reproduction:
+
+  quantita_consigliata:
+    label: Piante minime
+
+  periodo_raccolta_seme:
+    label: Raccolta semi
+
+  distanza_minima:
+    label: Isolamento
+
+  metodo_isolamento:
+    label: Metodo
+
+  tempo_isolamento:
+    label: Tempo
+
+  selezione:
+    label: Selezione
+
+
+conservation:
+
+  stato_conservazione:
+    label: Stato
+
+  ultimo_anno_riproduzione:
+    label: Ultima riproduzione

@@ -4,7 +4,17 @@ padding:40px;
 
 margin-bottom:28px;
 
-background:rgba(12,18,18,.72);
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(20,30,30,.82),
+
+rgba(10,16,16,.74)
+
+);
 
 border:1px solid rgba(255,255,255,.05);
 
@@ -89,5 +99,31 @@ flex-wrap:wrap;
 gap:12px;
 
 margin-top:28px;
+
+}
+
+.seed-cover{
+
+animation:coverEnter .38s ease-out;
+
+}
+
+@keyframes coverEnter{
+
+from{
+
+opacity:0;
+
+transform:translateY(-8px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
 
 }

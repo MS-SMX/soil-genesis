@@ -1,25 +1,11 @@
 {% capture content %}
 
-<table class="sg-data-table">
-
-{% include seed/layout/field.html label="Ciclo di vita" value=page.ciclo_vita %}
-
-{% include seed/layout/field.html label="Impollinazione" value=page.impollinazione %}
-
-{% include seed/layout/field.html label="Fiori" value=page.fiori %}
-
-{% include seed/layout/field.html label="Progenitore selvatico" value=page.progenitore_selvatico %}
-
-{% include seed/layout/field.html label="Miscuglio evolutivo" value=page.miscuglio_evolutivo %}
-
-{% include seed/layout/field.html label="Varietà componenti" value=page.varieta_componenti %}
-
-</table>
+{% include seed/widgets/table.html group="biology" %}
 
 {% endcapture %}
 
 {% include seed/layout/module.html
 title="Biologia"
-module="BIO"
+module="BIOLOGY"
 content=content
 %}

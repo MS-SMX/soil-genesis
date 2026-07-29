@@ -1,23 +1,11 @@
 {% capture content %}
 
-<table class="sg-data-table">
-
-{% include seed/layout/field.html label="Famiglia" value=page.famiglia %}
-
-{% include seed/layout/field.html label="Genere" value=page.genere %}
-
-{% include seed/layout/field.html label="Specie" value=page.specie %}
-
-{% include seed/layout/field.html label="Cultivar" value=page.cultivar %}
-
-{% include seed/layout/field.html label="Origine" value=page.origine %}
-
-</table>
+{% include seed/widgets/table.html group="identity" %}
 
 {% endcapture %}
 
 {% include seed/layout/module.html
-title=site.data.core.ui.identity
-module=site.data.core.modules.identity.code
+title="Identità"
+module="IDENTITY"
 content=content
 %}

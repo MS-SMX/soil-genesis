@@ -1,27 +1,28 @@
 <div class="explorer-header">
 
-<h1>
+    <div class="explorer-title">
 
-Archivio
+        <h1>ARCHIVIO</h1>
 
-</h1>
+        <p>{{ site.seeds | size }} varietà catalogate</p>
 
-<div class="explorer-toolbar">
+    </div>
 
-<input
+    <div class="explorer-search">
 
-id="seed-search"
+        <input
+            type="search"
+            id="seed-search"
+            placeholder="Cerca varietà...">
 
-type="search"
+    </div>
+<div class="explorer-counter">
 
-placeholder="Cerca una varietà...">
+RISULTATI:
 
-<div class="explorer-count">
-
-{{ site.seeds | size }} accessioni
+<span id="explorer-count">
+0
+</span>
 
 </div>
-
-</div>
-
 </div>

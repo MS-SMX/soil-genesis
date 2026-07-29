@@ -5,7 +5,7 @@ critico:
   color: "#D9534F"
 
   description: >
-    Conservazione interna.
+    Riproduzione fallita o insufficiente. Priorità assoluta.
 
 da_rigenerare:
 
@@ -14,7 +14,7 @@ da_rigenerare:
   color: "#F0AD4E"
 
   description: >
-    Disponibile per un solo seed saver.
+    Scorte limitate ma sufficienti per coinvolgere un secondo custode.
 
 stabile:
 
@@ -23,13 +23,22 @@ stabile:
   color: "#5CB85C"
 
   description: >
-    Distribuzione controllata.
+    Disponibile per piccole distribuzioni.
 
-in_espansione:
+abbondante:
 
-  label: IN ESPANSIONE
+  label: ABBONDANTE
 
   color: "#5BC0DE"
 
   description: >
-    Distribuzione aperta.
+    Disponibilità elevata. Possibile richiesta di campioni produttivi.
+
+  new_entry:
+
+  label: NEW ENTRY
+
+  color: "##f8f8ff"
+
+  description: >
+    Acquisita nell'anno in corso. Prima riproduzione affidata a Soil Genesis.

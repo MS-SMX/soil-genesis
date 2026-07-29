@@ -272,16 +272,15 @@ margin:auto;
 padding:30px 20px 80px;
 
 }
-
 .seed-grid{
 
 display:grid;
 
-grid-template-columns:1fr 1fr;
+grid-template-columns:
+
+repeat(auto-fit,minmax(340px,1fr));
 
 gap:24px;
-
-margin:30px 0;
 
 }
 

@@ -1,17 +1,11 @@
 {% capture content %}
 
-<table class="sg-data-table">
-
-{% include seed/layout/field.html label="Stato di conservazione" value=page.stato_conservazione %}
-
-{% include seed/layout/field.html label="Ultima riproduzione" value=page.ultimo_anno_riproduzione %}
-
-</table>
+{% include seed/widgets/table.html group="conservation" %}
 
 {% endcapture %}
 
 {% include seed/layout/module.html
 title="Conservazione"
-module="CON"
+module="CONSERVATION"
 content=content
 %}

@@ -2,11 +2,10 @@
 class="explorer-card"
 href="{{ include.seed.url | relative_url }}"
 
-data-name="{{ include.seed.nome_comune | downcase }}"
-data-family="{{ include.seed.famiglia | downcase }}"
-data-status="{{ include.seed.stato_conservazione }}"
-data-cycle="{{ include.seed.ciclo_vita }}"
-data-pollination="{{ include.seed.impollinazione }}">
+data-status="{{ include.seed.stato_conservazione | slugify }}"
+data-family="{{ include.seed.famiglia | slugify }}"
+data-cycle="{{ include.seed.ciclo_vita | slugify }}"
+data-pollination="{{ include.seed.impollinazione | slugify }}">
 
 {% assign first = include.seed.immagini.first %}
 
@@ -32,34 +31,28 @@ NO IMAGE
 
 <div class="card-body">
 
-<h2>
-
-{{ include.seed.nome_comune }}
-
-</h2>
+<h2>{{ include.seed.nome_comune }}</h2>
 
 {% if include.seed.nome_scientifico %}
-
-<p class="scientific">
-
+<div class="card-scientific">
 {{ include.seed.nome_scientifico }}
-
-</p>
-
+</div>
 {% endif %}
 
 {% if include.seed.famiglia %}
-
-<p class="family">
-
-{{ include.seed.famiglia }}
-
-</p>
-
+<div class="card-family">
+🌿 {{ include.seed.famiglia }}
+</div>
 {% endif %}
 
-{% include seed/components/status.html
-value=include.seed.stato_conservazione %}
+{% if include.seed.stato_conservazione %}
+<div class="card-state state-{{ include.seed.stato_conservazione | slugify }}">
+{{ include.seed.stato_conservazione }}
+</div>
+{% endif %}
+
+
+
 
 </div>
 

@@ -44,3 +44,8 @@ text-transform:uppercase;
 
 }
 
+.card-image{
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+}

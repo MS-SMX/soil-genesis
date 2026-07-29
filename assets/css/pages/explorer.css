@@ -72,21 +72,55 @@ font-size:1.15rem;
 
 }
 
-.scientific{
+.card-scientific{
 
-margin:.1rem 0;
+margin-top:8px;
 
 font-style:italic;
 
-opacity:.75;
+opacity:.72;
+
+font-size:.95rem;
 
 }
 
-.family{
+.card-family{
 
-margin:.1rem 0 1rem;
+margin-top:16px;
 
-opacity:.65;
+font-family:"IBM Plex Mono",monospace;
+
+font-size:.72rem;
+
+letter-spacing:.12em;
+
+text-transform:uppercase;
+
+opacity:.55;
+
+}
+
+.card-state{
+
+display:inline-flex;
+
+align-items:center;
+
+margin-top:14px;
+
+padding:5px 12px;
+
+font-family:"IBM Plex Mono",monospace;
+
+font-size:.68rem;
+
+letter-spacing:.12em;
+
+text-transform:uppercase;
+
+border-left:4px solid var(--primary);
+
+background:rgba(255,255,255,.025);
 
 }
 
@@ -106,3 +140,152 @@ opacity:.35;
 
 }
 
+.explorer-sidebar{
+
+background:rgba(12,18,18,.72);
+
+border:1px solid rgba(255,255,255,.05);
+
+padding:24px;
+
+position:sticky;
+
+top:110px;
+
+}
+
+.filter-group{
+
+margin-bottom:24px;
+
+}
+
+.filter-group label{
+
+display:block;
+
+margin:.35rem 0;
+
+cursor:pointer;
+
+font-size:.82rem;
+
+}
+
+.filter-group input{
+
+margin-right:8px;
+
+}
+
+position:relative;
+.explorer-card::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+bottom:0;
+
+width:4px;
+
+background:var(--primary);
+
+opacity:.4;
+
+}
+
+.filter-panel{
+
+border:1px solid rgba(255,255,255,.08);
+
+background:rgba(10,16,16,.45);
+
+padding:14px;
+
+margin-bottom:25px;
+
+}
+
+
+.filter-panel summary{
+
+cursor:pointer;
+
+font-family:"IBM Plex Mono",monospace;
+
+font-size:.75rem;
+
+letter-spacing:.18em;
+
+color:var(--secondary);
+
+list-style:none;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+.filter-panel summary::after{
+
+content:"+";
+
+font-size:1rem;
+
+opacity:.5;
+
+}
+
+
+.filter-panel[open] summary::after{
+
+content:"−";
+
+}
+
+
+.filter-content{
+
+margin-top:20px;
+
+}
+
+.filter-group{
+
+margin-bottom:22px;
+
+}
+
+.filter-group h4{
+
+margin:0 0 10px;
+
+font-size:.72rem;
+
+letter-spacing:.16em;
+
+text-transform:uppercase;
+
+opacity:.45;
+
+font-family:"IBM Plex Mono",monospace;
+
+}
+.filter-coming-soon{
+
+opacity:.45;
+
+font-size:.8rem;
+
+font-style:italic;
+
+}
