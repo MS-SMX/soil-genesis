@@ -1,7 +1,7 @@
 ---
 layout: seed
 
-id: SG-000002
+sg_id: SG-000002
 slug: pom-blue-cream
 
 #────────────────────────
@@ -17,7 +17,7 @@ cultivar:
 
 famiglia: Solanaceae
 
-fonte: Cercatori di Semi
+provenienza: Cercatori di Semi
 
 #────────────────────────
 # BIOLOGIA

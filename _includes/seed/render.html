@@ -6,19 +6,16 @@
 
 <div class="seed-grid">
 
-<div>
 
 {% include seed/widgets/identity.html %}
 {% include seed/widgets/cultivation.html %}
 
-</div>
-
-<div>
-
 {% include seed/widgets/biology.html %}
-{% include seed/widgets/conservation.html %}
+{% include seed/widgets/reproduction.html %}
 
-</div>
+{% include seed/widgets/conservation.html %}
+{% include seed/widgets/ecology.html %}
+
 
 </div>
 
@@ -26,6 +23,18 @@
 {% if page.usi %}
 <div class="sg-module-full">
 {% include seed/widgets/uses.html %}
+</div>
+{% endif %}
+
+{% if page.annotazioni %}
+<div class="sg-module-full">
+{% include seed/widgets/notes.html %}
+</div>
+{% endif %}
+
+{% if page.cronologia %}
+<div class="sg-module-full">
+{% include seed/widgets/timeline.html %}
 </div>
 {% endif %}
 
@@ -41,11 +50,6 @@
 </div>
 {% endif %}
 
-{% if page.cronologia %}
-<div class="sg-module-full">
-{% include seed/widgets/timeline.html %}
-</div>
-{% endif %}
 {% endcapture %}
 
 {% include window.html

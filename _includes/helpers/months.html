@@ -1,0 +1,19 @@
+{% assign out = "" %}
+
+{% for month in include.months %}
+
+{% assign label = site.data.indexes.months[month] %}
+
+{% if out == "" %}
+
+{% assign out = label %}
+
+{% else %}
+
+{% assign out = out | append: ", " | append: label %}
+
+{% endif %}
+
+{% endfor %}
+
+{{ out }}

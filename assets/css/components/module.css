@@ -55,14 +55,46 @@ letter-spacing:.12em;
 
 }
 
-.sg-module-body{
+.sg-table{
 
-padding:18px 22px;
+width:100%;
+
+border-collapse:collapse;
 
 }
 
-.sg-module + .sg-module{
+.sg-table td{
 
-margin-top:40px;
+padding:10px 10;
+
+vertical-align:top;
+
+}
+
+.sg-table td:first-child{
+
+width:48%;
+
+padding-right:24px;
+
+font-family:"Orbitron",sans-serif;
+
+font-size:.78rem;
+
+letter-spacing:.08em;
+
+color:var(--secondary);
+
+}
+
+.sg-table td:last-child{
+
+font-family:"IBM Plex Mono",monospace;
+
+}
+
+.sg-table tr:not(:last-child){
+
+border-bottom:1px solid rgba(255,255,255,.05);
 
 }

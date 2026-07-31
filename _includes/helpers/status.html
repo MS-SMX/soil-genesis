@@ -1,0 +1,13 @@
+{% assign s = site.data.indexes.statuses[include.status] %}
+
+{% if s %}
+
+<span class="badge badge-{{ include.status }}">
+
+{{ s.icon }}
+
+{{ s.label }}
+
+</span>
+
+{% endif %}

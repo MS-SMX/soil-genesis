@@ -4,6 +4,9 @@ const search = document.querySelector("#seed-search");
 const cards = [...document.querySelectorAll(".explorer-card")];
 const container = document.querySelector("#explorer-filters");
 
+const counter = document.querySelector("#results-count");
+const clear = document.querySelector("#clear-filters");
+
 if (!container || cards.length === 0) return;
 
 const FILTERS = [
@@ -57,13 +60,10 @@ const label=document.createElement("label");
 const input=document.createElement("input");
 
 input.type="checkbox";
-
 input.dataset.filter=filter.attribute;
-
 input.value=value;
 
 label.appendChild(input);
-
 label.append(" "+value.replaceAll("-"," "));
 
 group.appendChild(label);
@@ -78,11 +78,13 @@ function update(){
 
 const text=(search?.value||"").toLowerCase();
 
+let visibleCount=0;
+
 cards.forEach(card=>{
 
 let visible=true;
 
-if(text.length){
+if(text){
 
 visible=card.textContent
 .toLowerCase()
@@ -104,7 +106,7 @@ const active=[
 
 if(active.length){
 
-visible =
+visible=
 
 visible &&
 
@@ -114,20 +116,40 @@ active.includes(card.dataset[filter.attribute]);
 
 });
 
-card.style.display=
+card.style.display=visible?"":"none";
 
-visible
+if(visible){
 
-? ""
+visibleCount++;
 
-:"none";
+}
 
 });
+
+if(counter){
+
+counter.textContent=`${visibleCount} varietà`;
+
+}
 
 }
 
 search?.addEventListener("input",update);
 
 container.addEventListener("change",update);
+
+clear?.addEventListener("click",()=>{
+
+if(search){
+
+search.value="";
+
+}
+
+container
+.querySelectorAll('input[type="checkbox"]')
+.forEach(c=>c.checked=false);
+
+update();
 
 });

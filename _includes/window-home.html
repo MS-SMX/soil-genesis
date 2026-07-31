@@ -1,0 +1,58 @@
+<div class="window">
+    <div class="window-header">
+
+      <aside class="os-sidebar">
+
+{% include status-panel.html %}
+
+</aside>
+
+        <div class="window">
+
+    <div class="window-header">
+
+        <div>
+
+            <div class="window-id">
+
+                {{ include.module }}
+
+            </div>
+
+            <div class="window-title">
+
+                {{ include.title }}
+
+            </div>
+
+        </div>
+
+       {% if include.status %}
+
+<span class="window-status">
+
+{{ include.status }}
+
+</span>
+
+{% endif %}
+
+    </div>
+
+    <div class="window-content">
+
+        {{ include.content }}
+
+    </div>
+
+    <div class="window-build">
+
+        SG-OS 1.0.1
+
+    </div>
+
+</div>
+
+
+</div>
+

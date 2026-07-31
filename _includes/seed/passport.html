@@ -1,11 +1,11 @@
 {% assign has_passport = false %}
 
-{% if page.accession
-or page.famiglia
-or page.ciclo_vita
-or page.impollinazione
-or page.stato_conservazione
-or page.ultimo_anno_riproduzione %}
+{% if seed.sg_id
+or seed.famiglia
+or seed.ciclo_vita
+or seed.impollinazione
+or seed.stato_conservazione
+or seed.ultimo_anno_riproduzione %}
 
 {% assign has_passport = true %}
 
@@ -17,7 +17,7 @@ or page.ultimo_anno_riproduzione %}
 
 <table class="sg-data-table">
 
-{% include seed/layout/field.html label="ID" value=page.accession %}
+{% include seed/layout/field.html label="ID" value=seed.sg_id %}
 
 {% include seed/layout/field.html label="Famiglia" value=page.famiglia %}
 

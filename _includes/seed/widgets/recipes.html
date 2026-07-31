@@ -1,0 +1,16 @@
+{% assign seed = page %}
+{% if page.ricette %}
+
+{% capture content %}
+
+{{ page.ricette | markdownify }}
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Ricette"
+module="RECIPES"
+content=content
+%}
+
+{% endif %}

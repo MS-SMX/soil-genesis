@@ -46,6 +46,59 @@ SG.search.length &&
 
 visible=false;
 
+
+}
+
+const panel=document.querySelector("#active-filters");
+
+if(panel){
+
+panel.innerHTML="";
+
+Object.entries(active).forEach(([key,list])=>{
+
+list.forEach(value=>{
+
+const badge=document.createElement("div");
+
+badge.className="active-filter";
+
+badge.innerHTML=`
+
+${value.replaceAll("-"," ")}
+
+<span>×</span>
+
+`;
+
+badge.onclick=()=>{
+
+const checkbox=document.querySelector(
+
+`input[data-filter="${key}"][value="${value}"]`
+
+);
+
+if(checkbox){
+
+checkbox.checked=false;
+
+document.dispatchEvent(
+
+new CustomEvent("sg:update")
+
+);
+
+}
+
+};
+
+panel.appendChild(badge);
+
+});
+
+});
+
 }
 
 Object.entries(active).forEach(

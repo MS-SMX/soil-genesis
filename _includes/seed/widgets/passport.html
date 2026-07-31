@@ -1,3 +1,5 @@
+{% assign seed = page %}
+
 <div class="passport-card">
 
 <h2>
@@ -13,7 +15,7 @@ PASSAPORTO
 
 <td>ID</td>
 
-<td>{{ page.accession }}</td>
+<td>{{ seed.id }}</td>
 
 </tr>
 
@@ -38,7 +40,7 @@ PASSAPORTO
 
 </table>
 
-<a href="{{ page.url }}passport/">
+<a href="{{ seed.url }}passport/">
 
 STAMPA PASSAPORTO
 

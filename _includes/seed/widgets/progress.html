@@ -1,0 +1,48 @@
+{% assign seed = page %}
+
+{% assign total = 0 %}
+{% assign filled = 0 %}
+
+{% assign groups = site.data.core.fields %}
+
+{% for group in groups %}
+
+  {% for item in group[1] %}
+
+    {% assign total = total | plus: 1 %}
+
+    {% assign key = item[0] %}
+
+    {% if seed[key] %}
+
+      {% assign filled = filled | plus: 1 %}
+
+    {% endif %}
+
+  {% endfor %}
+
+{% endfor %}
+
+{% assign percent = filled | times:100 | divided_by:total %}
+
+<div class="seed-progress">
+
+<div class="progress-label">
+
+DOSSIER
+
+<strong>{{ percent }}%</strong>
+
+</div>
+
+<div class="progress-bar">
+
+<div class="progress-fill"
+
+style="width:{{ percent }}%">
+
+</div>
+
+</div>
+
+</div>

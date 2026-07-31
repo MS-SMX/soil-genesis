@@ -1,4 +1,5 @@
 <div class="seed-cover">
+{% include seed/widgets/progress.html %}
 
 <h1 class="seed-title">
 
@@ -24,9 +25,9 @@
 </div>
 {% endif %}
 
-{% if page.fonte %}
+{% if page.provenienza %}
 <div class="seed-badge">
-📦 {{ page.fonte }}
+📦 {{ page.provenienza }}
 </div>
 {% endif %}
 
@@ -43,5 +44,8 @@
 {% endif %}
 
 </div>
+
+<br>
+{{ page.description }}
 
 </div>

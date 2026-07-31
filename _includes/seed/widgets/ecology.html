@@ -1,10 +1,12 @@
+{% assign seed = page %}
 {% capture content %}
 
-<p>Dati ecologici in preparazione.</p>
+{% include seed/widgets/table.html group="ecology" %}
 
 {% endcapture %}
 
-{% include seed/layout/card.html
-title="ECOLOGIA"
+{% include seed/layout/module.html
+title="Ecologia"
+module="ECOLOGY"
 content=content
 %}

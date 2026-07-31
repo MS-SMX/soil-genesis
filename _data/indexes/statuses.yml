@@ -1,0 +1,39 @@
+new_entry:
+
+  label: New Entry
+
+  icon: ⚪
+
+  color: cyan
+
+critico:
+
+  label: Critico
+
+  icon: 🔴
+
+  color: red
+
+da_rigenerare:
+
+  label: Da rigenerare
+
+  icon: 🟠
+
+  color: orange
+
+stabile:
+
+  label: Stabile
+
+  icon: 🟢
+
+  color: green
+
+abbondante:
+
+  label: Abbondante
+
+  icon: 🔵
+
+  color: teal

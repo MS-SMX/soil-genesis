@@ -1,0 +1,12 @@
+{% assign seed = page %}
+{% capture content %}
+
+{% include seed/widgets/table.html group="ecology" %}
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Ecologia"
+module="ECOLOGY"
+content=content
+%}

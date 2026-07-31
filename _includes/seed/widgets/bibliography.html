@@ -1,0 +1,14 @@
+{% assign seed = page %}
+{% if page.bibliografia %}
+{% capture content %}
+
+{{ page.bibliografia | markdownify }}
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Bibliografia"
+module="BIBLIOGRAPHY"
+content=content
+%}
+{% endif %}

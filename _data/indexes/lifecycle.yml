@@ -1,0 +1,23 @@
+annuale:
+
+  icon: 🌱
+
+  label: Annuale
+
+biennale:
+
+  icon: 🌿
+
+  label: Biennale
+
+perenne:
+
+  icon: 🌳
+
+  label: Perenne
+
+semiperenne:
+
+  icon: 🍃
+
+  label: Semiperenne

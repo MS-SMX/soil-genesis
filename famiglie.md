@@ -1,33 +1,41 @@
 ---
-layout: default
-title: Famiglie Botaniche
+layout: application
+title: Famiglie botaniche
 ---
 
-{% include window.html
-module="MOD-TAX-01"
-title="FAMIGLIE BOTANICHE"
-content="Navigazione tassonomica dell'archivio."
-%}
+# Famiglie botaniche
+
+Breve testo introduttivo...
+
+{% assign families = site.seeds | group_by: "famiglia" | sort: "name" %}
 
 <div class="family-grid">
 
-{% assign famiglie = site.seeds | group_by:"famiglia" %}
-
-{% for famiglia in famiglie %}
+{% for family in families %}
 
 <div class="family-card">
 
-<h2>
+## {{ family.name | capitalize }}
 
-{{ famiglia.name }}
+**{{ family.items.size }} varietà**
 
-</h2>
+<ul>
 
-<p>
+{% for seed in family.items %}
 
-{{ famiglia.items.size }} varietà
+<li>
 
-</p>
+<a href="{{ seed.url | relative_url }}">
+
+{{ seed.nome_comune }}
+
+</a>
+
+</li>
+
+{% endfor %}
+
+</ul>
 
 </div>
 

@@ -1,0 +1,15 @@
+{% assign seed = page %}
+{% if page.cronologia%}
+{% capture content %}
+
+{{ page.cronologia | markdownify }}
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Cronologia"
+module="TIMELINE"
+content=content
+%}
+
+{% endif %}

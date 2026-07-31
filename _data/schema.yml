@@ -1,19 +1,31 @@
-famiglia:
-  label: Famiglia botanica
-  required: true
+required:
 
-genere:
-  label: Genere
-  required: true
+  - id
 
-specie:
-  label: Specie
-  required: true
+  - nome_comune
 
-cultivar:
-  label: Cultivar
-  required: false
+  - nome_scientifico
 
-periodo_semina:
-  label: Periodo di semina
-  required: false
+  - famiglia
+
+  - cover
+
+  - provenienza
+
+  - stato_conservazione
+
+  - ciclo_vita
+
+  - impollinazione
+
+optional:
+
+  - descrizione
+
+  - habitat
+
+  - bibliografia
+
+  - ricette
+
+  - annotazioni

@@ -1,35 +1,65 @@
+description:
+
+    label: Descrizione
+
+    icon: 📓
+    required: true
+
 identity:
+
+  sg_id:
+    label: ID
+    icon: 🧬
+    required: true
 
   nome_comune:
     label: Nome comune
+    icon: 🌱
+    required: true
 
   nome_scientifico:
     label: Nome scientifico
+    icon: 🔬
+    required: true
 
   famiglia:
     label: Famiglia
+    icon: 🌿
+    required: true
 
-  fonte:
-    label: Fonte
+  provenienza:
+    label: Provenienza
+    icon: 📦
+    required: true
 
 
 biology:
 
   ciclo_vita:
     label: Ciclo di vita
+    icon: 🕣
+    required: true
+
 
   impollinazione:
-    label: Impollinazione
+
+   label: Impollinazione
+   required: true
+   icon: 🐝
 
   fiori:
     label: Fiori
+    icon: 🌸
+    required: true
 
   progenitore_selvatico:
     label: Progenitore selvatico
+    icon: 🪾
+    required: true
 
   miscuglio_evolutivo:
     label: Miscuglio evolutivo
-
+    icon: 🔀
   varieta_componenti:
     label: Varietà componenti
 
@@ -38,57 +68,181 @@ cultivation:
 
   periodo_semina_semenzaio:
     label: Semenzaio
+    icon: 🌱
+    required: true
+
 
   periodo_semina_diretta:
     label: Campo
+    icon: 🚜
+    required: true
+
 
   temperatura_germinazione:
     label: Germinazione
+    icon: 🌡
+    suffix: °C
+    required: true
+
 
   istruzioni_semina:
     label: Semina
+    icon: 🪴
+    required: true
+
 
   istruzioni_coltivazione:
     label: Coltivazione
+    icon: 🌿
+    required: true
 
   difficolta_coltivazione:
     label: Difficoltà
+    icon: ⚙
+    required: true
 
   sensibilita_gelo:
-    label: Sensibilità al gelo
+    label: Gelo
+    icon: ❄
+    required: true
 
-  zone_usda:
+  zona_usda:
     label: Zone USDA
+    icon: 🌍
 
   aridocoltura:
     label: Aridocoltura
+    icon: ☀
 
+  esposizione:
+
+   label: Esposizione
+   required: true
+   icon: 🟡
+
+  irrigazione:
+
+   label: Irrigazione
+   required: true
+   icon: 💧
+
+  note_coltivazione:
+
+   label: Note
+
+   icon: 📝
 
 reproduction:
 
   quantita_consigliata:
     label: Piante minime
+    icon: 🌱
+    suffix: esemplari
+    required: true
+
 
   periodo_raccolta_seme:
-    label: Raccolta semi
+    label: Raccolta
+    icon: 🌾
+    required: true
 
-  distanza_minima:
+
+  distanza_isolamento:
     label: Isolamento
+    icon: ↔
+    suffix: m
+    required: true
+
 
   metodo_isolamento:
     label: Metodo
+    icon: 🛡
 
   tempo_isolamento:
     label: Tempo
+    icon: ⏳
 
   selezione:
     label: Selezione
-
+    icon: 🎯
 
 conservation:
 
   stato_conservazione:
     label: Stato
+    icon: 📊
+    required: true
+
 
   ultimo_anno_riproduzione:
     label: Ultima riproduzione
+    icon: 📅
+    required: true
+
+
+ecology:
+
+  habitat:
+
+    label: Habitat
+
+    icon: 🏞
+
+  suolo:
+
+    label: Suolo
+
+    icon: 🪨
+
+  impollinatori:
+
+    label: Impollinatori
+
+    icon: 🐝
+
+  resistenze:
+
+    label: Resistenze
+
+    icon: 🛡
+
+  criticita:
+
+    label: Criticità
+
+    icon: ⚠
+
+    uses:
+
+usi:
+
+    label: Utilizzi
+
+    icon: 🍽
+
+recipes:
+ ricette:
+
+
+
+fonti:
+
+    label: Fonti
+
+    icon: 📚
+
+bibliography:
+    bibliografia:
+    required: true
+
+
+
+notes:
+   annotazioni:
+
+
+timeline:
+ cronologia:
+ required: true
+
+  

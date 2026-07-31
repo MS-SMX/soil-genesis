@@ -1,0 +1,15 @@
+{% assign seed = page %}
+{% if page.annotazioni %}
+
+{% capture content %}
+
+{{ page.annotazioni | markdownify }}
+
+{% endcapture %}
+
+{% include seed/layout/module.html
+title="Note"
+module="NOTES"
+content=content
+%}
+{% endif %}

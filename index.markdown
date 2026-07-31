@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-{% include window.html
+{% include window-home.html
 title="SOIL GENESIS"
 content="
 × Sistema dedicato al recupero,
