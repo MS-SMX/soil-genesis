@@ -38,58 +38,75 @@ counter.textContent=SG.archive.length;
 
 function updateDashboard(){
 
-const archive=SG.archive;
+const visible = SG.archive.filter(s=>{
 
-document.querySelector("#stat-seeds").textContent=
+return getComputedStyle(s.element).display !== "none";
 
-archive.length;
+});
 
-document.querySelector("#stat-family").textContent=
+const statSeeds = document.querySelector("#stat-seeds");
+if(statSeeds){
+    statSeeds.textContent = visible.length;
+}
 
-new Set(
+const statFamily = document.querySelector("#stat-family");
+if(statFamily){
+    statFamily.textContent =
+    new Set(
+        visible.map(s => s.family)
+    ).size;
+}
 
-archive.map(s=>s.family)
-
-).size;
-
-document.querySelector("#stat-new").textContent=
-
-archive.filter(
-
-s=>s.status==="new_entry"
-
+const statNew = document.querySelector("#stat-new");
+if(statNew){
+    statNew.textContent =
+   visible.filter(
+    s => s.status === "new-entry"
 ).length;
+}
 
-document.querySelector("#stat-critical").textContent=
-
-archive.filter(
-
-s=>s.status==="critico"
-
-).length;
+const statCritical = document.querySelector("#stat-critical");
+if(statCritical){
+    statCritical.textContent =
+    visible.filter(
+        s => s.status === "critico"
+    ).length;
+}
 
 }
 
+
 updateDashboard();
 
-document.addEventListener(
+document.addEventListener("sg:update",()=>{
 
-"sg:update",
+updateDashboard();
 
-()=>{
-
-const visible=
+const visible =
 
 SG.archive.filter(
 
-s=>s.element.style.display!=="none"
+s=>getComputedStyle(s.element).display !== "none"
 
 ).length;
+const counter=document.querySelector("#explorer-count");
 
-document.querySelector(
+if(counter){
 
-"#explorer-count"
+counter.textContent=visible;
 
-).textContent=visible;
+}
 
 });
+
+function visibleSeeds(){
+
+return SG.archive.filter(
+
+s=>getComputedStyle(s.element).display !== "none"
+
+);
+
+}
+
+const visible=visibleSeeds();

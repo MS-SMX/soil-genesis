@@ -281,3 +281,37 @@ gap:24px;
 @media(max-width:900px){
 
 }
+
+.seed-links{
+
+list-style:none;
+
+padding:0;
+
+margin:0;
+
+}
+
+.seed-links li{
+
+margin:.55rem 0;
+
+}
+
+.seed-links a{
+
+color:var(--primary);
+
+text-decoration:none;
+
+transition:.2s;
+
+}
+
+.seed-links a:hover{
+
+opacity:.75;
+
+text-decoration:underline;
+
+}

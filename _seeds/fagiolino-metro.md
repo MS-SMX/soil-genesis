@@ -7,13 +7,15 @@ sg_id: SG-000004
 
 nome_comune: Fagiolino Rampicante Metro
 
-nome_scientifico: Phaseolus vulgaris
+nome_scientifico:  Vigna unguiculata subsp. sesquipedalis
 
 famiglia: Fabaceae
 
-cover: frutto.jpg
+featured: true
 
 immagini:
+  - file: frutto6.jpg
+    titolo: frutto
   - file: frutto5.jpg
     titolo: frutto
   - file: frutto2.jpg
@@ -32,7 +34,7 @@ provenienza: Cercatori di Semi
  
 ultimo_anno_riproduzione: 2026
 
-description: Abile arrampicatrice. Il fagiolino a dispetto del nome raggiunge <solo> mezzo metro. Privo di filamenti.
+description: Abile arrampicatrice. Il fagiolino a dispetto del nome raggiunge <solo> mezzo metro. Privo di filamenti. 
 
 # ==========================
 # BIOLOGIA
@@ -40,11 +42,14 @@ description: Abile arrampicatrice. Il fagiolino a dispetto del nome raggiunge <s
 
 ciclo_vita: annuale
 
-impollinazione: autogama | entomofila
+impollinazione: 
+ - autogama
+ - entomofila
  
-fiori: ermafroditi
+fiori: 
+ - ermafroditi
 
-progenitore_selvatico: 
+progenitore_selvatico: Vigna unguiculata ssp. dekindtiana
 
 miscuglio_evolutivo: 
 
@@ -64,17 +69,17 @@ istruzioni_semina:
 
 istruzioni_coltivazione:
 
-difficolta_coltivazione: 4
+difficolta_coltivazione: 3
 
 sensibilita_gelo: sensibile
 
 zona_usda: 
 
-aridocoltura: 
+aridocoltura: si
 
-irrigazione: moderata
+irrigazione: scarsa
 
-esposizione: pieno sole | mezzombra
+esposizione: pieno sole
 
 note_coltivazione: 
 
@@ -112,7 +117,7 @@ criticita:
 # UTILIZZI
 # ==========================
 
-usi: 
+usi: fresco, surgelato
 
 ricette: 
 
@@ -123,7 +128,10 @@ ricette:
 fonti: 
 
 bibliografia: 
-
+ - titolo: Luigi Caneve - Fagiolo Metro
+   url: https://www.youtube.com/watch?v=AJZDz8dS4O8
+ - titolo: Fagiolino Metro - Cercatori di Semi
+   url: https://www.cercatoridisemi.com/product-page/fagiolino-rampicante-metro-p-vulgaris 
 
 
 # ==========================
@@ -131,13 +139,14 @@ bibliografia:
 # ==========================
 
 annotazioni: 
+ Cercatori di Semi lo riporta come Phaseolus vulgaris, il divulgatore Luigi Caneve come Vigna unguiculata. Visto l'approfondimento proposto da quest'ultimo ho scelto di usare il secondo genere, ma il nome effettivo è ancora da verificare.
 
 # ==========================
 # CRONOLOGIA
 # ==========================
 
 cronologia: 
-  ⊛ 2026 - Acquisizione da Cercatori di Semi
+  ⊛ 2026 - Acquisizione da Cercatori di Semi <br>
   ⊛ 2026 - Prima riproduzione
 
 

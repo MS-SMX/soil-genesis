@@ -1,9 +1,3 @@
-description:
-
-    label: Descrizione
-
-    icon: 📓
-    required: true
 
 identity:
 
@@ -181,68 +175,54 @@ conservation:
 
 
 ecology:
-
   habitat:
-
     label: Habitat
-
     icon: 🏞
 
   suolo:
-
     label: Suolo
-
     icon: 🪨
 
   impollinatori:
-
     label: Impollinatori
-
     icon: 🐝
 
   resistenze:
-
     label: Resistenze
-
     icon: 🛡
 
   criticita:
-
     label: Criticità
-
     icon: ⚠
 
-    uses:
-
-usi:
-
+uses:
+  usi:
     label: Utilizzi
-
     icon: 🍽
 
 recipes:
- ricette:
+  ricette:
+    label: Ricette
+    icon: 🍲
 
-
-
-fonti:
-
+sources:
+  fonti:
     label: Fonti
-
     icon: 📚
 
 bibliography:
-    bibliografia:
-    required: true
-
-
+  bibliografia:
+    label: Bibliografia
+    icon: 📖
 
 notes:
-   annotazioni:
-
+  annotazioni:
+    label: Annotazioni
+    icon: 📝
 
 timeline:
- cronologia:
- required: true
+  cronologia:
+    label: Cronologia
+    icon: 🕒
 
   

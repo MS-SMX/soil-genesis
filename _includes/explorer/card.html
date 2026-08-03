@@ -1,3 +1,5 @@
+{% assign pollination = include.seed.impollinazione | join: "|" %}
+
 <a
 class="explorer-card"
 href="{{ include.seed.url | relative_url }}"
@@ -5,7 +7,7 @@ href="{{ include.seed.url | relative_url }}"
 data-status="{{ include.seed.stato_conservazione | slugify }}"
 data-family="{{ include.seed.famiglia | slugify }}"
 data-cycle="{{ include.seed.ciclo_vita | slugify }}"
-data-pollination="{{ include.seed.impollinazione | slugify }}">
+data-pollination="{{ pollination }}">
 
 {% assign first = include.seed.immagini.first %}
 

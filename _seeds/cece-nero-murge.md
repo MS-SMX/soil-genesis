@@ -11,8 +11,6 @@ nome_scientifico: Cicer arietinum
 
 famiglia: fabaceae
 
-cover: baccelli.jpg
-
 immagini:
 
   - file: semi.jpg
@@ -39,10 +37,11 @@ description: Varietà di cece dall'interessante aspetto e dall'ottima resistenza
 ciclo_vita: annuale
 
 impollinazione: 
- autogama 
- entomofila
+ - autogama
+ - entomofila 
 
-fiori: ermafroditi
+fiori: 
+ - ermafroditi
 
 progenitore_selvatico: 
 
@@ -114,7 +113,7 @@ criticita:
 
 usi: 
 
-ricette:  -hummus
+ricette:  
 
 # ==========================
 # FONTI
@@ -123,11 +122,10 @@ ricette:  -hummus
 fonti: 
 
 bibliografia: 
- 1- https://www.cercatoridisemi.com/product-page/cece-nero-della-murgia-carsica-cicer-arietinum
- <br>
- 2- A.Pasin - Di Seme in Meglio (Edizioni SemiRurali, 2023) <br>
+  - A.Pasin - Di Seme in Meglio (Edizioni SemiRurali, 2023)
 
-
+  - titolo: Scheda Cece Nero - Cercatori di Semi
+    url: https://www.cercatoridisemi.com/product-page/cece-nero-della-murgia-carsica-cicer-arietinum
 
 
 # ==========================

@@ -6,6 +6,10 @@ permalink: /diagnostics/
 
 # Diagnostics
 
+Ultimo controllo:
+
+{{ "now" | date: "%d/%m/%Y %H:%M" }}
+
 <table class="sg-table">
 
 <tr>
@@ -152,14 +156,12 @@ permalink: /diagnostics/
 
 </ul>
 
-<h2>Cover mancanti</h2>
-
+<h2>Gallerie mancanti</h2>
 <ul>
 
 {% for seed in site.seeds %}
 
-{% unless seed.cover %}
-
+{% unless seed.immagini %}
 <li>
 
 {{ seed.nome_comune }}

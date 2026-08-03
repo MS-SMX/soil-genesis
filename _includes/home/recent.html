@@ -1,0 +1,36 @@
+<div class="home-section">
+
+<div class="home-section-title">
+
+ULTIMI DOSSIER
+</div>
+
+{% assign recent = site.seeds | sort: "id" | reverse %}
+
+{% for seed in recent limit:7 %}
+
+<a href="{{ seed.url | relative_url }}" class="recent-item">
+
+<div class="recent-id">
+
+{{ seed.id }}
+
+</div>
+
+<div class="recent-name">
+
+{{ seed.nome_comune }}
+
+</div>
+
+<div class="recent-family">
+
+{{ seed.famiglia }}
+
+</div>
+
+</a>
+
+{% endfor %}
+
+</div>

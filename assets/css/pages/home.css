@@ -8,3 +8,124 @@ content="..."
 
 
 
+.monthly-window{
+
+height:100%;
+
+padding:34px;
+
+border:1px solid rgba(122,216,202,.10);
+
+background:rgba(8,14,14,.45);
+
+display:flex;
+
+flex-direction:column;
+
+gap:24px;
+
+height:100%;
+
+
+}
+
+.monthly-id{
+
+font-family:"IBM Plex Mono";
+
+font-size:.70rem;
+
+letter-spacing:.22em;
+
+opacity:.45;
+
+text-transform:uppercase;
+
+}
+
+.monthly-window h2{
+
+margin:0;
+
+font-size:2rem;
+
+letter-spacing:.10em;
+
+}
+
+.monthly-block{
+
+padding-top:18px;
+
+border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+.monthly-block h3{
+
+margin:0 0 14px;
+
+font-size:.90rem;
+
+letter-spacing:.16em;
+
+text-transform:uppercase;
+
+font-family:"IBM Plex Mono";
+
+color:var(--primary);
+
+}
+
+.monthly-block ul{
+
+list-style:none;
+
+padding:0;
+
+margin:10px 0 0;
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+
+}
+
+.monthly-block li{
+
+position:relative;
+
+padding-left:18px;
+
+opacity:.85;
+
+}
+
+.monthly-block li::before{
+
+content:"▸";
+
+position:absolute;
+
+left:0;
+
+color:var(--primary);
+
+opacity:.70;
+
+}
+
+.monthly-block a{
+
+text-decoration:none;
+
+}
+
+.monthly-block a:hover{
+
+padding-left:8px;
+
+}

@@ -11,8 +11,6 @@ nome_scientifico:
 
 famiglia: 
 
-cover: semi.jpg
-
 immagini:
 
   - file: semi.jpg

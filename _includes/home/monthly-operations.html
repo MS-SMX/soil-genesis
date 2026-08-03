@@ -1,0 +1,249 @@
+{% assign monthNumber = "now" | date:"%-m" | plus:0 %}
+
+{% assign monthNames = "GEN,FEB,MAR,APR,MAG,GIU,LUG,AGO,SET,OTT,NOV,DIC" | split: "," %}
+{% assign monthIndex = monthNumber | minus:1 %}
+
+<section class="monthly-window">
+
+<div class="monthly-id">
+
+CALENDARIO SEMINE E RACCOLTI
+</div>
+
+<div class="season-wheel">
+
+{% for m in monthNames %}
+
+{% assign index = forloop.index0 %}
+
+<div class="season-month{% if index == monthIndex %} active{% endif %}"
+data-month="{{ forloop.index }}">
+{{ m }}
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% for m in (1..12) %}
+
+<div class="month-panel{% if m == monthNumber %} active{% endif %}"
+data-month="{{ m }}">
+
+
+<div class="monthly-block">
+
+{% assign count = 0 %}
+
+{% for seed in site.seeds %}
+
+{% if seed.periodo_semina_semenzaio contains m %}
+
+{% assign count = count | plus:1 %}
+
+{% endif %}
+
+{% endfor %}
+
+<h3>
+
+🌱
+
+<span>SEMENZAIO</span>
+
+<small>
+{{ count }} ACCESSIONI
+
+</small>
+
+</h3>
+
+<ul>
+
+{% assign found = false %}
+
+{% for seed in site.seeds %}
+
+{% if seed.periodo_semina_semenzaio contains m %}
+
+<li>
+
+<a href="{{ seed.url | relative_url }}">
+
+{{ seed.nome_comune }}
+
+</a>
+
+</li>
+
+{% assign found = true %}
+
+{% endif %}
+
+{% endfor %}
+
+
+{% unless found %}
+
+<li>nessuna operazione_</li>
+
+{% endunless %}
+
+</ul>
+
+</div>
+
+
+
+<div class="monthly-block">
+
+{% assign count = 0 %}
+
+{% for seed in site.seeds %}
+
+{% if seed.periodo_semina_diretta contains m %}
+
+{% assign count = count | plus:1 %}
+
+{% endif %}
+
+{% endfor %}
+
+<h3>
+
+🚜
+
+<span>SEMINA DIRETTA</span>
+
+<small>
+
+{{ count }} ACCESSIONI
+
+</small>
+
+</h3>
+
+<ul>
+
+{% assign found = false %}
+
+{% for seed in site.seeds %}
+
+{% if seed.periodo_semina_diretta contains m %}
+
+<li>
+
+<a href="{{ seed.url | relative_url }}">
+
+{{ seed.nome_comune }}
+
+</a>
+
+</li>
+
+{% assign found = true %}
+
+{% endif %}
+
+{% endfor %}
+
+
+{% unless found %}
+
+<li>nessuna operazione_</li>
+
+{% endunless %}
+
+</ul>
+
+</div>
+
+
+
+<div class="monthly-block">
+
+{% assign count = 0 %}
+
+{% for seed in site.seeds %}
+
+{% if seed.periodo_raccolta_seme contains m %}
+
+{% assign count = count | plus:1 %}
+
+{% endif %}
+
+{% endfor %}
+
+<h3>
+
+🌾
+
+<span>RACCOLTA SEMENTI</span>
+
+<small>
+
+{{ count }} ACCESSIONI
+
+</small>
+
+</h3>
+
+<ul>
+
+{% assign found = false %}
+
+{% for seed in site.seeds %}
+
+{% if seed.periodo_raccolta_seme contains m %}
+
+<li>
+
+<a href="{{ seed.url | relative_url }}">
+
+{{ seed.nome_comune }}
+
+</a>
+
+</li>
+
+{% assign found = true %}
+
+{% endif %}
+
+{% endfor %}
+
+
+{% unless found %}
+
+<li>nessuna operazione_</li>
+
+{% endunless %}
+
+</ul>
+
+</div>
+
+
+</div>
+
+{% endfor %}
+{% assign thought = site.data.month-thoughts[monthNumber] %}
+
+<div class="month-thought">
+
+<div class="month-thought-title">
+
+{{ thought.title }}
+
+</div>
+
+<div class="month-thought-text">
+{{ thought.text }}
+</div>
+</div>
+<div class="month-author">
+NODE // {{ monthNames[monthIndex] }}
+</div>
+
+</section>

@@ -206,21 +206,19 @@ text-shadow:0 0 8px var(--glow);
 
 .os-layout{
 
-display:grid;
+width:100%;
 
-grid-template-columns:
+max-width:1600px;
 
-1fr 280px;
+margin:auto;
 
-gap:30px;
-
-align-items:start;
+padding:0 40px;
 
 }
 
 .os-main{
 
-min-width:0;
+width:100%;
 
 }
 

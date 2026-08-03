@@ -101,25 +101,21 @@ panel.appendChild(badge);
 
 }
 
-Object.entries(active).forEach(
+Object.entries(active).forEach(([key, list]) => {
 
-([key,list])=>{
+    if (!list.length) return;
 
-if(
+    const values = (seed[key] || "").split("|");
 
-list.length &&
+    const match = values.some(v => list.includes(v));
 
-!list.includes(seed[key])
+    if (!match) {
 
-){
+        visible = false;
 
-visible=false;
+    }
 
-}
-
-}
-
-);
+});
 
 seed.element.style.display=
 

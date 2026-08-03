@@ -8,14 +8,17 @@ return [...new Set(
 
 SG.archive
 
-.map(seed=>seed[field])
+.flatMap(seed =>
+
+(seed[field] || "").split("|")
+
+)
 
 .filter(Boolean)
 
 )].sort();
 
 }
-
 function buildFilters(){
 
 const root=document.querySelector("#explorer-filters");
@@ -73,4 +76,10 @@ root.appendChild(group);
 
 }
 
-buildFilters();
+function buildFilters(){
+
+const root=document.querySelector("#explorer-filters");
+
+if(!root)return;
+
+root.innerHTML="";}

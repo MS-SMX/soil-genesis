@@ -1,0 +1,66 @@
+{% assign featured = site.seeds | where:"featured", true | first %}
+
+{% if featured %}
+
+<div class="home-section featured">
+
+<div class="home-section-title">
+
+FEATURED ACCESSION
+
+</div>
+
+<a href="{{ featured.url | relative_url }}" class="featured-card">
+
+{% if featured.cover %}
+
+<img
+class="featured-image"
+src="{{ '/assets/images/seeds/' | append: featured.slug | append: '/' | append: featured.cover | append: '.jpg' | relative_url }}"
+alt="{{ featured.nome_comune }}">
+
+{% endif %}
+
+<div class="featured-content">
+
+<div class="featured-id">
+
+{{ featured.id }}
+
+</div>
+
+<h2>
+
+{{ featured.nome_comune }}
+
+</h2>
+
+<div class="featured-scientific">
+
+{{ featured.nome_scientifico }}
+
+</div>
+
+{% if featured.descrizione %}
+
+<p>
+
+{{ featured.descrizione }}
+
+</p>
+
+{% endif %}
+
+<div class="featured-link">
+
+→ APRI DOSSIER
+
+</div>
+
+</div>
+
+</a>
+
+</div>
+
+{% endif %}

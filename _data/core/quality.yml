@@ -1,0 +1,15 @@
+minimum_images: 3
+
+recommended:
+
+  - descrizione
+  - habitat
+  - usi
+  - bibliografia
+  - ricette
+
+important:
+
+  - periodo_raccolta_seme
+  - distanza_isolamento
+  - temperatura_germinazione

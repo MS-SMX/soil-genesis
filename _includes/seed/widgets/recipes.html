@@ -3,8 +3,31 @@
 
 {% capture content %}
 
-{{ page.ricette | markdownify }}
+<ul class="seed-links">
 
+{% for item in page.ricette %}
+
+<li>
+
+{% if item.url %}
+
+<a href="{{ item.url }}" target="_blank">
+
+{{ item.titolo }}
+
+</a>
+
+{% else %}
+
+{{ item }}
+
+{% endif %}
+
+</li>
+
+{% endfor %}
+
+</ul>
 {% endcapture %}
 
 {% include seed/layout/module.html

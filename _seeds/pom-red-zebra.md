@@ -11,8 +11,6 @@ nome_scientifico: Solanum lycopersicum
 
 famiglia: solanaceae
 
-cover: frutto.jpg
-
 immagini:
 
   - file: frutto.jpg

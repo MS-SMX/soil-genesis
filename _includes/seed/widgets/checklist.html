@@ -1,0 +1,20 @@
+{% assign checks = "" | split: "" %}
+
+{% if page.nome_comune %}{% assign checks = checks | push: "Nome comune" %}{% endif %}
+{% if page.nome_scientifico %}{% assign checks = checks | push: "Nome scientifico" %}{% endif %}
+{% if page.famiglia %}{% assign checks = checks | push: "Famiglia" %}{% endif %}
+{% if page.provenienza %}{% assign checks = checks | push: "Provenienza" %}{% endif %}
+{% if page.immagini.size >= 3 %}{% assign checks = checks | push: "Galleria" %}{% endif %}
+{% if page.descrizione %}{% assign checks = checks | push: "Descrizione" %}{% endif %}
+{% if page.habitat %}{% assign checks = checks | push: "Habitat" %}{% endif %}
+{% if page.usi %}{% assign checks = checks | push: "Utilizzi" %}{% endif %}
+
+<ul class="seed-checklist">
+
+{% for item in checks %}
+
+<li>✅ {{ item }}</li>
+
+{% endfor %}
+
+</ul>

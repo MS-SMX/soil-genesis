@@ -1,7 +1,6 @@
 IDEE DA IMPLEMENTARE
 
 URGENTI:
--separare meglio il campo dai valori / descrizione a livello visivo; sono troppo simili e vicini.
 -widget timeline con grafica dedicata
 - link nei moduli / ricette è una tabella o elenco che riporta a pagine esterne o alla sezione ricette del sito
 - gli ultimi due moduli non stanno affiancati
@@ -9,13 +8,6 @@ URGENTI:
 
 
 DOPO 1.0:
--Una riga sola nella Cover.
-Ad esempio:
-Acquisita nel 2026 · Prima riproduzione completata nel 2027 · Attualmente stabile
-Oppure:
-Acquisita nel 2026 · Prima riproduzione in corso
-Oppure:
-Rigenerata nel 2028 dopo due stagioni critiche
 -archivio con file da 3 anziché 2
 -status panel integrato nella finestra in home, deve scomparire da tutte le altre pagine
 -Sezione LOG che rimanda ad articoli su Substack

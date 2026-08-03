@@ -2,8 +2,31 @@
 {% if page.bibliografia %}
 {% capture content %}
 
-{{ page.bibliografia | markdownify }}
+<ul class="seed-links">
 
+{% for item in page.bibliografia %}
+
+<li>
+
+{% if item.url %}
+
+<a href="{{ item.url }}" target="_blank">
+
+{{ item.titolo }}
+
+</a>
+
+{% else %}
+
+{{ item }}
+
+{% endif %}
+
+</li>
+
+{% endfor %}
+
+</ul>
 {% endcapture %}
 
 {% include seed/layout/module.html

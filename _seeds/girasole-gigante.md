@@ -11,8 +11,6 @@ nome_scientifico: Heliantus annuus
 
 famiglia: Asteraceae
 
-cover: 
-
 immagini:
 
   - file: fiore.jpg

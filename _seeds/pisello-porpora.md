@@ -11,8 +11,6 @@ nome_scientifico: Pisum sativum
 
 famiglia: fabaceae
 
-cover: baccello.jpg
-
 immagini:
   - file: baccello.jpg
     titolo: baccello
@@ -34,9 +32,12 @@ description: Color viola notte, non passa inosservato in primavera. Rampicante e
 
 ciclo_vita: annuale
 
-impollinazione: autogama | entomofila
+impollinazione: 
+- autogama
+- entomofila
 
-fiori: ermafroditi
+fiori: 
+- ermafroditi
 
 progenitore_selvatico: 
 

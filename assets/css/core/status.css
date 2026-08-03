@@ -34,7 +34,7 @@ display:flex;
 
 justify-content:space-between;
 
-padding:10px 0;
+padding:10px 10;
 
 border-bottom:
 
@@ -50,5 +50,21 @@ font-size:.8rem;
 color:var(--primary);
 
 font-weight:500;
+
+}
+
+.status-title{
+
+font-family:"IBM Plex Mono";
+
+letter-spacing:.20em;
+
+font-size:.70rem;
+
+margin-bottom:18px;
+
+opacity:.55;
+
+text-transform:uppercase;
 
 }

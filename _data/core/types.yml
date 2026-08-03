@@ -1,0 +1,30 @@
+single:
+
+  - id
+  - nome_comune
+  - nome_scientifico
+  - famiglia
+  - provenienza
+  - stato_conservazione
+  - ciclo_vita
+  - progenitore_selvatico
+  - miscuglio_evolutivo
+  - temperatura_germinazione
+  - sensibilita_gelo
+  - zona_usda
+  - aridocoltura
+
+multi:
+
+  - impollinazione
+  - fiori
+  - varieta_componenti
+  - habitat
+  - suolo
+  - impollinatori
+  - resistenze
+  - criticita
+  - usi
+  - ricette
+  - bibliografia
+  - fonti 

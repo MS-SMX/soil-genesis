@@ -1,0 +1,12 @@
+{% assign score = 0 %}
+
+{% if page.descrizione %}{% assign score = score | plus: 1 %}{% endif %}
+{% if page.immagini.size >= 3 %}{% assign score = score | plus: 1 %}{% endif %}
+{% if page.habitat %}{% assign score = score | plus: 1 %}{% endif %}
+{% if page.usi %}{% assign score = score | plus: 1 %}{% endif %}
+{% if page.periodo_raccolta_seme %}{% assign score = score | plus: 1 %}{% endif %}
+{% if page.bibliografia %}{% assign score = score | plus: 1 %}{% endif %}
+{% if page.ricette %}{% assign score = score | plus: 1 %}{% endif %}
+{% if page.annotazioni %}{% assign score = score | plus: 1 %}{% endif %}
+
+{{ score }}/8
