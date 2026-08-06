@@ -49,7 +49,7 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: MAR-MAG
+periodo_semina_semenzaio: [3,4,5]
 
 periodo_semina_diretta: 
 
@@ -61,11 +61,11 @@ istruzioni_coltivazione:
 
 difficolta_coltivazione: 3
 
-sensibilita_gelo: si
+sensibilita_gelo: non resistente
 
 zona_usda: 
 
-aridocoltura: si
+aridocoltura: 
 
 irrigazione: scarsa
 
@@ -79,7 +79,7 @@ note_coltivazione: ///
 
 quantita_consigliata: 10
 
-periodo_raccolta_seme: GIU-SET
+periodo_raccolta_seme: [6,7,8,9]
 
 distanza_isolamento: 10
 
@@ -127,7 +127,7 @@ bibliografia:
 # NOTE
 # ==========================
 
-annotazioni: tenere i semi dei frutti che rispettano le caratteristiche della varietà.
+annotazioni: tenere i semi dei frutti che rispettano le caratteristiche della varietà. Particolarmente presa di mira dalle cimici.
 
 # ==========================
 # CRONOLOGIA

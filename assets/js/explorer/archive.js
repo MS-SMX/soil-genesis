@@ -110,3 +110,9 @@ s=>getComputedStyle(s.element).display !== "none"
 }
 
 const visible=visibleSeeds();
+
+SG.kernel.register("archive",{
+
+update:updateDashboard
+
+});

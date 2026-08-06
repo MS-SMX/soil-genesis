@@ -83,3 +83,9 @@ const root=document.querySelector("#explorer-filters");
 if(!root)return;
 
 root.innerHTML="";}
+
+SG.kernel.register("sidebar",{
+
+build:buildFilters
+
+});

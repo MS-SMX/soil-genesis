@@ -5,34 +5,28 @@ content:"";
 position:fixed;
 
 left:0;
-
 top:0;
 
 width:100%;
-
 height:100%;
 
 pointer-events:none;
 
 background:
-
 repeating-linear-gradient(
-
 to bottom,
-
 rgba(255,255,255,.055),
-
 rgba(255,255,255,.055) 1px,
-
 transparent 2px,
-
 transparent 4px
-
 );
 
-opacity:.55;
+opacity:.5;
 
 z-index:9999;
+
+animation:
+scanlineShift 8s linear infinite,
 
 }
 
@@ -51,3 +45,75 @@ box-shadow:inset 0 0 120px rgba(0,0,0,.45);
 z-index:9998;
 
 }
+
+/* ==========================================
+   LIVING CRT
+========================================== */
+
+
+@keyframes crtBreath{
+
+0%{
+
+filter:brightness(1);
+
+}
+
+45%{
+
+filter:brightness(1.015);
+
+}
+
+55%{
+
+filter:brightness(1.025);
+
+}
+
+100%{
+
+filter:brightness(1);
+
+}
+
+}
+
+@keyframes scanlineShift{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(2px);
+
+}
+
+}
+
+@keyframes phosphorGlow{
+
+0%{
+
+opacity:.05;
+
+}
+
+50%{
+
+opacity:.075;
+
+}
+
+100%{
+
+opacity:.05;
+
+}
+
+}
+

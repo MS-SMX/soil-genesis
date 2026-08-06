@@ -45,7 +45,7 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [3,4]
+periodo_semina_semenzaio: [3,4,7,8]
 
 periodo_semina_diretta: 
 
@@ -122,7 +122,7 @@ bibliografia:
 # ==========================
 
 annotazioni: 
-- Ha resistito ad una temperatura di -8°, attualmente un esemplare è al suo quarto anno di vita, sembra perdere vigore rispetto ai due anni passati. Tutti i semi prodotti derivano da quella singola pianta, sarebbe opportuno un rimescolamento in futuro.
+ Ha resistito ad una temperatura di -8°, attualmente un esemplare è al suo quarto anno di vita, sembra perdere vigore rispetto ai due anni passati. Tutti i semi prodotti derivano da quella singola pianta, sarebbe opportuno un rimescolamento in futuro.
 
 # ==========================
 # CRONOLOGIA

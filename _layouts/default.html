@@ -17,6 +17,8 @@
 
 <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/boot.css' | relative_url }}">
+<!---<link rel="stylesheet"
+href="{{ '/assets/css/boot-engine.css' | relative_url }}">-->
 <link rel="stylesheet" href="{{ '/assets/css/responsive.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}">
@@ -35,6 +37,8 @@ href="{{ '/assets/css/components/module.css' | relative_url }}">
 <link rel="stylesheet"
 href="{{ '/assets/css/home/window-home.css' | relative_url }}">
 <link rel="stylesheet"href="{{ '/assets/css/components/dossier-navigation.css' | relative_url }}">
+<link rel="stylesheet"
+href="{{ '/assets/css/components/module-loader.css' | relative_url }}">
 </head>
 
 
@@ -44,7 +48,7 @@ href="{{ '/assets/css/home/window-home.css' | relative_url }}">
 
 {% include boot.html %}
 {% include navbar.html %}
-
+{% include module-loader.html %}
 
 <main class="os-layout">
 
@@ -58,7 +62,11 @@ href="{{ '/assets/css/home/window-home.css' | relative_url }}">
 
 </main>
 
-
+<script src="{{ '/assets/js/kernel/kernel.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/kernel/events.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/kernel/typewriter.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/kernel/timeline.js' | relative_url }}"></script>
+<!-- <script src="{{ '/assets/js/boot/script.js' | relative_url }}"></script> --->
 <script src="{{ '/assets/js/boot.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/engine/network.js' | relative_url }}"></script>
 
@@ -81,6 +89,7 @@ href="{{ '/assets/css/home/window-home.css' | relative_url }}">
 <script src="{{ '/assets/js/module.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/media-viewer.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/home/monthly.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/kernel/loader.js' | relative_url }}"></script>
 {% include footer.html %}
 
 </body>

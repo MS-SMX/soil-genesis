@@ -370,6 +370,128 @@ text-shadow:0 0 8px var(--glow);
 
 }
 
+.navbar a{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.navbar a::before{
+
+content:"▶";
+
+position:absolute;
+
+left:-18px;
+
+opacity:0;
+
+transition:.15s;
+
+color:var(--primary);
+
+font-size:.75rem;
+
+}
+
+.navbar a::after{
+
+content:"_";
+
+opacity:0;
+
+margin-left:3px;
+
+animation:navbarBlink .8s infinite;
+
+color:var(--primary);
+
+}
+
+.navbar a:hover{
+
+padding-left:14px;
+
+color:var(--primary);
+
+text-shadow:0 0 8px var(--glow);
+
+letter-spacing:.18em;
+
+}
+
+.navbar a:hover::before{
+
+left:0;
+
+opacity:1;
+
+}
+
+.navbar a:hover::after{
+
+opacity:1;
+
+}
+
+@keyframes navbarBlink{
+
+0%,50%{
+
+opacity:1;
+
+}
+
+51%,100%{
+
+opacity:0;
+
+}
+
+}
+
+.navbar a:hover{
+
+animation:navbarGlitch .18s;
+
+}
+
+@keyframes navbarGlitch{
+
+0%{
+
+transform:none;
+
+}
+
+25%{
+
+transform:translateX(-1px);
+
+}
+
+50%{
+
+transform:translateX(1px);
+
+}
+
+75%{
+
+transform:translateX(-1px);
+
+}
+
+100%{
+
+transform:none;
+
+}
+
+}
+
 .dropdown{
 
 position:relative;
@@ -436,4 +558,32 @@ color:var(--primary);
 
 padding-left:26px;
 
+}
+
+#network{
+
+transition:
+filter .22s,
+opacity .22s,
+transform .22s;
+
+}
+
+body.network-pulse #network{
+
+filter:
+
+brightness(1.35)
+
+drop-shadow(0 0 10px rgba(121,215,199,.55));
+
+transform:scale(1.003);
+
+}
+
+body.network-pulse .window{
+
+box-shadow:
+
+0 0 18px rgba(121,215,199,.08);
 }

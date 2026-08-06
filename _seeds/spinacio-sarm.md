@@ -24,9 +24,9 @@ stato_conservazione: new entry
 
 provenienza: Piante Innovative
 
-ultimo_anno_riproduzione:
+ultimo_anno_riproduzione: mai
 
-description: 
+description: Scenografica alternativa agli spinaci veri e propri, più resistente al calore. Perenne se protetta dal gelo.
 
 # ==========================
 # BIOLOGIA
@@ -36,7 +36,7 @@ ciclo_vita: Annuale
 
 impollinazione: 
 
-fiori: 
+fiori: ermafroditi
 
 progenitore_selvatico: 
 
@@ -48,7 +48,7 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: 
+periodo_semina_semenzaio: [3,4,5]
 
 periodo_semina_diretta: 
 
@@ -60,7 +60,7 @@ istruzioni_coltivazione:
 
 difficolta_coltivazione: 
 
-sensibilita_gelo: 
+sensibilita_gelo: non resistente
 
 zona_usda: 
 
@@ -117,6 +117,9 @@ ricette:
 fonti: 
 
 bibliografia: 
+  - titolo: Basella Rubra / Alba - Piante Innovative
+    url: https://www.pianteinnovative.it/basella-rubra-basella-alba/
+
 
 
 

@@ -1,63 +1,120 @@
-const bootScreen = document.getElementById("boot-screen");
-const bootOutput = document.getElementById("boot-output");
+const boot=document.getElementById("boot-engine");
+const terminal=document.getElementById("boot-terminal");
+const authorize=document.getElementById("boot-authorize");
+const mycelium=document.getElementById("boot-mycelium");
 
-if (!sessionStorage.getItem("bios_seen")) {
+if(sessionStorage.getItem("bios_seen")){
 
-    const lines = [
+    boot.remove();
 
-        "SOIL GENESIS BIOS",
-        "",
-        "BIOLOGICAL OPERATING SYSTEM",
-        "",
-        "INITIALIZING CORE.............OK",
-        "LOADING GENETIC DATABASE......OK",
-        "CONNECTING MYCORRHIZAL NETWORK",
-        "",
-        "VERIFYING SEED INTEGRITY",
-        "",
-        "[████████████████████] 100%",
-        "",
-        "NO PROPRIETARY GENOMES DETECTED",
-        "",
-        "ACCESS GRANTED",
-"",
-"",
-        "WELCOME CUSTIODIAN!"
+}else{
 
-    ];
+async function sleep(ms){
 
-    let line = 0;
+    return new Promise(r=>setTimeout(r,ms));
 
-    function printLine() {
+}
 
-        if (line >= lines.length) {
+function syncPulse(){
 
-            sessionStorage.setItem("bios_seen", true);
+    boot.classList.add("sync");
 
-            setTimeout(() => {
+    terminal.classList.add("sync");
 
-                bootScreen.classList.add("boot-hide");
+    setTimeout(()=>{
 
-            }, 700);
+        boot.classList.remove("sync");
 
-            return;
+        terminal.classList.remove("sync");
 
-        }
+    },220);
 
-        bootOutput.innerHTML += lines[line] + "<br>";
+}
 
-        bootOutput.scrollTop = bootOutput.scrollHeight;
+async function line(text,speed=18){
 
-        line++;
+    const row=document.createElement("div");
 
-        setTimeout(printLine, 230);
+    row.className="terminal-line";
+
+    terminal.appendChild(row);
+
+    for(const ch of text){
+
+        row.textContent+=ch;
+
+          if(ch==="."){
+
+        await sleep(120);
 
     }
 
-    setTimeout(printLine, 500);
+        await sleep(speed + Math.random()*12);
 
-} else {
+    }
 
-    bootScreen.remove();
+}
+
+(async()=>{
+
+    await sleep(350);
+
+    await line("SOIL GENESIS BIOS");
+
+    await sleep(180);
+
+    await line("BIOLOGICAL OPERATING SYSTEM");
+
+    await sleep(260);
+
+    await line("Initializing biological kernel...");
+
+    await sleep(200);
+
+    await line("Loading genetic database...");
+
+    await sleep(200);
+
+await line("Establishing mycorrhizal link...");
+
+await sleep(220);
+
+mycelium.classList.add("visible");
+
+await sleep(850);
+
+mycelium.classList.remove("visible");
+
+await sleep(120);
+
+    await line("Mounting seed archive...");
+
+    await sleep(200);
+
+    await line("Recovering botanical memory...");
+
+    await sleep(220);
+
+    await line("Verifying node identity...");
+
+    await sleep(500);
+
+terminal.style.opacity=".15";
+
+syncPulse();
+
+authorize.classList.add("visible");
+
+await sleep(1300);
+
+    sessionStorage.setItem("bios_seen",true);
+authorize.classList.remove("visible");
+    boot.classList.add("hide");
+
+    await sleep(800);
+
+    boot.remove();
+
+})();
 
 }

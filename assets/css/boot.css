@@ -1,10 +1,129 @@
-#boot-screen{
+#boot-engine{
 
 position:fixed;
-
 inset:0;
 
 background:#000;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+z-index:50000;
+
+opacity:1;
+
+transition:opacity .8s ease;
+
+}
+
+#boot-engine.hide{
+
+opacity:0;
+pointer-events:none;
+
+}
+
+#boot-terminal{
+
+width:min(760px,92vw);
+
+font-family:"IBM Plex Mono",monospace;
+
+font-size:18px;
+
+line-height:1.65;
+
+color:var(--primary);
+
+text-shadow:0 0 8px rgba(122,215,202,.35);
+
+white-space:pre-wrap;
+
+}
+
+.terminal-line{
+
+margin:.15rem 0;
+
+}
+
+#boot-authorize{
+
+position:absolute;
+
+left:50%;
+top:50%;
+
+transform:translate(-50%,-50%) scale(.96);
+
+opacity:0;
+
+text-align:center;
+
+transition:
+opacity .6s ease,
+transform .6s ease;
+
+pointer-events:none;
+
+text-shadow:
+0 0 12px rgba(122,215,202,.35);
+
+}
+
+#boot-authorize.visible{
+
+opacity:1;
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+.authorize-title{
+
+font-family:"Orbitron",sans-serif;
+
+font-size:.95rem;
+
+letter-spacing:.45rem;
+
+opacity:.75;
+
+margin-bottom:.6rem;
+
+}
+
+.authorize-sub{
+
+font-family:"Orbitron",sans-serif;
+
+font-size:2.4rem;
+
+letter-spacing:.28rem;
+
+font-weight:700;
+
+margin-bottom:.6rem;
+
+}
+.authorize-node{
+
+font-family:"IBM Plex Mono",monospace;
+
+font-size:.9rem;
+
+opacity:.7;
+
+letter-spacing:.2rem;
+
+}
+
+#boot-mycelium{
+
+position:absolute;
+
+inset:0;
 
 display:flex;
 
@@ -12,34 +131,160 @@ justify-content:center;
 
 align-items:center;
 
-z-index:50000;
-
-transition:1.2s;
-
-}
-
-#boot-output{
-
-width:min(700px,90vw);
-
-font-family:"IBM Plex Mono",monospace;
-
-font-size:18px;
-
-line-height:1.7;
-
-color:var(--primary);
-
-text-shadow:0 0 8px rgba(122,215,202,.3);
-
-white-space:pre-wrap;
-
-}
-
-.boot-hide{
+pointer-events:none;
 
 opacity:0;
 
-pointer-events:none;
+transition:opacity .35s ease;
+
+}
+
+#boot-mycelium.visible{
+
+opacity:.28;
+
+}
+
+#mycelium-svg{
+
+width:100%;
+
+height:100%;
+
+}
+
+.mycelium-line{
+
+fill:none;
+
+stroke:var(--primary);
+
+stroke-width:1.4;
+
+stroke-linecap:round;
+
+stroke-dasharray:1200;
+
+stroke-dashoffset:1200;
+
+filter:drop-shadow(0 0 5px rgba(122,215,202,.45));
+
+}
+
+#boot-mycelium.visible .l1{
+
+animation:growLine .8s ease forwards;
+
+}
+
+#boot-mycelium.visible .l2{
+
+animation:growLine .9s ease .12s forwards;
+
+}
+
+#boot-mycelium.visible .l3{
+
+animation:growLine .85s ease .22s forwards;
+
+}
+
+@keyframes growLine{
+
+to{
+
+stroke-dashoffset:0;
+
+}
+
+}
+
+.boot-cursor{
+
+display:inline-block;
+
+margin-left:2px;
+
+animation:blink .9s steps(1) infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:0;
+
+}
+
+}
+
+/* ==========================================
+   SYNCHRONIZATION PULSE
+========================================== */
+
+#boot-engine.sync{
+
+animation:syncPulse .22s ease;
+}
+
+@keyframes syncPulse{
+
+0%{
+
+filter:brightness(1);
+
+}
+
+35%{
+
+filter:brightness(1.25);
+
+}
+
+100%{
+
+filter:brightness(1);
+
+}
+
+}
+
+#boot-terminal.sync{
+
+animation:terminalShift .18s linear;
+}
+
+@keyframes terminalShift{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+20%{
+
+transform:translateX(-2px);
+
+}
+
+45%{
+
+transform:translateX(2px);
+
+}
+
+70%{
+
+transform:translateX(-1px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
 
 }

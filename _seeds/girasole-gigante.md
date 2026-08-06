@@ -59,7 +59,7 @@ istruzioni_semina:
 
 istruzioni_coltivazione:
 
-difficolta_coltivazione: 
+difficolta_coltivazione: 2
 
 sensibilita_gelo: non resistente
 
@@ -95,7 +95,7 @@ selezione:
 
 habitat: 
 
-suolo: 
+suolo: indifferente
 
 impollinatori: 
 
@@ -126,7 +126,7 @@ bibliografia:
 # ==========================
 
 annotazioni: 
-
+ le limacce sono ghiotte di germogli, da tenere presente al momento della semina diretta. Anche gli uccelli talvolta vanno a banchettare non appena viene eseguita la semina.
 # ==========================
 # CRONOLOGIA
 # ==========================

@@ -285,3 +285,17 @@ updatePulse();
 }
 
 animate();
+
+window.SG = window.SG || {};
+
+SG.networkPulse=function(){
+
+document.body.classList.add("network-pulse");
+
+setTimeout(()=>{
+
+document.body.classList.remove("network-pulse");
+
+},220);
+
+}

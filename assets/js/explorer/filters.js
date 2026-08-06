@@ -144,3 +144,4 @@ seed.element.style.display !== "none"
 
 });
 
+SG.kernel.register("filters",{});
