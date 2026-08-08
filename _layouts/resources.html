@@ -1,0 +1,455 @@
+---
+layout: application
+---
+
+<main class="resources-page">
+
+    <header class="resources-header">
+
+        <div class="resources-kicker">
+            SOIL GENESIS / KNOWLEDGE ARCHIVE
+        </div>
+
+        <h1>RISORSE</h1>
+
+        <p class="resources-intro">
+            Una rete di conoscenze, persone, archivi e strumenti
+            dedicati alla conservazione, riproduzione e circolazione
+            delle sementi.
+        </p>
+
+    </header>
+
+
+    <!-- ==========================================
+         ARCHIVE STATUS
+    =========================================== -->
+
+    <section class="resources-status">
+
+        <div class="resource-stat">
+
+            <span class="resource-stat-label">
+                TOTAL RESOURCES
+            </span>
+
+            <strong id="resources-total">
+                000
+            </strong>
+
+        </div>
+
+
+        <div class="resource-stat">
+
+            <span class="resource-stat-label">
+                CORE NODES
+            </span>
+
+            <strong id="resources-core">
+                000
+            </strong>
+
+        </div>
+
+
+        <div class="resource-stat">
+
+            <span class="resource-stat-label">
+                ACTIVE
+            </span>
+
+            <strong id="resources-active">
+                000
+            </strong>
+
+        </div>
+
+
+        <div class="resource-stat">
+
+            <span class="resource-stat-label">
+                LAST SYNCHRONIZATION
+            </span>
+
+            <strong>
+                08.08.2026
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         CONTROLS
+    =========================================== -->
+
+    <section class="resources-controls">
+
+
+        <div class="resources-search">
+
+            <label for="resource-search">
+                SEARCH RESOURCE
+            </label>
+
+            <input
+                id="resource-search"
+                type="search"
+                placeholder="nome, argomento, tag..."
+                autocomplete="off">
+
+        </div>
+
+
+        <nav
+            id="resource-categories"
+            class="resource-categories"
+            aria-label="Categorie risorse">
+
+            <button
+                type="button"
+                class="resource-category active"
+                data-category="all">
+                TUTTE
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="youtube">
+                CANALI YOUTUBE
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="seeds">
+                SEMENTI ONLINE
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="associations">
+                ASSOCIAZIONI & SEEDSAVERS
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="guides">
+                GUIDE GRATUITE
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="books">
+                LIBRI
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="research">
+                RICERCA & DOCUMENTAZIONE
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="tools">
+                STRUMENTI
+            </button>
+
+            <button
+                type="button"
+                class="resource-category"
+                data-category="nurseries">
+                VIVAI & PRODUTTORI
+            </button>
+
+        </nav>
+
+
+        <div
+            id="resource-types"
+            class="resource-types">
+
+            <button
+                type="button"
+                class="resource-type-filter active"
+                data-type="all">
+                TUTTI I TIPI
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         RESOURCE LIST
+    =========================================== -->
+
+    <section
+        id="resources-list"
+        class="resources-list">
+
+        {% assign resources = site.resources
+            | sort: "title" %}
+
+        {% for resource in resources %}
+
+            <article
+                class="resource-card"
+
+                data-category="{{ resource.category }}"
+
+                data-type="{{ resource.type }}"
+
+                data-relevance="{{ resource.relevance }}"
+
+                data-status="{{ resource.status }}"
+
+                data-search="
+                    {{ resource.title }}
+                    {{ resource.description }}
+                    {{ resource.tags | join: ' ' }}
+                    {{ resource.area | join: ' ' }}
+                    {{ resource.language | join: ' ' }}
+                    {{ resource.type }}
+                ">
+
+
+                <!-- META -->
+
+                <div class="resource-card-meta">
+
+                    <span class="resource-type-label">
+                        {{ resource.type }}
+                    </span>
+
+
+                    {% if resource.relevance == "core" %}
+
+                        <span class="resource-relevance">
+                            CORE
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <!-- TITLE -->
+
+                <h2>
+                    {{ resource.title }}
+                </h2>
+
+
+                <!-- DESCRIPTION -->
+
+                <p class="resource-description">
+                    {{ resource.description }}
+                </p>
+
+
+                <!-- TAGS -->
+
+                {% if resource.tags %}
+
+                    <div class="resource-tags">
+
+                        {% for tag in resource.tags %}
+
+                            <span>
+                                {{ tag }}
+                            </span>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+<section class="resource-access">
+
+    <div class="resource-access-label">
+        ACCESS / ECONOMIC MODEL
+    </div>
+
+
+    {% if resource.access_model == "free" %}
+
+        <div class="resource-access-value free">
+
+            <span class="access-symbol">●</span>
+
+            COMPLETAMENTE GRATUITO
+
+        </div>
+
+
+    {% elsif resource.access_model == "free-paid" %}
+
+        <div class="resource-access-value free-paid">
+
+            <span class="access-symbol">◐</span>
+
+            GRATUITO + EXTRA A PAGAMENTO
+
+        </div>
+
+
+    {% elsif resource.access_model == "membership" %}
+
+        <div class="resource-access-value membership">
+
+            <span class="access-symbol">◉</span>
+
+            QUOTA ASSOCIATIVA
+
+        </div>
+
+
+    {% elsif resource.access_model == "paid" %}
+
+        <div class="resource-access-value paid">
+
+            <span class="access-symbol">$</span>
+
+            ACCESSO A PAGAMENTO
+
+        </div>
+
+
+    {% elsif resource.access_model == "donation" %}
+
+        <div class="resource-access-value donation">
+
+            <span class="access-symbol">◇</span>
+
+            DONAZIONI VOLONTARIE
+
+        </div>
+
+    {% endif %}
+
+
+    {% if resource.access_notes %}
+
+        <div class="resource-access-notes">
+
+            {{ resource.access_notes }}
+
+        </div>
+
+    {% endif %}
+
+
+    {% if resource.price %}
+
+        <div class="resource-price">
+
+            {{ resource.price }}
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+                <!-- BADGES -->
+
+                <div class="resource-badges">
+
+    {% if resource.area %}
+
+        {% for area in resource.area %}
+
+            <span class="resource-badge">
+                {{ area }}
+            </span>
+
+        {% endfor %}
+
+    {% endif %}
+
+
+    {% if resource.language %}
+
+        {% for language in resource.language %}
+
+            <span class="resource-badge">
+                {{ language }}
+            </span>
+
+        {% endfor %}
+
+    {% endif %}
+
+
+    {% if resource.organization_type %}
+
+        <span class="resource-badge">
+            {{ resource.organization_type
+                | replace: "-", " " }}
+        </span>
+
+    {% endif %}
+
+</div>
+
+
+                <!-- FOOTER -->
+
+                <div class="resource-card-footer">
+
+                    {% if resource.verified %}
+
+                        <span class="resource-verified">
+                            VERIFIED {{ resource.verified }}
+                        </span>
+
+                    {% endif %}
+
+
+                    {% if resource.url %}
+
+                        <a
+                            href="{{ resource.url }}"
+                            target="_blank"
+                            rel="noopener noreferrer">
+
+                            ACCESS RESOURCE →
+
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+
+            </article>
+
+        {% endfor %}
+
+    </section>
+
+
+    <!-- EMPTY -->
+
+    <div
+        id="resources-empty"
+        class="resources-empty"
+        hidden>
+
+        NO MATCHING RESOURCES.
+
+    </div>
+
+</main>

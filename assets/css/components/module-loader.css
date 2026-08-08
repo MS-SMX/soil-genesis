@@ -1,10 +1,8 @@
-#module-loader{
+#transition-layer{
 
 position:fixed;
 
 inset:0;
-
-background:rgba(4,8,8,.93);
 
 display:flex;
 
@@ -12,25 +10,29 @@ justify-content:center;
 
 align-items:center;
 
+background:rgba(4,8,8,.92);
+
+backdrop-filter:blur(3px);
+
 opacity:0;
 
 pointer-events:none;
 
-transition:opacity .18s;
+transition:opacity .18s ease;
 
-z-index:9999;
-
-backdrop-filter:blur(3px);
+z-index:30000;
 
 }
 
-#module-loader.visible{
+#transition-layer.active{
 
 opacity:1;
 
+pointer-events:auto;
+
 }
 
-.loader-terminal{
+.transition-box{
 
 width:520px;
 
@@ -40,39 +42,58 @@ font-family:"IBM Plex Mono",monospace;
 
 color:var(--primary);
 
+animation:loaderAppear .18s;
+
 }
 
-.loader-title{
+.transition-title{
+
+font-size:.95rem;
 
 letter-spacing:.35em;
 
-opacity:.5;
-
-margin-bottom:22px;
+margin-bottom:18px;
 
 }
 
-#loader-line1,
-#loader-line2,
-#loader-line3{
+.transition-status{
 
-height:1.4em;
+opacity:.55;
+
+font-size:.78rem;
+
+margin-bottom:18px;
 
 }
 
-.loader-cursor{
-
-display:block;
-
-width:10px;
+.transition-bar{
 
 height:2px;
 
-margin-top:12px;
+background:rgba(122,215,202,.18);
+
+overflow:hidden;
+
+}
+
+.transition-progress{
+
+width:0;
+
+height:100%;
 
 background:var(--primary);
 
+box-shadow:0 0 8px rgba(122,215,202,.45);
+
+transition:width .28s cubic-bezier(.2,.8,.2,1);
+}
+
+.transition-cursor{
+
 animation:blink .8s infinite;
+
+margin-left:4px;
 
 }
 
@@ -86,19 +107,13 @@ opacity:0;
 
 }
 
-.loader-terminal{
-
-animation:loaderAppear .18s;
-
-}
-
 @keyframes loaderAppear{
 
 0%{
 
-transform:translateY(6px);
-
 opacity:0;
+
+transform:translateY(5px);
 
 filter:blur(2px);
 
@@ -108,15 +123,63 @@ filter:blur(2px);
 
 transform:translateX(-2px);
 
-filter:hue-rotate(18deg);
-
 }
 
 70%{
 
 transform:translateX(1px);
 
+}
+
+100%{
+
+opacity:1;
+
+transform:none;
+
 filter:none;
+
+}
+
+}
+
+/* ==========================================
+   PRE TRANSITION GLITCH
+========================================== */
+
+body.module-switch{
+
+animation:moduleGlitch .12s linear;
+
+}
+
+@keyframes moduleGlitch{
+
+0%{
+
+transform:translateX(0);
+
+filter:none;
+
+}
+
+20%{
+
+transform:translateX(-2px);
+
+filter:brightness(1.08);
+
+}
+
+45%{
+
+transform:translateX(2px);
+
+}
+
+70%{
+
+transform:translateX(-1px);
 
 }
 
@@ -124,28 +187,8 @@ filter:none;
 
 transform:none;
 
-opacity:1;
-
 filter:none;
 
 }
-
-}
-
-#loader-output{
-
-display:flex;
-
-flex-direction:column;
-
-gap:8px;
-
-min-height:140px;
-
-font-size:.82rem;
-
-line-height:1.6;
-
-letter-spacing:.06em;
 
 }

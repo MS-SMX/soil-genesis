@@ -35,6 +35,9 @@ href="{{ '/assets/css/components/module.css' | relative_url }}">
 <link rel="stylesheet"href="{{ '/assets/css/components/dossier-navigation.css' | relative_url }}">
 <link rel="stylesheet"
 href="{{ '/assets/css/pages/explorer-header.css' | relative_url }}">
+<link
+    rel="stylesheet"
+    href="{{ '/assets/css/pages/resources.css' | relative_url }}">
 </head>
 
 <body>
@@ -50,17 +53,16 @@ href="{{ '/assets/css/pages/explorer-header.css' | relative_url }}">
 </main>
 
 {% include footer.html %}
+<script src="{{ '/assets/js/kernel/kernel.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/kernel/events.js' | relative_url }}"></script>
 
 <script src="{{ '/assets/js/engine/network.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/media-viewer.js' | relative_url }}"></script>
+
 <script src="{{ '/assets/js/explorer/archive.js' | relative_url }}"></script>
-
 <script src="{{ '/assets/js/explorer/sidebar.js' | relative_url }}"></script>
-
 <script src="{{ '/assets/js/explorer/search.js' | relative_url }}"></script>
-
 <script src="{{ '/assets/js/explorer/filters.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/explorer/toolbar.js' | relative_url }}"></script>
-</body>
-
+<script src="{{ '/assets/js/resources.js' | relative_url }}"></script>
 </html>

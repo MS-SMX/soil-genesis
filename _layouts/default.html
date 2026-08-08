@@ -48,7 +48,6 @@ href="{{ '/assets/css/components/module-loader.css' | relative_url }}">
 
 {% include boot.html %}
 {% include navbar.html %}
-{% include module-loader.html %}
 
 <main class="os-layout">
 
@@ -61,7 +60,7 @@ href="{{ '/assets/css/components/module-loader.css' | relative_url }}">
 
 
 </main>
-
+<script src="{{ '/assets/js/boot/engine.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/kernel/kernel.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/kernel/events.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/kernel/typewriter.js' | relative_url }}"></script>
@@ -72,7 +71,7 @@ href="{{ '/assets/css/components/module-loader.css' | relative_url }}">
 
 <script src="{{ '/assets/js/engine/window.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/engine/activity.js' | relative_url }}"></script>
-
+<script src="{{ '/assets/js/engine/transition.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/engine/clock.js' | relative_url }}"></script>
 
 <script src="{{ '/assets/js/engine/search.js' | relative_url }}"></script>
@@ -89,7 +88,7 @@ href="{{ '/assets/css/components/module-loader.css' | relative_url }}">
 <script src="{{ '/assets/js/module.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/media-viewer.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/home/monthly.js' | relative_url }}"></script>
-<script src="{{ '/assets/js/kernel/loader.js' | relative_url }}"></script>
+<!-- <script src="{{ '/assets/js/kernel/loader.js' | relative_url }}"></script>--->
 {% include footer.html %}
 
 </body>

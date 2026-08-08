@@ -1,91 +1,108 @@
 window.SG = window.SG || {};
 
-SG.filters={};
+SG.filters = SG.filters || {};
 
 function unique(field){
 
-return [...new Set(
+    return [
+        ...new Set(
 
-SG.archive
+            SG.archive
 
-.flatMap(seed =>
+                .flatMap(seed =>
+                    (seed[field] || "").split("|")
+                )
 
-(seed[field] || "").split("|")
+                .filter(Boolean)
 
-)
-
-.filter(Boolean)
-
-)].sort();
-
-}
-function buildFilters(){
-
-const root=document.querySelector("#explorer-filters");
-
-if(!root)return;
-
-const sections=[
-
-["Conservazione","status"],
-
-["Famiglia","family"],
-
-["Ciclo di vita","cycle"],
-
-["Impollinazione","pollination"]
-
-];
-
-sections.forEach(([title,key])=>{
-
-const group=document.createElement("div");
-
-group.className="filter-group";
-
-group.innerHTML=`<h4>${title}</h4>`;
-
-unique(key).forEach(value=>{
-
-const id=`${key}-${value}`;
-
-group.innerHTML+=`
-
-<label>
-
-<input
-type="checkbox"
-
-data-filter="${key}"
-
-value="${value}"
-
-id="${id}">
-
-${value.replaceAll("-"," ")}
-
-</label>
-
-`;
-
-});
-
-root.appendChild(group);
-
-});
+        )
+    ].sort();
 
 }
 
+
 function buildFilters(){
 
-const root=document.querySelector("#explorer-filters");
+    const root =
+        document.querySelector("#explorer-filters");
 
-if(!root)return;
+    if(!root) return;
 
-root.innerHTML="";}
+    root.innerHTML = "";
 
-SG.kernel.register("sidebar",{
+    const sections = [
 
-build:buildFilters
+        ["Conservazione","status"],
+        ["Famiglia","family"],
+        ["Ciclo di vita","cycle"],
+        ["Impollinazione","pollination"]
 
-});
+    ];
+
+
+    sections.forEach(([title,key]) => {
+
+        const group =
+            document.createElement("div");
+
+        group.className = "filter-group";
+
+
+        const heading =
+            document.createElement("h4");
+
+        heading.textContent = title;
+
+        group.appendChild(heading);
+
+
+        unique(key).forEach(value => {
+
+            const label =
+                document.createElement("label");
+
+            const input =
+                document.createElement("input");
+
+            input.type = "checkbox";
+
+            input.dataset.filter = key;
+
+            input.value = value;
+
+            input.id = `${key}-${value}`;
+
+
+            label.appendChild(input);
+
+            label.appendChild(
+                document.createTextNode(
+                    " " + value.replaceAll("-"," ")
+                )
+            );
+
+
+            group.appendChild(label);
+
+        });
+
+
+        root.appendChild(group);
+
+    });
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        buildFilters();
+
+        SG.kernel.register("sidebar",{
+            build:buildFilters
+        });
+
+    }
+);

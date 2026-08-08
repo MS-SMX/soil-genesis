@@ -1,147 +1,215 @@
 window.SG = window.SG || {};
 
-document.addEventListener("change",()=>{
 
-document.dispatchEvent(
+function applyFilters(){
 
-new CustomEvent("sg:update")
-
-);
-
-});
-
-document.addEventListener("sg:update",()=>{
-
-const active={};
-
-document
-
-.querySelectorAll(
-
-"#explorer-filters input:checked"
-
-)
-
-.forEach(box=>{
-
-const key=box.dataset.filter;
-
-active[key]=active[key]||[];
-
-active[key].push(box.value);
-
-});
-
-SG.archive.forEach(seed=>{
-
-let visible=true;
-
-if(
-
-SG.search.length &&
-
-!seed.text.includes(SG.search)
-
-){
-
-visible=false;
+    const active = {};
 
 
-}
+    document
+        .querySelectorAll(
+            "#explorer-filters input:checked"
+        )
+        .forEach(box => {
 
-const panel=document.querySelector("#active-filters");
+            const key =
+                box.dataset.filter;
 
-if(panel){
+            active[key] =
+                active[key] || [];
 
-panel.innerHTML="";
+            active[key].push(box.value);
 
-Object.entries(active).forEach(([key,list])=>{
+        });
 
-list.forEach(value=>{
 
-const badge=document.createElement("div");
+    SG.archive.forEach(seed => {
 
-badge.className="active-filter";
+        let visible = true;
 
-badge.innerHTML=`
 
-${value.replaceAll("-"," ")}
+        /*
+         * SEARCH
+         */
 
-<span>×</span>
+        if(
+            SG.search &&
+            !seed.text.includes(SG.search)
+        ){
 
-`;
+            visible = false;
 
-badge.onclick=()=>{
+        }
 
-const checkbox=document.querySelector(
 
-`input[data-filter="${key}"][value="${value}"]`
+        /*
+         * FILTERS
+         */
 
-);
+        Object.entries(active).forEach(
+            ([key,list]) => {
 
-if(checkbox){
+                const values =
+                    (seed[key] || "").split("|");
 
-checkbox.checked=false;
+                const match =
+                    values.some(
+                        value => list.includes(value)
+                    );
 
-document.dispatchEvent(
+                if(!match){
 
-new CustomEvent("sg:update")
+                    visible = false;
 
-);
+                }
 
-}
+            }
+        );
 
-};
 
-panel.appendChild(badge);
+        seed.element.style.display =
+            visible ? "" : "none";
 
-});
+    });
 
-});
 
-}
+    /*
+     * ACTIVE FILTERS
+     */
 
-Object.entries(active).forEach(([key, list]) => {
+    const panel =
+        document.querySelector("#active-filters");
 
-    if (!list.length) return;
 
-    const values = (seed[key] || "").split("|");
+    if(panel){
 
-    const match = values.some(v => list.includes(v));
+        panel.innerHTML = "";
 
-    if (!match) {
 
-        visible = false;
+        Object.entries(active).forEach(
+            ([key,list]) => {
+
+                list.forEach(value => {
+
+                    const badge =
+                        document.createElement("div");
+
+                    badge.className =
+                        "active-filter";
+
+
+                    badge.innerHTML = `
+
+                        ${value.replaceAll("-"," ")}
+
+                        <span>×</span>
+
+                    `;
+
+
+                    badge.addEventListener(
+                        "click",
+                        () => {
+
+                            const checkbox =
+                                document.querySelector(
+                                    `input[data-filter="${key}"][value="${value}"]`
+                                );
+
+
+                            if(checkbox){
+
+                                checkbox.checked = false;
+
+                                applyFilters();
+
+                            }
+
+                        }
+                    );
+
+
+                    panel.appendChild(badge);
+
+                });
+
+            }
+        );
 
     }
 
-});
 
-seed.element.style.display=
+    /*
+     * COUNTER
+     */
 
-visible
-
-? ""
-
-:"none";
-
-});
+    const counter =
+        document.querySelector(
+            "#explorer-count"
+        );
 
 
-const counter=document.querySelector("#explorer-count");
+    if(counter){
 
-if(counter){
+        counter.textContent =
 
-counter.textContent=
+            SG.archive.filter(seed =>
 
-SG.archive.filter(seed=>
+                seed.element.style.display !== "none"
 
-seed.element.style.display !== "none"
+            ).length;
 
-).length;
+    }
 
 }
 
-});
 
-SG.kernel.register("filters",{});
+/*
+ * CHECKBOX
+ */
+
+document.addEventListener(
+    "change",
+    event => {
+
+        if(
+            event.target.matches(
+                "#explorer-filters input"
+            )
+        ){
+
+            applyFilters();
+
+        }
+
+    }
+);
+
+
+/*
+ * SEARCH / OTHER MODULES
+ *
+ * Search.js modifica SG.search e
+ * genera sg:update.
+ */
+
+document.addEventListener(
+    "sg:update",
+    () => {
+
+        applyFilters();
+
+    }
+);
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        SG.kernel.register("filters",{
+            update:applyFilters
+        });
+
+    }
+);

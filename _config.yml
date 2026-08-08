@@ -14,3 +14,6 @@ collections:
   seeds:
     output: true
     permalink: /sementi/:name/
+
+  resources:
+    output: false

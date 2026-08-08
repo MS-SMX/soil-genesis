@@ -1,5 +1,25 @@
 window.SG = window.SG || {};
 
+SG.kernel = SG.kernel || {
+
+    modules: {},
+
+    register(name, module) {
+
+        this.modules[name] = module;
+
+    },
+
+    get(name) {
+
+        return this.modules[name];
+
+    }
+
+};
+
+SG.search = SG.search || "";
+
 SG.bootEngine={
 
 container:null,

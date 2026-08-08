@@ -1,87 +1,99 @@
-document.addEventListener("DOMContentLoaded",()=>{
+console.log("Transition engine loaded");
+document.addEventListener("DOMContentLoaded", () => {
 
-const layer=document.createElement("div");
+    const links = document.querySelectorAll("a");
 
-layer.id="transition-layer";
+    links.forEach(link => {
 
-layer.innerHTML=`
-<div class="transition-box">
+        const href = link.getAttribute("href");
 
-<div class="transition-title">
+        if (
+            !href ||
+            href.startsWith("#") ||
+            href.startsWith("mailto:") ||
+            href.startsWith("tel:") ||
+            link.target === "_blank" ||
+            link.hasAttribute("download")
+        ) {
+            return;
+        }
 
-<span id="transition-text">
+        link.addEventListener("click", e => {
 
-LOADING MODULE
+            if (e.ctrlKey || e.metaKey || e.shiftKey) return;
 
-</span>
+            e.preventDefault();
+            console.log("Transition click:", href);
 
-<span class="transition-cursor">
+            const loadingMessages = [
+                "SYNCING MYCORRHIZAL NETWORK",
+                "MOUNTING SEED ARCHIVE",
+                "VERIFYING BOTANICAL MEMORY",
+                "RECOVERING GENETIC INDEX",
+                "LOADING ACCESSION DATABASE",
+                "SYNCHRONIZING NODE"
+            ];
 
-_
+            const message =
+                loadingMessages[
+                    Math.floor(Math.random() * loadingMessages.length)
+                ];
 
-</span>
+            document.body.classList.add("module-switch");
 
-</div>
+            setTimeout(() => {
+                document.body.classList.remove("module-switch");
+            }, 120);
 
-<div class="transition-status">
+            const layer = document.createElement("div");
+            layer.id = "transition-layer";
 
-NODE VERIFIED
+            layer.innerHTML = `
+                <div class="transition-box">
 
-</div>
+                    <div class="transition-title">
+                        LOADING MODULE
+                        <span class="transition-cursor">█</span>
+                    </div>
 
-<div class="transition-bar">
+                    <div
+                        id="transition-text"
+                        class="transition-status">
+                        ${message}
+                    </div>
 
-<div class="transition-progress"></div>
+                    <div class="transition-bar">
+                        <div class="transition-progress"></div>
+                    </div>
 
-</div>
+                </div>
+            `;
 
-</div>
-`;
+            document.body.appendChild(layer);
+console.log(layer);
+            const progress =
+                layer.querySelector(".transition-progress");
 
-document.body.appendChild(layer);
+            requestAnimationFrame(() => {
 
-document.querySelectorAll("a").forEach(link=>{
+                layer.classList.add("active");
 
-const href=link.getAttribute("href");
+                requestAnimationFrame(() => {
+                    progress.style.width = "100%";
+                });
 
-if(
+            });
 
-!href ||
+            if (window.SG && typeof SG.networkPulse === "function") {
+                SG.networkPulse();
+            }
 
-href.startsWith("#") ||
+            setTimeout(() => {
+                window.location.href = href;
+            }, 420);
 
-href.startsWith("http") ||
+        });
 
-link.target==="_blank"
-
-){
-
-return;
-
-}
-
-link.addEventListener("click",e=>{
-
-e.preventDefault();
-
-if(window.SG && SG.networkPulse){
-
-SG.networkPulse();
-
-}
-
-layer.classList.add("active");
-
-setTimeout(()=>{
-document.querySelector("#transition-text").textContent=
-
-"SYNCING MYCORRHIZAL NETWORK";
-window.location.href=href;
-
-},180);
-
-});
-
-});
+    });
 
 });
