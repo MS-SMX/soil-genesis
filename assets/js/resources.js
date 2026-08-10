@@ -29,6 +29,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let activeType = "all";
 
+const allTypeButton =
+    document.querySelector(
+        '.resource-type-filter[data-type="all"]'
+    );
+
+
+if (allTypeButton) {
+
+    allTypeButton.addEventListener(
+        "click",
+        () => {
+
+            activeType = "all";
+
+
+            typeContainer
+
+                .querySelectorAll(
+                    ".resource-type-filter"
+                )
+
+                .forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
+
+
+            allTypeButton.classList.add("active");
+
+
+            filterResources();
+
+        }
+    );
+
+}
+    /*
+     * ==========================================
+     * NORMALIZE TYPES
+     * ==========================================
+     */
+
+    function getTypes(card) {
+
+        return (card.dataset.type || "")
+            .split("|")
+            .map(type => type.trim())
+            .filter(Boolean);
+
+    }
+
 
     /*
      * ==========================================
@@ -41,13 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             [...cards]
 
-                .map(card =>
-                    card.dataset.type
+                .flatMap(card =>
+                    getTypes(card)
                 )
 
-                .filter(Boolean)
-
         )
+
     ].sort();
 
 
@@ -73,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "click",
                 () => {
 
-                    document
+                    typeContainer
 
                         .querySelectorAll(
                             ".resource-type-filter"
@@ -128,8 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.dataset.category || "";
 
 
-            const type =
-                card.dataset.type || "";
+            const types =
+                getTypes(card);
 
 
             const text =
@@ -144,11 +196,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 category === activeCategory;
 
 
+            /*
+             * A resource with multiple types
+             * matches if ANY type is selected.
+             */
+
             const typeMatch =
 
                 activeType === "all" ||
 
-                type === activeType;
+                types.includes(activeType);
 
 
             const searchMatch =
@@ -222,39 +279,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 /*
-                 * Reset type when changing
-                 * category.
+                 * Category changes reset
+                 * the type filter.
                  */
 
-                activeType = "all";
-
-
-                document
-
-                    .querySelectorAll(
-                        ".resource-type-filter"
-                    )
-
-                    .forEach(
-                        item =>
-                            item.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                const allType =
-                    document.querySelector(
-                        '.resource-type-filter[data-type="all"]'
-                    );
-
-
-                if (allType) {
-
-                    allType.classList.add("active");
-
-                }
-
+                resetTypeFilter();
 
                 filterResources();
 
@@ -262,6 +291,51 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
     });
+
+
+    /*
+     * ==========================================
+     * RESET TYPE FILTER
+     * ==========================================
+     */
+
+    function resetTypeFilter() {
+
+        activeType = "all";
+
+
+        if (!typeContainer) {
+            return;
+        }
+
+
+        typeContainer
+
+            .querySelectorAll(
+                ".resource-type-filter"
+            )
+
+            .forEach(
+                item =>
+                    item.classList.remove(
+                        "active"
+                    )
+            );
+
+
+        const allType =
+            typeContainer.querySelector(
+                '[data-type="all"]'
+            );
+
+
+        if (allType) {
+
+            allType.classList.add("active");
+
+        }
+
+    }
 
 
     /*
@@ -359,6 +433,8 @@ document.addEventListener("DOMContentLoaded", () => {
      * INITIAL STATE
      * ==========================================
      */
+
+    resetTypeFilter();
 
     filterResources();
 

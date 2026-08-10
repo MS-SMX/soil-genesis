@@ -1,0 +1,130 @@
+---
+layout: default
+---
+
+<div class="recipes-page recipe-list-page">
+
+    <header class="recipes-header">
+
+        <div class="recipes-kicker">
+            SOIL GENESIS // RECIPES
+        </div>
+
+        <div class="recipe-breadcrumb">
+            <a href="{{ '/ricette/' | relative_url }}">
+                ← RICETTE
+            </a>
+        </div>
+
+        <h1>{{ page.region_title }}</h1>
+
+        <p class="recipes-intro">
+            Ricette associate a questa area geografica.
+        </p>
+
+    </header>
+
+
+    <section class="recipe-list">
+
+        {% assign found = false %}
+
+        {% for recipe in site.recipes %}
+
+            {% if recipe.regions contains page.region_id %}
+
+                {% assign found = true %}
+
+                <article class="recipe-card">
+
+    <a
+        href="{{ recipe.url | relative_url }}"
+        class="recipe-card-link">
+
+        {% if recipe.image %}
+
+            <div class="recipe-card-image">
+
+                <img
+                    src="{{ recipe.image | relative_url }}"
+                    alt="{{ recipe.title }}"
+                    loading="lazy">
+
+            </div>
+
+        {% endif %}
+
+
+        <div class="recipe-card-content">
+
+            {% if recipe.categories %}
+
+                <div class="recipe-card-meta">
+
+                    {% for category in recipe.categories %}
+
+                        <span>
+                            {{ category
+                               | replace: "-", " " }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+
+            <h2>
+                {{ recipe.title }}
+            </h2>
+
+
+            {% if recipe.description %}
+
+                <p>
+                    {{ recipe.description }}
+                </p>
+
+            {% endif %}
+
+
+            {% if recipe.soil_genesis_ingredients
+                  and recipe.soil_genesis_ingredients.size > 0 %}
+
+                <div class="recipe-soil-marker">
+                    SOIL GENESIS
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </a>
+
+</article>
+
+            {% endif %}
+
+        {% endfor %}
+
+
+        {% unless found %}
+
+            <div class="recipe-empty">
+
+                <span>
+                    NO RECIPES INDEXED
+                </span>
+
+                <p>
+                    Questa area non contiene ancora ricette.
+                </p>
+
+            </div>
+
+        {% endunless %}
+
+    </section>
+
+</div>

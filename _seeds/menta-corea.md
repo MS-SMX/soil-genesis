@@ -15,6 +15,10 @@ immagini:
 
   - file: fiore.jpg
     titolo: fiore
+  - file: fiore2.jpg
+    titolo: fiore
+  - file: fiore3.jpg
+    titolo: fiore
 
 
 stato_conservazione: da rigenerare
@@ -23,7 +27,7 @@ provenienza: Sativa
 
 ultimo_anno_riproduzione: 2024
 
-description: Decorativa, profumata, un singolo esemplare attira decine di insetti impollinatori. Perenne se le gelate non sono troppo forti; tagliare alla base i rami dell'anno a fine stagione e pacciamare.
+description: Decorativa, profumata, un singolo esemplare attira decine di insetti impollinatori. Perenne se le gelate non sono troppo forti; tagliare alla base i rami dell'anno a fine stagione e pacciamare. Cresce a cespuglio.
 
 # ==========================
 # BIOLOGIA

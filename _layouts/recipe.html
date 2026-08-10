@@ -1,0 +1,343 @@
+---
+layout: default
+---
+
+<article class="recipe-page">
+
+    <header class="recipe-header">
+
+        <div class="recipes-kicker">
+            SOIL GENESIS // RECIPES
+        </div>
+
+        <div class="recipe-breadcrumb">
+            <a href="{{ '/ricette/' | relative_url }}">
+                ← RICETTE
+            </a>
+        </div>
+{% if page.image %}
+
+    <div class="recipe-hero">
+
+        <img
+            src="{{ page.image | relative_url }}"
+            alt="{{ page.title }}"
+            loading="eager">
+
+    </div>
+
+{% endif %}
+        <div class="recipe-header-content">
+
+            <div class="recipe-header-main">
+
+                <div class="recipe-category-links">
+
+                    {% for category in page.categories %}
+
+                        <a
+                            href="{{ '/ricette/categoria/' | append: category | append: '/' | relative_url }}">
+
+                            {{ category | replace: "-", " " }}
+
+                        </a>
+
+                    {% endfor %}
+
+                </div>
+
+                <h1>{{ page.title }}</h1>
+
+                {% if page.description %}
+
+                    <p class="recipe-description">
+                        {{ page.description }}
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+            {% if page.regions and page.regions.size > 0 %}
+
+                <div class="recipe-region">
+
+                    <span class="recipe-label">
+                        AREA GEOGRAFICA
+                    </span>
+
+                    {% for region in page.regions %}
+
+                        <a
+                            href="{{ '/ricette/regione/' | append: region | append: '/' | relative_url }}">
+
+                            {{ region | replace: "-", " " }}
+
+                        </a>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+    </header>
+
+
+    <div class="recipe-meta-grid">
+
+        {% if page.preparation_time %}
+
+            <div class="recipe-meta-item">
+
+                <span class="recipe-label">
+                    PREPARAZIONE
+                </span>
+
+                <strong>
+                    {{ page.preparation_time }}
+                </strong>
+
+            </div>
+
+        {% endif %}
+
+
+        {% if page.cooking_time %}
+
+            <div class="recipe-meta-item">
+
+                <span class="recipe-label">
+                    COTTURA
+                </span>
+
+                <strong>
+                    {{ page.cooking_time }}
+                </strong>
+
+            </div>
+
+        {% endif %}
+
+
+        {% if page.servings %}
+
+            <div class="recipe-meta-item">
+
+                <span class="recipe-label">
+                    PORZIONI
+                </span>
+
+                <strong>
+                    {{ page.servings }}
+                </strong>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+
+    <div class="recipe-layout">
+
+
+        <!-- INGREDIENTI -->
+
+        <aside class="recipe-ingredients">
+
+            <div class="recipe-section-label">
+                INGREDIENTI
+            </div>
+
+            <ul>
+
+                {% for ingredient in page.ingredients %}
+
+                    <li
+                        class="{% if ingredient.optional %}ingredient-optional{% endif %}">
+
+                        <span class="ingredient-name">
+
+                            {{ ingredient.name }}
+
+                        </span>
+
+
+                        {% if ingredient.quantity
+                              or ingredient.unit %}
+
+                            <span class="ingredient-quantity">
+
+                                {{ ingredient.quantity }}
+                                {{ ingredient.unit }}
+
+                            </span>
+
+                        {% endif %}
+
+                    </li>
+
+                {% endfor %}
+
+            </ul>
+
+        </aside>
+
+
+        <!-- PREPARAZIONE -->
+
+        <section class="recipe-method">
+
+            <div class="recipe-section-label">
+                PREPARAZIONE
+            </div>
+
+            <ol>
+
+                {% for step in page.steps %}
+
+                    <li>
+
+                        <div class="recipe-step">
+                            {{ step }}
+                        </div>
+
+                    </li>
+
+                {% endfor %}
+
+            </ol>
+
+        </section>
+
+    </div>
+
+
+    <!-- SOIL GENESIS -->
+
+    {% if page.soil_genesis_ingredients
+          and page.soil_genesis_ingredients.size > 0 %}
+
+        <section class="recipe-soil">
+
+            <div class="recipe-section-label">
+                SOIL GENESIS
+            </div>
+
+            <h2>
+                INGREDIENTI DELL'ARCHIVIO
+            </h2>
+
+            <p>
+                Questa ricetta utilizza ingredienti
+                presenti nell'archivio biologico di Soil Genesis.
+            </p>
+
+
+            <div class="recipe-soil-list">
+
+                {% for ingredient
+                      in page.soil_genesis_ingredients %}
+
+                    <div class="recipe-soil-item">
+
+                        <div>
+
+                            <span class="recipe-label">
+                                INGREDIENTE
+                            </span>
+
+                            <strong>
+                                {{ ingredient.name }}
+                            </strong>
+
+                        </div>
+
+
+                        {% if ingredient.seed
+                              and ingredient.seed != "" %}
+
+                            <a
+                                href="{{ '/sementi/' | append: ingredient.seed | append: '/' | relative_url }}">
+
+                                VEDI SEME →
+
+                            </a>
+
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+
+    <!-- TAG -->
+
+    {% if page.tags and page.tags.size > 0 %}
+
+        <footer class="recipe-footer">
+
+            <div class="recipe-section-label">
+                TAG
+            </div>
+
+            <div class="recipe-tags">
+
+                {% for tag in page.tags %}
+
+                    <span>
+                        {{ tag }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+        </footer>
+
+    {% endif %}
+
+
+    <!-- NOTE -->
+
+    {% if page.notes %}
+
+        <section class="recipe-notes">
+
+            <div class="recipe-section-label">
+                NOTE
+            </div>
+
+            <p>
+                {{ page.notes }}
+            </p>
+
+        </section>
+
+    {% endif %}
+
+
+    {% if page.source %}
+
+        <div class="recipe-source">
+
+            <span class="recipe-label">
+                FONTE
+            </span>
+
+            {{ page.source }}
+
+        </div>
+
+    {% endif %}
+
+</article>

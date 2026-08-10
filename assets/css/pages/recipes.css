@@ -1,0 +1,1655 @@
+.recipes-page{
+
+    max-width:1200px;
+
+    margin:0 auto;
+
+    padding:70px 30px 100px;
+
+}
+
+
+.recipes-header{
+
+    margin-bottom:50px;
+
+}
+
+
+.recipes-kicker{
+
+    font-family:"IBM Plex Mono", monospace;
+
+    font-size:.7rem;
+
+    letter-spacing:.3em;
+
+    opacity:.45;
+
+    margin-bottom:12px;
+
+}
+
+
+.recipes-header h1{
+
+    margin:0;
+
+    font-size:clamp(2rem,5vw,4rem);
+
+    letter-spacing:.08em;
+
+}
+
+
+.recipes-intro{
+
+    max-width:650px;
+
+    margin-top:15px;
+
+    opacity:.65;
+
+}
+
+
+.recipe-breadcrumb{
+
+    margin-bottom:25px;
+
+}
+
+
+.recipe-breadcrumb a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    opacity:.65;
+
+}
+
+
+.recipe-list{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:18px;
+
+}
+
+
+.recipe-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:1px solid
+        rgba(122,215,202,.12);
+
+    background:
+        rgba(8,18,18,.58);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+}
+
+
+.recipe-card-link{
+
+    display:block;
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+
+.recipe-card-content{
+
+    padding:25px;
+
+}
+
+
+.recipe-card-meta{
+
+    display:flex;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:18px;
+
+}
+
+
+.recipe-card-meta span{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    opacity:.45;
+
+}
+
+
+.recipe-card h2{
+
+    margin:0;
+
+    font-size:1.2rem;
+
+    letter-spacing:.04em;
+
+}
+
+
+.recipe-card p{
+
+    margin-top:12px;
+
+    opacity:.6;
+
+    line-height:1.6;
+
+}
+
+
+.recipe-soil-marker{
+
+    margin-top:20px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.62rem;
+
+    letter-spacing:.18em;
+
+    color:var(--primary);
+
+    opacity:.8;
+
+}
+
+
+.recipe-empty{
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    opacity:.55;
+
+}
+
+
+.recipe-empty span{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    letter-spacing:.2em;
+
+}
+
+
+@media(max-width:700px){
+
+    .recipes-page{
+
+        padding:
+            45px 18px 70px;
+
+    }
+
+}
+
+/* ==========================================
+   RECIPE PAGE
+========================================== */
+
+.recipe-page{
+
+    max-width:1150px;
+
+    margin:0 auto;
+
+    padding:70px 30px 110px;
+
+}
+
+
+.recipe-header{
+
+    margin-bottom:35px;
+
+}
+
+
+.recipe-header-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:50px;
+
+    align-items:flex-end;
+
+}
+
+
+.recipe-header-main{
+
+    max-width:780px;
+
+}
+
+
+.recipe-category-links{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+}
+
+
+.recipe-category-links a{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    letter-spacing:.12em;
+
+    text-transform:uppercase;
+
+    color:var(--primary);
+
+    opacity:.65;
+
+    text-decoration:none;
+
+}
+
+
+.recipe-header h1{
+
+    margin:0;
+
+    font-size:clamp(2.4rem,6vw,5rem);
+
+    line-height:1;
+
+    letter-spacing:.04em;
+
+}
+
+
+.recipe-description{
+
+    max-width:680px;
+
+    margin-top:25px;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    opacity:.65;
+
+}
+
+
+.recipe-region{
+
+    min-width:180px;
+
+    padding:18px;
+
+    border-left:1px solid
+        rgba(122,215,202,.2);
+
+}
+
+
+.recipe-region a{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.72rem;
+
+    line-height:1.5;
+
+}
+
+
+.recipe-label{
+
+    display:block;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.6rem;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    opacity:.42;
+
+}
+
+
+.recipe-meta-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    border-top:1px solid
+        rgba(122,215,202,.12);
+
+    border-bottom:1px solid
+        rgba(122,215,202,.12);
+
+    margin-bottom:50px;
+
+}
+
+
+.recipe-meta-item{
+
+    padding:20px;
+
+    border-right:1px solid
+        rgba(122,215,202,.12);
+
+}
+
+
+.recipe-meta-item:last-child{
+
+    border-right:0;
+
+}
+
+
+.recipe-meta-item strong{
+
+    display:block;
+
+    margin-top:7px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.85rem;
+
+    font-weight:400;
+
+}
+
+
+/* ==========================================
+   INGREDIENTS / METHOD
+========================================== */
+
+.recipe-layout{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(260px,360px)
+        1fr;
+
+    gap:70px;
+
+}
+
+
+.recipe-section-label{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    letter-spacing:.22em;
+
+    color:var(--primary);
+
+    opacity:.65;
+
+    margin-bottom:22px;
+
+}
+
+
+.recipe-ingredients{
+
+    background:rgba(8,18,18,.48);
+
+    border:1px solid
+        rgba(122,215,202,.1);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    padding:25px;
+
+}
+
+
+.recipe-ingredients ul{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+}
+
+
+.recipe-ingredients li{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    padding:13px 0;
+
+    border-bottom:1px solid
+        rgba(122,215,202,.07);
+
+    font-size:.9rem;
+
+}
+
+
+.recipe-ingredients li:last-child{
+
+    border-bottom:0;
+
+}
+
+
+.ingredient-name{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.ingredient-alias{
+
+    margin-top:3px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.58rem;
+
+    opacity:.35;
+
+}
+
+
+.ingredient-quantity{
+
+    white-space:nowrap;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.72rem;
+
+    opacity:.65;
+
+}
+
+
+.ingredient-optional{
+
+    opacity:.55;
+
+}
+
+
+/* ==========================================
+   METHOD
+========================================== */
+
+.recipe-method ol{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:0;
+
+    counter-reset:recipe-step;
+
+}
+
+
+.recipe-method li{
+
+    counter-increment:recipe-step;
+
+    position:relative;
+
+    padding:
+
+        0
+
+        0
+
+        30px
+
+        55px;
+
+}
+
+
+.recipe-method li::before{
+
+    content:
+
+        counter(recipe-step, decimal-leading-zero);
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    color:var(--primary);
+
+    opacity:.45;
+
+}
+
+
+.recipe-step{
+
+    line-height:1.85;
+
+    font-size:.95rem;
+
+}
+
+
+/* ==========================================
+   SOIL GENESIS
+========================================== */
+
+.recipe-soil{
+
+    margin-top:70px;
+
+    padding:35px;
+
+    border:1px solid
+        rgba(122,215,202,.18);
+
+    background:rgba(8,24,22,.52);
+
+    backdrop-filter:blur(14px);
+
+    -webkit-backdrop-filter:blur(14px);
+
+}
+
+
+.recipe-soil h2{
+
+    margin:0;
+
+    font-size:1.3rem;
+
+    letter-spacing:.05em;
+
+}
+
+
+.recipe-soil p{
+
+    max-width:650px;
+
+    opacity:.6;
+
+    line-height:1.7;
+
+}
+
+
+.recipe-soil-list{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+
+    gap:12px;
+
+    margin-top:30px;
+
+}
+
+
+.recipe-soil-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:20px;
+
+    padding:18px;
+
+    border:1px solid
+        rgba(122,215,202,.1);
+
+}
+
+
+.recipe-soil-item strong{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:.9rem;
+
+}
+
+
+.recipe-soil-item a{
+
+    white-space:nowrap;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.6rem;
+
+    letter-spacing:.08em;
+
+}
+
+
+/* ==========================================
+   FOOTER / NOTES
+========================================== */
+
+.recipe-footer{
+
+    margin-top:60px;
+
+    padding-top:25px;
+
+    border-top:1px solid
+        rgba(122,215,202,.1);
+
+}
+
+
+.recipe-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:7px;
+
+}
+
+
+.recipe-tags span{
+
+    padding:6px 10px;
+
+    border:1px solid
+        rgba(122,215,202,.1);
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.6rem;
+
+    opacity:.55;
+
+}
+
+
+.recipe-notes{
+
+    margin-top:45px;
+
+    max-width:750px;
+
+}
+
+
+.recipe-notes p{
+
+    line-height:1.8;
+
+    opacity:.6;
+
+}
+
+
+.recipe-source{
+
+    margin-top:40px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    opacity:.45;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:750px){
+
+    .recipe-page{
+
+        padding:
+            45px 18px 75px;
+
+    }
+
+
+    .recipe-header-content{
+
+        display:block;
+
+    }
+
+
+    .recipe-region{
+
+        margin-top:30px;
+
+        border-left:0;
+
+        border-top:1px solid
+            rgba(122,215,202,.15);
+
+    }
+
+
+    .recipe-meta-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .recipe-meta-item{
+
+        border-right:0;
+
+        border-bottom:1px solid
+            rgba(122,215,202,.1);
+
+    }
+
+
+    .recipe-meta-item:last-child{
+
+        border-bottom:0;
+
+    }
+
+
+    .recipe-layout{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+
+    .recipe-soil{
+
+        padding:25px 20px;
+
+    }
+
+}
+
+/* ==========================================
+   RECIPES HOME
+========================================== */
+
+.recipes-search{
+
+    max-width:700px;
+
+    margin-bottom:70px;
+
+}
+
+
+.recipes-search label{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    letter-spacing:.2em;
+
+    opacity:.5;
+
+}
+
+
+.recipes-search input{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:16px 18px;
+
+    border:1px solid
+        rgba(122,215,202,.16);
+
+    background:rgba(6,15,15,.58);
+
+    color:var(--primary);
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.8rem;
+
+    outline:none;
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+}
+
+
+.recipes-search input:focus{
+
+    border-color:
+        rgba(122,215,202,.42);
+
+    box-shadow:
+        0 0 20px
+        rgba(122,215,202,.06);
+
+}
+
+
+.recipe-category-section,
+.recipe-region-section,
+.recipe-soil-section{
+
+    margin-top:65px;
+
+}
+
+
+.recipe-category-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+
+}
+
+
+.recipe-category-card{
+
+    min-height:110px;
+
+    padding:22px;
+
+    box-sizing:border-box;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    gap:8px;
+
+    border:1px solid
+        rgba(122,215,202,.12);
+
+    background:rgba(7,18,18,.48);
+
+    color:inherit;
+
+    text-decoration:none;
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    transition:
+        border-color .18s ease,
+        background .18s ease,
+        transform .18s ease;
+
+}
+
+
+.recipe-category-card:hover{
+
+    border-color:
+        rgba(122,215,202,.38);
+
+    background:
+        rgba(10,27,26,.68);
+
+    transform:translateY(-2px);
+
+}
+
+
+.recipe-category-title{
+
+    font-size:.95rem;
+
+    letter-spacing:.04em;
+
+}
+
+
+.recipe-category-subtitle{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.6rem;
+
+    letter-spacing:.1em;
+
+    opacity:.42;
+
+}
+
+
+.recipe-region-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+
+.recipe-region-card{
+
+    padding:25px;
+
+    border:1px solid
+        rgba(122,215,202,.1);
+
+    background:
+        rgba(13,22,20,.5);
+
+    color:inherit;
+
+    text-decoration:none;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.7rem;
+
+    letter-spacing:.08em;
+
+    transition:
+        border-color .18s ease,
+        background .18s ease;
+
+}
+
+
+.recipe-region-card:hover{
+
+    border-color:
+        rgba(122,215,202,.35);
+
+    background:
+        rgba(13,30,27,.68);
+
+}
+
+
+.recipe-soil-section{
+
+    padding:35px;
+
+    border:1px solid
+        rgba(122,215,202,.16);
+
+    background:
+        rgba(8,24,22,.48);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+}
+
+
+.recipe-soil-intro h2{
+
+    margin:0;
+
+    font-size:1.25rem;
+
+    letter-spacing:.06em;
+
+}
+
+
+.recipe-soil-intro p{
+
+    max-width:650px;
+
+    margin:
+        15px 0 25px;
+
+    line-height:1.7;
+
+    opacity:.6;
+
+}
+
+
+.recipe-soil-link{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    letter-spacing:.12em;
+
+}
+
+
+@media(max-width:900px){
+
+    .recipe-category-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .recipe-category-grid,
+    .recipe-region-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ==========================================
+   RECIPE SEARCH
+========================================== */
+
+#recipe-search-results{
+
+    margin-top:25px;
+
+    display:none;
+
+}
+
+
+#recipe-search-results.has-results{
+
+    display:block;
+
+}
+
+
+.recipe-search-heading{
+
+    margin-bottom:12px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.62rem;
+
+    letter-spacing:.18em;
+
+    color:var(--primary);
+
+    opacity:.55;
+
+}
+
+
+.recipe-search-list{
+
+    display:grid;
+
+    gap:8px;
+
+}
+
+
+.recipe-search-result{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:25px;
+
+    padding:16px 18px;
+
+    border:1px solid
+        rgba(122,215,202,.1);
+
+    background:
+        rgba(7,18,18,.52);
+
+    color:inherit;
+
+    text-decoration:none;
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    transition:
+        border-color .18s ease,
+        background .18s ease;
+
+}
+
+
+.recipe-search-result:hover{
+
+    border-color:
+        rgba(122,215,202,.35);
+
+    background:
+        rgba(10,27,26,.68);
+
+}
+
+
+.recipe-search-result strong{
+
+    font-size:.9rem;
+
+    font-weight:400;
+
+}
+
+
+.recipe-search-result span{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.6rem;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    opacity:.4;
+
+}
+
+
+.recipe-search-empty{
+
+    padding:20px;
+
+    border:1px solid
+        rgba(122,215,202,.08);
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    letter-spacing:.12em;
+
+    opacity:.45;
+
+}
+
+
+@media(max-width:600px){
+
+    .recipe-search-result{
+
+        display:block;
+
+    }
+
+    .recipe-search-result span{
+
+        display:block;
+
+        margin-top:8px;
+
+    }
+
+}
+
+/* ==========================================
+   RECIPE INDEX
+========================================== */
+
+.recipe-index-section{
+
+    margin-top:70px;
+
+}
+
+
+.recipe-index-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+}
+
+
+.recipe-index-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    min-height:170px;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+    border:1px solid
+        rgba(122,215,202,.1);
+
+    background:
+        rgba(7,18,18,.48);
+
+    color:inherit;
+
+    text-decoration:none;
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+    transition:
+        border-color .18s ease,
+        background .18s ease,
+        transform .18s ease;
+
+}
+
+
+.recipe-index-card:hover{
+
+    border-color:
+        rgba(122,215,202,.35);
+
+    background:
+        rgba(10,27,26,.68);
+
+    transform:translateY(-2px);
+
+}
+
+
+.recipe-index-card-title{
+
+    font-size:1rem;
+
+    letter-spacing:.04em;
+
+}
+
+
+.recipe-index-card-description{
+
+    margin-top:18px;
+
+    font-size:.78rem;
+
+    line-height:1.6;
+
+    opacity:.48;
+
+}
+
+
+.recipe-index-card-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin-top:20px;
+
+}
+
+
+.recipe-index-card-meta span{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.55rem;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    opacity:.45;
+
+}
+
+
+@media(max-width:900px){
+
+    .recipe-index-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .recipe-index-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* ==========================================
+   RECIPE HERO
+========================================== */
+
+.recipe-hero{
+
+    width:100%;
+
+    height:clamp(280px,42vw,520px);
+
+    margin:
+        0 0 45px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    border:
+        1px solid
+        rgba(122,215,202,.12);
+
+    background:
+        rgba(7,18,18,.5);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+}
+
+
+.recipe-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 55%,
+            rgba(0,0,0,.38)
+        );
+
+}
+
+
+.recipe-hero img{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    transition:
+        transform .8s ease,
+        filter .5s ease;
+
+}
+
+
+.recipe-hero:hover img{
+
+    transform:scale(1.015);
+
+    filter:
+        brightness(1.04);
+
+}
+
+/* ==========================================
+   RECIPE INDEX CARD IMAGE
+========================================== */
+
+.recipe-index-card{
+
+    overflow:hidden;
+
+}
+
+
+.recipe-index-card-image{
+
+    width:100%;
+
+    height:210px;
+
+    overflow:hidden;
+
+    background:
+        rgba(7,18,18,.55);
+
+}
+
+
+.recipe-index-card-image img{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+
+}
+
+
+.recipe-index-card:hover
+.recipe-index-card-image img{
+
+    transform:scale(1.025);
+
+    filter:brightness(1.04);
+
+}
+
+
+.recipe-index-card-content{
+
+    padding:24px;
+
+}
+
+@media(max-width:600px){
+
+    .recipe-index-card-image{
+
+        height:190px;
+
+    }
+
+    .recipe-hero{
+
+        height:260px;
+
+        margin-bottom:32px;
+
+    }
+
+}
+
+/* ==========================================
+   RECIPE REGION CARD IMAGE
+========================================== */
+
+.recipe-card-image{
+
+    width:100%;
+
+    height:210px;
+
+    overflow:hidden;
+
+    background:
+        rgba(7,18,18,.55);
+
+}
+
+
+.recipe-card-image img{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+
+}
+
+
+.recipe-card-link:hover
+.recipe-card-image img{
+
+    transform:scale(1.025);
+
+    filter:brightness(1.04);
+
+}

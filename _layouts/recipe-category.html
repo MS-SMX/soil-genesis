@@ -1,0 +1,116 @@
+---
+layout: default
+---
+
+<div class="recipe-category-page">
+
+    <header class="recipe-category-header">
+
+        <div class="recipes-kicker">
+            SOIL GENESIS // RECIPES
+        </div>
+
+        <div class="recipe-category-back">
+            <a href="{{ '/ricette/' | relative_url }}">
+                ← RICETTE
+            </a>
+        </div>
+
+        <h1>{{ page.title }}</h1>
+
+        {% if page.description %}
+            <p>
+                {{ page.description }}
+            </p>
+        {% endif %}
+
+    </header>
+
+
+    <section class="recipe-category-results">
+
+        <div class="section-label">
+            RICETTE
+        </div>
+
+        <div class="recipe-index-grid">
+
+            {% assign found = false %}
+
+            {% for recipe in site.recipes %}
+
+                {% if recipe.categories contains page.category_id %}
+
+                    {% assign found = true %}
+
+                    <a
+    class="recipe-index-card"
+    href="{{ recipe.url | relative_url }}">
+
+    {% if recipe.image %}
+
+        <div class="recipe-index-card-image">
+
+            <img
+                src="{{ recipe.image | relative_url }}"
+                alt="{{ recipe.title }}"
+                loading="lazy">
+
+        </div>
+
+    {% endif %}
+
+    <div class="recipe-index-card-content">
+
+        <div class="recipe-index-card-title">
+            {{ recipe.title }}
+        </div>
+
+        {% if recipe.description %}
+
+            <div class="recipe-index-card-description">
+                {{ recipe.description }}
+            </div>
+
+        {% endif %}
+
+        {% if recipe.categories %}
+
+            <div class="recipe-index-card-meta">
+
+                {% for category in recipe.categories %}
+
+                    <span>
+                        {{ category | replace: "-", " " }}
+                    </span>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</a>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+
+        {% unless found %}
+
+            <div class="recipe-search-empty">
+
+                NESSUNA RICETTA PRESENTE IN QUESTA CATEGORIA
+
+            </div>
+
+        {% endunless %}
+
+    </section>
+
+</div>

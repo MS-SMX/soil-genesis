@@ -1,36 +1,35 @@
 <div class="home-section">
 
-<div class="home-section-title">
+    <div class="home-section-title">
+        ULTIMI DOSSIER
+    </div>
 
-ULTIMI DOSSIER
-</div>
+    {% assign recent = site.seeds | sort: "sg_id" | reverse %}
 
-{% assign recent = site.seeds | sort: "id" | reverse %}
+    <div class="recent-scroll">
 
-{% for seed in recent limit:7 %}
+        {% for seed in recent limit:7 %}
 
-<a href="{{ seed.url | relative_url }}" class="recent-item">
+            <a
+                href="{{ seed.url | relative_url }}"
+                class="recent-item">
 
-<div class="recent-id">
+                <div class="recent-id">
+                    {{ seed.sg_id }}
+                </div>
 
-{{ seed.id }}
+                <div class="recent-name">
+                    {{ seed.nome_comune }}
+                </div>
 
-</div>
+                <div class="recent-family">
+                    {{ seed.famiglia }}
+                </div>
 
-<div class="recent-name">
+            </a>
 
-{{ seed.nome_comune }}
+        {% endfor %}
 
-</div>
-
-<div class="recent-family">
-
-{{ seed.famiglia }}
-
-</div>
-
-</a>
-
-{% endfor %}
+    </div>
 
 </div>

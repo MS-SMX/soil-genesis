@@ -890,5 +890,119 @@ transform:none;
 }
 
 }
+/* ==========================================
+   RECENT DOSSIERS SCROLL
+========================================== */
+
+.recent-scroll{
+
+    max-height:420px;
+
+    overflow-y:auto;
+
+    padding-right:10px;
+
+    scrollbar-width:thin;
+
+    scrollbar-color:
+        rgba(122,215,202,.28)
+        transparent;
+
+}
 
 
+.recent-scroll::-webkit-scrollbar{
+
+    width:4px;
+
+}
+
+
+.recent-scroll::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+
+.recent-scroll::-webkit-scrollbar-thumb{
+
+    background:
+        rgba(122,215,202,.28);
+
+}
+
+
+.recent-scroll::-webkit-scrollbar-thumb:hover{
+
+    background:
+        rgba(122,215,202,.48);
+
+}
+
+/* ==========================================
+   MONTHLY CALENDAR SCROLL
+========================================== */
+
+.month-scroll{
+
+    max-height:220px;
+
+    overflow-y:auto;
+
+    padding-right:10px;
+
+    scrollbar-width:thin;
+
+    scrollbar-color:
+        rgba(122,215,202,.28)
+        transparent;
+
+}
+
+
+.month-scroll::-webkit-scrollbar{
+
+    width:4px;
+
+}
+
+
+.month-scroll::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+
+.month-scroll::-webkit-scrollbar-thumb{
+
+    background:
+        rgba(122,215,202,.28);
+
+}
+
+
+.month-scroll::-webkit-scrollbar-thumb:hover{
+
+    background:
+        rgba(122,215,202,.48);
+
+}
+
+.month-scroll .month-panel.active{
+
+    min-height:0;
+
+}
+
+@media(max-width:600px){
+
+    .recent-scroll,
+    .month-scroll{
+
+        max-height:340px;
+
+    }
+
+}

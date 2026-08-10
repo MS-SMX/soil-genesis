@@ -17,6 +17,8 @@ immagini:
     titolo: fiore
   - file: fiore2.jpg
     titolo: fiore2
+  - file: seeds.jpg
+    titolo: seeds
 
 stato_conservazione: stabile
 

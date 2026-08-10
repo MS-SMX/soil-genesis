@@ -1,0 +1,316 @@
+/* ==========================================
+   PROTOCOL
+========================================== */
+
+.protocol-page{
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+    padding:
+        80px 30px 120px;
+
+}
+
+
+.protocol-header{
+
+    margin-bottom:80px;
+
+    max-width:760px;
+
+}
+
+
+.protocol-kicker{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.72rem;
+
+    letter-spacing:.28em;
+
+    color:var(--primary);
+
+    opacity:.65;
+
+    margin-bottom:18px;
+
+}
+
+
+.protocol-header h1{
+
+    margin:0;
+
+    font-size:
+        clamp(2.4rem,6vw,5rem);
+
+    letter-spacing:.08em;
+
+}
+
+
+.protocol-intro{
+
+    margin-top:25px;
+
+    max-width:650px;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    opacity:.65;
+
+}
+
+
+.protocol-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2px;
+
+}
+
+
+.protocol-module{
+
+    display:grid;
+
+    grid-template-columns:90px 1fr;
+
+    gap:35px;
+
+    padding:42px 30px;
+
+    border:
+        1px solid
+        rgba(122,215,202,.1);
+
+    background:
+        rgba(7,18,18,.42);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+}
+
+
+.protocol-module:hover{
+
+    background:
+        rgba(7,22,22,.55);
+
+    border-color:
+        rgba(122,215,202,.2);
+
+}
+
+
+.protocol-index{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.75rem;
+
+    letter-spacing:.15em;
+
+    color:var(--primary);
+
+    opacity:.55;
+
+    padding-top:5px;
+
+}
+
+
+.protocol-body{
+
+    max-width:760px;
+
+}
+
+
+.protocol-body h2{
+
+    margin:
+        0 0 25px;
+
+    font-size:1rem;
+
+    letter-spacing:.22em;
+
+    color:var(--primary);
+
+}
+
+
+.protocol-body p{
+
+    margin:
+        0 0 18px;
+
+    line-height:1.85;
+
+    opacity:.72;
+
+}
+
+
+.protocol-body p:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+.protocol-status-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+
+.protocol-status-grid > div{
+
+    padding:22px;
+
+    border:
+        1px solid
+        rgba(122,215,202,.08);
+
+    background:
+        rgba(122,215,202,.025);
+
+}
+
+
+.protocol-status-grid span{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.72rem;
+
+    letter-spacing:.15em;
+
+    color:var(--primary);
+
+}
+
+
+.protocol-status-grid p{
+
+    font-size:.85rem;
+
+    line-height:1.7;
+
+}
+
+
+.protocol-body ul{
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+.protocol-body li{
+
+    padding:
+        12px 0;
+
+    border-bottom:
+        1px solid
+        rgba(122,215,202,.08);
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.82rem;
+
+    letter-spacing:.08em;
+
+    color:var(--primary);
+
+}
+
+
+.protocol-body li::before{
+
+    content:"// ";
+
+    opacity:.45;
+
+}
+
+
+.protocol-final{
+
+    margin-top:25px;
+
+    border-color:
+        rgba(122,215,202,.18);
+
+}
+
+
+@media(max-width:700px){
+
+    .protocol-page{
+
+        padding:
+            55px 18px 80px;
+
+    }
+
+
+    .protocol-header{
+
+        margin-bottom:50px;
+
+    }
+
+
+    .protocol-module{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+        padding:30px 22px;
+
+    }
+
+
+    .protocol-index{
+
+        padding-top:0;
+
+    }
+
+
+    .protocol-status-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

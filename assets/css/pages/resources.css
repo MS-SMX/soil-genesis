@@ -607,3 +607,130 @@
     letter-spacing:.08em;
 
 }
+
+/* ==========================================
+   RESOURCE CARDS
+========================================== */
+
+.resource-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        rgba(8,18,18,.58);
+
+    border:1px solid
+        rgba(122,215,202,.12);
+
+    backdrop-filter:
+        blur(10px);
+
+    -webkit-backdrop-filter:
+        blur(10px);
+
+}
+
+
+/*
+ * CATEGORY ATMOSPHERE
+ */
+
+.resource-card[data-category="youtube"]{
+
+    background:
+        rgba(18,25,28,.68);
+
+}
+
+
+.resource-card[data-category="seeds"]{
+
+    background:
+        rgba(12,28,22,.68);
+
+}
+
+
+.resource-card[data-category="associations"]{
+
+    background:
+        rgba(16,27,24,.68);
+
+}
+
+
+.resource-card[data-category="guides"]{
+
+    background:
+        rgba(18,25,27,.68);
+
+}
+
+
+.resource-card[data-category="books"]{
+
+    background:
+        rgba(25,22,28,.68);
+
+}
+
+
+.resource-card[data-category="research"]{
+
+    background:
+        rgba(17,23,30,.68);
+
+}
+
+
+.resource-card[data-category="tools"]{
+
+    background:
+        rgba(22,27,25,.68);
+
+}
+
+
+.resource-card[data-category="nurseries"]{
+
+    background:
+        rgba(25,27,20,.68);
+
+}
+
+
+/*
+ * EXTRA GLASS DEPTH
+ */
+
+.resource-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.025),
+            transparent 45%
+        );
+
+    opacity:.7;
+
+}
+
+
+.resource-card > *{
+
+    position:relative;
+
+    z-index:1;
+
+}

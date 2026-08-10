@@ -29,7 +29,7 @@ Accesso eseguito, custode #034
 × Sistema dedicato al recupero,
 alla conservazione e alla diffusione gratuita
 di sementi libere attraverso la tecnica 
-dell'agricoltura rigenerativa. Leggere le FAQ per ulteriori informazioni.
+dell'agricoltura rigenerativa. Leggere la pagina Protocollo per ulteriori informazioni.
 </p>
 
 </div>

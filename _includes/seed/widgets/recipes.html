@@ -1,39 +1,105 @@
-{% assign seed = page %}
-{% if page.ricette %}
+{% assign seed_slug = page.slug | default: page.name %}
 
-{% capture content %}
+{% assign automatic_recipes = "" | split: "" %}
 
-<ul class="seed-links">
+{% for recipe in site.recipes %}
 
-{% for item in page.ricette %}
+    {% if recipe.soil_genesis_ingredients %}
 
-<li>
+        {% for ingredient in recipe.soil_genesis_ingredients %}
 
-{% if item.url %}
+            {% assign ingredient_seed =
+                ingredient.seed | default: "" | slugify %}
 
-<a href="{{ item.url }}" target="_blank">
+            {% assign current_seed =
+                seed_slug | slugify %}
 
-{{ item.titolo }}
+            {% if ingredient_seed == current_seed %}
 
-</a>
+                {% assign automatic_recipes =
+                    automatic_recipes | push: recipe %}
 
-{% else %}
+            {% endif %}
 
-{{ item }}
+        {% endfor %}
 
-{% endif %}
-
-</li>
+    {% endif %}
 
 {% endfor %}
 
-</ul>
-{% endcapture %}
 
-{% include seed/layout/module.html
-title="Ricette"
-module="RECIPES"
-content=content
-%}
+{% assign manual_recipes = page.ricette %}
+
+
+{% if automatic_recipes.size > 0
+      or manual_recipes.size > 0 %}
+
+    {% capture content %}
+
+        <ul class="seed-links">
+
+
+            <!-- ==========================================
+                 AUTOMATIC RECIPES
+            =========================================== -->
+
+            {% for recipe in automatic_recipes %}
+
+                <li>
+
+                    <a
+                        href="{{ recipe.url | relative_url }}">
+
+                        {{ recipe.title }}
+
+                    </a>
+
+                </li>
+
+            {% endfor %}
+
+
+            <!-- ==========================================
+                 MANUAL RECIPES
+            =========================================== -->
+
+            {% if manual_recipes %}
+
+                {% for item in manual_recipes %}
+
+                    <li>
+
+                        {% if item.url %}
+
+                            <a
+                                href="{{ item.url | relative_url }}">
+
+                                {{ item.titolo }}
+
+                            </a>
+
+                        {% else %}
+
+                            {{ item.titolo | default: item }}
+
+                        {% endif %}
+
+                    </li>
+
+                {% endfor %}
+
+            {% endif %}
+
+
+        </ul>
+
+    {% endcapture %}
+
+
+    {% include seed/layout/module.html
+        title="Ricette"
+        module="RECIPES"
+        content=content
+    %}
 
 {% endif %}

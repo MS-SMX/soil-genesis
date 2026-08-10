@@ -3,11 +3,10 @@ title: Kokopelli
 
 category: seeds
 
-type: seed-bank-shop
+type: seed-shop
 
 description: >
-  Associazione e catalogo dedicati alla diffusione di
-  sementi biologiche, riproducibili e varietà tradizionali.
+  Shop francese che tratta sementi biologiche, riproducibili e varietà tradizionali.
 
 area:
   - Europa
@@ -18,19 +17,15 @@ language:
   - inglese
 
 tags:
-  - sementi riproducibili
-  - biologico
   - heirloom
   - open-pollinated
-  - biodiversità
 
 relevance: utile
 
 access_model: paid
 
 access_notes: >
-  Tutti i contenuti principali sono disponibili
-  gratuitamente.
+ Prezzi nella media
 
 organization_type: commercial
 
@@ -38,7 +33,7 @@ status: attivo
 
 verified: 08.08.2026
 
-url: "https://kokopelli-semences.com/en/"
+external_url: "https://kokopelli-semences.com/en/"
 
 notes: >
   Verificare disponibilità e condizioni di spedizione

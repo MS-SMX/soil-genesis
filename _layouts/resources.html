@@ -13,9 +13,9 @@ layout: application
         <h1>RISORSE</h1>
 
         <p class="resources-intro">
-            Una rete di conoscenze, persone, archivi e strumenti
+            Una rete di conoscenze, persone, archivi, shop e strumenti
             dedicati alla conservazione, riproduzione e circolazione
-            delle sementi.
+            delle sementi. Consiglio di utilizzare i filtri a disposizione.
         </p>
 
     </header>
@@ -171,6 +171,13 @@ layout: application
                 VIVAI & PRODUTTORI
             </button>
 
+            <button
+                type="button"
+                class="resource-category"
+                data-category="recipes">
+                RICETTE & USI
+            </button>
+
         </nav>
 
 
@@ -208,7 +215,7 @@ layout: application
 
                 data-category="{{ resource.category }}"
 
-                data-type="{{ resource.type }}"
+                data-type="{{ resource.type | join: '|' }}"
 
                 data-relevance="{{ resource.relevance }}"
 
@@ -220,7 +227,7 @@ layout: application
                     {{ resource.tags | join: ' ' }}
                     {{ resource.area | join: ' ' }}
                     {{ resource.language | join: ' ' }}
-                    {{ resource.type }}
+                    {{ resource.type | join: ' ' }}
                 ">
 
 
@@ -228,9 +235,17 @@ layout: application
 
                 <div class="resource-card-meta">
 
-                    <span class="resource-type-label">
-                        {{ resource.type }}
-                    </span>
+                    <div class="resource-type-label">
+
+                {% for type in resource.type %}
+
+                  <span class="resource-type">
+                  {{ type | replace: "-", " " }}
+                 </span>
+
+                  {% endfor %}
+
+                </div>
 
 
                     {% if resource.relevance == "core" %}
@@ -418,10 +433,10 @@ layout: application
                     {% endif %}
 
 
-                    {% if resource.url %}
+                    {% if resource.external_url %}
 
                         <a
-                            href="{{ resource.url }}"
+                            href="{{ resource.external_url }}"
                             target="_blank"
                             rel="noopener noreferrer">
 

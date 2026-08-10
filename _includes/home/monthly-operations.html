@@ -25,7 +25,7 @@ data-month="{{ forloop.index }}">
 {% endfor %}
 
 </div>
-
+<div class="month-scroll">
 {% for m in (1..12) %}
 
 <div class="month-panel{% if m == monthNumber %} active{% endif %}"
@@ -228,7 +228,8 @@ data-month="{{ m }}">
 </div>
 
 {% endfor %}
-{% assign thought = site.data.month-thoughts[monthNumber] %}
+
+<!--{% assign thought = site.data.month-thoughts[monthNumber] %}
 
 <div class="month-thought">
 
@@ -246,4 +247,4 @@ data-month="{{ m }}">
 NODE // {{ monthNames[monthIndex] }}
 </div>
 
-</section>
+</section> -->

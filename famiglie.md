@@ -1,6 +1,7 @@
 ---
 layout: application
 title: Famiglie botaniche
+permalink: /famiglie/
 ---
 
 # Famiglie botaniche

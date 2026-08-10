@@ -17,3 +17,7 @@ collections:
 
   resources:
     output: false
+
+  recipes:
+    output: true
+    permalink: /ricette/:name/

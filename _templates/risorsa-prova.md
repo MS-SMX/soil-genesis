@@ -33,7 +33,7 @@ status: attivo
 
 verified: 08.08.2026
 
-url: "https://example.com"
+external_url: "https://example.com"
 
 notes: >
   Risorsa tecnica temporanea.

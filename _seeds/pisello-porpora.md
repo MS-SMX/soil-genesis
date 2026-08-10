@@ -16,6 +16,8 @@ immagini:
     titolo: baccello
   - file: pianta.jpg
     titolo: pianta
+  - file: semi.jpg
+    titolo: semi
 
 
 stato_conservazione: abbondante

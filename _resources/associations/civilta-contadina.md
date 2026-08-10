@@ -3,13 +3,14 @@ title: Civiltà Contadina
 
 category: associations
 
-type: seed-saver
+type: 
+- seed-saver
 
 description: >
   Associazione italiana dedicata alla salvaguardia della
   biodiversità agricola, dei semi tradizionali e dei saperi
   contadini. La sua Arca dei Semi raccoglie e conserva
-  varietà locali italiane.
+  varietà a rischio estinzione.
 
 area:
   - Italia
@@ -19,10 +20,7 @@ language:
 
 tags:
   - seedsaving
-  - biodiversità
-  - varietà tradizionali
-  - saperi contadini
-  - agroecologia
+
 
 relevance: core
 
@@ -39,7 +37,7 @@ status: attivo
 
 verified: 08.08.2026
 
-url: "https://www.civiltacontadina.it/"
+external_url: "https://www.civiltacontadina.it/"
 
 notes: >
   Particolarmente rilevante per la documentazione e

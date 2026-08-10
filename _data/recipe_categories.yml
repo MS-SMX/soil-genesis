@@ -1,0 +1,48 @@
+- id: colazioni
+  title: Colazioni
+  subtitle: Dolci · Salate
+
+- id: antipasti
+  title: Antipasti
+
+- id: pasta
+  title: Pasta
+
+- id: risotti-orzotti
+  title: Risotti e Orzotti
+
+- id: zuppe
+  title: Zuppe
+
+- id: pizze-focacce-torte
+  title: Pizze · Farinate · Focacce · Torte salate
+
+- id: pesce
+  title: Pesce
+
+- id: carne
+  title: Carne
+
+- id: contorni
+  title: Contorni
+
+- id: insalate
+  title: Insalate
+
+- id: dolci
+  title: Dolci
+
+- id: panini
+  title: Panini
+
+- id: piatti-unici
+  title: Piatti unici
+
+- id: tisane
+  title: Tisane
+
+- id: cocktails
+  title: Cocktails
+
+- id: liquori
+  title: Liquori
