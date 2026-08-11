@@ -19,19 +19,6 @@ opacity:.45;
 font-family:"IBM Plex Mono",monospace;
 
 }
-.site-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:22px 40px;
-
-border-bottom:1px solid var(--line);
-
-}
 
 .brand{
 
@@ -586,4 +573,104 @@ body.network-pulse .window{
 box-shadow:
 
 0 0 18px rgba(121,215,199,.08);
+}
+
+/* ==========================================
+   SOIL GENESIS // SITE HEADER
+========================================== */
+
+
+.site-header{
+
+    width:100%;
+
+
+
+    padding:18px 30px 12px;
+
+    box-sizing:border-box;
+
+    position:relative;
+
+    z-index:20;
+
+}
+
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.site-logo{
+
+    display:block;
+
+    width:min(22vw, 1280px);
+
+    margin:0 auto;
+
+    padding:0;
+
+    line-height:0;
+
+    font-size:0;
+
+    opacity:.95;
+
+    transition:
+        opacity .25s ease,
+        filter .25s ease;
+
+}
+
+
+.site-logo img{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
+    margin:0;
+
+    padding:0;
+
+    max-height:none;
+
+}
+
+
+.site-logo:hover{
+
+    opacity:1;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(122,215,202,.18)
+        );
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:700px){
+
+    .site-header{
+
+        padding:
+            14px 16px 10px;
+
+    }
+
+
+    .site-logo{
+
+        width:92vw;
+
+    }
+
 }

@@ -13,15 +13,15 @@ NODE IT-074
 
 </div>
 
-<h1>
+<h2>
 
-SOIL GENESIS
+HOME
 
-</h1>
+</h2> 
 
 <div class="home-subtitle">
 
-Accesso eseguito, custode #034
+Accesso eseguito, custode #042
 </div>
 
 <p>
@@ -29,7 +29,7 @@ Accesso eseguito, custode #034
 × Sistema dedicato al recupero,
 alla conservazione e alla diffusione gratuita
 di sementi libere attraverso la tecnica 
-dell'agricoltura rigenerativa. Leggere la pagina Protocollo per ulteriori informazioni.
+dell'agricoltura rigenerativa. Leggere la pagina Protocollo per ulteriori informazioni. Consigliata la visualizzazione su desktop.
 </p>
 
 </div>
