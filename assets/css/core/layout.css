@@ -584,7 +584,11 @@ box-shadow:
 
     width:100%;
 
+    display:flex;
 
+    justify-content:center;
+
+    align-items:center;
 
     padding:18px 30px 12px;
 
@@ -657,7 +661,7 @@ box-shadow:
    MOBILE
 ========================================== */
 
-@media(max-width:700px){
+@media(max-width:1200px){
 
     .site-header{
 
