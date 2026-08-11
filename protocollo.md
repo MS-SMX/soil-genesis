@@ -297,6 +297,15 @@ permalink: /protocollo/
         </section> <--->
 
 
+        <div class="protocol-document-status">
+
+            <span>SOIL GENESIS // PROTOCOL</span>
+            <span>DOCUMENT STATUS: ACTIVE</span>
+            <span>ARCHIVE VERSION: 1.0</span>
+
+        </div>
+
+
     </main>
 
 </div>

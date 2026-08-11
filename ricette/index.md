@@ -15,7 +15,7 @@ permalink: /ricette/
         <h1>RICETTE</h1>
 
         <p class="recipes-intro">
-            Ricette che ho provato e si sono rivelate buone. Se ci sono riuscito io, puoi farcela anche tu.
+            Ricette che ho provato e si sono rivelate buone. Se ci sono riuscito io, puoi farcela anche tu. Per quanto stia cercando di ridurne il consumo e trovare alternative vegetali, sono presenti ricette che utilizzano carne.
         </p>
 
     </header>
@@ -114,7 +114,7 @@ permalink: /ricette/
          SOIL GENESIS
     =========================================== -->
 
-    <section class="recipe-soil-section">
+  <!--  <section class="recipe-soil-section">
 
         <div class="section-label">
             SOIL GENESIS
@@ -141,8 +141,7 @@ permalink: /ricette/
 
         </div>
 
-    </section>
-
+    </section> --->
 
     <!-- ==========================================
          RECIPE INDEX

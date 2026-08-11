@@ -734,3 +734,90 @@
     z-index:1;
 
 }
+
+/* ==========================================
+   RESOURCE FINAL POLISH
+========================================== */
+
+/*
+ * The cards remain quiet by default. The distinction
+ * appears mainly through the edge of the glass panel.
+ */
+
+.resource-card[data-access-model="free"]{
+    border-color:
+        rgba(122,215,202,.20);
+}
+
+.resource-card[data-access-model="free-paid"]{
+    border-color:
+        rgba(122,215,202,.15);
+}
+
+.resource-card[data-access-model="membership"]{
+    border-color:
+        rgba(175,155,205,.18);
+}
+
+.resource-card[data-access-model="paid"]{
+    border-color:
+        rgba(190,145,105,.18);
+}
+
+.resource-card[data-access-model="donation"]{
+    border-color:
+        rgba(150,175,150,.16);
+}
+
+
+/*
+ * Keep hover restrained. The CRT already supplies enough motion.
+ */
+
+.resource-card{
+    transition:
+        border-color .18s ease,
+        background .18s ease,
+        opacity .18s ease;
+}
+
+.resource-card:hover{
+    border-color:
+        rgba(122,215,202,.28);
+    background:
+        rgba(10,22,22,.66);
+}
+
+
+/*
+ * External destinations are visibly external without
+ * becoming visually dominant.
+ */
+
+.resource-card-footer a{
+    transition:
+        color .18s ease,
+        opacity .18s ease;
+}
+
+.resource-card-footer a:hover{
+    color:var(--primary);
+    opacity:.9;
+}
+
+
+/*
+ * Document status / access model remains readable
+ * even when the card is hovered.
+ */
+
+.resource-access{
+    transition:
+        border-color .18s ease,
+        background .18s ease;
+}
+
+.resource-card:hover .resource-access{
+    background:
+        rgba(122,215,202,.035);
+}
