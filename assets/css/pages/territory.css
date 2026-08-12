@@ -1,0 +1,499 @@
+/* ==========================================
+   TERRITORY
+========================================== */
+
+.territory-page{
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:
+        70px 30px 110px;
+
+}
+
+
+.territory-header{
+
+    max-width:800px;
+
+    margin-bottom:45px;
+
+}
+
+
+.territory-kicker{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.68rem;
+
+    letter-spacing:.25em;
+
+    color:var(--primary);
+
+    opacity:.6;
+
+}
+
+
+.territory-header h1{
+
+    margin:15px 0 0;
+
+    font-size:
+        clamp(
+            2.5rem,
+            6vw,
+            5rem
+        );
+
+    letter-spacing:.08em;
+
+}
+
+
+.territory-header p{
+
+    opacity:.6;
+
+    line-height:1.7;
+
+}
+
+
+/* ==========================================
+   CONTROLS
+========================================== */
+
+.territory-controls{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:30px;
+
+    align-items:end;
+
+    margin-bottom:25px;
+
+    padding:
+        18px;
+
+    border:
+        1px solid
+        rgba(122,215,202,.12);
+
+    background:
+        rgba(7,18,18,.48);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+}
+
+
+.territory-control{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+.territory-control > span{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.58rem;
+
+    letter-spacing:.15em;
+
+    opacity:.45;
+
+}
+
+
+.territory-control select{
+
+    min-width:100px;
+
+    padding:8px;
+
+    background:#081212;
+
+    color:var(--primary);
+
+    border:
+        1px solid
+        rgba(122,215,202,.15);
+
+}
+
+
+.territory-date{
+
+    flex:1;
+
+    min-width:280px;
+
+}
+
+
+.territory-date input{
+
+    width:100%;
+
+}
+
+
+#territory-date-label{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.65rem;
+
+    opacity:.6;
+
+}
+
+
+.territory-view-buttons{
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+
+.territory-view{
+
+    padding:
+        8px 12px;
+
+    background:transparent;
+
+    color:inherit;
+
+    border:
+        1px solid
+        rgba(122,215,202,.12);
+
+    font:
+        .62rem
+        "IBM Plex Mono",
+        monospace;
+
+    cursor:pointer;
+
+}
+
+
+.territory-view.active{
+
+    color:var(--primary);
+
+    border-color:
+        rgba(122,215,202,.4);
+
+}
+
+
+/* ==========================================
+   MAP
+========================================== */
+
+.territory-map-wrapper{
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1fr)
+        260px;
+
+    gap:18px;
+
+}
+
+
+.territory-map{
+
+    width:100%;
+
+    height:auto;
+
+    min-height:650px;
+
+    border:
+        1px solid
+        rgba(122,215,202,.12);
+
+    background:
+        rgba(6,13,13,.72);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+
+}
+
+
+.territory-ground{
+
+    fill:
+        rgba(122,215,202,.025);
+
+    stroke:
+        rgba(122,215,202,.2);
+
+    stroke-width:1.5;
+
+}
+
+
+.territory-area{
+
+    fill:
+        rgba(122,215,202,.035);
+
+    stroke:
+        rgba(122,215,202,.38);
+
+    stroke-width:1.5;
+
+    cursor:pointer;
+
+    transition:
+        fill .18s ease,
+        stroke .18s ease;
+
+}
+
+
+.territory-area:hover{
+
+    fill:
+        rgba(122,215,202,.11);
+
+    stroke:
+        rgba(122,215,202,.7);
+
+}
+
+
+.territory-row{
+
+    stroke:
+        rgba(122,215,202,.38);
+
+    stroke-width:8;
+
+    stroke-linecap:round;
+
+    cursor:pointer;
+
+}
+
+
+.territory-tree{
+
+    fill:
+        rgba(122,215,202,.4);
+
+    stroke:
+        rgba(122,215,202,.75);
+
+    stroke-width:1.5;
+
+}
+
+
+.territory-cultivation{
+
+    fill:
+        var(--primary);
+
+    stroke:
+        #071111;
+
+    stroke-width:4;
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(122,215,202,.5)
+        );
+
+    cursor:pointer;
+
+}
+
+
+/* ==========================================
+   INSPECTOR
+========================================== */
+
+.territory-inspector{
+
+    min-height:240px;
+
+    padding:20px;
+
+    border:
+        1px solid
+        rgba(122,215,202,.12);
+
+    background:
+        rgba(7,18,18,.52);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+}
+
+
+.territory-inspector-empty{
+
+    font:
+        .62rem
+        "IBM Plex Mono",
+        monospace;
+
+    letter-spacing:.12em;
+
+    opacity:.4;
+
+}
+
+
+.territory-inspector-label{
+
+    font:
+        .58rem
+        "IBM Plex Mono",
+        monospace;
+
+    letter-spacing:.18em;
+
+    color:var(--primary);
+
+    opacity:.55;
+
+}
+
+
+.territory-inspector h2{
+
+    margin:
+        12px 0;
+
+    font-size:1rem;
+
+}
+
+
+.territory-inspector-meta{
+
+    font:
+        .65rem
+        "IBM Plex Mono",
+        monospace;
+
+    opacity:.55;
+
+}
+
+
+/* ==========================================
+   LEGEND
+========================================== */
+
+.territory-legend{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:14px;
+
+    font:
+        .6rem
+        "IBM Plex Mono",
+        monospace;
+
+    letter-spacing:.08em;
+
+    opacity:.5;
+
+}
+
+
+.territory-legend-title{
+
+    color:var(--primary);
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:850px){
+
+    .territory-map-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .territory-map{
+
+        min-height:420px;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .territory-page{
+
+        padding:
+            45px 18px 80px;
+
+    }
+
+
+    .territory-controls{
+
+        gap:18px;
+
+    }
+
+
+    .territory-date{
+
+        min-width:100%;
+
+    }
+
+}

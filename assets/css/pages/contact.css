@@ -1,0 +1,193 @@
+/* ==========================================
+   SOIL GENESIS // CONTACT
+========================================== */
+
+.contact-page{
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    padding:
+        80px 30px 120px;
+
+}
+
+
+.contact-header{
+
+    max-width:700px;
+
+    margin-bottom:70px;
+
+}
+
+
+.contact-kicker{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.72rem;
+
+    letter-spacing:.28em;
+
+    color:var(--primary);
+
+    opacity:.65;
+
+    margin-bottom:18px;
+
+}
+
+
+.contact-header h1{
+
+    margin:0;
+
+    font-size:
+        clamp(2.5rem,6vw,5rem);
+
+    letter-spacing:.08em;
+
+}
+
+
+.contact-intro{
+
+    max-width:650px;
+
+    margin-top:25px;
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    opacity:.65;
+
+}
+
+
+.contact-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.contact-block{
+
+    padding:
+        30px 0;
+
+    border-top:
+        1px solid
+        rgba(122,215,202,.12);
+
+}
+
+
+.contact-block:last-child{
+
+    border-bottom:
+        1px solid
+        rgba(122,215,202,.12);
+
+}
+
+
+.contact-label{
+
+    margin-bottom:14px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.68rem;
+
+    letter-spacing:.22em;
+
+    color:var(--primary);
+
+    opacity:.55;
+
+}
+
+
+.contact-link{
+
+    display:inline-block;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.95rem;
+
+    letter-spacing:.04em;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    transition:
+        opacity .2s ease,
+        text-shadow .2s ease;
+
+}
+
+
+.contact-link:hover{
+
+    opacity:1;
+
+    text-shadow:
+        0 0 10px
+        rgba(122,215,202,.35);
+
+}
+
+
+.contact-block p{
+
+    max-width:700px;
+
+    margin:0;
+
+    line-height:1.8;
+
+    opacity:.7;
+
+}
+
+
+.contact-note{
+
+    margin-top:20px;
+
+}
+
+
+@media(max-width:700px){
+
+    .contact-page{
+
+        padding:
+            55px 20px 80px;
+
+    }
+
+
+    .contact-header{
+
+        margin-bottom:45px;
+
+    }
+
+
+    .contact-block{
+
+        padding:
+            25px 0;
+
+    }
+
+}

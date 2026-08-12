@@ -1,290 +1,431 @@
+/* ==========================================
+   SOIL GENESIS // BIOS
+========================================== */
+
 #boot-engine{
 
-position:fixed;
-inset:0;
+    position:fixed;
 
-background:#000;
+    inset:0;
 
-display:flex;
-justify-content:center;
-align-items:center;
+    background:#000;
 
-z-index:50000;
+    display:flex;
 
-opacity:1;
+    justify-content:center;
 
-transition:opacity .8s ease;
+    align-items:center;
+
+    z-index:50000;
+
+    opacity:1;
+
+    overflow:hidden;
+
+    transition:
+        opacity .8s ease;
 
 }
+
 
 #boot-engine.hide{
 
-opacity:0;
-pointer-events:none;
+    opacity:0;
+
+    pointer-events:none;
 
 }
+
+
+/* ==========================================
+   TERMINAL
+========================================== */
 
 #boot-terminal{
 
-width:min(760px,92vw);
+    position:relative;
 
-font-family:"IBM Plex Mono",monospace;
+    z-index:3;
 
-font-size:18px;
+    width:min(900px,88vw);
 
-line-height:1.65;
+    font-family:
+        "IBM Plex Mono",
+        monospace;
 
-color:var(--primary);
+    font-size:
+        clamp(.82rem,1.25vw,.98rem);
 
-text-shadow:0 0 8px rgba(122,215,202,.35);
+    line-height:1.75;
 
-white-space:pre-wrap;
+    color:var(--primary);
+
+    text-shadow:
+        0 0 8px
+        rgba(122,215,202,.35);
+
+    white-space:pre-wrap;
 
 }
+
 
 .terminal-line{
 
-margin:.15rem 0;
+    display:block;
+
+    min-height:1.45em;
+
+    margin:.12rem 0;
 
 }
 
-#boot-authorize{
 
-position:absolute;
+.integrity-progress{
 
-left:50%;
-top:50%;
+    display:block;
 
-transform:translate(-50%,-50%) scale(.96);
+    margin:
+        .35rem 0;
 
-opacity:0;
+    letter-spacing:
+        .04em;
 
-text-align:center;
+    color:var(--primary);
 
-transition:
-opacity .6s ease,
-transform .6s ease;
-
-pointer-events:none;
-
-text-shadow:
-0 0 12px rgba(122,215,202,.35);
+    text-shadow:
+        0 0 9px
+        rgba(122,215,202,.4);
 
 }
 
-#boot-authorize.visible{
 
-opacity:1;
+/* ==========================================
+   BACKGROUND
+========================================== */
 
-transform:translate(-50%,-50%) scale(1);
+#boot-background{
 
-}
+    position:absolute;
 
-.authorize-title{
+    inset:0;
 
-font-family:"Orbitron",sans-serif;
+    z-index:0;
 
-font-size:.95rem;
+    background:
 
-letter-spacing:.45rem;
-
-opacity:.75;
-
-margin-bottom:.6rem;
-
-}
-
-.authorize-sub{
-
-font-family:"Orbitron",sans-serif;
-
-font-size:2.4rem;
-
-letter-spacing:.28rem;
-
-font-weight:700;
-
-margin-bottom:.6rem;
+        radial-gradient(
+            circle at center,
+            rgba(40,90,80,.09),
+            transparent 65%
+        );
 
 }
-.authorize-node{
 
-font-family:"IBM Plex Mono",monospace;
 
-font-size:.9rem;
-
-opacity:.7;
-
-letter-spacing:.2rem;
-
-}
+/* ==========================================
+   MYCELIUM
+========================================== */
 
 #boot-mycelium{
 
-position:absolute;
+    position:absolute;
 
-inset:0;
+    inset:0;
 
-display:flex;
+    z-index:2;
 
-justify-content:center;
+    display:flex;
 
-align-items:center;
+    justify-content:center;
 
-pointer-events:none;
+    align-items:center;
 
-opacity:0;
+    pointer-events:none;
 
-transition:opacity .35s ease;
-
-}
-
-#boot-mycelium.visible{
-
-opacity:.28;
+    opacity:0;
 
 }
+
 
 #mycelium-svg{
 
-width:100%;
+    width:min(
+        720px,
+        76vw
+    );
 
-height:100%;
+    height:auto;
 
-}
+    aspect-ratio:5 / 3;
 
-.mycelium-line{
-
-fill:none;
-
-stroke:var(--primary);
-
-stroke-width:1.4;
-
-stroke-linecap:round;
-
-stroke-dasharray:1200;
-
-stroke-dashoffset:1200;
-
-filter:drop-shadow(0 0 5px rgba(122,215,202,.45));
+    overflow:visible;
 
 }
 
-#boot-mycelium.visible .l1{
 
-animation:growLine .8s ease forwards;
+.mycelium-network{
 
-}
+    fill:none;
 
-#boot-mycelium.visible .l2{
+    stroke:
+        var(--primary);
 
-animation:growLine .9s ease .12s forwards;
+    stroke-linecap:round;
 
-}
+    stroke-linejoin:round;
 
-#boot-mycelium.visible .l3{
-
-animation:growLine .85s ease .22s forwards;
-
-}
-
-@keyframes growLine{
-
-to{
-
-stroke-dashoffset:0;
+    filter:
+        drop-shadow(
+            0 0 4px
+            rgba(122,215,202,.38)
+        );
 
 }
 
-}
 
-.boot-cursor{
+.mycelium-branch{
 
-display:inline-block;
+    fill:none;
 
-margin-left:2px;
+    stroke:
+        var(--primary);
 
-animation:blink .9s steps(1) infinite;
+    stroke-linecap:round;
 
-}
+    stroke-linejoin:round;
 
-@keyframes blink{
-
-50%{
-
-opacity:0;
+    vector-effect:
+        non-scaling-stroke;
 
 }
 
+
+/*
+    Tre flash molto ravvicinati.
+    Non deve sembrare un'animazione decorativa.
+    Deve sembrare qualcosa che il sistema
+    ha illuminato accidentalmente.
+*/
+
+#boot-mycelium.visible{
+
+    animation:
+        myceliumFlash
+        .62s
+        linear
+        forwards;
+
 }
+
+
+@keyframes myceliumFlash{
+
+    0%{
+
+        opacity:0;
+
+    }
+
+    8%{
+
+        opacity:.08;
+
+    }
+
+    16%{
+
+        opacity:.42;
+
+    }
+
+    24%{
+
+        opacity:.05;
+
+    }
+
+    34%{
+
+        opacity:.34;
+
+    }
+
+    43%{
+
+        opacity:.08;
+
+    }
+
+    56%{
+
+        opacity:.46;
+
+    }
+
+    67%{
+
+        opacity:.12;
+
+    }
+
+    78%{
+
+        opacity:.32;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
 
 /* ==========================================
-   SYNCHRONIZATION PULSE
+   ACCESS GRANTED
 ========================================== */
 
-#boot-engine.sync{
+#boot-authorize{
 
-animation:syncPulse .22s ease;
-}
+    position:absolute;
 
-@keyframes syncPulse{
+    inset:0;
 
-0%{
+    z-index:5;
 
-filter:brightness(1);
+    display:flex;
 
-}
+    flex-direction:column;
 
-35%{
+    align-items:center;
 
-filter:brightness(1.25);
+    justify-content:center;
 
-}
+    opacity:0;
 
-100%{
+    pointer-events:none;
 
-filter:brightness(1);
+    text-align:center;
 
-}
+    color:var(--primary);
 
-}
+    text-shadow:
+        0 0 12px
+        rgba(122,215,202,.35);
 
-#boot-terminal.sync{
+    transition:
 
-animation:terminalShift .18s linear;
-}
+        opacity .5s ease,
 
-@keyframes terminalShift{
+        transform .5s ease;
 
-0%{
-
-transform:translateX(0);
-
-}
-
-20%{
-
-transform:translateX(-2px);
+    transform:
+        scale(.97);
 
 }
 
-45%{
 
-transform:translateX(2px);
+#boot-authorize.visible{
 
-}
+    opacity:1;
 
-70%{
-
-transform:translateX(-1px);
+    transform:
+        scale(1);
 
 }
 
-100%{
 
-transform:translateX(0);
+.authorize-title{
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size:
+        clamp(
+            1.3rem,
+            3vw,
+            2.1rem
+        );
+
+    letter-spacing:
+        .28em;
+
+    font-weight:700;
+
+    margin-bottom:
+        .75rem;
 
 }
+
+
+.authorize-sub{
+
+    font-family:
+        "IBM Plex Mono",
+        monospace;
+
+    font-size:
+        .78rem;
+
+    letter-spacing:
+        .22em;
+
+    opacity:.65;
+
+}
+
+
+/* ==========================================
+   FINAL FADE
+========================================== */
+
+#boot-engine.hide{
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:700px){
+
+    #boot-terminal{
+
+        width:88vw;
+
+        font-size:.76rem;
+
+        line-height:1.7;
+
+    }
+
+
+    #mycelium-svg{
+
+        width:88vw;
+
+    }
+
+
+    .authorize-title{
+
+        letter-spacing:.18em;
+
+    }
+
+
+    .authorize-sub{
+
+        letter-spacing:.12em;
+
+    }
 
 }

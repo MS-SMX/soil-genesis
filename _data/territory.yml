@@ -1,0 +1,253 @@
+canvas:
+  width: 1200
+  height: 1500
+
+ground:
+  id: GROUND
+  x: 60
+  y: 60
+  width: 1080
+  height: 1380
+
+areas:
+
+  # ==========================================
+  # NUCLEO CENTRALE
+  # ==========================================
+
+  - id: HEX-W
+    type: radial
+    label: ESAGONO OVEST
+    cx: 330
+    cy: 330
+    side_m: 10
+    sides: 6
+
+  - id: SQUARE
+    type: square
+    label: QUADRATO CENTRALE
+    x: 500
+    y: 245
+    size_m: 10
+
+  - id: HEX-E
+    type: radial
+    label: ESAGONO EST
+    cx: 790
+    cy: 330
+    side_m: 10
+    sides: 6
+
+
+  # ==========================================
+  # MEZZO ESAGONO NORD
+  # Condivide i tre lati del nucleo centrale
+  # ==========================================
+
+  - id: HALF-N
+    type: polygon
+    label: MEZZO ESAGONO NORD
+
+    points:
+      - [430, 150]
+      - [500, 245]
+      - [700, 245]
+      - [790, 150]
+      - [610, 80]
+      - [500, 105]
+
+
+  # ==========================================
+  # MEZZO ESAGONO SUD
+  # Forma provvisoria, facilmente correggibile
+  # ==========================================
+
+  - id: HALF-S
+    type: polygon
+    label: MEZZO ESAGONO SUD
+
+    points:
+      - [330, 510]
+      - [500, 415]
+      - [700, 415]
+      - [790, 510]
+      - [650, 610]
+      - [450, 610]
+
+
+  # ==========================================
+  # SEMICERCHIO AROMATICHE
+  # ==========================================
+
+  - id: HERBS
+    type: semicircle
+    label: AROMATICHE
+
+    cx: 175
+    cy: 420
+
+    radius_m: 6
+
+    start_angle: 180
+    end_angle: 360
+
+
+  # ==========================================
+  # SETTE FILE
+  # ==========================================
+
+  - id: ROW-01
+    type: row
+    label: FILARE AGROFORESTALE
+    x1: 170
+    y1: 760
+    x2: 1030
+    y2: 760
+    width_m: 0.8
+    special: agroforestale
+
+  - id: ROW-02
+    type: row
+    label: FILA 02
+    x1: 170
+    y1: 805
+    x2: 1030
+    y2: 805
+    width_m: 0.8
+
+  - id: ROW-03
+    type: row
+    label: FILA 03
+    x1: 170
+    y1: 850
+    x2: 1030
+    y2: 850
+    width_m: 0.8
+
+  - id: ROW-04
+    type: row
+    label: FILA 04
+    x1: 170
+    y1: 895
+    x2: 1030
+    y2: 895
+    width_m: 0.8
+
+  - id: ROW-05
+    type: row
+    label: FILA 05
+    x1: 170
+    y1: 940
+    x2: 1030
+    y2: 940
+    width_m: 0.8
+
+  - id: ROW-06
+    type: row
+    label: FILA 06
+    x1: 170
+    y1: 985
+    x2: 1030
+    y2: 985
+    width_m: 0.8
+
+  - id: ROW-07
+    type: row
+    label: SIEPE + FRUTTI MINORI
+    x1: 170
+    y1: 1030
+    x2: 1030
+    y2: 1030
+    width_m: 0.8
+    special: hedge
+
+
+  # ==========================================
+  # FASCIA LATERALE EST
+  # ==========================================
+
+  - id: EDGE-E
+    type: polygon
+    label: FASCIA LATERALE EST
+
+    points:
+      - [950, 500]
+      - [1080, 520]
+      - [1080, 1180]
+      - [950, 1130]
+
+
+  # ==========================================
+  # CAMMINAMENTO RASTREMATO
+  # ==========================================
+
+  - id: PATH-NORTH
+    type: polygon
+    label: CAMMINAMENTO NORD
+
+    points:
+      - [150, 650]
+      - [1050, 650]
+      - [1030, 710]
+      - [180, 710]
+
+
+# ==========================================
+# ELEMENTI PERMANENTI
+# ==========================================
+
+permanent:
+
+  gates:
+
+    - id: GATE-W-01
+      type: gate
+      width_m: 1.8
+      x: 330
+      y: 150
+
+    - id: GATE-W-02
+      type: gate
+      width_m: 1.8
+      x: 330
+      y: 510
+
+    - id: GATE-E-01
+      type: gate
+      width_m: 1.8
+      x: 790
+      y: 150
+
+    - id: GATE-E-02
+      type: gate
+      width_m: 1.8
+      x: 790
+      y: 510
+
+
+  trees:
+
+    # Placeholder per gli alberi futuri.
+    # Nessuna posizione viene inventata.
+
+    []
+
+
+  perennial:
+
+    []
+
+
+  climbers:
+
+    []
+
+
+  paths:
+
+    []
+
+
+  structures:
+
+    []
