@@ -200,37 +200,115 @@ permanent:
 
   gates:
 
-    - id: GATE-W-01
-      type: gate
+    - id: GATE-W-N
+      area: HEX-W
+      side: north
       width_m: 1.8
-      x: 330
-      y: 150
 
-    - id: GATE-W-02
-      type: gate
+    - id: GATE-W-SW
+      area: HEX-W
+      side: southwest
       width_m: 1.8
-      x: 330
-      y: 510
 
-    - id: GATE-E-01
-      type: gate
+    - id: GATE-W-SE
+      area: HEX-W
+      side: southeast
       width_m: 1.8
-      x: 790
-      y: 150
 
-    - id: GATE-E-02
-      type: gate
+    - id: GATE-E-N
+      area: HEX-E
+      side: north
       width_m: 1.8
-      x: 790
-      y: 510
+
+    - id: GATE-E-SW
+      area: HEX-E
+      side: southwest
+      width_m: 1.8
+
+    - id: GATE-E-SE
+      area: HEX-E
+      side: southeast
+      width_m: 1.8
 
 
   trees:
 
-    # Placeholder per gli alberi futuri.
-    # Nessuna posizione viene inventata.
+    - id: TREE-CENTER
+      type: tree
+      label: ALBERO CENTRALE
+      role: central
 
-    []
+
+    - id: TREE-HEX-W-01
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-W-02
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-W-03
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-W-04
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-W-05
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-W-06
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-E-01
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-E-02
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-E-03
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-E-04
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-E-05
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
+
+
+    - id: TREE-HEX-E-06
+      type: tree
+      label: ALBERO DA FRUTTO
+      role: perimeter
 
 
   perennial:
@@ -241,6 +319,21 @@ permanent:
   climbers:
 
     []
+
+
+  hedge:
+
+    id: ROW-07
+    species:
+      - Ligustrum
+      - frutti minori
+    staggered: true
+
+
+  agroforestry:
+
+    id: ROW-01
+    active: true
 
 
   paths:

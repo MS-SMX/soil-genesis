@@ -20,6 +20,85 @@ font-family:"IBM Plex Mono",monospace;
 
 }
 
+.site-visitor-counter{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    margin:25px auto 10px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+}
+
+
+.visitor-stat{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:5px;
+
+}
+
+
+.visitor-label{
+
+    font-size:.55rem;
+
+    letter-spacing:.14em;
+
+    opacity:.4;
+
+}
+
+
+.visitor-stat strong{
+
+    font-size:.78rem;
+
+    font-weight:400;
+
+    letter-spacing:.08em;
+
+    color:var(--primary);
+
+}
+
+
+.visitor-divider{
+
+    opacity:.18;
+
+    font-size:.7rem;
+
+}
+
+
+@media(max-width:500px){
+
+    .site-visitor-counter{
+
+        gap:11px;
+
+    }
+
+    .visitor-label{
+
+        font-size:.48rem;
+
+    }
+
+}
+
 .brand{
 
 display:flex;

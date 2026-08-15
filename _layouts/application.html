@@ -38,6 +38,17 @@ href="{{ '/assets/css/pages/explorer-header.css' | relative_url }}">
 <link
     rel="stylesheet"
     href="{{ '/assets/css/pages/resources.css' | relative_url }}">
+    {% if page.layout == "lost-seeds" %}
+
+<link
+    rel="stylesheet"
+    href="{{ '/assets/css/pages/lost-seeds.css' | relative_url }}">
+
+<script
+    src="{{ '/assets/js/lost-seeds.js' | relative_url }}">
+</script>
+
+{% endif %}
 </head>
 
 <body>

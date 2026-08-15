@@ -224,14 +224,15 @@
 
 }
 
-
 .territory-map{
 
     width:100%;
 
     height:auto;
 
-    min-height:650px;
+    min-height:0;
+
+    aspect-ratio:1200 / 1100;
 
     border:
         1px solid
@@ -252,10 +253,10 @@
 .territory-ground{
 
     fill:
-        rgba(122,215,202,.025);
+        rgba(122,215,202,.012);
 
     stroke:
-        rgba(122,215,202,.2);
+        rgba(122,215,202,.22);
 
     stroke-width:1.5;
 
@@ -292,16 +293,39 @@
 }
 
 
+.territory-path{
+
+    fill:
+        rgba(122,215,202,.018);
+
+    stroke:
+        rgba(122,215,202,.13);
+
+    stroke-width:1;
+
+    pointer-events:none;
+
+}
+
+
 .territory-row{
 
     stroke:
-        rgba(122,215,202,.38);
+        rgba(122,215,202,.42);
 
-    stroke-width:8;
+    stroke-width:19.2;
 
-    stroke-linecap:round;
+    stroke-linecap:butt;
 
     cursor:pointer;
+
+}
+
+
+.row-hedge{
+
+    stroke:
+        rgba(122,215,202,.28);
 
 }
 
@@ -495,5 +519,405 @@
         min-width:100%;
 
     }
+
+}
+
+.territory-polygon{
+
+    fill:
+        rgba(122,215,202,.025);
+
+    stroke:
+        rgba(122,215,202,.32);
+
+    stroke-width:1.5;
+
+    cursor:pointer;
+
+    transition:
+        fill .18s ease,
+        stroke .18s ease;
+
+}
+
+
+.territory-polygon:hover{
+
+    fill:
+        rgba(122,215,202,.08);
+
+    stroke:
+        rgba(122,215,202,.62);
+
+}
+
+.territory-cultivation-segment{
+
+    stroke:
+        var(--primary);
+
+    stroke-width:
+        19.2;
+
+    stroke-linecap:butt;
+
+    opacity:.82;
+
+    cursor:pointer;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(122,215,202,.28)
+        );
+
+    transition:
+        opacity .18s ease,
+        filter .18s ease;
+
+}
+
+
+.territory-cultivation-segment:hover{
+
+    opacity:1;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(122,215,202,.45)
+        );
+
+}
+
+.territory-cultivation-sector{
+
+    fill:
+        var(--primary);
+
+    fill-opacity:.28;
+
+    stroke:
+        var(--primary);
+
+    stroke-opacity:.7;
+
+    stroke-width:1.2;
+
+    cursor:pointer;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(122,215,202,.28)
+        );
+
+    transition:
+        fill-opacity .18s ease,
+        stroke-opacity .18s ease,
+        filter .18s ease;
+
+}
+
+
+.territory-cultivation-sector:hover{
+
+    fill-opacity:.5;
+
+    stroke-opacity:1;
+
+    filter:
+        drop-shadow(
+            0 0 9px
+            rgba(122,215,202,.45)
+        );
+
+}
+
+.territory-inspector-meta{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    margin-top:20px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.6rem;
+
+    letter-spacing:.08em;
+
+    opacity:.55;
+
+}
+
+
+.territory-inspector-meta div{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+
+.territory-inspector-meta strong{
+
+    font-weight:400;
+
+    font-size:.7rem;
+
+    color:var(--primary);
+
+    opacity:.9;
+
+}
+
+
+.territory-seed-link{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.62rem;
+
+    letter-spacing:.1em;
+
+}
+
+
+.territory-seed-link:hover{
+
+    text-shadow:
+        0 0 8px
+        rgba(122,215,202,.35);
+
+}
+
+.territory-radial-path{
+
+    stroke:
+        rgba(122,215,202,.16);
+
+    stroke-width:8;
+
+    stroke-linecap:round;
+
+    pointer-events:none;
+
+}
+
+
+.territory-gate{
+
+    fill:
+        rgba(122,215,202,.16);
+
+    stroke:
+        rgba(122,215,202,.42);
+
+    stroke-width:1;
+
+}
+
+.territory-tree-marker{
+
+    fill:
+        rgba(122,215,202,.22);
+
+    stroke:
+        rgba(122,215,202,.6);
+
+    stroke-width:1.5;
+
+    cursor:pointer;
+
+}
+
+
+.territory-tree-marker:hover{
+
+    fill:
+        rgba(122,215,202,.4);
+
+    stroke:
+        rgba(122,215,202,.95);
+
+}
+
+
+.territory-tree-core{
+
+    fill:
+        var(--primary);
+
+    stroke:none;
+
+}
+
+.territory-row:first-child{
+
+    stroke:
+        rgba(122,215,202,.58);
+
+}
+
+.row-hedge{
+
+    stroke:
+        rgba(122,215,202,.3);
+
+    stroke-width:22;
+
+}
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.territory-timeline{
+
+    width:100%;
+
+}
+
+
+.territory-timeline-years{
+
+    display:flex;
+
+    gap:6px;
+
+    margin-bottom:9px;
+
+}
+
+
+.territory-year-button{
+
+    padding:
+        5px 9px;
+
+    background:transparent;
+
+    border:
+        1px solid
+        rgba(122,215,202,.1);
+
+    color:inherit;
+
+    font:
+        .58rem
+        "IBM Plex Mono",
+        monospace;
+
+    cursor:pointer;
+
+}
+
+
+.territory-year-button.active{
+
+    color:var(--primary);
+
+    border-color:
+        rgba(122,215,202,.4);
+
+}
+
+
+.territory-date input{
+
+    width:100%;
+
+    accent-color:
+        var(--primary);
+
+}
+
+
+/* ==========================================
+   HISTORY
+========================================== */
+
+.territory-history{
+
+    margin-top:28px;
+
+    padding-top:20px;
+
+    border-top:
+        1px solid
+        rgba(122,215,202,.08);
+
+}
+
+
+.territory-history-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+
+    max-height:220px;
+
+    overflow-y:auto;
+
+    padding-right:7px;
+
+}
+
+
+.territory-history-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    padding:
+        9px 0;
+
+    border-bottom:
+        1px solid
+        rgba(122,215,202,.06);
+
+}
+
+
+.territory-history-item strong{
+
+    font-size:.72rem;
+
+    color:var(--primary);
+
+    font-weight:400;
+
+}
+
+
+.territory-history-item span{
+
+    font:
+        .58rem
+        "IBM Plex Mono",
+        monospace;
+
+    opacity:.45;
 
 }

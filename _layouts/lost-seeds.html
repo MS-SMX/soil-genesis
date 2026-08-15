@@ -1,0 +1,174 @@
+---
+layout: application
+---
+
+<main class="lost-seeds-page">
+
+    <header class="explorer-header">
+
+        <div class="explorer-kicker">
+            SOIL GENESIS / MEMORY ARCHIVE
+        </div>
+
+        <h1>
+            MEMORIALE DELLE SEMENTI PERDUTE
+        </h1>
+
+        <p class="explorer-intro">
+            Varietà e accessioni che hanno fatto parte
+            del percorso di Soil Genesis ma che non sono
+            più presenti nell'archivio vivente.
+        </p>
+
+    </header>
+
+
+    <section class="explorer-controls">
+
+        <div class="explorer-search">
+
+            <label for="lost-search">
+                CERCA NEL MEMORIALE
+            </label>
+
+            <input
+                id="lost-search"
+                type="search"
+                placeholder="nome, specie, territorio..."
+                autocomplete="off">
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="lost-seeds-grid"
+        class="explorer-grid">
+
+        {% for seed in site.lost_seeds %}
+
+            <article
+                class="explorer-card lost-seed-card"
+
+                data-search="
+                    {{ seed.title }}
+                    {{ seed.scientific_name }}
+                    {{ seed.common_name }}
+                    {{ seed.family }}
+                    {{ seed.origin | join: ' ' }}
+                    {{ seed.tags | join: ' ' }}
+                ">
+
+
+                {% if seed.image %}
+
+                    <div class="lost-seed-image">
+
+                        <img
+                            src="{{ seed.image | relative_url }}"
+                            alt="{{ seed.title }}"
+                            loading="lazy">
+
+                    </div>
+
+                {% endif %}
+
+
+                <div class="explorer-card-content">
+
+                    <div class="explorer-card-meta">
+
+                        <span class="lost-id">
+                            {{ seed.sg_id }}
+                        </span>
+
+                        <span class="lost-status">
+                            LOST
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        {{ seed.title }}
+                    </h2>
+
+
+                    {% if seed.scientific_name %}
+
+                        <div class="scientific-name">
+                            {{ seed.scientific_name }}
+                        </div>
+
+                    {% endif %}
+
+
+                    {% if seed.family %}
+
+                        <div class="seed-family">
+                            {{ seed.family }}
+                        </div>
+
+                    {% endif %}
+
+
+                    {% if seed.origin %}
+
+                        <div class="seed-origin">
+
+                            {% for place in seed.origin %}
+
+                                <span>
+                                    {{ place }}
+                                </span>
+
+                            {% endfor %}
+
+                        </div>
+
+                    {% endif %}
+
+
+                    {% if seed.last_seen %}
+
+                        <div class="lost-last-seen">
+
+                            ULTIMO AVVISTAMENTO
+
+                            <strong>
+                                {{ seed.last_seen }}
+                            </strong>
+
+                        </div>
+
+                    {% endif %}
+
+
+                    <a
+                        href="{{ seed.url | relative_url }}"
+                        class="explorer-card-link">
+
+                        VEDI MEMORIALE →
+
+                    </a>
+
+                </div>
+
+            </article>
+
+        {% endfor %}
+
+    </section>
+
+
+    <div
+        id="lost-empty"
+        class="explorer-empty"
+        hidden>
+
+        NESSUNA CORRISPONDENZA.
+
+    </div>
+
+</main>

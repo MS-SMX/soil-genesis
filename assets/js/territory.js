@@ -3,396 +3,537 @@ document.addEventListener("DOMContentLoaded", () => {
     const map =
         document.querySelector("#territory-map");
 
-    if (!map || !window.SG_TERRITORY) {
+    if (!map) {
         return;
     }
 
 
     const data =
-        window.SG_TERRITORY;
+        window.SG_TERRITORY || {
+            areas: []
+        };
+
 
     const cultivations =
         window.SG_CULTIVATIONS || [];
 
 
-    const NS =
-        "http://www.w3.org/2000/svg";
+    const cultivationLayer =
+        document.querySelector(
+            "#territory-cultivations"
+        );
+
+
+    const inspector =
+        document.querySelector(
+            "#territory-inspector"
+        );
 
 
     let currentView =
         "structure";
 
 
-    /*
-    ==========================================
-    HELPERS
-    ==========================================
-    */
+  let selectedYear = 2026;
 
-    function polygonPoints(points) {
-
-        return points
-            .map(point => point.join(","))
-            .join(" ");
-
-    }
-
-
-    function createElement(
-        name,
-        attributes = {}
-    ) {
-
-        const element =
-            document.createElementNS(
-                NS,
-                name
-            );
-
-        Object.entries(attributes)
-            .forEach(
-                ([key, value]) => {
-
-                    element.setAttribute(
-                        key,
-                        value
-                    );
-
-                }
-            );
-
-        return element;
-
-    }
+let selectedDate =
+    new Date(
+        selectedYear,
+        5,
+        29
+    );
 
 
     /*
     ==========================================
-    MAP
+    LABELS
     ==========================================
     */
 
-    function renderMap() {
+    const labels = {
 
-        map.innerHTML = "";
+        "HEX-W":
+            "ESAGONO OVEST",
 
-console.log(
-    "TERRITORY AREAS:",
-    data.areas
-);
-        const ground =
-            createElement(
-                "rect",
-                {
-                    x: data.ground.x,
-                    y: data.ground.y,
-                    width: data.ground.width,
-                    height: data.ground.height,
-                    class: "territory-ground"
-                }
-            );
+        "SQUARE":
+            "QUADRATO CENTRALE",
 
+        "HEX-E":
+            "ESAGONO EST",
 
-        map.appendChild(
-            ground
-        );
+        "HALF-N":
+            "MEZZO ESAGONO NORD",
 
+        "HALF-S":
+            "MEZZO ESAGONO SUD",
 
-        data.areas.forEach(
-            area => {
+        "HERBS":
+            "AROMATICHE",
 
-                renderArea(
-                    area
-                );
+        "ROW-01":
+            "FILARE AGROFORESTALE",
 
-            }
-        );
+        "ROW-02":
+            "FILA 02",
 
+        "ROW-03":
+            "FILA 03",
 
-        renderPermanent();
-        renderCultivations();
+        "ROW-04":
+            "FILA 04",
 
-    }
+        "ROW-05":
+            "FILA 05",
+
+        "ROW-06":
+            "FILA 06",
+
+        "ROW-07":
+            "SIEPE + FRUTTI MINORI",
+
+        "EDGE-E":
+            "FASCIA LATERALE EST",
+
+        "PATH-NORTH":
+            "CAMMINAMENTO NORD"
+
+    };
 
 
     /*
     ==========================================
-    AREAS
+    INSPECTOR
     ==========================================
     */
 
-    function renderArea(area) {
+    function inspectArea(id) {
 
-        let element;
-
-
-        if (area.type === "square") {
-
-            element =
-                createElement(
-                    "rect",
-                    {
-                        x: area.x,
-                        y: area.y,
-                        width: 200,
-                        height: 200,
-                        class:
-                            "territory-area territory-square"
-                    }
-                );
-
-        }
-
-
-        else if (
-            area.type === "polygon"
-        ) {
-
-            element =
-                createElement(
-                    "polygon",
-                    {
-                        points:
-                            polygonPoints(
-                                area.points
-                            ),
-
-                        class:
-                            "territory-area territory-polygon"
-                    }
-                );
-
-        }
-
-
-        else if (
-            area.type === "row"
-        ) {
-
-            element =
-                createElement(
-                    "line",
-                    {
-                        x1: area.x1,
-                        y1: area.y1,
-                        x2: area.x2,
-                        y2: area.y2,
-
-                        class:
-                            "territory-row"
-                    }
-                );
-
-        }
-
-
-        else if (
-            area.type === "semicircle"
-        ) {
-
-            const r =
-                100;
-
-            const start =
-                polarPoint(
-                    area.cx,
-                    area.cy,
-                    r,
-                    area.start_angle
-                );
-
-            const end =
-                polarPoint(
-                    area.cx,
-                    area.cy,
-                    r,
-                    area.end_angle
-                );
-
-
-            const path =
-                `M ${start.x} ${start.y}
-                 A ${r} ${r} 0 0 1
-                 ${end.x} ${end.y}
-                 L ${area.cx} ${area.cy}
-                 Z`;
-
-
-            element =
-                createElement(
-                    "path",
-                    {
-                        d: path,
-                        class:
-                            "territory-area territory-herbs"
-                    }
-                );
-
-        }
-
-
-        else if (
-            area.type === "radial"
-        ) {
-
-            const points =
-                regularPolygon(
-                    area.cx,
-                    area.cy,
-                    125,
-                    6
-                );
-
-
-            element =
-                createElement(
-                    "polygon",
-                    {
-                        points:
-                            polygonPoints(
-                                points
-                            ),
-
-                        class:
-                            "territory-area territory-radial"
-                    }
-                );
-
-        }
-
-
-        if (!element) {
+        if (!inspector) {
             return;
         }
 
 
-        element.dataset.area =
-            area.id;
+        inspector.innerHTML = `
 
+            <div class="territory-inspector-label">
+                AREA
+            </div>
 
-        element.addEventListener(
-            "click",
-            () => {
+            <h2>
+                ${labels[id] || id}
+            </h2>
 
-                inspectArea(
-                    area
-                );
+            <div class="territory-inspector-meta">
+                ${id}
+            </div>
 
-            }
-        );
+        `;
 
+    }
+function inspectPermanent(
+    id
+) {
 
-        map.appendChild(
-            element
-        );
-
+    if (!inspector) {
+        return;
     }
 
 
-    function polarPoint(
-        cx,
-        cy,
-        radius,
-        degrees
-    ) {
+    const labels = {
 
-        const rad =
-            degrees *
-            Math.PI /
-            180;
+        "TREE-CENTER":
+            "ALBERO CENTRALE",
+
+        "TREE-HEX-W-01":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-W-02":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-W-03":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-W-04":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-W-05":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-W-06":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-E-01":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-E-02":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-E-03":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-E-04":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-E-05":
+            "ALBERO DA FRUTTO",
+
+        "TREE-HEX-E-06":
+            "ALBERO DA FRUTTO"
+
+    };
 
 
-        return {
+    inspector.innerHTML = `
 
-            x:
-                cx +
-                Math.cos(rad) *
-                radius,
+        <div class="territory-inspector-label">
+            STRUTTURA PERMANENTE
+        </div>
 
-            y:
-                cy +
-                Math.sin(rad) *
-                radius
+        <h2>
+            ${labels[id] || id}
+        </h2>
 
-        };
+        <div class="territory-inspector-meta">
 
+            <div>
+                ID
+                <strong>
+                    ${id}
+                </strong>
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+  function inspectCultivation(
+    cultivation
+) {
+
+    if (!inspector) {
+        return;
     }
 
 
-    function regularPolygon(
-        cx,
-        cy,
-        radius,
-        sides
-    ) {
-
-        const points = [];
+    const cropName =
+        cultivation.crop_label ||
+        cultivation.accession ||
+        "ACCESSION UNKNOWN";
 
 
-        for (
-            let i = 0;
-            i < sides;
-            i++
-        ) {
+    const area =
+        cultivation.area ||
+        "—";
 
-            points.push(
-                polarPoint(
-                    cx,
-                    cy,
-                    radius,
-                    -90 +
-                    i *
-                    (360 / sides)
-                )
-            );
 
+    const position =
+        cultivation.start_m != null &&
+        cultivation.end_m != null
+
+            ? `${cultivation.start_m} → ${cultivation.end_m} m`
+
+            : "—";
+
+
+    const seedLink =
+        cultivation.accession
+            ? `/sementi/${cultivation.accession}/`
+            : null;
+
+
+    inspector.innerHTML = `
+
+        <div class="territory-inspector-label">
+            COLTIVAZIONE
+        </div>
+
+
+        <h2>
+            ${cropName}
+        </h2>
+
+
+        <div class="territory-inspector-meta">
+
+            <div>
+
+                ACCESSION
+
+                <strong>
+                    ${cultivation.accession || "—"}
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                AREA
+
+                <strong>
+                    ${area}
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                POSIZIONE
+
+                <strong>
+                    ${position}
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                INIZIO
+
+                <strong>
+                    ${cultivation.start_date || "—"}
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                FINE
+
+                <strong>
+                    ${cultivation.end_date || "—"}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        ${
+            seedLink
+                ? `
+                    <a
+                        class="territory-seed-link"
+                        href="${seedLink}">
+
+                        APRI SCHEDA SEME →
+
+                    </a>
+                  `
+                : ""
         }
 
+    `;
 
-        return points;
 
+    renderHistory(
+        cultivation
+    );
+
+}
+function renderHistory(
+    cultivation
+) {
+
+    if (!inspector) {
+        return;
     }
 
 
+    const sameArea =
+        cultivations
+            .filter(
+                item =>
+                    item.area ===
+                    cultivation.area
+            )
+            .sort(
+                (a, b) =>
+                    new Date(
+                        a.start_date
+                    ) -
+                    new Date(
+                        b.start_date
+                    )
+            );
+
+
+    if (!sameArea.length) {
+        return;
+    }
+
+
+    const history =
+        sameArea
+            .map(
+                item => `
+
+                    <div
+                        class="territory-history-item">
+
+                        <strong>
+                            ${
+                                item.crop_label ||
+                                item.accession ||
+                                "UNKNOWN"
+                            }
+                        </strong>
+
+                        <span>
+                            ${item.start_date}
+                            →
+                            ${item.end_date}
+                        </span>
+
+                    </div>
+
+                `
+            )
+            .join("");
+
+
+    const block =
+        document.createElement(
+            "div"
+        );
+
+
+    block.className =
+        "territory-history";
+
+
+    block.innerHTML = `
+
+        <div
+            class="territory-inspector-label">
+
+            STORICO
+
+        </div>
+
+        <div
+            class="territory-history-list">
+
+            ${history}
+
+        </div>
+
+    `;
+
+
+    inspector.appendChild(
+        block
+    );
+
+}
     /*
     ==========================================
-    PERMANENT
+    DATE
     ==========================================
     */
 
-    function renderPermanent() {
+    function isActiveAtDate(
+        cultivation
+    ) {
 
         if (
-            !data.permanent
+            !cultivation.start_date ||
+            !cultivation.end_date
         ) {
-            return;
+
+            return false;
+
         }
 
 
-        (
-            data.permanent.trees ||
-            []
-        ).forEach(
-            tree => {
-
-                const circle =
-                    createElement(
-                        "circle",
-                        {
-                            cx: tree.x,
-                            cy: tree.y,
-                            r: 8,
-                            class:
-                                "territory-tree"
-                        }
-                    );
+        const start =
+            new Date(
+                cultivation.start_date
+            );
 
 
-                map.appendChild(
-                    circle
-                );
+        const end =
+            new Date(
+                cultivation.end_date
+            );
 
-            }
+
+        return (
+            selectedDate >= start &&
+            selectedDate <= end
+        );
+
+    }
+
+
+    const dateSlider =
+        document.querySelector(
+            "#territory-date"
+        );
+
+
+    const dateLabel =
+        document.querySelector(
+            "#territory-date-label"
+        );
+
+
+    function updateSelectedDate() {
+
+    if (!dateSlider) {
+        return;
+    }
+
+
+    const day =
+        Number(
+            dateSlider.value
+        );
+
+
+    selectedDate =
+        new Date(
+            selectedYear,
+            0,
+            day
+        );
+
+
+    if (dateLabel) {
+
+        dateLabel.textContent =
+
+            selectedDate
+
+                .toLocaleDateString(
+                    "it-IT",
+                    {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric"
+                    }
+                )
+
+                .toUpperCase();
+
+    }
+
+
+    renderCultivations();
+
+}
+
+
+    if (dateSlider) {
+
+        dateSlider.addEventListener(
+            "input",
+            updateSelectedDate
         );
 
     }
@@ -400,22 +541,218 @@ console.log(
 
     /*
     ==========================================
-    CULTIVATIONS
+    STATIC AREAS
+    ==========================================
+    */
+
+    map
+        .querySelectorAll(
+            "[data-area]"
+        )
+        .forEach(
+            element => {
+
+                element.addEventListener(
+                    "click",
+                    () => {
+
+                        inspectArea(
+                            element.dataset.area
+                        );
+
+                    }
+                );
+
+            }
+        );
+map
+    .querySelectorAll(
+        "[data-permanent]"
+    )
+    .forEach(
+        element => {
+
+            element.addEventListener(
+                "click",
+                event => {
+
+                    event.stopPropagation();
+
+                    inspectPermanent(
+                        element.dataset.permanent
+                    );
+
+                }
+            );
+
+        }
+    );
+
+    /*
+    ==========================================
+    CULTIVATION LAYER
+    ==========================================
+    */
+
+    function clearCultivations() {
+
+        if (!cultivationLayer) {
+            return;
+        }
+
+
+        cultivationLayer.innerHTML = "";
+
+    }
+
+
+    /*
+    ==========================================
+    RADIAL SECTOR GEOMETRY
+    ==========================================
+    */
+
+    function sectorPath(
+        cx,
+        cy,
+        innerRadius,
+        outerRadius,
+        startAngle,
+        endAngle
+    ) {
+
+        function point(
+            radius,
+            angle
+        ) {
+
+            const radians =
+                angle *
+                Math.PI /
+                180;
+
+
+            return {
+
+                x:
+                    cx +
+                    Math.cos(radians) *
+                    radius,
+
+                y:
+                    cy +
+                    Math.sin(radians) *
+                    radius
+
+            };
+
+        }
+
+
+        const outerStart =
+            point(
+                outerRadius,
+                startAngle
+            );
+
+
+        const outerEnd =
+            point(
+                outerRadius,
+                endAngle
+            );
+
+
+        const innerEnd =
+            point(
+                innerRadius,
+                endAngle
+            );
+
+
+        const innerStart =
+            point(
+                innerRadius,
+                startAngle
+            );
+
+
+        const largeArc =
+            endAngle - startAngle > 180
+                ? 1
+                : 0;
+
+
+        return `
+            M ${outerStart.x} ${outerStart.y}
+
+            A ${outerRadius}
+              ${outerRadius}
+              0
+              ${largeArc}
+              1
+              ${outerEnd.x}
+              ${outerEnd.y}
+
+            L ${innerEnd.x} ${innerEnd.y}
+
+            A ${innerRadius}
+              ${innerRadius}
+              0
+              ${largeArc}
+              0
+              ${innerStart.x}
+              ${innerStart.y}
+
+            Z
+        `;
+
+    }
+
+
+    /*
+    ==========================================
+    CULTIVATION RENDERER
     ==========================================
     */
 
     function renderCultivations() {
 
+        clearCultivations();
+
+
         if (
             currentView !==
             "cultivations"
         ) {
+
+            return;
+
+        }
+
+
+        if (!cultivationLayer) {
             return;
         }
 
 
+        const NS =
+            "http://www.w3.org/2000/svg";
+
+
         cultivations.forEach(
             cultivation => {
+
+                if (
+                    !isActiveAtDate(
+                        cultivation
+                    )
+                ) {
+
+                    return;
+
+                }
+
 
                 const area =
                     data.areas.find(
@@ -430,124 +767,317 @@ console.log(
                 }
 
 
-                const marker =
-                    createElement(
-                        "circle",
-                        {
-                            cx:
-                                area.cx ||
-                                600,
+                /*
+                ==================================
+                ROW
+                ==================================
+                */
 
-                            cy:
-                                area.cy ||
-                                area.y1 ||
-                                600,
+                if (
+                    area.type === "row"
+                ) {
 
-                            r: 16,
+                    const rowLength =
+                        Math.abs(
+                            area.x2 -
+                            area.x1
+                        );
 
-                            class:
-                                "territory-cultivation"
+
+                    const startRatio =
+                        Number(
+                            cultivation.start_m
+                        ) / 30;
+
+
+                    const endRatio =
+                        Number(
+                            cultivation.end_m
+                        ) / 30;
+
+
+                    const startX =
+                        area.x1 +
+                        rowLength *
+                        startRatio;
+
+
+                    const endX =
+                        area.x1 +
+                        rowLength *
+                        endRatio;
+
+
+                    const segment =
+                        document.createElementNS(
+                            NS,
+                            "line"
+                        );
+
+
+                    segment.setAttribute(
+                        "x1",
+                        startX
+                    );
+
+
+                    segment.setAttribute(
+                        "y1",
+                        area.y1
+                    );
+
+
+                    segment.setAttribute(
+                        "x2",
+                        endX
+                    );
+
+
+                    segment.setAttribute(
+                        "y2",
+                        area.y2
+                    );
+
+
+                    segment.setAttribute(
+                        "class",
+                        "territory-cultivation-segment"
+                    );
+
+
+                    segment.dataset.cultivation =
+                        cultivation.id;
+
+
+                    segment.addEventListener(
+                        "click",
+                        event => {
+
+                            event.stopPropagation();
+
+                            inspectCultivation(
+                                cultivation
+                            );
+
                         }
                     );
 
 
-                marker.dataset.cultivation =
-                    cultivation.id;
+                    cultivationLayer.appendChild(
+                        segment
+                    );
 
 
-                marker.addEventListener(
-                    "click",
-                    () => {
+                    return;
 
-                        inspectCultivation(
-                            cultivation
-                        );
+                }
+
+
+                /*
+                ==================================
+                RADIAL AREA
+                ==================================
+                */
+
+                if (
+                    area.type === "radial"
+                ) {
+
+                    if (
+                        cultivation.ring == null ||
+                        cultivation.sector == null
+                    ) {
+
+                        return;
 
                     }
-                );
 
 
-                map.appendChild(
-                    marker
-                );
+                    const ring =
+                        Number(
+                            cultivation.ring
+                        );
+
+
+                    const sectorNumber =
+                        Number(
+                            cultivation.sector
+                        );
+
+
+                    /*
+                     * 6 settori da 60°
+                     */
+
+                    const sectorGap =
+                        3;
+
+
+                    const sectorSize =
+                        60;
+
+
+                    const startAngle =
+                        -90 +
+
+                        (
+                            sectorNumber - 1
+                        ) *
+                        sectorSize +
+
+                        sectorGap / 2;
+
+
+                    const endAngle =
+                        -90 +
+
+                        sectorNumber *
+                        sectorSize -
+
+                        sectorGap / 2;
+
+
+                    /*
+                     * Scala provvisoria:
+                     * 24 px = 1 m
+                     */
+
+                    const bedWidth =
+                        0.8 * 24;
+
+
+                    const pathWidth =
+                        0.35 * 24;
+
+
+                    const outerRadius =
+                        205 -
+
+                        (
+                            ring - 1
+                        ) *
+
+                        (
+                            bedWidth +
+                            pathWidth
+                        );
+
+
+                    const innerRadius =
+                        outerRadius -
+                        bedWidth;
+
+
+                    if (
+                        innerRadius <= 20 ||
+                        outerRadius <= innerRadius
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const sectorPathElement =
+                        document.createElementNS(
+                            NS,
+                            "path"
+                        );
+
+
+                    sectorPathElement.setAttribute(
+                        "d",
+                        sectorPath(
+                            area.cx,
+                            area.cy,
+                            innerRadius,
+                            outerRadius,
+                            startAngle,
+                            endAngle
+                        )
+                    );
+
+
+                    sectorPathElement.setAttribute(
+                        "class",
+                        "territory-cultivation-sector"
+                    );
+
+
+                    sectorPathElement.dataset.cultivation =
+                        cultivation.id;
+
+
+                    sectorPathElement.addEventListener(
+                        "click",
+                        event => {
+
+                            event.stopPropagation();
+
+                            inspectCultivation(
+                                cultivation
+                            );
+
+                        }
+                    );
+
+
+                    cultivationLayer.appendChild(
+                        sectorPathElement
+                    );
+
+                }
 
             }
         );
 
     }
 
+    document
+    .querySelectorAll(
+        ".territory-year-button"
+    )
+    .forEach(
+        button => {
 
-    /*
-    ==========================================
-    INSPECTOR
-    ==========================================
-    */
+            button.addEventListener(
+                "click",
+                () => {
 
-    function inspectArea(area) {
+                    document
+                        .querySelectorAll(
+                            ".territory-year-button"
+                        )
+                        .forEach(
+                            item =>
+                                item.classList.remove(
+                                    "active"
+                                )
+                        );
 
-        const inspector =
-            document.querySelector(
-                "#territory-inspector"
+
+                    button.classList.add(
+                        "active"
+                    );
+
+
+                    selectedYear =
+                        Number(
+                            button.dataset.year
+                        );
+
+
+                    dateSlider.value =
+                        1;
+
+
+                    updateSelectedDate();
+
+                }
             );
 
-        if (!inspector) {
-            return;
         }
-
-
-        inspector.innerHTML = `
-
-            <div class="territory-inspector-label">
-                AREA
-            </div>
-
-            <h2>
-                ${area.label || area.id}
-            </h2>
-
-            <div class="territory-inspector-meta">
-                ${area.id}
-            </div>
-
-        `;
-
-    }
-
-
-    function inspectCultivation(
-        cultivation
-    ) {
-
-        const inspector =
-            document.querySelector(
-                "#territory-inspector"
-            );
-
-        if (!inspector) {
-            return;
-        }
-
-
-        inspector.innerHTML = `
-
-            <div class="territory-inspector-label">
-                CULTIVATION
-            </div>
-
-            <h2>
-                ${cultivation.accession}
-            </h2>
-
-            <div class="territory-inspector-meta">
-                ${cultivation.start_date}
-                →
-                ${cultivation.end_date}
-            </div>
-
-        `;
-
-    }
-
+    );
 
     /*
     ==========================================
@@ -587,7 +1117,7 @@ console.log(
                             button.dataset.view;
 
 
-                        renderMap();
+                        renderCultivations();
 
                     }
                 );
@@ -596,6 +1126,20 @@ console.log(
         );
 
 
-    renderMap();
+    /*
+    ==========================================
+    INITIAL STATE
+    ==========================================
+    */
+
+    if (dateSlider) {
+
+        updateSelectedDate();
+
+    } else {
+
+        renderCultivations();
+
+    }
 
 });

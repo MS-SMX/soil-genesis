@@ -21,3 +21,7 @@ collections:
   recipes:
     output: true
     permalink: /ricette/:name/
+
+  lost_seeds:
+   output: true
+   permalink: /sementi/perdute/:name/

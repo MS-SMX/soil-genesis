@@ -1,1 +1,48 @@
-cultivations: []
+cultivations:
+
+  # ESEMPIO
+  #
+  # Rimuovilo quando inserisci
+  # le prime coltivazioni reali.
+
+  - id: COL-2026-001
+
+    area: ROW-03
+ 
+    start_m: 0
+    end_m: 8
+
+    accession: SG-000001
+    crop_label: Cece Nero delle Murge
+
+    start_date: 2026-04-15
+    end_date: 2026-08-20
+
+      
+  - id: COL-2026-002
+
+    area: ROW-03
+
+    start_m: 8
+    end_m: 15.5
+
+    accession: SG-000014
+
+    start_date: 2026-05-02
+    end_date: 2026-09-10
+
+  - id: COL-2026-010
+
+    area: HEX-W
+
+    ring: 3
+    sector: 4
+
+    accession: SG-000001
+
+    start_date: 2026-04-15
+    end_date: 2026-08-20
+
+    notes: Coltivazione di prova nel settore radiale.
+
+    

@@ -1,0 +1,202 @@
+/* ==========================================
+   LOST SEEDS / MEMORIAL
+========================================== */
+
+.lost-seeds-page{
+
+    max-width:1400px;
+
+    margin:0 auto;
+
+    padding:70px 30px 110px;
+
+}
+
+
+.lost-seeds-page
+.explorer-header{
+
+    max-width:900px;
+
+    margin-bottom:50px;
+
+}
+
+
+.lost-seeds-page
+.explorer-kicker{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.68rem;
+
+    letter-spacing:.18em;
+
+    opacity:.45;
+
+    margin-bottom:15px;
+
+}
+
+
+.lost-seeds-page
+.explorer-header h1{
+
+    margin:0;
+
+    font-size:
+        clamp(2rem,5vw,4rem);
+
+    letter-spacing:.08em;
+
+}
+
+
+.lost-seeds-page
+.explorer-intro{
+
+    max-width:720px;
+
+    margin-top:20px;
+
+    line-height:1.8;
+
+    opacity:.6;
+
+}
+
+
+/* ==========================================
+   LOST IMAGE
+========================================== */
+
+.lost-seed-image{
+
+    width:100%;
+
+    aspect-ratio:4 / 3;
+
+    overflow:hidden;
+
+    background:#080808;
+
+}
+
+
+.lost-seed-image img{
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    filter:
+        grayscale(1)
+        contrast(.9)
+        brightness(.85);
+
+    opacity:.82;
+
+    transition:
+        filter .35s ease,
+        opacity .35s ease;
+
+}
+
+
+.lost-seed-card:hover
+.lost-seed-image img{
+
+    filter:
+        grayscale(1)
+        contrast(1)
+        brightness(.98);
+
+    opacity:1;
+
+}
+
+
+/* ==========================================
+   LOST META
+========================================== */
+
+.lost-seed-card{
+
+    border-color:
+        rgba(180,180,180,.12);
+
+}
+
+
+.lost-id{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.58rem;
+
+    letter-spacing:.08em;
+
+    opacity:.42;
+
+}
+
+
+.lost-status{
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.58rem;
+
+    letter-spacing:.14em;
+
+    opacity:.55;
+
+}
+
+
+.lost-last-seen{
+
+    margin-top:18px;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.56rem;
+
+    letter-spacing:.1em;
+
+    opacity:.4;
+
+}
+
+
+.lost-last-seen strong{
+
+    display:inline-block;
+
+    margin-left:8px;
+
+    font-weight:400;
+
+    color:inherit;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:700px){
+
+    .lost-seeds-page{
+
+        padding:
+            45px 18px 80px;
+
+    }
+
+}
