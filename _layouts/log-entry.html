@@ -1,0 +1,191 @@
+---
+layout: default
+---
+
+<article class="log-entry-page">
+
+    <div class="log-entry-shell">
+
+        <header class="log-entry-header">
+
+            <div class="log-entry-kicker">
+                SOIL GENESIS // LOG
+            </div>
+
+
+            <div class="log-entry-type">
+
+                {% if page.type == "vlog" %}
+                    V-LOG
+                {% else %}
+                    B-LOG
+                {% endif %}
+
+                //
+
+                {{ page.date | date: "%d.%m.%Y" }}
+
+            </div>
+
+
+            <h1>
+                {{ page.title }}
+            </h1>
+
+
+            {% if page.description %}
+
+                <p class="log-entry-description">
+                    {{ page.description }}
+                </p>
+
+            {% endif %}
+
+        </header>
+
+
+        <div class="log-entry-divider"></div>
+
+
+        {% if page.type == "vlog"
+              and page.youtube_id %}
+
+            <section class="log-entry-media">
+
+                <div class="log-entry-media-meta">
+
+                    <span>
+                        VIDEO LOG
+                    </span>
+
+                    {% if page.duration %}
+
+                        <span>
+                            {{ page.duration }}
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <div class="log-video">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/{{ page.youtube_id }}"
+                        title="{{ page.title }}"
+                        loading="lazy"
+                        allow="
+                            accelerometer;
+                            autoplay;
+                            clipboard-write;
+                            encrypted-media;
+                            gyroscope;
+                            picture-in-picture;
+                            web-share
+                        "
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </section>
+
+        {% endif %}
+
+
+        {% if page.type == "blog"
+              and page.substack_url %}
+
+            <section class="log-entry-external">
+
+                <div class="log-entry-external-meta">
+
+                    <span>
+                        B-LOG / SUBSTACK
+                    </span>
+
+                    {% if page.reading_time %}
+
+                        <span>
+                            {{ page.reading_time }}
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+
+                <h2>
+                    {{ page.title }}
+                </h2>
+
+
+                <p>
+                    L'articolo completo è pubblicato
+                    su Substack.
+                </p>
+
+
+                <a
+                    href="{{ page.substack_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    LEGGI L'ARTICOLO ↗
+
+                </a>
+
+            </section>
+
+        {% endif %}
+
+
+        {% if content != "" %}
+
+            <section class="log-entry-content">
+
+                {{ content }}
+
+            </section>
+
+        {% endif %}
+
+
+        {% if page.tags %}
+
+            <footer class="log-entry-footer">
+
+                <div class="log-entry-footer-label">
+                    TAG
+                </div>
+
+
+                <div class="log-entry-tags">
+
+                    {% for tag in page.tags %}
+
+                        <span>
+                            {{ tag }}
+                        </span>
+
+                    {% endfor %}
+
+                </div>
+
+            </footer>
+
+        {% endif %}
+
+
+        <div class="log-entry-back">
+
+            <a href="{{ '/log/' | relative_url }}">
+                ← LOG
+            </a>
+
+        </div>
+
+    </div>
+
+</article>

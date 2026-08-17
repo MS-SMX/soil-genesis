@@ -1,0 +1,148 @@
+---
+layout: ground-flora
+---
+
+<article class="flora-detail">
+
+    <div class="flora-detail-back">
+
+        <a href="{{ '/sementi/spontanee/' | relative_url }}">
+            ← FLORA SPONTANEA
+        </a>
+
+    </div>
+
+
+    {% if page.immagine %}
+
+        <div class="flora-detail-image">
+
+            <img
+                src="{{ '/assets/images/spontaneous/' | append: page.immagine | relative_url }}"
+                alt="{{ page.nome_comune }}">
+
+        </div>
+
+    {% endif %}
+
+
+    <header class="flora-detail-header">
+
+        <div class="flora-detail-id">
+            {{ page.resident_id }}
+        </div>
+
+        <h1>
+            {{ page.nome_comune }}
+        </h1>
+
+        {% if page.nome_scientifico %}
+
+            <div class="flora-detail-scientific">
+                {{ page.nome_scientifico }}
+            </div>
+
+        {% endif %}
+
+    </header>
+
+
+    <section class="flora-detail-meta">
+
+        {% if page.famiglia %}
+            <div>
+                <span>FAMIGLIA</span>
+                <strong>{{ page.famiglia }}</strong>
+            </div>
+        {% endif %}
+
+
+        {% if page.stato %}
+            <div>
+                <span>STATO</span>
+                <strong>{{ page.stato | join: " · " }}</strong>
+            </div>
+        {% endif %}
+
+
+        {% if page.abbondanza %}
+            <div>
+                <span>ABBONDANZA</span>
+                <strong>{{ page.abbondanza }}</strong>
+            </div>
+        {% endif %}
+
+
+        {% if page.prima_osservazione %}
+            <div>
+                <span>PRIMA OSSERVAZIONE</span>
+                <strong>{{ page.prima_osservazione }}</strong>
+            </div>
+        {% endif %}
+
+    </section>
+
+
+    {% if page.habitat %}
+
+        <section class="flora-section">
+
+            <div class="flora-section-label">
+                HABITAT
+            </div>
+
+            <div class="flora-tags">
+
+                {% for item in page.habitat %}
+
+                    <span>{{ item }}</span>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+
+    {% if page.usi %}
+
+        <section class="flora-section">
+
+            <div class="flora-section-label">
+                USI
+            </div>
+
+            <div class="flora-tags">
+
+                {% for item in page.usi %}
+
+                    <span>{{ item }}</span>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+    {% endif %}
+
+
+    {% if page.note %}
+
+        <section class="flora-section">
+
+            <div class="flora-section-label">
+                NOTE
+            </div>
+
+            <p>
+                {{ page.note }}
+            </p>
+
+        </section>
+
+    {% endif %}
+
+</article>

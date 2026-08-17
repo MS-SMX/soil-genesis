@@ -43,13 +43,13 @@ layout: application
 
 
     <section
-        id="lost-seeds-grid"
-        class="explorer-grid">
+    id="lost-seeds-grid"
+    class="sg-grid">
 
         {% for seed in site.lost_seeds %}
 
             <article
-                class="explorer-card lost-seed-card"
+    class="explorer-card lost-card"
 
                 data-search="
                     {{ seed.title }}
@@ -61,21 +61,27 @@ layout: application
                 ">
 
 
-                {% if seed.image %}
+                <div class="card-image">
 
-                    <div class="lost-seed-image">
+    {% if seed.image %}
 
-                        <img
-                            src="{{ seed.image | relative_url }}"
-                            alt="{{ seed.title }}"
-                            loading="lazy">
+        <img
+            src="{{ seed.image | relative_url }}"
+            alt="{{ seed.title }}"
+            loading="lazy">
 
-                    </div>
+    {% else %}
 
-                {% endif %}
+        <div class="card-placeholder">
+            NO IMAGE
+        </div>
+
+    {% endif %}
+
+</div>
 
 
-                <div class="explorer-card-content">
+                <div class="card-body">
 
                     <div class="explorer-card-meta">
 

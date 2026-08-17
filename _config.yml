@@ -23,5 +23,17 @@ collections:
     permalink: /ricette/:name/
 
   lost_seeds:
-   output: true
-   permalink: /sementi/perdute/:name/
+    output: true
+    permalink: /sementi/perdute/:name/
+
+  perennials:
+    output: true
+    permalink: /sementi/perenni/:name/
+
+  spontaneous:
+    output: true
+    permalink: /sementi/spontanee/:name/
+
+  logs:
+    output: true
+    permalink: /log/:name/
