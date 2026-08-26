@@ -1,40 +1,32 @@
 ---
 layout: seed
 
-slug: rucola-coltiv
+slug: messican-hat
 
-sg_id: SG-000022
+sg_id: SG-000058
 
-nome_comune: Rucola Coltivata
+nome_comune: Messican Hat
 
-nome_scientifico: Eruca sativa
+nome_scientifico: Ratibida columnifera
 
-famiglia: brassicaceae
+famiglia: asteraceae
 
 immagini:
-  - file: rucola.jpg
-    titolo: pianta
-  - file: 1.jpg
-    titolo: pianta
-  - file: 2.jpg
-    titolo: pianta
-  - file: 3.jpg
-    titolo: pianta
 
 
-stato_conservazione: stabile
+stato_conservazione: new entry
 
-provenienza: industria
+provenienza: Cercatori di Semi
 
-ultimo_anno_riproduzione: 2026
+ultimo_anno_riproduzione:
 
-description: Dal sapore molto più tenue rispetto alla più nota variante selvatica. Resistente e con tendenza all'autoriproduzione.
+description: 
 
 # ==========================
 # BIOLOGIA
 # ==========================
 
-ciclo_vita: biennale
+ciclo_vita: perenne
 
 impollinazione: 
 
@@ -50,11 +42,11 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [2,3,9,10]
+periodo_semina_semenzaio: [2,3,4,5,6,7,8]
 
-periodo_semina_diretta: [2,3,4,5,9,10]
+periodo_semina_diretta: 
 
-temperatura_germinazione: 5
+temperatura_germinazione: 
 
 istruzioni_semina: 
 
@@ -62,17 +54,15 @@ istruzioni_coltivazione:
 
 difficolta_coltivazione: 
 
-sensibilita_gelo: -5
+sensibilita_gelo: -15
 
 zona_usda: 
 
-aridocoltura: 
+aridocoltura: si
 
-irrigazione: 
+irrigazione: scarsa
 
-esposizione: 
-- pieno sole
-- mezzombra
+esposizione: pieno sole
 
 note_coltivazione: 
 
@@ -82,7 +72,7 @@ note_coltivazione:
 
 quantita_consigliata: 
 
-periodo_raccolta_seme: [5,6]
+periodo_raccolta_seme: 
 
 distanza_isolamento: 
 
@@ -135,7 +125,7 @@ annotazioni:
 # ==========================
 
 cronologia: 
-  ⊛ 2023 - Acquisizione da FGS.
+  ⊛ 2026 - Acquisizione da Cercatori di Semi
 
 # ==========================
 # REVISIONE

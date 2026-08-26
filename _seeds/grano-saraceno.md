@@ -1,40 +1,37 @@
 ---
 layout: seed
 
-slug: rucola-coltiv
+slug: grano-saraceno
 
-sg_id: SG-000022
+sg_id: SG-000054
 
-nome_comune: Rucola Coltivata
+nome_comune: Grano Saraceno
 
-nome_scientifico: Eruca sativa
+nome_scientifico: Fagopyrum esculentum
 
-famiglia: brassicaceae
+famiglia: Polygonaceae
 
 immagini:
-  - file: rucola.jpg
-    titolo: pianta
+
   - file: 1.jpg
-    titolo: pianta
+    titolo: semi
   - file: 2.jpg
-    titolo: pianta
-  - file: 3.jpg
-    titolo: pianta
+    titolo: semi
 
 
 stato_conservazione: stabile
 
-provenienza: industria
+provenienza: Magic Garden Seeds
 
 ultimo_anno_riproduzione: 2026
 
-description: Dal sapore molto più tenue rispetto alla più nota variante selvatica. Resistente e con tendenza all'autoriproduzione.
+description: 
 
 # ==========================
 # BIOLOGIA
 # ==========================
 
-ciclo_vita: biennale
+ciclo_vita: annuale
 
 impollinazione: 
 
@@ -50,11 +47,11 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [2,3,9,10]
+periodo_semina_semenzaio: 
 
-periodo_semina_diretta: [2,3,4,5,9,10]
+periodo_semina_diretta: [5,6]
 
-temperatura_germinazione: 5
+temperatura_germinazione: 12
 
 istruzioni_semina: 
 
@@ -62,17 +59,15 @@ istruzioni_coltivazione:
 
 difficolta_coltivazione: 
 
-sensibilita_gelo: -5
+sensibilita_gelo: non resistente
 
 zona_usda: 
 
-aridocoltura: 
+aridocoltura: si
 
-irrigazione: 
+irrigazione: scarsa
 
-esposizione: 
-- pieno sole
-- mezzombra
+esposizione: pieno sole
 
 note_coltivazione: 
 
@@ -82,7 +77,7 @@ note_coltivazione:
 
 quantita_consigliata: 
 
-periodo_raccolta_seme: [5,6]
+periodo_raccolta_seme: [8,9]
 
 distanza_isolamento: 
 
@@ -135,7 +130,7 @@ annotazioni:
 # ==========================
 
 cronologia: 
-  ⊛ 2023 - Acquisizione da FGS.
+  ⊛ 2025 - Acquisizione da Magic Garden Seeds e prima riproduzione
 
 # ==========================
 # REVISIONE

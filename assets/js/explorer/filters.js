@@ -1,84 +1,174 @@
 window.SG = window.SG || {};
 
 
+/*
+==================================================
+APPLY FILTERS
+==================================================
+*/
+
 function applyFilters(){
 
     const active = {};
 
 
+    const showNewWithoutPhoto =
+        document.querySelector(
+            "#show-new-without-photo"
+        )?.checked || false;
+
+
+    /*
+    ----------------------------------------------
+    ACTIVE CHECKBOX FILTERS
+    ----------------------------------------------
+    */
+
     document
         .querySelectorAll(
-            "#explorer-filters input:checked"
+            "#explorer-filters input[data-filter]:checked"
         )
         .forEach(box => {
 
             const key =
                 box.dataset.filter;
 
+
             active[key] =
                 active[key] || [];
 
-            active[key].push(box.value);
+
+            active[key].push(
+                box.value
+            );
 
         });
 
 
-    SG.archive.forEach(seed => {
+    /*
+    ----------------------------------------------
+    APPLY TO ARCHIVE
+    ----------------------------------------------
+    */
 
-        let visible = true;
+    SG.archive.forEach(
+        seed => {
 
-
-        /*
-         * SEARCH
-         */
-
-        if(
-            SG.search &&
-            !seed.text.includes(SG.search)
-        ){
-
-            visible = false;
-
-        }
+            let visible = true;
 
 
-        /*
-         * FILTERS
-         */
+            /*
+            ======================================
+            PHOTO VISIBILITY
+            ======================================
+            */
 
-        Object.entries(active).forEach(
-            ([key,list]) => {
+            if(!seed.hasImage){
 
-                const values =
-                    (seed[key] || "").split("|");
+                const isNewEntry =
+                    seed.status === "new-entry";
 
-                const match =
-                    values.some(
-                        value => list.includes(value)
-                    );
 
-                if(!match){
+                /*
+                 * No image:
+                 *
+                 * stable / critical / etc.
+                 * → ALWAYS HIDDEN
+                 *
+                 * new-entry
+                 * → HIDDEN BY DEFAULT
+                 * → VISIBLE when checkbox is active
+                 */
+
+                if(
+                    !isNewEntry ||
+                    !showNewWithoutPhoto
+                ){
 
                     visible = false;
 
                 }
 
             }
-        );
 
 
-        seed.element.style.display =
-            visible ? "" : "none";
+            /*
+            ======================================
+            SEARCH
+            ======================================
+            */
 
-    });
+            if(
+                SG.search &&
+                !seed.text.includes(
+                    SG.search
+                )
+            ){
+
+                visible = false;
+
+            }
+
+
+            /*
+            ======================================
+            NORMAL FILTERS
+            ======================================
+            */
+
+            Object.entries(active)
+                .forEach(
+                    ([key,list]) => {
+
+                        const values =
+                            (seed[key] || "")
+                                .split("|");
+
+
+                        const match =
+                            values.some(
+                                value =>
+                                    list.includes(
+                                        value
+                                    )
+                            );
+
+
+                        if(!match){
+
+                            visible = false;
+
+                        }
+
+                    }
+                );
+
+
+            /*
+            ======================================
+            DISPLAY
+            ======================================
+            */
+
+            seed.element.style.display =
+                visible
+                    ? ""
+                    : "none";
+
+        }
+    );
 
 
     /*
-     * ACTIVE FILTERS
-     */
+    ----------------------------------------------
+    ACTIVE FILTER BADGES
+    ----------------------------------------------
+    */
 
     const panel =
-        document.querySelector("#active-filters");
+        document.querySelector(
+            "#active-filters"
+        );
 
 
     if(panel){
@@ -86,62 +176,74 @@ function applyFilters(){
         panel.innerHTML = "";
 
 
-        Object.entries(active).forEach(
-            ([key,list]) => {
+        Object.entries(active)
+            .forEach(
+                ([key,list]) => {
 
-                list.forEach(value => {
+                    list.forEach(
+                        value => {
 
-                    const badge =
-                        document.createElement("div");
-
-                    badge.className =
-                        "active-filter";
-
-
-                    badge.innerHTML = `
-
-                        ${value.replaceAll("-"," ")}
-
-                        <span>×</span>
-
-                    `;
-
-
-                    badge.addEventListener(
-                        "click",
-                        () => {
-
-                            const checkbox =
-                                document.querySelector(
-                                    `input[data-filter="${key}"][value="${value}"]`
+                            const badge =
+                                document.createElement(
+                                    "div"
                                 );
 
 
-                            if(checkbox){
+                            badge.className =
+                                "active-filter";
 
-                                checkbox.checked = false;
 
-                                applyFilters();
+                            badge.innerHTML = `
+                                ${value.replaceAll(
+                                    "-",
+                                    " "
+                                )}
+                                <span>×</span>
+                            `;
 
-                            }
+
+                            badge.addEventListener(
+                                "click",
+                                () => {
+
+                                    const checkbox =
+                                        document.querySelector(
+                                            `input[data-filter="${key}"][value="${value}"]`
+                                        );
+
+
+                                    if(checkbox){
+
+                                        checkbox.checked =
+                                            false;
+
+
+                                        applyFilters();
+
+                                    }
+
+                                }
+                            );
+
+
+                            panel.appendChild(
+                                badge
+                            );
 
                         }
                     );
 
-
-                    panel.appendChild(badge);
-
-                });
-
-            }
-        );
+                }
+            );
 
     }
 
 
     /*
-     * COUNTER
-     */
+    ----------------------------------------------
+    COUNTER
+    ----------------------------------------------
+    */
 
     const counter =
         document.querySelector(
@@ -153,10 +255,10 @@ function applyFilters(){
 
         counter.textContent =
 
-            SG.archive.filter(seed =>
-
-                seed.element.style.display !== "none"
-
+            SG.archive.filter(
+                seed =>
+                    seed.element.style.display !==
+                    "none"
             ).length;
 
     }
@@ -165,8 +267,10 @@ function applyFilters(){
 
 
 /*
- * CHECKBOX
- */
+==================================================
+CHECKBOX CHANGES
+==================================================
+*/
 
 document.addEventListener(
     "change",
@@ -187,11 +291,10 @@ document.addEventListener(
 
 
 /*
- * SEARCH / OTHER MODULES
- *
- * Search.js modifica SG.search e
- * genera sg:update.
- */
+==================================================
+SEARCH / OTHER MODULES
+==================================================
+*/
 
 document.addEventListener(
     "sg:update",
@@ -203,13 +306,31 @@ document.addEventListener(
 );
 
 
+/*
+==================================================
+INITIAL APPLICATION
+==================================================
+*/
+
 document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-        SG.kernel.register("filters",{
-            update:applyFilters
-        });
+        /*
+         * archive.js has already built SG.archive
+         * by this point, so the initial visibility
+         * can be applied immediately.
+         */
+
+        applyFilters();
+
+
+        SG.kernel.register(
+            "filters",
+            {
+                update: applyFilters
+            }
+        );
 
     }
 );

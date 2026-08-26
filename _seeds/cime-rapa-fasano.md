@@ -1,40 +1,31 @@
 ---
 layout: seed
 
-slug: rucola-coltiv
+slug: cime-rapa-fasano
 
-sg_id: SG-000022
+sg_id: SG-000057
 
-nome_comune: Rucola Coltivata
+nome_comune: Cima di Rapa 60° sel. Fasano Cima Grande
 
-nome_scientifico: Eruca sativa
+nome_scientifico: Brassica rapa sp. sylvestris var. esculenta
 
 famiglia: brassicaceae
 
 immagini:
-  - file: rucola.jpg
-    titolo: pianta
-  - file: 1.jpg
-    titolo: pianta
-  - file: 2.jpg
-    titolo: pianta
-  - file: 3.jpg
-    titolo: pianta
 
+stato_conservazione: new entry
 
-stato_conservazione: stabile
+provenienza: Cercatori di Semi
 
-provenienza: industria
+ultimo_anno_riproduzione:
 
-ultimo_anno_riproduzione: 2026
-
-description: Dal sapore molto più tenue rispetto alla più nota variante selvatica. Resistente e con tendenza all'autoriproduzione.
+description: 
 
 # ==========================
 # BIOLOGIA
 # ==========================
 
-ciclo_vita: biennale
+ciclo_vita: 
 
 impollinazione: 
 
@@ -50,11 +41,11 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [2,3,9,10]
+periodo_semina_semenzaio: [6,7,8]
 
-periodo_semina_diretta: [2,3,4,5,9,10]
+periodo_semina_diretta: 
 
-temperatura_germinazione: 5
+temperatura_germinazione: 
 
 istruzioni_semina: 
 
@@ -62,7 +53,7 @@ istruzioni_coltivazione:
 
 difficolta_coltivazione: 
 
-sensibilita_gelo: -5
+sensibilita_gelo: 
 
 zona_usda: 
 
@@ -71,8 +62,6 @@ aridocoltura:
 irrigazione: 
 
 esposizione: 
-- pieno sole
-- mezzombra
 
 note_coltivazione: 
 
@@ -82,7 +71,7 @@ note_coltivazione:
 
 quantita_consigliata: 
 
-periodo_raccolta_seme: [5,6]
+periodo_raccolta_seme: 
 
 distanza_isolamento: 
 
@@ -135,7 +124,7 @@ annotazioni:
 # ==========================
 
 cronologia: 
-  ⊛ 2023 - Acquisizione da FGS.
+  ⊛ 2026 - Acquisizione da Cercatori di Semi
 
 # ==========================
 # REVISIONE

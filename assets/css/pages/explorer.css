@@ -382,3 +382,39 @@ border-color:var(--primary);
 box-shadow:0 0 10px rgba(79,216,200,.25);
 
 }
+
+/* ==========================================
+   PHOTO VISIBILITY FILTER
+========================================== */
+
+.filter-special{
+
+    margin-bottom:24px;
+
+    padding-bottom:18px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+}
+
+
+.filter-special label{
+
+    display:block;
+
+    cursor:pointer;
+
+    font-size:.78rem;
+
+    line-height:1.5;
+
+}
+
+
+.filter-special input{
+
+    margin-right:8px;
+
+}

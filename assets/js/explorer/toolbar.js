@@ -7,8 +7,13 @@ if(!clear) return;
 clear.addEventListener("click",()=>{
 
 document
-.querySelectorAll("#explorer-filters input[type=checkbox]")
-.forEach(box=>box.checked=false);
+.querySelectorAll(
+    "#explorer-filters input[type=checkbox]"
+)
+.forEach(
+    box =>
+        box.checked = false
+);
 
 const search=document.querySelector("#seed-search");
 

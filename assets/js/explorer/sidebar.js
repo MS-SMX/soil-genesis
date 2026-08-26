@@ -2,6 +2,13 @@ window.SG = window.SG || {};
 
 SG.filters = SG.filters || {};
 
+
+/*
+==================================================
+UNIQUE VALUES
+==================================================
+*/
+
 function unique(field){
 
     return [
@@ -21,14 +28,79 @@ function unique(field){
 }
 
 
+/*
+==================================================
+BUILD FILTERS
+==================================================
+*/
+
 function buildFilters(){
 
     const root =
-        document.querySelector("#explorer-filters");
+        document.querySelector(
+            "#explorer-filters"
+        );
 
     if(!root) return;
 
+
     root.innerHTML = "";
+
+
+    /*
+    ----------------------------------------------
+    SPECIAL FILTER
+    ----------------------------------------------
+    */
+
+    const special =
+        document.createElement("div");
+
+    special.className =
+        "filter-special";
+
+
+    const specialLabel =
+        document.createElement("label");
+
+
+    const specialInput =
+        document.createElement("input");
+
+    specialInput.type =
+        "checkbox";
+
+    specialInput.id =
+        "show-new-without-photo";
+
+
+    specialLabel.appendChild(
+        specialInput
+    );
+
+
+    specialLabel.appendChild(
+        document.createTextNode(
+            " Visualizza New Entry senza foto"
+        )
+    );
+
+
+    special.appendChild(
+        specialLabel
+    );
+
+
+    root.appendChild(
+        special
+    );
+
+
+    /*
+    ----------------------------------------------
+    NORMAL FILTERS
+    ----------------------------------------------
+    */
 
     const sections = [
 
@@ -40,59 +112,95 @@ function buildFilters(){
     ];
 
 
-    sections.forEach(([title,key]) => {
+    sections.forEach(
+        ([title,key]) => {
 
-        const group =
-            document.createElement("div");
+            const group =
+                document.createElement("div");
 
-        group.className = "filter-group";
-
-
-        const heading =
-            document.createElement("h4");
-
-        heading.textContent = title;
-
-        group.appendChild(heading);
+            group.className =
+                "filter-group";
 
 
-        unique(key).forEach(value => {
+            const heading =
+                document.createElement("h4");
 
-            const label =
-                document.createElement("label");
-
-            const input =
-                document.createElement("input");
-
-            input.type = "checkbox";
-
-            input.dataset.filter = key;
-
-            input.value = value;
-
-            input.id = `${key}-${value}`;
+            heading.textContent =
+                title;
 
 
-            label.appendChild(input);
-
-            label.appendChild(
-                document.createTextNode(
-                    " " + value.replaceAll("-"," ")
-                )
+            group.appendChild(
+                heading
             );
 
 
-            group.appendChild(label);
+            unique(key).forEach(
+                value => {
 
-        });
+                    const label =
+                        document.createElement(
+                            "label"
+                        );
 
 
-        root.appendChild(group);
+                    const input =
+                        document.createElement(
+                            "input"
+                        );
 
-    });
+
+                    input.type =
+                        "checkbox";
+
+                    input.dataset.filter =
+                        key;
+
+                    input.value =
+                        value;
+
+                    input.id =
+                        `${key}-${value}`;
+
+
+                    label.appendChild(
+                        input
+                    );
+
+
+                    label.appendChild(
+                        document.createTextNode(
+                            " " +
+                            value.replaceAll(
+                                "-",
+                                " "
+                            )
+                        )
+                    );
+
+
+                    group.appendChild(
+                        label
+                    );
+
+                }
+            );
+
+
+            root.appendChild(
+                group
+            );
+
+        }
+    );
 
 }
 
+
+/*
+==================================================
+INIT
+==================================================
+*/
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -100,9 +208,12 @@ document.addEventListener(
 
         buildFilters();
 
-        SG.kernel.register("sidebar",{
-            build:buildFilters
-        });
+        SG.kernel.register(
+            "sidebar",
+            {
+                build: buildFilters
+            }
+        );
 
     }
 );

@@ -6,17 +6,20 @@ document.querySelectorAll(".explorer-card").forEach(card=>{
 
 SG.archive.push({
 
-element:card,
+    element: card,
 
-text:card.textContent.toLowerCase(),
+    text: card.textContent.toLowerCase(),
 
-status:card.dataset.status || "",
+    status: card.dataset.status || "",
 
-family:card.dataset.family || "",
+    family: card.dataset.family || "",
 
-cycle:card.dataset.cycle || "",
+    cycle: card.dataset.cycle || "",
 
-pollination:card.dataset.pollination || ""
+    pollination: card.dataset.pollination || "",
+
+    hasImage:
+        card.dataset.hasImage === "true"
 
 });
 

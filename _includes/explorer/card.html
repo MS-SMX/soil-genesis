@@ -1,19 +1,20 @@
 {% assign pollination = include.seed.impollinazione | join: "|" %}
+{% assign first = include.seed.immagini.first %}
 
 <a
-class="explorer-card"
-href="{{ include.seed.url | relative_url }}"
+    class="explorer-card"
+    href="{{ include.seed.url | relative_url }}"
 
-data-status="{{ include.seed.stato_conservazione | slugify }}"
-data-family="{{ include.seed.famiglia | slugify }}"
-data-cycle="{{ include.seed.ciclo_vita | slugify }}"
-data-pollination="{{ pollination }}">
+    data-status="{{ include.seed.stato_conservazione | slugify }}"
+    data-family="{{ include.seed.famiglia | slugify }}"
+    data-cycle="{{ include.seed.ciclo_vita | slugify }}"
+    data-pollination="{{ pollination }}"
 
-{% assign first = include.seed.immagini.first %}
+    data-has-image="{% if first and first.file %}true{% else %}false{% endif %}">
 
 <div class="card-image">
 
-{% if first %}
+{% if first and first.file %}
 
 <img
 src="{{ '/assets/images/seeds/' | append: include.seed.slug | append: '/' | append: first.file | relative_url }}"
@@ -23,7 +24,7 @@ alt="{{ include.seed.nome_comune }}">
 
 <div class="card-placeholder">
 
-NO IMAGE
+PHOTO PENDING
 
 </div>
 

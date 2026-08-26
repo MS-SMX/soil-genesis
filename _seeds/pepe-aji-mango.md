@@ -1,40 +1,37 @@
 ---
 layout: seed
 
-slug: rucola-coltiv
+slug: pepe-aji-mango
 
-sg_id: SG-000022
+sg_id: SG-000055
 
-nome_comune: Rucola Coltivata
+nome_comune: Peperoncino Aji Mango
 
-nome_scientifico: Eruca sativa
+nome_scientifico: Capsicum chinense
 
-famiglia: brassicaceae
+famiglia: solanaceae
 
 immagini:
-  - file: rucola.jpg
-    titolo: pianta
+
   - file: 1.jpg
-    titolo: pianta
+    titolo: semi
   - file: 2.jpg
-    titolo: pianta
-  - file: 3.jpg
-    titolo: pianta
+    titolo: semi
 
 
-stato_conservazione: stabile
+stato_conservazione: critico
 
-provenienza: industria
+provenienza: A.Di.P.a
 
 ultimo_anno_riproduzione: 2026
 
-description: Dal sapore molto più tenue rispetto alla più nota variante selvatica. Resistente e con tendenza all'autoriproduzione.
+description: 
 
 # ==========================
 # BIOLOGIA
 # ==========================
 
-ciclo_vita: biennale
+ciclo_vita: annuale
 
 impollinazione: 
 
@@ -50,11 +47,11 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [2,3,9,10]
+periodo_semina_semenzaio: [1,2,3]
 
-periodo_semina_diretta: [2,3,4,5,9,10]
+periodo_semina_diretta: 
 
-temperatura_germinazione: 5
+temperatura_germinazione: 20
 
 istruzioni_semina: 
 
@@ -62,7 +59,7 @@ istruzioni_coltivazione:
 
 difficolta_coltivazione: 
 
-sensibilita_gelo: -5
+sensibilita_gelo: non resistente
 
 zona_usda: 
 
@@ -70,9 +67,7 @@ aridocoltura:
 
 irrigazione: 
 
-esposizione: 
-- pieno sole
-- mezzombra
+esposizione: pieno sole
 
 note_coltivazione: 
 
@@ -80,11 +75,11 @@ note_coltivazione:
 # RIPRODUZIONE
 # ==========================
 
-quantita_consigliata: 
+quantita_consigliata: 10
 
-periodo_raccolta_seme: [5,6]
+periodo_raccolta_seme: 
 
-distanza_isolamento: 
+distanza_isolamento: 50
 
 metodo_isolamento: 
 
@@ -128,14 +123,15 @@ bibliografia:
 # NOTE
 # ==========================
 
-annotazioni: 
+annotazioni: un solo esemplare ha prodotto nel 2026. Tenere d'occhio per eventuale inbreeding
 
 # ==========================
 # CRONOLOGIA
 # ==========================
 
 cronologia: 
-  ⊛ 2023 - Acquisizione da FGS.
+  ⊛ 2025 - Acquisizione da A.Di.P.a <br>
+  ⊛ 2026 - Prima riproduzione
 
 # ==========================
 # REVISIONE

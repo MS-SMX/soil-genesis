@@ -1,40 +1,39 @@
 ---
 layout: seed
 
-slug: rucola-coltiv
+slug: alchec-peru
 
-sg_id: SG-000022
+sg_id: SG-000052
 
-nome_comune: Rucola Coltivata
+nome_comune: Alchechengio Peruviano
 
-nome_scientifico: Eruca sativa
+nome_scientifico: Physalis peruviana
 
-famiglia: brassicaceae
+famiglia: solanaceae
 
 immagini:
-  - file: rucola.jpg
-    titolo: pianta
+
   - file: 1.jpg
-    titolo: pianta
+    titolo: semi
   - file: 2.jpg
-    titolo: pianta
+    titolo: semi
   - file: 3.jpg
-    titolo: pianta
+    titolo: semi
 
 
 stato_conservazione: stabile
 
-provenienza: industria
+provenienza: A.Di.P.a
 
 ultimo_anno_riproduzione: 2026
 
-description: Dal sapore molto più tenue rispetto alla più nota variante selvatica. Resistente e con tendenza all'autoriproduzione.
+description: 
 
 # ==========================
 # BIOLOGIA
 # ==========================
 
-ciclo_vita: biennale
+ciclo_vita: semiperenne
 
 impollinazione: 
 
@@ -50,17 +49,17 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [2,3,9,10]
+periodo_semina_semenzaio: [1,2,3]
 
-periodo_semina_diretta: [2,3,4,5,9,10]
+periodo_semina_diretta: 
 
-temperatura_germinazione: 5
+temperatura_germinazione: 20
 
 istruzioni_semina: 
 
 istruzioni_coltivazione:
 
-difficolta_coltivazione: 
+difficolta_coltivazione: 4
 
 sensibilita_gelo: -5
 
@@ -68,11 +67,9 @@ zona_usda:
 
 aridocoltura: 
 
-irrigazione: 
+irrigazione: scarsa
 
-esposizione: 
-- pieno sole
-- mezzombra
+esposizione: pieno sole
 
 note_coltivazione: 
 
@@ -82,7 +79,7 @@ note_coltivazione:
 
 quantita_consigliata: 
 
-periodo_raccolta_seme: [5,6]
+periodo_raccolta_seme: [8,9]
 
 distanza_isolamento: 
 
@@ -128,14 +125,14 @@ bibliografia:
 # NOTE
 # ==========================
 
-annotazioni: 
+annotazioni: un esemplare è sopravvissuto all'inverno in piena terra sotto tnt, magari con ulteriori protezioni e/o inverni miti la percentuale di sopravvivenza può aumentare. Altrimenti va considerata come annuale.
 
 # ==========================
 # CRONOLOGIA
 # ==========================
 
 cronologia: 
-  ⊛ 2023 - Acquisizione da FGS.
+  ⊛ 2025 - Acquisizione da A.Di.P.a
 
 # ==========================
 # REVISIONE
