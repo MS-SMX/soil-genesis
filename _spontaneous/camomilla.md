@@ -1,13 +1,13 @@
 ---
 layout: spontaneous
 
-resident_id: SP-00001
+resident_id: SP-00007
 
-nome_comune: Piantaggine Maggiore
+nome_comune: Camomilla Comune
 
-nome_scientifico: Plantago major
+nome_scientifico: Matricaria chamomilla
 
-famiglia: Plantaginacee
+famiglia: Asteraceae
 
 stato:
   - presente
@@ -23,12 +23,10 @@ prima_osservazione: 2025
 origine:
   - spontanea
 
-immagine: piantaggine.jpg
+immagine: camomilla.jpg
 
 usi:
-  - alimentare
-  - officinale
-  - ecologico
+  - tisane
 
 note: >
   Specie osservata spontaneamente nel terreno.

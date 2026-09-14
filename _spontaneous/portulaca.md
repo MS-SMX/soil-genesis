@@ -1,19 +1,19 @@
 ---
 layout: spontaneous
 
-resident_id: SP-00001
+resident_id: SP-00006
 
-nome_comune: Piantaggine Maggiore
+nome_comune: Portulaca
 
-nome_scientifico: Plantago major
+nome_scientifico: Portulaca oleracea
 
-famiglia: Plantaginacee
+famiglia: Portulacaceae
 
 stato:
   - presente
 
 
-abbondanza: occasionale
+abbondanza: abbondante
 
 habitat:
   - qualsiasi
@@ -23,12 +23,10 @@ prima_osservazione: 2025
 origine:
   - spontanea
 
-immagine: piantaggine.jpg
+immagine: portulaca.jpg
 
 usi:
   - alimentare
-  - officinale
-  - ecologico
 
 note: >
   Specie osservata spontaneamente nel terreno.

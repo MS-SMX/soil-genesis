@@ -1,13 +1,13 @@
 ---
 layout: spontaneous
 
-resident_id: SP-00001
+resident_id: SP-00003
 
-nome_comune: Piantaggine Maggiore
+nome_comune: Malva
 
-nome_scientifico: Plantago major
+nome_scientifico: Malva neglecta
 
-famiglia: Plantaginacee
+famiglia: Malvaceae
 
 stato:
   - presente
@@ -16,19 +16,18 @@ stato:
 abbondanza: occasionale
 
 habitat:
-  - qualsiasi
+  - area umida
 
 prima_osservazione: 2025
 
 origine:
   - spontanea
 
-immagine: piantaggine.jpg
+immagine: malva.jpg
 
 usi:
   - alimentare
   - officinale
-  - ecologico
 
 note: >
   Specie osservata spontaneamente nel terreno.

@@ -1,19 +1,19 @@
 ---
 layout: spontaneous
 
-resident_id: SP-00001
+resident_id: SP-00004
 
-nome_comune: Piantaggine Maggiore
+nome_comune: Farinello Comune
 
-nome_scientifico: Plantago major
+nome_scientifico: Chenopodium album
 
-famiglia: Plantaginacee
+famiglia: Amaranthaceae
 
 stato:
   - presente
 
 
-abbondanza: occasionale
+abbondanza: diffuso
 
 habitat:
   - qualsiasi
@@ -23,12 +23,10 @@ prima_osservazione: 2025
 origine:
   - spontanea
 
-immagine: piantaggine.jpg
+immagine: farinello.jpg
 
 usi:
   - alimentare
-  - officinale
-  - ecologico
 
 note: >
   Specie osservata spontaneamente nel terreno.

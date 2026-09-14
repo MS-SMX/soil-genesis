@@ -1,13 +1,13 @@
 ---
 layout: spontaneous
 
-resident_id: SP-00001
+resident_id: SP-00005
 
-nome_comune: Piantaggine Maggiore
+nome_comune: Grespino Spinoso
 
-nome_scientifico: Plantago major
+nome_scientifico: Sonchus asper
 
-famiglia: Plantaginacee
+famiglia: Asteraceae
 
 stato:
   - presente
@@ -16,19 +16,17 @@ stato:
 abbondanza: occasionale
 
 habitat:
-  - qualsiasi
+  - zone umide
 
 prima_osservazione: 2025
 
 origine:
   - spontanea
 
-immagine: piantaggine.jpg
+immagine: grespino-spin.jpg
 
 usi:
   - alimentare
-  - officinale
-  - ecologico
 
 note: >
   Specie osservata spontaneamente nel terreno.
