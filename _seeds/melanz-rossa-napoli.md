@@ -13,6 +13,8 @@ famiglia: Solanaceae
 
 immagini:
 
+  - file: 3.jpg
+    titolo: semi
   - file: 1.jpg
     titolo: semi
   - file: 2.jpg

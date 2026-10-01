@@ -1,0 +1,296 @@
+---
+layout: default
+---
+
+<header class="produce-header">
+
+    <div class="produce-kicker">
+        SOIL GENESIS // ORTOFRUTTA
+    </div>
+
+    <h1>
+        DISPONIBILE OGGI
+    </h1>
+
+    <p>
+        Produzione disponibile direttamente dal terreno.
+    </p>
+
+</header>
+
+
+<div class="produce-toolbar">
+
+    <div class="produce-count-wrap">
+
+        <span id="produce-count">
+            0
+        </span>
+
+        PRODOTTI DISPONIBILI
+
+    </div>
+
+
+    <button
+        id="copy-produce-list"
+        class="produce-copy"
+        type="button">
+
+        COPIA ELENCO
+
+    </button>
+
+</div>
+
+
+<section class="produce-grid">
+
+{% assign available_count = 0 %}
+
+
+{% for product in site.data.ortofrutta.prodotti %}
+
+    {% if product.disponibile %}
+
+        {% assign available_count =
+            available_count | plus: 1 %}
+
+
+       {% assign target_url = nil %}
+
+
+{% if product.source.archivio == "seeds" %}
+
+    {% assign target_url =
+        '/sementi/' | append: product.source.slug | append: '/' %}
+
+
+{% elsif product.source.archivio == "spontaneous" %}
+
+    {% assign target_url =
+        '/spontanee/' | append: product.source.slug | append: '/' %}
+
+
+{% elsif product.source.archivio == "perennial" %}
+
+    {% assign target_url =
+        '/perenni/' | append: product.source.slug | append: '/' %}
+
+{% endif %}
+
+
+        <article class="produce-card">
+
+
+{% if target_url %}
+
+    <a
+        class="produce-card-link"
+        href="{{ target_url | relative_url }}">
+
+{% endif %}
+
+
+                   <div class="produce-image">
+
+    {% if product.immagine and product.immagine != "" %}
+
+<img
+    src="{{ site.baseurl }}/assets/images/produce/{{ product.immagine }}"
+    alt="{{ product.nome | escape }}"
+    loading="lazy">
+
+    {% else %}
+
+        <div class="produce-placeholder">
+            SOIL GENESIS
+        </div>
+
+    {% endif %}
+
+</div>
+
+
+                    <div class="produce-body">
+
+
+                        {% if product.categoria %}
+
+                            <div class="produce-category">
+                                {{ product.categoria }}
+                            </div>
+
+                        {% endif %}
+
+
+                        <h2 class="produce-name">
+                            {{ product.nome }}
+                        </h2>
+
+
+                        <div class="produce-price">
+
+                            € {{ product.prezzo.valore
+                                | replace: ".", "," }}
+
+                            <span>
+                                / {{ product.prezzo.unita }}
+                            </span>
+
+                        </div>
+
+
+{% if target_url %}
+
+    <div class="produce-link">
+        APRI SCHEDA →
+    </div>
+
+{% endif %}
+
+
+                    </div>
+
+
+{% if target_url %}
+
+    </a>
+
+{% endif %}
+
+
+        </article>
+
+
+    {% endif %}
+
+{% endfor %}
+
+
+</section>
+
+
+{% if available_count == 0 %}
+
+    <div class="produce-empty">
+
+        NESSUNA PRODUZIONE DISPONIBILE OGGI.
+
+    </div>
+
+{% endif %}
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const count =
+            document.getElementById(
+                "produce-count"
+            );
+
+
+        if(count){
+
+            count.textContent =
+                {{ available_count }};
+
+        }
+
+
+        const button =
+            document.getElementById(
+                "copy-produce-list"
+            );
+
+
+        if(!button) return;
+
+
+        button.addEventListener(
+            "click",
+            async function(){
+
+                const products = [
+
+                    {% for product in site.data.ortofrutta.prodotti %}
+
+                        {% if product.disponibile %}
+
+                            {
+                                nome:
+                                    {{ product.nome | jsonify }},
+
+                                prezzo:
+                                    {{ product.prezzo.valore | jsonify }},
+
+                                unita:
+                                    {{ product.prezzo.unita | jsonify }}
+                            }
+
+                            {% unless forloop.last %}
+                                ,
+                            {% endunless %}
+
+                        {% endif %}
+
+                    {% endfor %}
+
+                ];
+
+
+                const text =
+                    products
+                    .map(
+                        product =>
+
+                            `• ${product.nome}: € ${Number(product.prezzo)
+                                .toFixed(2)
+                                .replace(".", ",")}/${product.unita}`
+
+                    )
+                    .join("\n");
+
+
+                try{
+
+                    await navigator.clipboard.writeText(
+                        text
+                    );
+
+
+                    button.textContent =
+                        "COPIATO ✓";
+
+
+                    setTimeout(
+                        function(){
+
+                            button.textContent =
+                                "COPIA ELENCO";
+
+                        },
+                        1800
+                    );
+
+
+                }catch(error){
+
+                    console.error(
+                        "Clipboard error:",
+                        error
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+</script>

@@ -1,44 +1,43 @@
 ---
 layout: seed
 
-slug: spinacio-sarm
+slug: basilico-sacro
 
-sg_id: SG-000009
+sg_id: SG-000088
 
-nome_comune: Spinacio Sarmentoso
+nome_comune: Basilico Sacro - Tulsi
 
-nome_scientifico: Basella rubra
+nome_scientifico: Ocimum sanctum
 
-famiglia: Basellaceae
+famiglia: Lamiaceae
 
 immagini:
 
-  - file: foglia.jpg
-    titolo: foglie
-  - file: pianta.jpg
+  - file: 1.jpg
     titolo: pianta
-  - file: semi.jpg
+  - file: 2.jpg
     titolo: pianta
-
+  - file: 3.jpg
+    titolo: pianta
 
 
 stato_conservazione: new entry
 
 provenienza: Piante Innovative
 
-ultimo_anno_riproduzione: mai
+ultimo_anno_riproduzione: 
 
-description: Scenografica alternativa agli spinaci veri e propri, più resistente al calore. Perenne se protetta dal gelo.
+description: 
 
 # ==========================
 # BIOLOGIA
 # ==========================
 
-ciclo_vita: Annuale
+ciclo_vita: annuale
 
 impollinazione: 
 
-fiori: ermafroditi
+fiori: 
 
 progenitore_selvatico: 
 
@@ -50,17 +49,17 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [3,4,5]
+periodo_semina_semenzaio: [2,3,4]
 
 periodo_semina_diretta: 
 
-temperatura_germinazione: 
+temperatura_germinazione: 12
 
 istruzioni_semina: 
 
 istruzioni_coltivazione:
 
-difficolta_coltivazione: 
+difficolta_coltivazione: 3
 
 sensibilita_gelo: non resistente
 
@@ -68,9 +67,9 @@ zona_usda:
 
 aridocoltura: 
 
-irrigazione: 
+irrigazione: moderata
 
-esposizione: 
+esposizione: pieno sole
 
 note_coltivazione: 
 
@@ -82,7 +81,7 @@ quantita_consigliata:
 
 periodo_raccolta_seme: 
 
-distanza_isolamento: 
+distanza_isolamento: 250
 
 metodo_isolamento: 
 
@@ -119,9 +118,6 @@ ricette:
 fonti: 
 
 bibliografia: 
-  - titolo: Basella Rubra / Alba - Piante Innovative
-    url: https://www.pianteinnovative.it/basella-rubra-basella-alba/
-
 
 
 
@@ -144,7 +140,7 @@ cronologia:
 
 versione: 1
 
-ultimo_aggiornamento: 1/8/26
+ultimo_aggiornamento:
 
 compilatore:
 ---

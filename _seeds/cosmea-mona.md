@@ -12,7 +12,8 @@ nome_scientifico: Cosmos sulphureus
 famiglia: Asteraceae
 
 immagini:
-
+  - file: fiore0.jpg
+    titolo: fiore
   - file: fiore2.jpg
     titolo: fiore2
   - file: fiore.jpg
@@ -27,7 +28,7 @@ provenienza: Cercatori di Semi
 
 ultimo_anno_riproduzione:
 
-description: 
+description: Mi spiace, la foto principale è ingannevole, ma complice il tramonto è venuta troppo bene per non usarla.
 
 # ==========================
 # BIOLOGIA

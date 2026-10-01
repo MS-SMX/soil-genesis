@@ -1,44 +1,39 @@
 ---
 layout: seed
 
-slug: spinacio-sarm
+slug: asparago-mary
 
-sg_id: SG-000009
+sg_id: SG-000085
 
-nome_comune: Spinacio Sarmentoso
+nome_comune: Asparago verde Mary Washington
 
-nome_scientifico: Basella rubra
+nome_scientifico: Asparagus officinalis
 
-famiglia: Basellaceae
+famiglia: Asparagaceae
 
 immagini:
 
-  - file: foglia.jpg
-    titolo: foglie
-  - file: pianta.jpg
+  - file: fiore.jpg
     titolo: pianta
-  - file: semi.jpg
-    titolo: pianta
-
 
 
 stato_conservazione: new entry
 
-provenienza: Piante Innovative
+provenienza: Magic Garden Seeds
 
-ultimo_anno_riproduzione: mai
+ultimo_anno_riproduzione:
 
-description: Scenografica alternativa agli spinaci veri e propri, più resistente al calore. Perenne se protetta dal gelo.
+description: 
 
 # ==========================
 # BIOLOGIA
 # ==========================
 
-ciclo_vita: Annuale
+ciclo_vita: perenne
 
 impollinazione: 
 
-fiori: ermafroditi
+fiori: 
 
 progenitore_selvatico: 
 
@@ -50,27 +45,27 @@ varieta_componenti:
 # COLTIVAZIONE
 # ==========================
 
-periodo_semina_semenzaio: [3,4,5]
+periodo_semina_semenzaio: [3,4]
 
 periodo_semina_diretta: 
 
-temperatura_germinazione: 
+temperatura_germinazione: 15
 
 istruzioni_semina: 
 
 istruzioni_coltivazione:
 
-difficolta_coltivazione: 
+difficolta_coltivazione: 3
 
-sensibilita_gelo: non resistente
+sensibilita_gelo: -12
 
-zona_usda: 
+zona_usda: 7
 
 aridocoltura: 
 
-irrigazione: 
+irrigazione: moderata
 
-esposizione: 
+esposizione: pieno sole
 
 note_coltivazione: 
 
@@ -119,9 +114,6 @@ ricette:
 fonti: 
 
 bibliografia: 
-  - titolo: Basella Rubra / Alba - Piante Innovative
-    url: https://www.pianteinnovative.it/basella-rubra-basella-alba/
-
 
 
 
@@ -129,14 +121,14 @@ bibliografia:
 # NOTE
 # ==========================
 
-annotazioni: 
+annotazioni: va detto che potrebbero esserci in mezzo vecchi esemplari da vivaio, non ricordo se li ho mischiati. Sembrano comunque essere la stessa identica varietà, quella più classica.
 
 # ==========================
 # CRONOLOGIA
 # ==========================
 
 cronologia: 
-  ⊛ 2026 - Acquisizione da Piante Innovative
+  ⊛ 2025 - Acquisizione da Magic Garden Seeds
 
 # ==========================
 # REVISIONE
@@ -144,7 +136,7 @@ cronologia:
 
 versione: 1
 
-ultimo_aggiornamento: 1/8/26
+ultimo_aggiornamento:
 
 compilatore:
 ---

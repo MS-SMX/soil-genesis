@@ -6,7 +6,7 @@ title: Caponata
 description: > 
  Ricetta di Misya
 categories:
-  - insalate
+  - contorni
 
 meal_type: [salato]
 

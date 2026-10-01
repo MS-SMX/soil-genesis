@@ -1,0 +1,161 @@
+---
+layout: default
+---
+
+<header class="produce-admin-header">
+
+    <div class="produce-kicker">
+        SOIL GENESIS // ORTOFRUTTA // ADMIN
+    </div>
+
+    <h1>
+        CONTROL PANEL
+    </h1>
+
+    <p>
+        Gestione della produzione disponibile.
+    </p>
+
+</header>
+
+
+<section class="produce-admin-toolbar">
+
+    <button
+        id="generate-produce-yaml"
+        type="button">
+
+        GENERA ORTOFRUTTA.YML
+
+    </button>
+
+    <button
+        id="reset-produce-admin"
+        type="button">
+
+        RIPRISTINA
+
+    </button>
+
+</section>
+
+
+<div
+    id="produce-admin-message"
+    class="produce-admin-message"
+    hidden>
+</div>
+
+
+<section id="produce-admin-app">
+
+    <div class="produce-admin-loading">
+        INITIALIZING DATABASE...
+    </div>
+
+</section>
+
+
+<script>
+
+window.SOIL_PRODUCE_DATABASE =
+    {{ site.data.ortofrutta.prodotti | jsonify }};
+
+
+window.SOIL_PRODUCE_SOURCES = {
+
+    seeds: [
+
+        {% for item in site.seeds %}
+
+        {
+            slug:
+                {{ item.slug | jsonify }},
+
+            nome:
+                {{ item.nome_comune
+                   | default: item.title
+                   | jsonify }},
+
+            url:
+                {{ item.url
+                   | relative_url
+                   | jsonify }}
+
+        }
+
+        {% unless forloop.last %}
+        ,
+        {% endunless %}
+
+        {% endfor %}
+
+    ],
+
+
+    perennial: [
+
+        {% for item in site.perennials %}
+
+        {
+            slug:
+                {{ item.slug | jsonify }},
+
+            nome:
+                {{ item.nome_comune
+                   | default: item.title
+                   | jsonify }},
+
+            url:
+                {{ item.url
+                   | relative_url
+                   | jsonify }}
+
+        }
+
+        {% unless forloop.last %}
+        ,
+        {% endunless %}
+
+        {% endfor %}
+
+    ],
+
+
+    spontaneous: [
+
+        {% for item in site.spontaneous %}
+
+        {
+            slug:
+                {{ item.slug | jsonify }},
+
+            nome:
+                {{ item.nome_comune
+                   | default: item.title
+                   | jsonify }},
+
+            url:
+                {{ item.url
+                   | relative_url
+                   | jsonify }}
+
+        }
+
+        {% unless forloop.last %}
+        ,
+        {% endunless %}
+
+        {% endfor %}
+
+    ]
+
+};
+
+</script>
+
+
+<script
+    src="{{ '/assets/js/ortofrutta-admin.js'
+        | relative_url }}">
+</script>

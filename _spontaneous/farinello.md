@@ -29,6 +29,7 @@ usi:
   - alimentare
 
 note: >
-  Specie osservata spontaneamente nel terreno.
+  Ottima come sostituta degli spinaci e come base per un pesto. Prestare attenzione agli ossalati, esattamente come con gli spinaci. <br>
+  Ulteriori info: https://www.capraecavoli.eu/il-prato-che-si-mangia/che-farinello-sei/
 
 ---

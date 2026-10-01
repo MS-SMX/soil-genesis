@@ -16,6 +16,7 @@ provenienza: Cercatori di Semi
 immagini:
   - file: frutto.jpg
   - file: frutto_imm.jpg
+  - file: frutto2.jpg
 
 stato_conservazione: stabile
 

@@ -15,6 +15,8 @@ immagini:
 
   - file: 1.jpg
     titolo: semi
+  - file: 5.jpg
+    titolo: semi
   - file: 2.jpg
     titolo: semi
   - file: 3.jpg

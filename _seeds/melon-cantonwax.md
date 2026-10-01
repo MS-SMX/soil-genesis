@@ -13,6 +13,8 @@ famiglia: cucurbitaceae
 
 immagini:
 
+  - file: 1.jpg
+    titolo: mature fruit
   - file: young.jpg
     titolo: young fruit
   - file: young2.jpg

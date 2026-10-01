@@ -5,7 +5,7 @@ slug: pomodoro-indigo
 
 sg_id: SG-000084
 
-nome_comune: Plum Indigo Striped
+nome_comune: Pomodoro Plum Indigo Striped
 
 nome_scientifico: Solanum lycopersicum
 

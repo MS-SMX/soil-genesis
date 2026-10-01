@@ -1,0 +1,50 @@
+prodotti:
+
+  - id: nuovo-prodotto-1790508314662
+    nome: "Zucchine Evo"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: zucchine-evo
+
+    immagine: "zucchine-evo.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 3.50
+      unita: kg
+
+  - id: nuovo-prodotto-1790508933518
+    nome: "Fiori di Zucca"
+    categoria: fiore
+
+    source:
+      archivio: seeds
+      slug: zucchine-evo
+
+    immagine: "fiori-zucchina-evo.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 3.00
+      unita: etto
+
+  - id: nuovo-prodotto-1790508973358
+    nome: "Foglie di Amaranto Alba"
+    categoria: foglie
+
+    source:
+      archivio: seeds
+      slug: amaranto-alba
+
+    immagine: "amaranto-foglie.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 2.00
+      unita: etto
+

@@ -12,7 +12,8 @@ nome_scientifico: Cucumis metulliferus
 famiglia: cucurbitaceae
 
 immagini:
-
+  - file: 2.jpg
+    titolo: pianta
   - file: 1.jpg
     titolo: pianta
 
