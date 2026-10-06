@@ -5,7 +5,7 @@ slug: senape-rossa
 
 sg_id: SG-000024
 
-nome_comune: Senape Rossa
+nome_comune: Mizuna - Senape Rossa
 
 nome_scientifico: Brassica juncea
 

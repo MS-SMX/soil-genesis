@@ -19,7 +19,7 @@ immagini:
     titolo: semi
 
 
-stato_conservazione: stabile
+stato_conservazione: critico
 
 provenienza: Magic Garden Seeds
 
@@ -123,7 +123,7 @@ bibliografia:
 # NOTE
 # ==========================
 
-annotazioni: 
+annotazioni: per motivi pratici, nessuna raccolta nel 2026, semi lasciati nel terreno.
 
 # ==========================
 # CRONOLOGIA

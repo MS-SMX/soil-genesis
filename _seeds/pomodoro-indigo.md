@@ -1,7 +1,7 @@
 ---
 layout: seed
 
-slug: pomodoro-indigo
+slug: pom-indigo
 
 sg_id: SG-000084
 
@@ -12,6 +12,8 @@ nome_scientifico: Solanum lycopersicum
 famiglia: solanaceae
 
 immagini:
+ - file: 1.jpg
+   titolo: frutto
 
 
 stato_conservazione: new entry

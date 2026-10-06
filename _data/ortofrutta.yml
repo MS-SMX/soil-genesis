@@ -10,10 +10,10 @@ prodotti:
 
     immagine: "zucchine-evo.jpg"
 
-    disponibile: true
+    disponibile: false
 
     prezzo:
-      valore: 3.50
+      valore: 3.00
       unita: kg
 
   - id: nuovo-prodotto-1790508933518
@@ -29,11 +29,11 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 3.00
+      valore: 2.50
       unita: etto
 
   - id: nuovo-prodotto-1790508973358
-    nome: "Foglie di Amaranto Alba"
+    nome: "Foglie di Amaranto Alba (giovani)"
     categoria: foglie
 
     source:
@@ -45,6 +45,246 @@ prodotti:
     disponibile: true
 
     prezzo:
+      valore: 3.00
+      unita: etto
+
+  - id: nuovo-prodotto-1791320613443
+    nome: "Foglie di Amaranto Alba (mature)"
+    categoria: foglie
+
+    source:
+      archivio: seeds
+      slug: amaranto-alba
+
+    immagine: "amaranto-foglie.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 2.50
+      unita: etto
+
+  - id: nuovo-prodotto-1791320768146
+    nome: "Cavolo Nero"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: acmella-oleracea
+
+    immagine: ""
+
+    disponibile: true
+
+    prezzo:
+      valore: 7.00
+      unita: kg
+
+  - id: nuovo-prodotto-1791320853745
+    nome: "Ravanello Biglia Rossa"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: ravanello-biglia-rossa
+
+    immagine: "ravanello.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 5.00
+      unita: kg
+
+  - id: nuovo-prodotto-1791320946521
+    nome: "Bietola a Coste Rosse"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: bietola-rossa
+
+    immagine: "bietole.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 5.00
+      unita: kg
+
+  - id: nuovo-prodotto-1791321071547
+    nome: "Tomatillo Purple"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: tomatillo-purple
+
+    immagine: "tomatillo.jpg"
+
+    disponibile: true
+
+    prezzo:
       valore: 2.00
       unita: etto
+
+  - id: nuovo-prodotto-1791321183257
+    nome: "Mizuna - Senape Rossa (baby leaf)"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: senape-rossa
+
+    immagine: "senape.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 2.50
+      unita: etto
+
+  - id: nuovo-prodotto-1791321360474
+    nome: "Mizuna - Senape Rossa"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: senape-rossa
+
+    immagine: "senape.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 1.50
+      unita: etto
+
+  - id: nuovo-prodotto-1791321424049
+    nome: "Rucola Selvatica"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: rucola-selv
+
+    immagine: "rucola-selv.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 1.50
+      unita: etto
+
+  - id: nuovo-prodotto-1791321490561
+    nome: "Rucola Coltivata"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: rucola-coltiv
+
+    immagine: "rucola-colt.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 1.00
+      unita: etto
+
+  - id: nuovo-prodotto-1791321603625
+    nome: "Zucca di Cera (zucchina)"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: melon-cantonwax
+
+    immagine: "zucca-cera-giov.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 8.00
+      unita: kg
+
+  - id: nuovo-prodotto-1791321704785
+    nome: "Zucca di Cera (matura)"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: acmella-oleracea
+
+    immagine: "zucca-cera-mat.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 4.00
+      unita: kg
+
+  - id: nuovo-prodotto-1791321804704
+    nome: "Cavolo Riccio"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: cavolo-red-russian
+
+    immagine: "cavolo-riccio.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 0.80
+      unita: etto
+
+  - id: nuovo-prodotto-1791321855425
+    nome: "Pomodoro Ciliegino Rosso"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: pom-ciliegino
+
+    immagine: "pom-ciliegino-rosso.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 4.00
+      unita: kg
+
+  - id: nuovo-prodotto-1791321957392
+    nome: "Pomodoro Ciliegino Giallo"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: pom-ciliegino-giallo
+
+    immagine: "pom-ciliegino-giallo.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 4.00
+      unita: kg
+
+  - id: nuovo-prodotto-1791322032073
+    nome: "Peperona Quadrato Rosso D'Asti"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: pepe-asti
+
+    immagine: "pepe-rosso-asti.jpg"
+
+    disponibile: true
+
+    prezzo:
+      valore: 4.50
+      unita: kg
 
