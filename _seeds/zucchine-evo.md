@@ -61,7 +61,8 @@ istruzioni_coltivazione: ⊛ trapiantare quando il rischio di gelate è passato 
  ⊛ se anche i frutti successivi falliscono, verificare che A) gli impollinatori visitino i fiori B) la pianta non sia in stress idrico (terra nè zuppa nè completamente asciutta) C) siano presenti sia fiori maschili che femminili (quelli femminili hanno già una piccola zucchina attaccata) D) la pianta non presenti malattie <br>
  ⊛ Le varietà utilizzate sono molto vigorose, tenete buoni anche 2mq di spazio a loro disposizione. <br>
  ⊛ se si manifesta l'oidio (in genere dopo lunghe giornate di pioggia a metà e fine estate) procedere con l'eliminazione delle foglie colpite. Non è necessario eliminare il fungo, si può tenere sotto controllo. <br>
- ⊛ il terreno deve essere ricco, le piante consumano molti nutrienti, pacciamare è sempre una buona pratica per mantenere la giusta umidità.
+ ⊛ il terreno deve essere ricco, le piante consumano molti nutrienti, pacciamare è sempre una buona pratica per mantenere la giusta umidità. <br>
+ ⊛ a fine ciclo, evitare di coltivare altre cucurbitaceae per almeno 2-3 anni.
 
 difficolta_coltivazione: 2
 
@@ -90,7 +91,7 @@ metodo_isolamento: Impollinazione manuale controllata, Isolamento dei fiori
 
 tempo_isolamento: 2 giorni
 
-selezione: 
+selezione: piante più sane
 
 riproduzione_seme:  ⊛ i fiori si aprono solitamente al sorgere del sole e si chiudono verso mezzogiorno, l'impollinazione avviene nella maggior parte dei casi da parte di api e bombi <br>
  ⊛ lasciare crescere gli zucchini presenti in alcune piante (idealmente 10), quelle piante smetteranno di produrre nuove zucchine. Una volta che la zucchina avrà raggiunto le dimensioni massime e sarà diventata coriacea è possibile aprirla per estrarne i semi. Lasciala in campo il più possibile, raccoglila solo se arriva un periodo particolarmente piovoso. <br>
@@ -106,7 +107,7 @@ suolo: ricco e ben drenato
 
 impollinatori: api, bombi
 
-resistenze: 
+resistenze: freddo
 
 criticita: oidio, peronospora, virosi, marciume radicale, batteriosi
 

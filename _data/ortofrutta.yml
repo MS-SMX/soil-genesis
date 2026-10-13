@@ -40,7 +40,7 @@ prodotti:
       archivio: seeds
       slug: amaranto-alba
 
-    immagine: "amaranto-foglie.jpg"
+    immagine: "amaranto-foglie-gio.jpg"
 
     disponibile: true
 
@@ -66,13 +66,13 @@ prodotti:
 
   - id: nuovo-prodotto-1791320768146
     nome: "Cavolo Nero"
-    categoria: ortaggio
+    categoria: foglie
 
     source:
       archivio: seeds
-      slug: acmella-oleracea
+      slug: cavolo-nero
 
-    immagine: ""
+    immagine: "cavolo-nero.jpg"
 
     disponibile: true
 
@@ -98,7 +98,7 @@ prodotti:
 
   - id: nuovo-prodotto-1791320946521
     nome: "Bietola a Coste Rosse"
-    categoria: ortaggio
+    categoria: foglie
 
     source:
       archivio: seeds
@@ -130,7 +130,7 @@ prodotti:
 
   - id: nuovo-prodotto-1791321183257
     nome: "Mizuna - Senape Rossa (baby leaf)"
-    categoria: ortaggio
+    categoria: foglie
 
     source:
       archivio: seeds
@@ -146,7 +146,7 @@ prodotti:
 
   - id: nuovo-prodotto-1791321360474
     nome: "Mizuna - Senape Rossa"
-    categoria: ortaggio
+    categoria: foglie
 
     source:
       archivio: seeds
@@ -162,7 +162,7 @@ prodotti:
 
   - id: nuovo-prodotto-1791321424049
     nome: "Rucola Selvatica"
-    categoria: ortaggio
+    categoria: foglie
 
     source:
       archivio: seeds
@@ -178,7 +178,7 @@ prodotti:
 
   - id: nuovo-prodotto-1791321490561
     nome: "Rucola Coltivata"
-    categoria: ortaggio
+    categoria: foglie
 
     source:
       archivio: seeds
@@ -226,7 +226,7 @@ prodotti:
 
   - id: nuovo-prodotto-1791321804704
     nome: "Cavolo Riccio"
-    categoria: ortaggio
+    categoria: foglie
 
     source:
       archivio: seeds
@@ -273,7 +273,7 @@ prodotti:
       unita: kg
 
   - id: nuovo-prodotto-1791322032073
-    nome: "Peperona Quadrato Rosso D'Asti"
+    nome: "Peperone Quadrato Rosso D'Asti"
     categoria: ortaggio
 
     source:
