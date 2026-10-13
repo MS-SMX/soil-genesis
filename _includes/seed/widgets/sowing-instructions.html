@@ -1,0 +1,14 @@
+
+{% if page.istruzioni_semina %}
+    {% capture content %}
+        <div class="sg-long-content">
+    {{ page.istruzioni_semina | markdownify }}
+</div>
+    {% endcapture %}
+
+    {% include seed/layout/module.html
+        title="Istruzioni di semina"
+        module="SOWING"
+        content=content
+    %}
+{% endif %}

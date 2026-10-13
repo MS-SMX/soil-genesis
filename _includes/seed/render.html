@@ -4,20 +4,41 @@
 
 {% include seed/widgets/gallery.html %}
 
+
 <div class="seed-grid">
 
-
-{% include seed/widgets/identity.html %}
-{% include seed/widgets/cultivation.html %}
-
-{% include seed/widgets/biology.html %}
-{% include seed/widgets/reproduction.html %}
-
-{% include seed/widgets/conservation.html %}
-{% include seed/widgets/ecology.html %}
-
+    {% include seed/widgets/identity.html %}
+    {% include seed/widgets/cultivation.html %}
 
 </div>
+
+<div class="sg-module-full">
+    {% include seed/widgets/sowing-instructions.html %}
+</div>
+
+<div class="sg-module-full">
+    {% include seed/widgets/cultivation-instructions.html %}
+</div>
+
+<div class="seed-grid">
+
+    {% include seed/widgets/biology.html %}
+    {% include seed/widgets/reproduction.html %}
+
+</div>
+
+<div class="sg-module-full">
+    {% include seed/widgets/seed-reproduction.html %}
+</div>
+
+<div class="seed-grid">
+
+    {% include seed/widgets/conservation.html %}
+    {% include seed/widgets/ecology.html %}
+
+</div>
+
+
 
 
 {% if page.usi %}
@@ -25,6 +46,7 @@
 {% include seed/widgets/uses.html %}
 </div>
 {% endif %}
+
 
 {% if page.annotazioni %}
 <div class="sg-module-full">

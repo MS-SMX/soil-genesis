@@ -315,3 +315,60 @@ opacity:.75;
 text-decoration:underline;
 
 }
+
+/* CONTENUTI DEI MODULI TESTUALI */
+
+.sg-long-content {
+    padding: 12px 18px 16px;
+    font-size: .86rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.sg-long-content p {
+    margin: 0 0 .65em;
+}
+
+.sg-long-content p:last-child {
+    margin-bottom: 0;
+}
+
+.sg-long-content h1,
+.sg-long-content h2,
+.sg-long-content h3,
+.sg-long-content h4 {
+    margin: 1em 0 .4em;
+    color: var(--primary);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .8rem;
+    font-weight: 600;
+}
+
+.sg-long-content ul,
+.sg-long-content ol {
+    margin: .4em 0 .7em;
+    padding-left: 1.4em;
+}
+
+.sg-long-content li {
+    margin: .2em 0;
+}
+
+.sg-long-content strong {
+    color: var(--primary);
+}
+
+.sg-long-content blockquote {
+    margin: .8em 0;
+    padding: 8px 12px;
+    border-left: 2px solid var(--primary);
+    background: rgba(122, 216, 202, .035);
+}
+
+@media (max-width: 600px) {
+    .sg-long-content {
+        padding: 10px;
+        font-size: .82rem;
+        line-height: 1.55;
+    }
+}

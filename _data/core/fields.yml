@@ -78,18 +78,6 @@ cultivation:
     suffix: °C
     required: true
 
-
-  istruzioni_semina:
-    label: Semina
-    icon: 🪴
-    required: true
-
-
-  istruzioni_coltivazione:
-    label: Coltivazione
-    icon: 🌿
-    required: true
-
   difficolta_coltivazione:
     label: Difficoltà
     icon: ⚙
@@ -126,6 +114,17 @@ cultivation:
 
    icon: 📝
 
+  istruzioni_semina:
+   label: Semina
+   icon: 🪴
+   required: true
+
+
+  istruzioni_coltivazione:
+   label: Coltivazione
+   icon: 🌿
+   required: true
+
 reproduction:
 
   quantita_consigliata:
@@ -140,7 +139,11 @@ reproduction:
     icon: 🌾
     required: true
 
-
+  riproduzione_seme:
+    label: Riproduzione del seme
+    icon: 🌾
+    required: true
+    
   distanza_isolamento:
     label: Isolamento
     icon: ↔
@@ -199,6 +202,7 @@ uses:
   usi:
     label: Utilizzi
     icon: 🍽
+
 
 recipes:
   ricette:

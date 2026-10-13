@@ -1,0 +1,14 @@
+
+{% if page.istruzioni_coltivazione %}
+    {% capture content %}
+    <div class="sg-long-content">
+    {{ page.istruzioni_coltivazione | markdownify }}
+</div>
+    {% endcapture %}
+
+    {% include seed/layout/module.html
+        title="Istruzioni di coltivazione"
+        module="GROWING"
+        content=content
+    %}
+{% endif %}

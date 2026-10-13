@@ -1,0 +1,14 @@
+
+{% if page.riproduzione_seme %}
+    {% capture content %}
+       <div class="sg-long-content">
+    {{ page.riproduzione_seme | markdownify }}
+</div>
+    {% endcapture %}
+
+    {% include seed/layout/module.html
+        title="Riproduzione del seme"
+        module="SEED REPRODUCTION"
+        content=content
+    %}
+{% endif %}

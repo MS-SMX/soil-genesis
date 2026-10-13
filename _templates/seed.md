@@ -77,6 +77,8 @@ quantita_consigliata:
 
 periodo_raccolta_seme: 
 
+riproduzione_seme:
+
 distanza_isolamento: 
 
 metodo_isolamento: 

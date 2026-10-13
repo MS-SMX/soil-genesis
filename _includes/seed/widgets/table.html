@@ -1,56 +1,35 @@
+
 {% assign seed = page %}
 {% assign group = include.group %}
 {% assign fields = site.data.core.fields[group] %}
-<table class="sg-table">
-    
-{% for item in fields %}
 
+{% assign long_fields = "istruzioni_semina,istruzioni_coltivazione,riproduzione_seme" | split: "," %}
+{% assign month_fields = "periodo_semina_semenzaio,periodo_semina_diretta,periodo_raccolta_seme" | split: "," %}
+
+<table class="sg-table">
+{% for item in fields %}
     {% assign key = item[0] %}
     {% assign config = item[1] %}
-{% assign value = seed[key] %}
-{% assign month_fields = "periodo_semina_semenzaio,periodo_semina_diretta,periodo_raccolta_seme" | split: "," %}
-    {% if value %}
+    {% assign value = seed[key] %}
 
-    <tr>
-
-<td>
-
-{% if config.icon %}
-
-{{ config.icon }}
-
-{% endif %}
-
-{{ config.label }}
-
-</td>
-<td>
-
-{% if month_fields contains key %}
-
-{% include helpers/months.html months=value %}
-
-{% elsif value.first %}
-
-{{ value | join: ", " }}
-
-{% else %}
-
-{{ value }}
-
-{% endif %}
-
-{% if config.suffix %}
-
-{{ config.suffix }}
-
-{% endif %}
-
-</td>
-    </tr>
-
+    {% if value != nil and value != "" %}
+        {% unless long_fields contains key %}
+            <tr>
+                <td>
+                    {% if config.icon %}{{ config.icon }} {% endif %}{{ config.label }}
+                </td>
+                <td>
+                    {% if month_fields contains key %}
+                        {% include helpers/months.html months=value %}
+                    {% elsif value.first %}
+                        {{ value | join: ", " }}
+                    {% else %}
+                        {{ value }}
+                    {% endif %}
+                    {% if config.suffix %} {{ config.suffix }}{% endif %}
+                </td>
+            </tr>
+        {% endunless %}
     {% endif %}
-
 {% endfor %}
-
 </table>
