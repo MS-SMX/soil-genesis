@@ -1,301 +1,149 @@
-document.body.dataset.node
-const canvas = document.getElementById("network");
-const ctx = canvas.getContext("2d");
+(function () {
+    "use strict";
 
-let width;
-let height;
+    const canvas = document.getElementById("network");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-const nodes = [];
-const links = [];
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let branches = [];
+    let roots = [];
 
-const MOBILE = window.innerWidth < 700;
+    const mobile = () => window.innerWidth < 700;
+    const rand = (min, max) => min + Math.random() * (max - min);
 
-const NODE_COUNT = MOBILE ? 25 : 65;
+    function addBranch(x1, y1, angle, length, depth, thickness, family) {
+        if (depth <= 0 || length < 10) return;
 
-function resize(){
+        const bend = rand(-0.34, 0.34);
+        const a2 = angle + bend;
+        const x2 = x1 + Math.cos(a2) * length;
+        const y2 = y1 + Math.sin(a2) * length;
+        const curve = rand(-0.24, 0.24) * length;
+        const nx = -Math.sin(a2);
+        const ny = Math.cos(a2);
+        const cx = x1 + Math.cos(angle) * length * 0.52 + nx * curve;
+        const cy = y1 + Math.sin(angle) * length * 0.52 + ny * curve;
 
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+        branches.push({
+            x1, y1, cx, cy, x2, y2,
+            width: thickness,
+            alpha: rand(0.085, 0.19) * (depth > 2 ? 1 : 0.86),
+            phase: rand(0, Math.PI * 2),
+            flow: rand(0, 1),
+            flowSpeed: rand(0.000035, 0.000075),
+            family
+        });
 
-}
+        if (depth === 1) roots.push({ x: x2, y: y2, family });
 
-window.addEventListener("resize",resize);
+        const nextLength = length * rand(0.62, 0.78);
+        const spread = rand(0.32, 0.66);
 
-resize();
+        addBranch(x2, y2, a2 - spread, nextLength, depth - 1, thickness * 0.72, family);
+        addBranch(x2, y2, a2 + spread, nextLength, depth - 1, thickness * 0.72, family);
 
-class Node{
-
-    constructor(id){
-
-        this.id=id;
-
-        this.x=Math.random()*width;
-        this.y=Math.random()*height;
-
-        this.baseX=this.x;
-        this.baseY=this.y;
-
-        this.phase=Math.random()*Math.PI*2;
-
-        this.radius=2;
-
-        this.glow=0;
-
-        this.neighbors=[];
-
-    }
-
-    update(){
-
-        this.phase+=0.003;
-
-        this.x=this.baseX+Math.sin(this.phase)*4;
-
-        this.y=this.baseY+Math.cos(this.phase)*4;
-
-        this.glow*=0.96;
-
-    }
-
-}
-
-function buildNetwork(){
-
-    links.length=0;
-
-    for(const node of nodes){
-
-        node.neighbors=[];
-
-    }
-
-    for(let i=0;i<nodes.length;i++){
-
-        let distances=[];
-
-        for(let j=0;j<nodes.length;j++){
-
-            if(i===j) continue;
-
-            const dx=nodes[i].x-nodes[j].x;
-            const dy=nodes[i].y-nodes[j].y;
-
-            const dist=Math.sqrt(dx*dx+dy*dy);
-
-            distances.push({
-                node:j,
-                dist:dist
-            });
-
+        if (depth > 2 && Math.random() > 0.48) {
+            addBranch(x2, y2, a2 + rand(-0.25, 0.25), nextLength * 0.78, depth - 2, thickness * 0.64, family);
         }
+    }
 
-        distances.sort((a,b)=>a.dist-b.dist);
+    function buildMycelium() {
+        branches = [];
+        roots = [];
+        const count = mobile() ? 5 : 8;
+        const marginX = width * 0.07;
+        const marginY = height * 0.09;
 
-        for(let k=0;k<3;k++){
+        for (let i = 0; i < count; i++) {
+            const fraction = count === 1 ? 0.5 : i / (count - 1);
+            const x = marginX + (width - marginX * 2) * fraction + rand(-width * 0.035, width * 0.035);
+            const y = rand(marginY, height - marginY);
+            const family = i;
+            const shoots = mobile() ? 3 : 4;
 
-            const target=distances[k].node;
-
-            if(!nodes[i].neighbors.includes(target)){
-
-                nodes[i].neighbors.push(target);
-
+            for (let j = 0; j < shoots; j++) {
+                addBranch(
+                    x, y, rand(0, Math.PI * 2),
+                    rand(Math.min(width, height) * 0.12, Math.min(width, height) * 0.23),
+                    mobile() ? 3 : 4,
+                    rand(0.7, 1.15),
+                    family
+                );
             }
+        }
+    }
 
-            if(!nodes[target].neighbors.includes(i)){
+    function resize() {
+        dpr = Math.min(window.devicePixelRatio || 1, 1.7);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        buildMycelium();
+    }
 
-                nodes[target].neighbors.push(i);
+    function pointOnBranch(branch, t) {
+        const u = 1 - t;
+        return {
+            x: u * u * branch.x1 + 2 * u * t * branch.cx + t * t * branch.x2,
+            y: u * u * branch.y1 + 2 * u * t * branch.cy + t * t * branch.y2
+        };
+    }
 
-            }
+    function draw(time) {
+        ctx.clearRect(0, 0, width, height);
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
 
-            links.push([i,target]);
-const existing = links.some(link =>
-    (link[0]===i && link[1]===target) ||
-    (link[0]===target && link[1]===i)
-);
+        for (const branch of branches) {
+            const pulse = (Math.sin(time * 0.0007 + branch.phase) + 1) / 2;
+            ctx.beginPath();
+            ctx.moveTo(branch.x1, branch.y1);
+            ctx.quadraticCurveTo(branch.cx, branch.cy, branch.x2, branch.y2);
+            ctx.lineWidth = branch.width;
+            ctx.strokeStyle = `rgba(121, 215, 199, ${branch.alpha + pulse * 0.075})`;
+            ctx.shadowBlur = 1 + pulse * 4;
+            ctx.shadowColor = "rgba(121, 215, 199, 0.28)";
+            ctx.stroke();
 
-if(!existing){
-
-    links.push([i,target]);
-
-}
-
+            // A small living signal travels along each hypha.
+            const progress = (branch.flow + time * branch.flowSpeed) % 1;
+            const point = pointOnBranch(branch, progress);
+            const glow = 0.22 + pulse * 0.28;
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, 1.1 + pulse * 0.7, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(178, 255, 237, ${glow})`;
+            ctx.shadowBlur = 5 + pulse * 5;
+            ctx.shadowColor = "rgba(122, 235, 214, 0.7)";
+            ctx.fill();
         }
 
-    }
-
-}
-
-
-for(let i=0;i<NODE_COUNT;i++){
-nodes.push(new Node(i));
-if(i===0){
-
-    nodes[i].radius=4;
-
-}
-
-
-}
-
-buildNetwork();
-
-function drawConnections(){
-
-    ctx.lineWidth=1;
-
-    for(const link of links){
-
-        const a=nodes[link[0]];
-        const b=nodes[link[1]];
-
-        ctx.beginPath();
-
-        if(a.glow>0 || b.glow>0){
-
-            ctx.strokeStyle="rgba(138,255,238,.35)";
-
-            ctx.shadowBlur=2;
-            ctx.shadowColor="#8affee";
-
-        }else{
-
-            ctx.strokeStyle="rgba(122,216,202,.08)";
-            ctx.shadowBlur=0;
-
+        ctx.shadowBlur = 0;
+        for (const root of roots) {
+            const pulse = 0.07 + (Math.sin(time * 0.001 + root.family) + 1) * 0.045;
+            ctx.beginPath();
+            ctx.arc(root.x, root.y, 1.3 + pulse * 4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(154, 246, 223, ${pulse})`;
+            ctx.fill();
         }
 
-        ctx.moveTo(a.x,a.y);
-
-        ctx.lineTo(b.x,b.y);
-
-        ctx.stroke();
-
+        requestAnimationFrame(draw);
     }
 
-}
+    window.addEventListener("resize", resize, { passive: true });
+    resize();
+    requestAnimationFrame(draw);
 
-function drawNodes(){
-
-    for(const node of nodes){
-
-        const glow=4+node.glow*8;
-
-        ctx.beginPath();
-
-        ctx.fillStyle="rgba(122,216,202,.95)";
-
-        ctx.shadowBlur=glow;
-
-        ctx.shadowColor="#7ad8ca";
-
-        ctx.arc(node.x,node.y,node.radius,0,Math.PI*2);
-
-        ctx.fill();
-
-    }
-
-    ctx.shadowBlur=0;
-
-}
-let pulse=null;
-
-function createPulse(){
-
-    pulse={
-
-        current:0, // Soil Genesis
-
-        history:[0],
-
-        timer:0
-
+    window.SG = window.SG || {};
+    SG.networkPulse = function () {
+        document.body.classList.add("network-pulse");
+        window.setTimeout(() => document.body.classList.remove("network-pulse"), 220);
     };
-
-}
-
-function updatePulse(){
-
-    if(!pulse){
-
-        if(Math.random()<0.003){
-
-            createPulse();
-
-        }
-
-        return;
-
-    }
-
-    pulse.timer++;
-
-    const currentNode=nodes[pulse.current];
-
-    currentNode.glow=1;
-
-    if(pulse.timer>20){
-
-        pulse.timer=0;
-
-        const possible=currentNode.neighbors.filter(
-            n => !pulse.history.includes(n)
-        );
-
-        if(possible.length===0){
-
-            pulse=null;
-            return;
-
-        }
-
-        const next=
-            possible[Math.floor(Math.random()*possible.length)];
-
-        pulse.history.push(next);
-
-        pulse.current=next;
-
-    }
-
-    if(pulse.history.length>12){
-
-        pulse=null;
-
-    }
-
-}
-
-function animate(){
-
-    ctx.clearRect(0,0,width,height);
-
-    for(const node of nodes){
-
-node.update();
-
-    }
-updatePulse();
-
-    drawConnections();
-
-    drawNodes();
-
-    requestAnimationFrame(animate);
-
-}
-
-animate();
-
-window.SG = window.SG || {};
-
-SG.networkPulse=function(){
-
-document.body.classList.add("network-pulse");
-
-setTimeout(()=>{
-
-document.body.classList.remove("network-pulse");
-
-},220);
-
-}
+})();

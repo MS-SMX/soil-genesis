@@ -757,3 +757,49 @@ box-shadow:
     }
 
 }
+
+/* ==========================================
+   OPTIONAL UI SOUND CONTROL
+========================================== */
+
+.sound-toggle {
+    appearance: none;
+    border: 1px solid rgba(121, 215, 199, .18);
+    background: rgba(7, 16, 16, .35);
+    color: var(--text-soft);
+    padding: 7px 9px;
+    margin-left: 4px;
+    font: 400 .58rem/1.2 "IBM Plex Mono", monospace;
+    letter-spacing: .08em;
+    white-space: nowrap;
+    cursor: pointer;
+    opacity: .62;
+    transition: color .18s, border-color .18s, opacity .18s, background .18s;
+}
+
+.sound-toggle:hover,
+.sound-toggle:focus-visible {
+    color: var(--primary);
+    border-color: rgba(121, 215, 199, .45);
+    opacity: 1;
+    outline: none;
+}
+
+.sound-toggle[aria-pressed="true"] {
+    color: var(--primary);
+    border-color: rgba(121, 215, 199, .35);
+    background: rgba(121, 215, 199, .055);
+    opacity: .9;
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        padding: 14px 12px;
+    }
+
+    .sound-toggle {
+        margin-left: 0;
+    }
+}

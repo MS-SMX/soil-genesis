@@ -9,14 +9,14 @@
     margin:0 auto;
 
     padding:
-        80px 30px 120px;
+        54px 30px 90px;
 
 }
 
 
 .protocol-header{
 
-    margin-bottom:80px;
+    margin-bottom:38px;
 
     max-width:760px;
 
@@ -35,7 +35,7 @@
 
     opacity:.65;
 
-    margin-bottom:18px;
+    margin-bottom:10px;
 
 }
 
@@ -54,15 +54,39 @@
 
 .protocol-intro{
 
-    margin-top:25px;
+    margin-top:12px;
 
     max-width:650px;
 
-    font-size:1rem;
+    font-size:.94rem;
 
-    line-height:1.8;
+    line-height:1.55;
 
-    opacity:.65;
+    opacity:.72;
+
+}
+
+.protocol-intro .protocol-quote{
+
+    margin:0 0 5px;
+
+    font-style:italic;
+
+    line-height:1.5;
+
+}
+
+.protocol-intro .protocol-attribution{
+
+    margin:0;
+
+    font-size:.68rem;
+
+    line-height:1.45;
+
+    letter-spacing:.025em;
+
+    opacity:.72;
 
 }
 
@@ -277,14 +301,14 @@
     .protocol-page{
 
         padding:
-            55px 18px 80px;
+            38px 18px 65px;
 
     }
 
 
     .protocol-header{
 
-        margin-bottom:50px;
+        margin-bottom:28px;
 
     }
 

@@ -16,11 +16,14 @@ permalink: /protocollo/
             PROTOCOLLO
         </h1>
 
-        <p class="protocol-intro">
-            <i>
-"Le catene dell'umanità sofferente sono fatte di carta da ufficio"</i> <br>
-<h5>-Citazione attribuita a Franz Kafka nel libro "Catastrofismo" (Riesel, Semprun)</h5>
-        </p>
+        <div class="protocol-intro">
+            <p class="protocol-quote">
+                “Le catene dell'umanità sofferente sono fatte di carta da ufficio”
+            </p>
+            <p class="protocol-attribution">
+                Citazione attribuita a Franz Kafka nel libro <em>Catastrofismo</em> (Riesel, Semprun)
+            </p>
+        </div>
 
     </header>
 
