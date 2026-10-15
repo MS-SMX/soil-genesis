@@ -1,13 +1,31 @@
 {% assign pollination = include.seed.impollinazione | join: "|" %}
 {% assign first = include.seed.immagini.first %}
 
+{% assign status_value = include.seed.stato_conservazione | default: "" | append: "" | strip %}
+{% assign status_slug = "" %}
+{% if status_value != "" %}
+    {% assign status_slug = status_value | slugify %}
+{% endif %}
+
+{% assign family_value = include.seed.famiglia | default: "" | append: "" | strip %}
+{% assign family_slug = "" %}
+{% if family_value != "" %}
+    {% assign family_slug = family_value | slugify %}
+{% endif %}
+
+{% assign cycle_value = include.seed.ciclo_vita | default: "" | append: "" | strip %}
+{% assign cycle_slug = "" %}
+{% if cycle_value != "" %}
+    {% assign cycle_slug = cycle_value | slugify %}
+{% endif %}
+
 <a
     class="explorer-card"
     href="{{ include.seed.url | relative_url }}"
 
-    data-status="{{ include.seed.stato_conservazione | slugify }}"
-    data-family="{{ include.seed.famiglia | slugify }}"
-    data-cycle="{{ include.seed.ciclo_vita | slugify }}"
+    data-status="{{ status_slug }}"
+    data-family="{{ family_slug }}"
+    data-cycle="{{ cycle_slug }}"
     data-pollination="{{ pollination }}"
 
     data-has-image="{% if first and first.file %}true{% else %}false{% endif %}">
@@ -49,7 +67,7 @@ PHOTO PENDING
 {% endif %}
 
 {% if include.seed.stato_conservazione %}
-<div class="card-state state-{{ include.seed.stato_conservazione | slugify }}">
+<div class="card-state state-{{ status_slug }}">
 {{ include.seed.stato_conservazione }}
 </div>
 {% endif %}

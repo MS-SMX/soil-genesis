@@ -37,8 +37,10 @@
 </div>
 {% endif %}
 
-{% if page.stato_conservazione %}
-<div class="seed-badge seed-state state-{{ page.stato_conservazione | slugify }}">
+{% assign status_value = page.stato_conservazione | default: "" | append: "" | strip %}
+{% if status_value != "" %}
+{% assign status_slug = status_value | slugify %}
+<div class="seed-badge seed-state state-{{ status_slug }}">
 {{ page.stato_conservazione }}
 </div>
 {% endif %}

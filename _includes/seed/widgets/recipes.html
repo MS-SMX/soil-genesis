@@ -8,17 +8,20 @@
 
         {% for ingredient in recipe.soil_genesis_ingredients %}
 
-            {% assign ingredient_seed =
-                ingredient.seed | default: "" | slugify %}
+            {% assign ingredient_value = ingredient.seed | default: "" | append: "" | strip %}
+            {% assign ingredient_seed = "" %}
+            {% if ingredient_value != "" %}
+                {% assign ingredient_seed = ingredient_value | slugify %}
+            {% endif %}
 
-            {% assign current_seed =
-                seed_slug | slugify %}
+            {% assign current_value = seed_slug | default: "" | append: "" | strip %}
+            {% assign current_seed = "" %}
+            {% if current_value != "" %}
+                {% assign current_seed = current_value | slugify %}
+            {% endif %}
 
-            {% if ingredient_seed == current_seed %}
-
-                {% assign automatic_recipes =
-                    automatic_recipes | push: recipe %}
-
+            {% if ingredient_seed != "" and current_seed != "" and ingredient_seed == current_seed %}
+                {% assign automatic_recipes = automatic_recipes | push: recipe %}
             {% endif %}
 
         {% endfor %}

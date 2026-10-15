@@ -12,7 +12,8 @@ nome_scientifico: Arachis hypogaea
 famiglia: Fabaceae
 
 immagini:
-
+  - file: fruit.jpg
+    titolo: pianta
   - file: 1.jpg
     titolo: pianta
 

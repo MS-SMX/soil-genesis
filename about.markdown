@@ -1,18 +1,11 @@
 ---
-layout: page
-title: About
+layout: default
+title: Soil Genesis
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+# Soil Genesis
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+Soil Genesis è un archivio dedicato alla conservazione, alla riproduzione e alla condivisione delle sementi, con schede botaniche, appunti di coltivazione e risorse per chi vuole contribuire alla loro rigenerazione.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+Il progetto raccoglie informazioni sulle varietà conservate e su quelle da recuperare, dando valore alla documentazione, alla biodiversità coltivata e alla trasmissione pratica delle conoscenze.

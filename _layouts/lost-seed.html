@@ -1,0 +1,35 @@
+---
+layout: application
+---
+
+<article class="lost-seed-detail">
+  <header class="explorer-header">
+    <div class="explorer-kicker">SOIL GENESIS / MEMORY ARCHIVE</div>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.scientific_name %}<p><em>{{ page.scientific_name | escape }}</em></p>{% endif %}
+  </header>
+
+  <section class="sg-module">
+    <h2>Identità</h2>
+    <dl>
+      {% if page.common_name %}<dt>Nome comune</dt><dd>{{ page.common_name | escape }}</dd>{% endif %}
+      {% if page.family %}<dt>Famiglia botanica</dt><dd>{{ page.family | escape }}</dd>{% endif %}
+      {% if page.origin %}<dt>Provenienza documentata</dt><dd>{{ page.origin | join: ", " | escape }}</dd>{% endif %}
+      {% if page.last_seen %}<dt>Ultima testimonianza</dt><dd>{{ page.last_seen }}</dd>{% endif %}
+      {% if page.status %}<dt>Stato</dt><dd>{{ page.status | escape }}</dd>{% endif %}
+      {% if page.loss_reason %}<dt>Motivo della perdita</dt><dd>{{ page.loss_reason | join: ", " | escape }}</dd>{% endif %}
+      {% if page.difficulty_recovery %}<dt>Difficoltà di recupero</dt><dd>{{ page.difficulty_recovery | escape }}</dd>{% endif %}
+    </dl>
+  </section>
+
+  {% if page.image %}
+  <figure class="lost-seed-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title | escape }}" loading="lazy">
+  </figure>
+  {% endif %}
+
+  {% if page.notes %}<section class="sg-module"><h2>Annotazioni</h2><div class="sg-module-body">{{ page.notes | markdownify }}</div></section>{% endif %}
+  {% if page.sources %}<section class="sg-module"><h2>Fonti</h2><ul>{% for source in page.sources %}<li>{{ source | escape }}</li>{% endfor %}</ul></section>{% endif %}
+
+  <a class="back-link" href="{{ '/sementi/perdute/' | relative_url }}">← Torna al memoriale</a>
+</article>
