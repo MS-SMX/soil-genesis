@@ -29,7 +29,7 @@ provenienza: Cercatori di Semi
 
 ultimo_anno_riproduzione:
 
-description: Zucca proveniente dalla Cina e poco diffusa in Italia, i frutti giovani si possono consumare come zucchine, quelli maturi hanno un sapore neutro che ben si presta alle zuppe. Sviluppano peli leggermente appuntiti, da qui il nome hispida, ed uno strato di 'cera' che rende possibile conservarla fino all'estate successiva. Ha portamento rampicante, ma corre bene anche a terra.
+description: Zucca proveniente dalla Cina e poco diffusa in Italia, i frutti giovani si possono consumare come zucchine, quelli maturi hanno un sapore neutro che ben si presta alle zuppe. Sviluppano peli leggermente appuntiti, da qui il nome hispida, ed uno strato di 'cera' che rende possibile conservarla fino all'estate successiva. Ha portamento rampicante, ma corre bene anche a terra. Il peso medio dei frutti maturi è di 4,5 Kg.
 
 # ==========================
 # BIOLOGIA

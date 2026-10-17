@@ -13,7 +13,7 @@ prodotti:
     disponibile: false
 
     prezzo:
-      valore: 3.00
+      valore: 3.50
       unita: kg
 
   - id: nuovo-prodotto-1790508933518
@@ -61,7 +61,7 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 1.80
+      valore: 1.50
       unita: etto
 
   - id: nuovo-prodotto-1791320768146
@@ -77,7 +77,7 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 6.00
+      valore: 5.00
       unita: kg
 
   - id: nuovo-prodotto-1791320853745
@@ -125,8 +125,8 @@ prodotti:
     disponibile: false
 
     prezzo:
-      valore: 5.00
-      unita: etto
+      valore: 8.00
+      unita: kg
 
   - id: nuovo-prodotto-1791321183257
     nome: "Mizuna - Senape Rossa (baby leaf)"
@@ -157,7 +157,7 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 2.00
+      valore: 1.50
       unita: etto
 
   - id: nuovo-prodotto-1791321424049
@@ -173,7 +173,7 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 2.00
+      valore: 1.50
       unita: etto
 
   - id: nuovo-prodotto-1791321490561
@@ -189,7 +189,7 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 1.50
+      valore: 1.00
       unita: etto
 
   - id: nuovo-prodotto-1791321603625
@@ -205,7 +205,7 @@ prodotti:
     disponibile: false
 
     prezzo:
-      valore: 8.00
+      valore: 5.00
       unita: kg
 
   - id: nuovo-prodotto-1791321704785
@@ -221,7 +221,7 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 5.00
+      valore: 2.50
       unita: kg
 
   - id: nuovo-prodotto-1791321804704
@@ -237,7 +237,7 @@ prodotti:
     disponibile: true
 
     prezzo:
-      valore: 5.00
+      valore: 4.00
       unita: kg
 
   - id: nuovo-prodotto-1791321855425
@@ -285,6 +285,6 @@ prodotti:
     disponibile: false
 
     prezzo:
-      valore: 4.50
+      valore: 5.00
       unita: kg
 
