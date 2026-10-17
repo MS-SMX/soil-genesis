@@ -1,24 +1,20 @@
-# Soil Genesis
+# Soil Genesis · Changelog
 
-## 0.7.0 - Living Archive
+## 0.10.0 · Diario portatile
 
-### Added
+### Aggiunto
 
-- Sistema Passport
-- Collezione _seeds
-- Primo archivio varietà
-- Galleria immagini
-- Stato di conservazione
-- Struttura documentazione
+- Esportazione di tutti gli eventi del Diario di rigenerazione in un file JSON con versione e data di esportazione.
+- Importazione di backup JSON compatibili.
+- Validazione minima dei dati importati e segnalazione degli errori.
+- Unione non distruttiva: gli eventi già presenti vengono mantenuti e gli identificativi duplicati ignorati.
 
-### Changed
+### Modificato
 
-- Disponibilità sostituita da Stato di Conservazione
-- Archivio organizzato per collezioni Jekyll
+- Avviso del Diario più esplicito: i dati sono locali al browser e il backup va conservato anche altrove.
+- Documentazione aggiornata alla versione 0.10.0.
 
-### Planned
+### Limiti noti
 
-- Explorer
-- QR Generator
-- Passport PDF
-- Ricerca dinamica
+- Il diario resta locale al browser. Esportazione/importazione non crea sincronizzazione tra utenti o dispositivi.
+- La build Jekyll completa deve essere verificata nell'ambiente di sviluppo con Bundler e le dipendenze del progetto.
