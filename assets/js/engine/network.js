@@ -3,14 +3,25 @@
 
     const canvas = document.getElementById("network");
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
+
+    // The branching structure is still fully organic, but it is rasterized once
+    // per resize instead of recalculated and stroked on every animation frame.
+    const branchLayer = document.createElement("canvas");
+    const branchCtx = branchLayer.getContext("2d", { alpha: true });
+    if (!branchCtx) return;
 
     let width = 0;
     let height = 0;
     let dpr = 1;
     let branches = [];
     let roots = [];
+    let signalBranches = [];
+    let lastFrame = 0;
+    let resizeFrame = 0;
+    const FRAME_INTERVAL = 1000 / 30;
 
     const mobile = () => window.innerWidth < 700;
     const rand = (min, max) => min + Math.random() * (max - min);
@@ -51,10 +62,34 @@
         }
     }
 
+    function paintBranchLayer() {
+        branchLayer.width = Math.round(width * dpr);
+        branchLayer.height = Math.round(height * dpr);
+        branchCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        branchCtx.clearRect(0, 0, width, height);
+        branchCtx.lineCap = "round";
+        branchCtx.lineJoin = "round";
+
+        // Keep the original curves, irregular branching and soft glow. The
+        // glow is now paid once per resize, not once for every frame.
+        branchCtx.shadowBlur = 2.5;
+        branchCtx.shadowColor = "rgba(121, 215, 199, 0.24)";
+        for (const branch of branches) {
+            branchCtx.beginPath();
+            branchCtx.moveTo(branch.x1, branch.y1);
+            branchCtx.quadraticCurveTo(branch.cx, branch.cy, branch.x2, branch.y2);
+            branchCtx.lineWidth = branch.width;
+            branchCtx.strokeStyle = `rgba(121, 215, 199, ${branch.alpha + 0.035})`;
+            branchCtx.stroke();
+        }
+        branchCtx.shadowBlur = 0;
+    }
+
     function buildMycelium() {
         branches = [];
         roots = [];
-        const count = mobile() ? 5 : 8;
+        const isMobile = mobile();
+        const count = isMobile ? 5 : 8;
         const marginX = width * 0.07;
         const marginY = height * 0.09;
 
@@ -63,30 +98,43 @@
             const x = marginX + (width - marginX * 2) * fraction + rand(-width * 0.035, width * 0.035);
             const y = rand(marginY, height - marginY);
             const family = i;
-            const shoots = mobile() ? 3 : 4;
+            const shoots = isMobile ? 3 : 4;
 
             for (let j = 0; j < shoots; j++) {
                 addBranch(
                     x, y, rand(0, Math.PI * 2),
                     rand(Math.min(width, height) * 0.12, Math.min(width, height) * 0.23),
-                    mobile() ? 3 : 4,
+                    isMobile ? 3 : 4,
                     rand(0.7, 1.15),
                     family
                 );
             }
         }
+
+        // Moving signals are decorative rather than structural: keep roughly
+        // one third of the original signals while preserving the whole network.
+        signalBranches = branches.filter((_, index) => index % 3 === 0);
+        paintBranchLayer();
     }
 
     function resize() {
-        dpr = Math.min(window.devicePixelRatio || 1, 1.7);
+        resizeFrame = 0;
+        // A slightly lower pixel ratio reduces fill and compositing cost on
+        // high-density displays without changing the network's geometry.
+        dpr = Math.min(window.devicePixelRatio || 1, 1.35);
         width = window.innerWidth;
         height = window.innerHeight;
+
         canvas.width = Math.round(width * dpr);
         canvas.height = Math.round(height * dpr);
         canvas.style.width = width + "px";
         canvas.style.height = height + "px";
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         buildMycelium();
+    }
+
+    function scheduleResize() {
+        if (!resizeFrame) resizeFrame = window.requestAnimationFrame(resize);
     }
 
     function pointOnBranch(branch, t) {
@@ -98,46 +146,52 @@
     }
 
     function draw(time) {
+        requestAnimationFrame(draw);
+        if (document.hidden || time - lastFrame < FRAME_INTERVAL) return;
+        lastFrame = time;
+
         ctx.clearRect(0, 0, width, height);
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
 
-        for (const branch of branches) {
-            const pulse = (Math.sin(time * 0.0007 + branch.phase) + 1) / 2;
-            ctx.beginPath();
-            ctx.moveTo(branch.x1, branch.y1);
-            ctx.quadraticCurveTo(branch.cx, branch.cy, branch.x2, branch.y2);
-            ctx.lineWidth = branch.width;
-            ctx.strokeStyle = `rgba(121, 215, 199, ${branch.alpha + pulse * 0.075})`;
-            ctx.shadowBlur = 1 + pulse * 4;
-            ctx.shadowColor = "rgba(121, 215, 199, 0.28)";
-            ctx.stroke();
+        // A gentle global breath keeps the hyphae alive without recalculating
+        // each branch's pulse and reapplying a blur on every frame.
+        ctx.globalAlpha = 0.92 + Math.sin(time * 0.0007) * 0.08;
+        ctx.drawImage(branchLayer, 0, 0, width, height);
+        ctx.globalAlpha = 1;
 
-            // A small living signal travels along each hypha.
+        // Batch all travelling signals into one glow pass. Their positions
+        // still follow the original curved hyphae, but there are fewer of them.
+        ctx.beginPath();
+        for (const branch of signalBranches) {
             const progress = (branch.flow + time * branch.flowSpeed) % 1;
             const point = pointOnBranch(branch, progress);
-            const glow = 0.22 + pulse * 0.28;
-            ctx.beginPath();
-            ctx.arc(point.x, point.y, 1.1 + pulse * 0.7, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(178, 255, 237, ${glow})`;
-            ctx.shadowBlur = 5 + pulse * 5;
-            ctx.shadowColor = "rgba(122, 235, 214, 0.7)";
-            ctx.fill();
+            ctx.moveTo(point.x + 1.35, point.y);
+            ctx.arc(point.x, point.y, 1.35, 0, Math.PI * 2);
         }
-
+        ctx.fillStyle = "rgba(178, 255, 237, 0.43)";
+        ctx.shadowBlur = 5;
+        ctx.shadowColor = "rgba(122, 235, 214, 0.55)";
+        ctx.fill();
         ctx.shadowBlur = 0;
+
+        // Endpoint/root pulses remain, but are drawn together in one path.
+        ctx.beginPath();
         for (const root of roots) {
             const pulse = 0.07 + (Math.sin(time * 0.001 + root.family) + 1) * 0.045;
-            ctx.beginPath();
-            ctx.arc(root.x, root.y, 1.3 + pulse * 4, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(154, 246, 223, ${pulse})`;
-            ctx.fill();
+            const radius = 1.3 + pulse * 4;
+            ctx.moveTo(root.x + radius, root.y);
+            ctx.arc(root.x, root.y, radius, 0, Math.PI * 2);
         }
-
-        requestAnimationFrame(draw);
+        ctx.fillStyle = "rgba(154, 246, 223, 0.13)";
+        ctx.fill();
     }
 
-    window.addEventListener("resize", resize, { passive: true });
+    window.addEventListener("resize", scheduleResize, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+        // Reset the frame timer after returning to the tab so animation resumes
+        // immediately instead of trying to catch up with elapsed hidden time.
+        if (!document.hidden) lastFrame = 0;
+    });
+
     resize();
     requestAnimationFrame(draw);
 
