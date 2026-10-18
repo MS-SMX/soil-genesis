@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="log-entry-page field-log-page">
+  <div class="log-entry-shell">
+    <header class="log-entry-header">
+      <div class="log-entry-kicker">SOIL GENESIS // FIELD RECORD</div>
+      <div class="log-entry-type">DIARIO DI RIGENERAZIONE // {{ page.date | date: "%d.%m.%Y" }}</div>
+      <h1>{{ page.title | escape }}</h1>
+      {% if page.seed_slug %}<p class="log-entry-description">Accessione: <a href="{{ '/sementi/' | append: page.seed_slug | append: '/' | relative_url }}">{{ page.seed_name | default: page.seed_slug | escape }}</a></p>{% endif %}
+      {% if page.category %}<p class="log-entry-description">Categoria: {{ page.category | escape }}</p>{% endif %}
+    </header>
+    <div class="log-entry-divider"></div>
+    <section class="log-entry-content">{{ content }}</section>
+    <div class="log-entry-back"><a href="{{ '/diario-rigenerazione/' | relative_url }}">← DIARIO DI RIGENERAZIONE</a></div>
+  </div>
+</article>

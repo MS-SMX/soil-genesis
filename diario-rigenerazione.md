@@ -13,7 +13,7 @@ permalink: /diario-rigenerazione/
 
   <div class="regen-storage-note" role="note">
     <span class="regen-led" aria-hidden="true"></span>
-    <span><strong>ARCHIVIO LOCALE</strong> · Le registrazioni vivono in questo browser, non sul server. Esporta periodicamente un backup JSON e conservalo anche altrove.</span>
+    <span><strong>BOZZA LOCALE</strong> · Le nuove registrazioni vivono in questo browser finché non le esporti e aggiungi i file al repository. Il backup JSON serve invece a conservare o trasferire i dati locali.</span>
   </div>
 
   <section class="regen-backup-panel" aria-labelledby="regen-backup-title">
@@ -25,12 +25,37 @@ permalink: /diario-rigenerazione/
       </div>
     </div>
     <div class="regen-backup-actions">
-      <button type="button" id="regen-export" class="regen-primary-button">ESPORTA BACKUP JSON</button>
+      <button type="button" id="regen-publish-export" class="regen-primary-button">PREPARA FILE PER IL PUSH</button>
+      <button type="button" id="regen-export" class="regen-secondary-button">ESPORTA BACKUP JSON</button>
       <button type="button" id="regen-import-trigger" class="regen-secondary-button">IMPORTA BACKUP JSON</button>
       <input type="file" id="regen-import-file" accept=".json,application/json" hidden>
     </div>
-    <p class="regen-backup-help">L'esportazione crea un file con tutti gli eventi registrati. L'importazione aggiunge gli eventi del backup senza cancellare quelli già presenti e ignora i duplicati con lo stesso identificativo.</p>
+    <p class="regen-backup-help">Per pubblicare: prepara il pacchetto ZIP, estrai i file Markdown nella cartella <code>_logs/</code> del repository, poi esegui commit e push. Gli eventi già esportati vengono rigenerati con lo stesso nome file; il push effettivo resta manuale. Il backup JSON è indipendente e serve al ripristino locale.</p>
     <p id="regen-backup-feedback" class="regen-feedback" aria-live="polite"></p>
+  </section>
+
+  <section class="regen-history-panel regen-published-panel" aria-labelledby="regen-published-title">
+    <div class="regen-section-heading">
+      <span class="regen-index">00B</span>
+      <div>
+        <h2 id="regen-published-title">REGISTRAZIONI PUBBLICATE</h2>
+        <p>Eventi versionati nel repository e visibili a tutti</p>
+      </div>
+    </div>
+    <div class="regen-events regen-published-events">
+      {% assign published_field_logs = site.logs | where: "type", "field" | sort: "date" | reverse %}
+      {% for entry in published_field_logs %}
+        <article class="regen-event regen-published-event">
+          <div class="regen-event-date"><time datetime="{{ entry.date | date: '%Y-%m-%d' }}">{{ entry.date | date: "%d %b %Y" }}</time></div>
+          <div class="regen-event-body">
+            <div class="regen-event-meta"><span class="regen-category-tag">{{ entry.category | escape }}</span><span class="regen-event-seed">{% if entry.seed_slug %}<a href="{{ '/sementi/' | append: entry.seed_slug | append: '/' | relative_url }}">{{ entry.seed_name | default: entry.seed_slug | escape }}</a>{% else %}Evento generale{% endif %}</span></div>
+            <p><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }} ↗</a></p>
+          </div>
+        </article>
+      {% else %}
+        <p class="regen-backup-help">Nessuna registrazione pubblicata dal Diario per ora.</p>
+      {% endfor %}
+    </div>
   </section>
 
   <section class="regen-form-panel" aria-labelledby="regen-form-title">

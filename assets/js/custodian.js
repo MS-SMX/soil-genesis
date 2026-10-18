@@ -24,7 +24,6 @@
     if (!seed.hasIdentity) issues.push({key:'incomplete', label:'Identità incompleta', level:2});
     if (!hasValue(seed.family)) issues.push({key:'incomplete', label:'Famiglia botanica mancante', level:2});
     if (!Number(seed.imageCount)) issues.push({key:'images', label:'Immagini mancanti', level:2});
-    if (!seed.hasSources) issues.push({key:'sources', label:'Fonti da aggiungere', level:1});
     if (!seed.hasSowingNotes) issues.push({key:'incomplete', label:'Istruzioni di semina mancanti', level:1});
     if (!seed.hasCultivationNotes) issues.push({key:'incomplete', label:'Istruzioni di coltivazione mancanti', level:1});
     const year = Number(seed.lastYear);
@@ -37,7 +36,7 @@
   const all = seeds.map(seed => ({...seed, issues:issuesFor(seed)}));
   const urgentCount = all.filter(seed => seed.issues.some(issue => issue.level >= 3)).length;
   $('custodian-total').textContent = all.length;
-  $('custodian-incomplete').textContent = all.filter(seed => seed.issues.some(issue => ['incomplete','images','sources'].includes(issue.key))).length;
+  $('custodian-incomplete').textContent = all.filter(seed => seed.issues.some(issue => ['incomplete','images'].includes(issue.key))).length;
   $('custodian-review').textContent = all.filter(seed => seed.issues.some(issue => issue.key === 'reproduction' || issue.key === 'urgent')).length;
   $('custodian-season-label').textContent = `Operazioni previste a ${monthNames[currentMonth - 1]}`;
 

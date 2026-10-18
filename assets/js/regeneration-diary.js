@@ -19,6 +19,7 @@
   const feedback = document.getElementById('regen-form-feedback');
   const resetButton = document.getElementById('regen-reset-filters');
   const exportButton = document.getElementById('regen-export');
+  const publishExportButton = document.getElementById('regen-publish-export');
   const importTrigger = document.getElementById('regen-import-trigger');
   const importFile = document.getElementById('regen-import-file');
   const backupFeedback = document.getElementById('regen-backup-feedback');
@@ -168,6 +169,76 @@
     link.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
+
+  const safeSlug = value => String(value || 'evento').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 50) || 'evento';
+  const yamlString = value => JSON.stringify(String(value ?? ''));
+  const markdownForEvent = item => {
+    const seed = item.seedSlug ? seedLabel(item.seedSlug) : '';
+    const title = `${item.category}: ${seed || 'evento generale'} (${item.date})`;
+    return `---\nlayout: field-log\ntitle: ${yamlString(title)}\ntype: field\ndate: ${item.date}\nevent_id: ${yamlString(item.id)}\ncategory: ${yamlString(item.category)}\nseed_slug: ${yamlString(item.seedSlug || '')}\nseed_name: ${yamlString(seed)}\n---\n\n${String(item.notes || '').replace(/\r\n/g, '\n').trim()}\n`;
+  };
+  const crc32 = bytes => {
+    let crc = -1;
+    for (const byte of bytes) {
+      crc ^= byte;
+      for (let bit = 0; bit < 8; bit++) crc = (crc >>> 1) ^ (crc & 1 ? 0xEDB88320 : 0);
+    }
+    return (crc ^ -1) >>> 0;
+  };
+  const makeZip = files => {
+    const encoder = new TextEncoder();
+    const localParts = [], centralParts = [];
+    let offset = 0;
+    const u16 = n => [n & 255, (n >>> 8) & 255];
+    const u32 = n => [n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255];
+    files.forEach(file => {
+      const name = encoder.encode(file.name);
+      const data = encoder.encode(file.content);
+      const crc = crc32(data);
+      const localHeader = new Uint8Array([
+        ...u32(0x04034b50), ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0),
+        ...u32(crc), ...u32(data.length), ...u32(data.length), ...u16(name.length), ...u16(0)
+      ]);
+      localParts.push(localHeader, name, data);
+      const centralHeader = new Uint8Array([
+        ...u32(0x02014b50), ...u16(20), ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0), ...u16(0),
+        ...u32(crc), ...u32(data.length), ...u32(data.length), ...u16(name.length), ...u16(0), ...u16(0),
+        ...u16(0), ...u16(0), ...u32(0), ...u32(offset)
+      ]);
+      centralParts.push(centralHeader, name);
+      offset += localHeader.length + name.length + data.length;
+    });
+    const centralSize = centralParts.reduce((sum, part) => sum + part.length, 0);
+    const centralOffset = offset;
+    const end = new Uint8Array([
+      ...u32(0x06054b50), ...u16(0), ...u16(0), ...u16(files.length), ...u16(files.length),
+      ...u32(centralSize), ...u32(centralOffset), ...u16(0)
+    ]);
+    return new Blob([...localParts, ...centralParts, end], {type: 'application/zip'});
+  };
+
+  publishExportButton.addEventListener('click', () => {
+    if (!events.length) {
+      backupFeedback.textContent = 'Nessun evento locale da preparare per la pubblicazione.';
+      return;
+    }
+    const files = sortEvents(events).map(item => {
+      const shortId = safeSlug(item.id).slice(-28);
+      const filename = `field-${item.date}-${shortId || 'evento'}.md`;
+      return { name: `_logs/${filename}`, content: markdownForEvent(item) };
+    });
+    const blob = makeZip(files);
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `soil-genesis-field-logs-${todayLocal()}.zip`;
+    link.hidden = true;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+    backupFeedback.textContent = `Pacchetto pronto: ${files.length} file Markdown nella cartella _logs/. Estrai il contenuto nella radice del repository e poi esegui commit e push. Gli eventi locali non vengono cancellati.`;
+  });
 
   exportButton.addEventListener('click', () => {
     const stamp = todayLocal();

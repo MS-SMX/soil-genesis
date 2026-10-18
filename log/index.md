@@ -61,6 +61,13 @@ permalink: /log/
 
         </a>
 
+
+        <a href="{{ '/log/field-log/' | relative_url }}" class="log-hub-card">
+            <span>FIELD LOG</span>
+            <strong>DIARIO DI RIGENERAZIONE</strong>
+            <small>Registrazioni dal campo versionate nel repository →</small>
+        </a>
+
     </section>
 
 </div>
