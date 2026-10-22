@@ -8,7 +8,7 @@ permalink: /storico-parcelle/
   <header class="regen-header">
     <div class="regen-kicker">SOIL GENESIS // AGRONOMIC MEMORY</div>
     <h1>STORICO PARCELLE</h1>
-    <p>Una cronologia unificata delle colture di base e delle operazioni registrate. Seleziona una parcella per ricostruire cosa è cresciuto lì, stagione dopo stagione.</p>
+    <p>Una cronologia unificata di colture, operazioni e condizioni osservate. Le stagioni colturali non hanno una data precisa se questa non è stata registrata; le transizioni sono confronti descrittivi, non valutazioni automatiche della rotazione.</p>
   </header>
   <div class="regen-storage-note" role="note"><span class="regen-led" aria-hidden="true"></span><span><strong>MEMORIA DEL TERRENO</strong> · I dati pubblicati arrivano dal repository; le bozze locali sono visibili solo in questo browser. Per renderle condivise, esporta e fai push.</span></div>
   <section class="regen-history-panel">
@@ -16,14 +16,20 @@ permalink: /storico-parcelle/
       <label><span>Parcella</span><select id="parcel-history-filter"><option value="">Tutte le parcelle</option></select></label>
       <label><span>Anno / stagione dal</span><input type="number" id="parcel-history-from" min="2000" max="2100" placeholder="es. 2024"></label>
       <label><span>Anno / stagione al</span><input type="number" id="parcel-history-to" min="2000" max="2100" placeholder="es. 2026"></label>
-      <label><span>Cerca coltura o nota</span><input type="search" id="parcel-history-search" placeholder="Nome, operazione, osservazione…"></label>
+      <label><span>Cerca coltura, osservazione o nota</span><input type="search" id="parcel-history-search" placeholder="Coltura, condizione, operazione, nota…"></label>
       <button type="button" class="regen-secondary-button" id="parcel-history-reset">AZZERA FILTRI</button>
     </div>
     <p id="parcel-history-summary" class="regen-backup-help" aria-live="polite"></p>
+    <section class="parcel-rotation-context" aria-labelledby="parcel-rotation-context-title">
+      <div class="regen-subsection-heading"><h2 id="parcel-rotation-context-title">CONTESTO DELLA ROTAZIONE</h2><p>Famiglie botaniche registrate e osservazioni pertinenti nella stessa parcella</p></div>
+      <p class="regen-backup-help">Questa lettura incrocia i piani stagionali con le osservazioni disponibili. Una famiglia ripetuta è un segnale da valutare, non una diagnosi; un campo non registrato non equivale ad assenza.</p>
+      <div id="parcel-rotation-context-results" class="parcel-rotation-context-results" aria-live="polite"></div>
+    </section>
     <div id="parcel-history-timeline" class="parcel-history-timeline"></div>
     <div id="parcel-history-empty" class="regen-empty" hidden><span class="regen-empty-mark">∅</span><strong>NESSUNA REGISTRAZIONE</strong><p>Questa parcella non ha ancora uno storico corrispondente ai filtri.</p></div>
   </section>
   <script type="application/json" id="parcel-history-published-plantings">{% assign history_plantings = site.data['plot-plantings'].plantings %}{% if history_plantings %}{{ history_plantings | jsonify }}{% else %}[]{% endif %}</script>
+  <script type="application/json" id="parcel-history-published-conditions">{% assign condition_history_data = site.data['parcel-condition-history'] %}{% assign history_observations = condition_history_data.observations %}{% if history_observations %}{{ history_observations | jsonify }}{% else %}[]{% endif %}</script>
   <script type="application/json" id="parcel-history-published-events">
   [
   {% assign history_logs = site.logs | where: "type", "field" | sort: "date" %}

@@ -33,6 +33,18 @@ description:
 
 ciclo_vita: annuale
 
+fonti_botaniche:
+  famiglia:
+    valore: "Polygonaceae"
+    fonte: "Kew Science, Plants of the World Online — Fagopyrum esculentum"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:694526-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Kew Science, Plants of the World Online — Fagopyrum esculentum"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:694526-1/general-information"
+    data_verifica: "2026-10-22"
+
 impollinazione: 
 
 fiori: 

@@ -7,7 +7,7 @@ sg_id: SG-000046
 
 nome_comune: Kiwano
 
-nome_scientifico: Cucumis metulliferus
+nome_scientifico: Cucumis metuliferus
 
 famiglia: cucurbitaceae
 
@@ -134,4 +134,21 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+
+# ==========================
+# FONTI BOTANICHE
+# ==========================
+
+fonti_botaniche:
+  famiglia:
+    valore: "Cucurbitaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:116468-3/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:116468-3/general-information"
+    data_verifica: "2026-10-22"
+
 ---

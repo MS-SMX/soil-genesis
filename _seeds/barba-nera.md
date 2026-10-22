@@ -28,6 +28,32 @@ description:
 
 ciclo_vita: biennale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "impollinazione anemofila; prevalentemente allogama"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Bietole, barbabietole e altre forme coltivate di Beta vulgaris possono incrociarsi."
+  isolamento:
+    valore: "circa 976 m come riferimento domestico; aumentare l’isolamento se sono presenti altre Beta in fioritura"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "biennale per produzione del seme; dopo vernalizzazione e fioritura raccogliere i glomeruli/semi maturi"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "circa 80 piante come riferimento per mantenimento genetico"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
 
 fiori: 
@@ -130,4 +156,16 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "amaranthaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/164505-1"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "biennale"
+    fonte: "Utah State University Extension — Collecting and Storing Seeds from Your Garden"
+    url: "https://extension.usu.edu/yardandgarden/research/collecting-and-storing-seeds-from-your-garden"
+    data_verifica: "2026-10-22"
+
 ---

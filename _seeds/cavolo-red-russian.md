@@ -31,6 +31,32 @@ description:
 
 ciclo_vita: biennale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "incrocio mediato da insetti; molte cultivar sono autoincompatibili o fortemente incrocianti"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Cavolo nero, cavolo cappuccio, broccoli e cavolo rapa appartengono a B. oleracea e possono incrociarsi."
+  isolamento:
+    valore: "circa 488 m come riferimento domestico per conservazione; valutare anche cavoli, broccoli, cavolfiori e altre cultivar in fioritura"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "pianta normalmente biennale per la produzione di seme; raccogliere siliquie mature prima che si aprano e disperdano i semi"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "circa 80 piante nella guida per mantenere una popolazione ampia"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
 
 fiori: 
@@ -133,4 +159,15 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "Brassicaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:279435-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "biennale o suffrutice"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:279435-1/general-information"
+    data_verifica: "2026-10-22"
 ---

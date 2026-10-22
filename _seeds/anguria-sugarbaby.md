@@ -33,6 +33,32 @@ description: Di piccola pezzatura e dolcissima, da qui il nome.
 
 ciclo_vita: annuale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "incrocio mediato da insetti"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "La purezza dipende da altre angurie in fioritura e dall’attività degli impollinatori."
+  isolamento:
+    valore: "circa 244–805 m come intervallo indicativo per conservazione varietale"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "raccogliere semi da frutto pienamente maturo; pulire e asciugare completamente"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "10–20 piante come riferimento generale per mantenimento varietale"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
 
 fiori: 
@@ -137,4 +163,15 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "Cucurbitaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:291938-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:291938-1/general-information"
+    data_verifica: "2026-10-22"
 ---

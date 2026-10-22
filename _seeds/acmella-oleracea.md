@@ -33,6 +33,18 @@ description:
 
 ciclo_vita: annuale
 
+fonti_botaniche:
+  famiglia:
+    valore: "Asteraceae"
+    fonte: "Kew Science, Plants of the World Online — Acmella oleracea"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:914778-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Kew Science, Plants of the World Online — Acmella oleracea"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:914778-1/general-information"
+    data_verifica: "2026-10-22"
+
 impollinazione: 
 
 fiori: 

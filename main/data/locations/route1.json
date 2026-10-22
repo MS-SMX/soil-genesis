@@ -1,0 +1,38 @@
+{
+  "id": "route1",
+  "name": "Percorso 1",
+  "description": "La strada verso nord attraversa campi incolti e tratti di vegetazione spontanea. L'asfalto è screpolato e alcuni vecchi cartelli sono quasi illeggibili. Non si vedono persone nelle vicinanze.",
+  "connections": [
+    {
+      "id": "pallet",
+      "label": "Torna a Biancavilla",
+      "travelMinutes": 180
+    },
+    {
+      "id": "viridian",
+      "label": "Smeraldopoli",
+      "travelMinutes": 240
+    }
+  ],
+  "weather": "clear",
+  "scavenging": [
+    {
+      "id": "route1-bacche",
+      "itemId": "bacche",
+      "quantity": 2,
+      "label": "Raccogli bacche selvatiche"
+    },
+    {
+      "id": "route1-erbe",
+      "itemId": "erbe",
+      "quantity": 1,
+      "label": "Raccogli erbe spontanee"
+    },
+    {
+      "id": "route1-bende",
+      "itemId": "bende",
+      "quantity": 1,
+      "label": "Recupera bende da un kit abbandonato"
+    }
+  ]
+}

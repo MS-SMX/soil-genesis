@@ -130,4 +130,15 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "Apiaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:838067-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "biennale"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:838067-1/general-information"
+    data_verifica: "2026-10-22"
 ---

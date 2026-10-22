@@ -130,4 +130,21 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+
+# ==========================
+# FONTI BOTANICHE
+# ==========================
+
+fonti_botaniche:
+  famiglia:
+    valore: "Amaryllidaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/528046-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "perenne"
+    fonte: "University of California Agriculture and Natural Resources — Bunching Onions"
+    url: "https://ucanr.edu/node/137393/printable/print"
+    data_verifica: "2026-10-22"
+
 ---

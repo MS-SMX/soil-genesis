@@ -28,6 +28,32 @@ description:
 
 ciclo_vita: biennale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "incrocio mediato da insetti"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "La fonte di questa scheda non fornisce una raccomandazione numerica specifica per il finocchio; non viene inventata."
+  isolamento:
+    valore: "distanza specifica da verificare per popolazione e cultivar; evitare di dedurre una distanza numerica da fonti generiche"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "raccogliere gli acheni quando le ombrelle maturano e iniziano a brunire"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "dimensione della popolazione da verificare con una fonte specifica per il finocchio"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
 
 fiori: 
@@ -130,4 +156,15 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "Apiaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/842680-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "perenne"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/842680-1/general-information"
+    data_verifica: "2026-10-22"
 ---

@@ -133,6 +133,12 @@
 .regen-rotation-status.is-warning { border-color: rgba(218,166,103,.45); color: #e7c08c; }
 .regen-rotation-status.is-unknown { color: rgba(211,235,229,.58); }
 @media(max-width:700px){ .regen-rotation-list { grid-template-columns: minmax(0,1fr); } }
+.regen-rotation-evidence { grid-column: 1 / -1; margin-top: 8px; padding: 15px; border: 1px solid rgba(122,215,202,.18); background: rgba(8,24,23,.24); }
+.regen-rotation-evidence h3 { margin: 0 0 8px; color: #bfe2d8; font: 500 .75rem/1.5 "IBM Plex Mono", monospace; }
+.regen-rotation-evidence p, .regen-rotation-evidence li { font-size: .78rem; line-height: 1.65; }
+.regen-rotation-evidence ul { padding-left: 20px; }
+.regen-rotation-evidence a { color: #a9ded2; text-decoration: underline; text-underline-offset: 3px; }
+.regen-rotation-evidence .regen-evidence-caveat { color: rgba(211,235,229,.68); }
 
 /* Hard reset del selettore: evita che regole globali trasformino le checkbox in campi grandi. */
 .regen-plan-page .regen-plant-options input[type="checkbox"],
@@ -160,3 +166,198 @@
 .parcel-history-source { display:inline-block; padding:3px 6px; border:1px solid rgba(122,215,202,.22); color:#9dd9c9; font:.6rem "IBM Plex Mono",monospace; }
 .parcel-history-source.is-local { border-color:rgba(218,166,103,.4); color:#e7c08c; }
 @media(max-width:700px){.parcel-history-filters{grid-template-columns:minmax(0,1fr)}.parcel-history-entry{grid-template-columns:minmax(0,1fr);gap:5px}}
+
+/* Fonti collegate alle singole segnalazioni fitosanitarie */
+.regen-rotation-sources { margin: 8px 0 0; padding-left: 18px; }
+.regen-rotation-sources li { margin: 4px 0; font-size: .76rem; line-height: 1.55; }
+.regen-rotation-sources a { color: #a9ded2; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Structured, source-linked pathogen reference cards */
+.regen-pathogen-library { margin-top: 18px; padding-top: 15px; border-top: 1px solid rgba(122,215,202,.2); }
+.regen-pathogen-library > h3 { margin: 0 0 7px; color: #bfe2d8; font: 500 .75rem/1.5 "IBM Plex Mono", monospace; letter-spacing: .05em; }
+.regen-pathogen-intro { color: rgba(211,235,229,.75); }
+.regen-pathogen-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 8px; margin-top: 12px; }
+.regen-pathogen-card { align-self: start; border: 1px solid rgba(122,215,202,.16); background: rgba(2,10,11,.28); }
+.regen-pathogen-card[open] { border-color: rgba(122,215,202,.35); background: rgba(8,24,23,.4); }
+.regen-pathogen-card summary { display: flex; flex-direction: column; gap: 4px; padding: 11px 12px; cursor: pointer; list-style: none; }
+.regen-pathogen-card summary::-webkit-details-marker { display: none; }
+.regen-pathogen-card summary::before { content: "+ APRI SCHEDA"; color: #8bc9bc; font: 500 .62rem/1.4 "IBM Plex Mono", monospace; order: 2; }
+.regen-pathogen-card[open] summary::before { content: "− CHIUDI SCHEDA"; }
+.regen-pathogen-card summary span { color: #d0e9e2; font: 500 .78rem/1.5 "IBM Plex Mono", monospace; }
+.regen-pathogen-card summary small { color: rgba(211,235,229,.62); font-size: .72rem; line-height: 1.5; }
+.regen-pathogen-content { padding: 0 12px 12px; }
+.regen-pathogen-content p, .regen-pathogen-content li { font-size: .76rem; line-height: 1.65; }
+.regen-pathogen-content p { margin: 8px 0; }
+.regen-pathogen-content ul { padding-left: 18px; }
+.regen-pathogen-content li { margin: 4px 0; }
+.regen-pathogen-content strong { color: #bfe2d8; }
+.regen-pathogen-sources a { overflow-wrap: anywhere; }
+
+/* Collegamento contestuale fra colture registrate e schede fitosanitarie. */
+.regen-crop-pathogen-links { margin: 10px 0; padding: 10px; border-left: 2px solid rgba(122,215,202,.32); background: rgba(2,10,11,.24); }
+.regen-crop-pathogen-links > p { margin: 4px 0; font-size: .76rem; line-height: 1.55; }
+.regen-crop-pathogen-links > p strong { color: #bfe2d8; }
+.regen-crop-pathogen-links .regen-pathogen-match-caveat { color: rgba(211,235,229,.58); font-size: .68rem; }
+.regen-crop-pathogen-links ul { margin: 7px 0 0; padding-left: 18px; }
+.regen-crop-pathogen-links li { margin: 7px 0; font-size: .75rem; line-height: 1.55; }
+.regen-crop-pathogen-links a { color: #a9ded2; text-decoration: underline; text-underline-offset: 3px; }
+.regen-crop-pathogen-links li span { color: rgba(211,235,229,.72); }
+.regen-crop-pathogen-links li small { display: block; margin-top: 3px; color: rgba(211,235,229,.58); font-size: .68rem; line-height: 1.5; }
+
+/* UI 0.23: progressive disclosure and a calmer information hierarchy. */
+.regen-pathogen-library,
+.regen-rotation-evidence {
+  min-width: 0;
+}
+.regen-pathogen-library > summary,
+.regen-rotation-evidence > summary,
+.regen-crop-pathogen-links > summary,
+.regen-rotation-more > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  list-style: none;
+  color: #bfe2d8;
+  font: 500 .75rem/1.5 "IBM Plex Mono", monospace;
+}
+.regen-pathogen-library > summary::-webkit-details-marker,
+.regen-rotation-evidence > summary::-webkit-details-marker,
+.regen-crop-pathogen-links > summary::-webkit-details-marker,
+.regen-rotation-more > summary::-webkit-details-marker { display: none; }
+.regen-pathogen-library > summary::after,
+.regen-rotation-evidence > summary::after,
+.regen-crop-pathogen-links > summary::after,
+.regen-rotation-more > summary::after { content: "+"; flex: 0 0 auto; color: #83cdb7; font-size: 1rem; }
+.regen-pathogen-library[open] > summary::after,
+.regen-rotation-evidence[open] > summary::after,
+.regen-crop-pathogen-links[open] > summary::after,
+.regen-rotation-more[open] > summary::after { content: "−"; }
+.regen-pathogen-library > summary small,
+.regen-rotation-evidence > summary small { display: block; margin-left: auto; color: rgba(211,235,229,.54); font: .67rem/1.5 "IBM Plex Mono", monospace; text-align: right; }
+.regen-pathogen-library { margin-top: 16px; padding-top: 0; border: 1px solid rgba(122,215,202,.18); background: rgba(2,10,11,.2); }
+.regen-pathogen-library-body { padding: 0 14px 14px; }
+.regen-pathogen-library .regen-pathogen-intro { margin: 3px 0 10px; font-size: .78rem; line-height: 1.65; }
+.regen-rotation-evidence { grid-column: 1 / -1; margin-top: 8px; padding: 0; border: 1px solid rgba(122,215,202,.18); background: rgba(8,24,23,.24); }
+.regen-rotation-evidence-body { padding: 0 15px 15px; }
+.regen-rotation-evidence-body > p:first-child { margin-top: 2px; }
+.regen-crop-pathogen-links { padding: 0; border-left: 0; border: 1px solid rgba(122,215,202,.16); background: rgba(2,10,11,.2); }
+.regen-crop-pathogen-links > summary { padding: 8px 10px; font-size: .68rem; }
+.regen-crop-pathogen-links > summary span { margin-left: auto; color: rgba(211,235,229,.6); }
+.regen-crop-pathogen-content { padding: 0 10px 8px; }
+.regen-crop-pathogen-content > p { margin: 4px 0; }
+.regen-rotation-more { margin-top: 10px; border-top: 1px solid rgba(122,215,202,.12); }
+.regen-rotation-more > summary { padding: 9px 0 4px; color: rgba(190,220,213,.72); font-size: .67rem; }
+.regen-rotation-more > div { padding-top: 4px; }
+.regen-rotation-crop { color: #e0eee9; }
+.regen-rotation-alert { margin: 10px 0 !important; padding: 10px 11px; border-left: 2px solid rgba(218,166,103,.7); background: rgba(85,57,25,.16); color: #e7d3b3; }
+.regen-pathogen-library summary:focus-visible,
+.regen-rotation-evidence summary:focus-visible,
+.regen-crop-pathogen-links summary:focus-visible,
+.regen-rotation-more summary:focus-visible { outline: 1px solid rgba(122,215,202,.8); outline-offset: 2px; }
+.regen-rotation-item { min-width: 0; }
+.regen-rotation-item p { overflow-wrap: anywhere; }
+@media (max-width: 700px) {
+  .regen-pathogen-library > summary,
+  .regen-rotation-evidence > summary { align-items: flex-start; }
+  .regen-pathogen-library > summary small,
+  .regen-rotation-evidence > summary small { max-width: 52%; }
+}
+.regen-published-plan-disclosure { margin-top: 24px; border: 1px solid rgba(122,215,202,.16); background: rgba(2,10,11,.2); }
+.regen-published-plan-disclosure > summary { display: flex; align-items: center; gap: 12px; padding: 13px 15px; cursor: pointer; list-style: none; }
+.regen-published-plan-disclosure > summary::-webkit-details-marker { display: none; }
+.regen-published-plan-disclosure > summary::after { content: "+"; margin-left: auto; color: #83cdb7; font-size: 1.1rem; }
+.regen-published-plan-disclosure[open] > summary::after { content: "−"; }
+.regen-published-plan-disclosure > summary > span:nth-child(2) { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.regen-published-plan-disclosure strong { color: #bfe2d8; font: 500 .75rem/1.5 "IBM Plex Mono", monospace; }
+.regen-published-plan-disclosure small { color: rgba(211,235,229,.55); font-size: .72rem; line-height: 1.5; }
+.regen-published-plan-count { color: rgba(211,235,229,.45); font: .63rem "IBM Plex Mono", monospace; }
+.regen-published-plan-disclosure .regen-published-plan-list { padding: 0 14px 14px; }
+@media(max-width:600px) { .regen-published-plan-disclosure > summary { align-items: flex-start; } .regen-published-plan-count { display:none; } }
+
+/* Fitosanitario: rendere leggibile il grado di corrispondenza senza suggerire una diagnosi. */
+.regen-pathogen-match { display: block; margin: 4px 0 0 12px; font-size: .76rem; line-height: 1.5; }
+.regen-pathogen-match--family { color: #a7d8bd; }
+.regen-pathogen-match--name { color: #d9c18a; }
+.regen-rotation-alert { overflow-wrap: anywhere; }
+
+/* 0.25.0 — scheda strutturata delle condizioni della parcella */
+.regen-parcel-conditions { min-width: 0; border: 1px solid rgba(122,215,202,.2); padding: 12px 14px; background: rgba(8,24,23,.28); }
+.regen-parcel-conditions > summary, .regen-condition-summary > summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; cursor: pointer; color: #bfe2d8; font: .76rem "IBM Plex Mono", monospace; }
+.regen-parcel-conditions > summary small { color: rgba(211,235,229,.52); font: .68rem/1.5 "IBM Plex Mono", monospace; }
+.regen-condition-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin: 12px 0 2px; }
+.regen-condition-grid label { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.regen-condition-grid label > span { color: rgba(190,220,213,.72); font: .7rem "IBM Plex Mono", monospace; }
+.regen-condition-grid select { box-sizing: border-box; width: 100%; min-height: 42px; padding: 9px 10px; border: 1px solid rgba(122,215,202,.2); background: rgba(2,10,11,.84); color: #d2e8e2; font: .78rem/1.4 "IBM Plex Mono", monospace; }
+.regen-condition-summary { margin: 10px 0; padding: 9px 10px; border-left: 2px solid rgba(122,215,202,.25); background: rgba(2,10,11,.24); }
+.regen-condition-summary > summary span { display: inline-grid; place-items: center; min-width: 1.4rem; min-height: 1.4rem; border: 1px solid rgba(122,215,202,.25); border-radius: 50%; font-size: .66rem; }
+.regen-condition-summary ul { margin: 9px 0; padding-left: 18px; }
+.regen-condition-summary li { margin: 5px 0; font-size: .78rem; line-height: 1.5; }
+@media(max-width:700px) { .regen-condition-grid { grid-template-columns: minmax(0,1fr); } }
+
+
+/* Storico temporale delle condizioni della parcella */
+.regen-condition-history { margin-top: 28px; padding: 16px; border: 1px solid rgba(122,215,202,.18); background: rgba(2,10,11,.2); }
+.regen-observation-form { margin: 14px 0 18px; padding: 14px; border: 1px solid rgba(122,215,202,.12); }
+.regen-condition-observation-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.regen-condition-observation { min-width: 0; padding: 12px; border: 1px solid rgba(122,215,202,.17); background: rgba(2,10,11,.35); }
+.regen-condition-observation-head { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: 10px; }
+.regen-condition-observation-head time { color: #8dcfc2; font: .72rem "IBM Plex Mono",monospace; }
+.regen-condition-observation-head strong { overflow-wrap: anywhere; font-size: .82rem; }
+.regen-condition-observation ul { margin: 10px 0; padding-left: 18px; }
+.regen-condition-observation li { margin: 5px 0; font-size: .78rem; line-height: 1.5; }
+.regen-condition-observation p { font-size: .8rem; line-height: 1.55; overflow-wrap: anywhere; }
+@media(max-width:700px) { .regen-condition-observation-list { grid-template-columns: minmax(0,1fr); } .regen-condition-history { padding: 10px; } .regen-observation-form { padding: 10px; } }
+
+.regen-observation-published { color: #8dcfc2; font: .62rem "IBM Plex Mono",monospace; letter-spacing: .04em; }
+
+/* 0.27.0 — confronto descrittivo delle condizioni nel tempo */
+.regen-subsection-heading { margin: 14px 0 8px; }
+.regen-subsection-heading h3 { margin: 0; color: #bfe2d8; font: .76rem "IBM Plex Mono",monospace; letter-spacing: .06em; }
+.regen-subsection-heading p { margin: 5px 0; color: rgba(211,235,229,.58); font-size: .76rem; line-height: 1.5; }
+.regen-condition-trends-panel { margin: 18px 0; padding: 12px; border: 1px solid rgba(122,215,202,.14); background: rgba(2,10,11,.18); }
+.regen-condition-trends { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.regen-condition-trend-card { min-width: 0; border: 1px solid rgba(122,215,202,.18); background: rgba(2,10,11,.28); }
+.regen-condition-trend-card > header { padding: 11px 12px; border-bottom: 1px solid rgba(122,215,202,.12); }
+.regen-condition-trend-card h4 { margin: 0; color: #d2e8e2; font-size: .85rem; overflow-wrap: anywhere; }
+.regen-condition-trend-card header span { display: block; margin-top: 5px; color: rgba(211,235,229,.5); font: .64rem/1.5 "IBM Plex Mono",monospace; }
+.regen-condition-trend-card > ul { margin: 0; padding: 0; list-style: none; }
+.regen-condition-trend-item { display: grid; gap: 4px; padding: 10px 12px; border-bottom: 1px solid rgba(122,215,202,.08); }
+.regen-condition-trend-item:last-child { border-bottom: 0; }
+.regen-condition-trend-item strong { color: rgba(190,220,213,.74); font: .68rem "IBM Plex Mono",monospace; }
+.regen-condition-trend-current { font-size: .78rem; line-height: 1.5; overflow-wrap: anywhere; }
+.regen-condition-trend-item small { color: rgba(211,235,229,.55); font-size: .72rem; line-height: 1.5; overflow-wrap: anywhere; }
+.regen-condition-trend-item.is-changed { border-left: 2px solid #d9c18a; }
+.regen-condition-trend-item.is-stable { border-left: 2px solid #8dcfc2; }
+.regen-condition-trend-item.is-single { border-left: 2px solid rgba(122,215,202,.35); }
+.regen-condition-trend-item.is-unrecorded { border-left: 2px solid rgba(211,235,229,.12); }
+@media(max-width:700px) { .regen-condition-trends { grid-template-columns: minmax(0,1fr); } .regen-condition-trends-panel { padding: 9px; } }
+.parcel-history-caveat { color: #9ab8b0; font-size: .72rem !important; border-left: 2px solid rgba(122,215,202,.25); padding-left: 9px; }
+.parcel-history-entry:has(.parcel-history-caveat) { border-left: 2px solid rgba(122,215,202,.3); }
+
+/* 0.29.0: collegamento compatto tra piani colturali e osservazioni */
+.parcel-rotation-context { margin: 22px 0 26px; padding: 16px; border: 1px solid rgba(122,215,202,.18); background: rgba(4,17,17,.38); }
+.parcel-rotation-context .regen-subsection-heading { margin-bottom: 8px; }
+.parcel-rotation-context-results { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+.parcel-rotation-context-card { min-width: 0; padding: 14px; border: 1px solid rgba(122,215,202,.14); background: rgba(8,24,23,.42); }
+.parcel-rotation-context-card h3 { margin: 8px 0; color: #c4e2d9; font: 500 .9rem/1.5 "IBM Plex Mono",monospace; overflow-wrap: anywhere; }
+.parcel-rotation-context-card p { margin: 7px 0; font-size: .82rem; line-height: 1.65; overflow-wrap: anywhere; }
+.parcel-rotation-context-card .parcel-history-caveat { margin-top: 10px; }
+@media(max-width:700px){.parcel-rotation-context{padding:12px}.parcel-rotation-context-results{grid-template-columns:minmax(0,1fr)}}
+
+
+/* Evidenze di riproduzione portate nel piano parcelle come snapshot consultabile. */
+.regen-reproduction-preview, .regen-plant-reproduction { margin-top: 12px; padding: 12px; border: 1px solid rgba(122,215,202,.18); background: rgba(8,24,23,.28); }
+.regen-reproduction-preview h3 { margin: 0 0 8px; color: #83cdb7; font: .72rem "IBM Plex Mono", monospace; letter-spacing: .05em; }
+.regen-reproduction-preview section, .regen-plant-reproduction section { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(122,215,202,.12); }
+.regen-reproduction-preview section > strong, .regen-plant-reproduction h4 { display: block; margin: 0 0 6px; color: #c1e5da; font-size: .82rem; }
+.regen-reproduction-preview section > span, .regen-plant-reproduction summary span { display: block; margin-top: 3px; color: #d5b785; font-size: .72rem; }
+.regen-reproduction-preview ul, .regen-plant-reproduction ul { padding-left: 18px; margin: 6px 0; }
+.regen-reproduction-preview li, .regen-plant-reproduction li { margin: 5px 0; font-size: .76rem; line-height: 1.55; overflow-wrap: anywhere; }
+.regen-reproduction-preview a, .regen-plant-reproduction a { color: #a9ded2; text-decoration: underline; text-underline-offset: 2px; }
+.regen-reproduction-preview small, .regen-plant-reproduction small { display: block; color: rgba(211,235,229,.6); font-size: .69rem; }
+.regen-reproduction-caveat { font-size: .75rem; line-height: 1.6; color: #d5b785; }
+.regen-plant-reproduction > summary { cursor: pointer; color: #bfe2d8; font-size: .8rem; }
+.regen-plant-reproduction h4 em { display: block; color: rgba(211,235,229,.6); font-weight: normal; font-size: .72rem; }

@@ -34,6 +34,32 @@ description: Color viola notte, non passa inosservato in primavera. Rampicante e
 
 ciclo_vita: annuale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "prevalentemente autogama"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "La fonte del registro tassonomico segnala una sinonimia nomenclaturale; questo dato riproduttivo è riferito al nome di coltura usato dalla guida."
+  isolamento:
+    valore: "circa 3–6 m come riferimento domestico"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "lasciare asciugare i baccelli sulla pianta; raccogliere quando sono secchi e completare l’asciugatura prima dello stoccaggio"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "5–10 piante come riferimento domestico; più piante sono preferibili per conservazione"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
 - autogama
 - entomofila
@@ -142,4 +168,15 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "Fabaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:501912-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale o perenne"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:501912-1/general-information"
+    data_verifica: "2026-10-22"
 ---

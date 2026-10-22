@@ -7,7 +7,7 @@ sg_id: SG-000071
 
 nome_comune: Girasole Double Sunking
 
-nome_scientifico: Heliantus annuus
+nome_scientifico: Helianthus annuus
 
 famiglia: asteraceae
 
@@ -27,6 +27,18 @@ description:
 # ==========================
 
 ciclo_vita: annuale
+
+fonti_botaniche:
+  famiglia:
+    valore: "Asteraceae"
+    fonte: "Kew Science, Plants of the World Online — Helianthus annuus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:119003-2/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Kew Science, Plants of the World Online — Helianthus annuus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:119003-2/general-information"
+    data_verifica: "2026-10-22"
 
 impollinazione: 
 

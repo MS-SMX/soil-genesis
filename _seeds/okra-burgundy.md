@@ -39,6 +39,18 @@ description:
 
 ciclo_vita: annuale
 
+fonti_botaniche:
+  famiglia:
+    valore: "Malvaceae"
+    fonte: "Kew Science, Plants of the World Online — Abelmoschus esculentus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:558006-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale o subarbusto"
+    fonte: "Kew Science, Plants of the World Online — Abelmoschus esculentus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:558006-1/general-information"
+    data_verifica: "2026-10-22"
+
 impollinazione: 
 
 fiori: 

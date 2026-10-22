@@ -34,6 +34,18 @@ description:
 
 ciclo_vita: biennale
 
+fonti_botaniche:
+  famiglia:
+    valore: "Asteraceae"
+    fonte: "Kew Science, Plants of the World Online — Calendula officinalis"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:187894-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale o biennale"
+    fonte: "Kew Science, Plants of the World Online — Calendula officinalis"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:187894-1/general-information"
+    data_verifica: "2026-10-22"
+
 impollinazione: 
 
 fiori: 

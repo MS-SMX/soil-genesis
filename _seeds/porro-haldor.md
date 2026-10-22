@@ -31,6 +31,32 @@ description:
 
 ciclo_vita: annuale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "incrocio mediato da insetti; biennale per produzione del seme"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "La fonte generale conferma la strategia biennale, ma non è sufficiente per fissare distanza e numero di piante per questa cultivar."
+  isolamento:
+    valore: "distanza specifica da verificare; non trasferire automaticamente la raccomandazione della cipolla al porro"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "svernare le piante selezionate, farle fiorire nella stagione successiva e raccogliere le capsule mature"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "dimensione della popolazione da verificare con una guida specifica per il porro"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
 
 fiori: 
@@ -136,4 +162,15 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "Amaryllidaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:528646-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "biennale"
+    fonte: "Utah State University Extension — How to Grow Leeks in Your Garden"
+    url: "https://extension.usu.edu/yardandgarden/research/leeks-in-the-garden"
+    data_verifica: "2026-10-22"
 ---

@@ -42,6 +42,32 @@ description: Abile arrampicatrice. Il fagiolino a dispetto del nome raggiunge <s
 
 ciclo_vita: annuale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "prevalentemente autogama, con possibili incroci mediati da insetti"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Applicato a Vigna unguiculata e non automaticamente a tutti i legumi."
+  isolamento:
+    valore: "circa 49 m come riferimento indicativo della guida per cowpea"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "per seme secco lasciare i baccelli maturare e asciugare sulla pianta, poi completare l’essiccazione"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "circa 40 piante nella guida per conservazione; in piccolo orto adattare l’obiettivo dichiarandolo"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
  - autogama
  - entomofila

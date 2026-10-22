@@ -133,4 +133,21 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+
+# ==========================
+# FONTI BOTANICHE
+# ==========================
+
+fonti_botaniche:
+  famiglia:
+    valore: "Asparagaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/531229-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "perenne"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/531229-1/general-information"
+    data_verifica: "2026-10-22"
+
 ---

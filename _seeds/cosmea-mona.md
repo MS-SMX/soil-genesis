@@ -36,6 +36,18 @@ description: Mi spiace, la foto principale è ingannevole, ma complice il tramon
 
 ciclo_vita: annuale
 
+fonti_botaniche:
+  famiglia:
+    valore: "Asteraceae"
+    fonte: "Kew Science, Plants of the World Online — Cosmos sulphureus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:198368-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Kew Science, Plants of the World Online — Cosmos sulphureus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:198368-1/general-information"
+    data_verifica: "2026-10-22"
+
 impollinazione: 
 
 fiori: 

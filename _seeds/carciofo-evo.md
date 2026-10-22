@@ -34,6 +34,18 @@ description: Diversi carciofi, varietà Hegi e varietà Romano, lasciati crescer
 
 ciclo_vita: perenne
 
+fonti_botaniche:
+  famiglia:
+    valore: "Asteraceae"
+    fonte: "Kew Science, Plants of the World Online — Cynara cardunculus subsp. cardunculus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77180272-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "perenne"
+    fonte: "Kew Science, Plants of the World Online — Cynara cardunculus subsp. cardunculus"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77180272-1/general-information"
+    data_verifica: "2026-10-22"
+
 impollinazione: 
 
 fiori: 

@@ -1,3 +1,30 @@
+## 0.40.0 — Registro lotti e germinazione
+- Introdotto un registro locale per lotti fisici di semi e prove di germinazione ripetibili.
+- Percentuale di germinazione calcolata solo sul campione testato; note esplicite sui limiti interpretativi.
+- Backup/import JSON ed esportazione YAML + Markdown per revisione e versionamento manuale.
+
+## 0.39.0 — Evidenze riproduttive nel piano parcelle
+- Il piano mostra le fonti disponibili su impollinazione, isolamento, maturità del seme e dimensione della popolazione mentre si selezionano le piante.
+- Gli snapshot delle evidenze vengono conservati nei piani locali ed esportati in `_data/plot-plantings.yml`.
+- I campi mancanti restano espliciti; nessuna prescrizione di isolamento o compatibilità viene dedotta automaticamente.
+- Aggiunti test per rendering, link e persistenza delle fonti.
+
+## 0.32.0 — Fonti botaniche applicate ai dossier
+
+- Registrate fonti per famiglia botanica e ciclo di vita in 14 dossier appartenenti a cinque taxa già presenti.
+- Usate fonti Kew Plants of the World Online e University of Maryland Extension, con data di verifica 2026-10-22.
+- Aggiunta documentazione delle fonti e dei limiti interpretativi.
+- Nessuna classificazione nuova dedotta automaticamente e nessun valore principale del dossier sovrascritto.
+
+## 0.28.0 — Storico agronomico unificato
+- La cronologia delle parcelle riunisce piani colturali, eventi e osservazioni delle condizioni.
+- Le transizioni tra stagioni sono mostrate come confronti descrittivi, senza inferire date o causalità.
+
+## 0.27.0 — Lettura temporale delle condizioni
+- Aggiunto un riepilogo storico per parcella che confronta le ultime osservazioni disponibili senza confondere variazione e causalità.
+- I dati mancanti sono mostrati esplicitamente e non vengono interpretati come assenza.
+- Aggiunti test statici e documentazione dei limiti interpretativi.
+
 ## v4.12.0 — Confronto esplicito delle testimonianze
 
 - Dopo aver raccolto le informazioni di Mara ed Elio, è possibile confrontarle durante una conversazione con uno dei due.
@@ -406,3 +433,10 @@
 - Consolidata la griglia desktop a tre colonne con scena centrale, pannelli contestuali a destra e registro in basso; layout a due colonne e mobile sotto breakpoint.
 - Inventario e deposito restano accessibili dalla vista Zaino / Personaggio.
 - Nessuna modifica al motore di gioco o alle chiavi di salvataggio.
+
+## 0.30.0 · Qualità dei dati botanici
+
+- Nuova pagina di controllo per famiglia botanica e ciclo di vita mancanti nei dossier di semi, perenni e spontanee.
+- Ricerca e filtri per rendere più rapida la revisione dei dati incompleti.
+- Collegamenti ai dossier e all'editor GitHub, con spiegazione del flusso di correzione.
+- Nessun completamento automatico dei dati biologici sconosciuti.

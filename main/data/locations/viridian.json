@@ -1,0 +1,21 @@
+{
+  "id": "viridian",
+  "name": "Smeraldopoli",
+  "description": "Gli edifici più vicini alla strada sono chiusi o puntellati. In lontananza si intravedono luci: qualcuno occupa ancora una parte della città.",
+  "connections": [
+    {
+      "id": "route1",
+      "label": "Percorso 1",
+      "travelMinutes": 240
+    }
+  ],
+  "weather": "cloudy",
+  "scavenging": [
+    {
+      "id": "viridian-first-aid",
+      "itemId": "kit-primo-soccorso",
+      "quantity": 1,
+      "label": "Controlla un ambulatorio abbandonato"
+    }
+  ]
+}

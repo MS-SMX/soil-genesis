@@ -46,6 +46,15 @@ permalink: /diario-rigenerazione/
     </div>
     <div class="regen-events regen-published-events">
       {% assign published_field_logs = site.logs | where: "type", "field" | sort: "date" | reverse %}
+      <script type="application/json" id="regen-published-events">[
+        {% for entry in published_field_logs %}{
+          "date": {{ entry.date | date: "%Y-%m-%d" | jsonify }},
+          "parcelId": {{ entry.parcel_id | default: "" | jsonify }},
+          "category": {{ entry.category | default: "" | jsonify }},
+          "title": {{ entry.title | default: "" | jsonify }},
+          "notes": {{ entry.content | strip_html | jsonify }}
+        }{% unless forloop.last %},{% endunless %}{% endfor %}
+      ]</script>
       {% for entry in published_field_logs %}
         <article class="regen-event regen-published-event" data-parcel="{{ entry.parcel_id | escape }}" data-category="{{ entry.category | escape }}" data-search="{{ entry.title | append: entry.seed_name | append: entry.parcel_label | append: entry.content | strip_html | escape }}" data-seed="{% if entry.perennial_slug %}perennial:{{ entry.perennial_slug | escape }}{% elsif entry.seed_slug %}seed:{{ entry.seed_slug | escape }}{% endif %}">
           <div class="regen-event-date"><time datetime="{{ entry.date | date: '%Y-%m-%d' }}">{{ entry.date | date: "%d %b %Y" }}</time></div>
@@ -83,12 +92,13 @@ permalink: /diario-rigenerazione/
         <input type="search" id="regen-plan-plant-search" placeholder="Filtra per nome…" aria-label="Cerca piante nell'archivio">
         <div id="regen-plan-plant-options" class="regen-plant-options">
           <div class="regen-plant-group"><strong>ARCHIVIO SEMENTI</strong>
-            {% for plant in regen_seeds %}<label><input type="checkbox" class="regen-plan-plant" value="seed:{{ plant.slug | escape }}" data-plant-type="seed" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
+            {% for plant in regen_seeds %}<label><input type="checkbox" class="regen-plan-plant" value="seed:{{ plant.slug | escape }}" data-plant-type="seed" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}" data-plant-family="{{ plant.famiglia | default: plant.famiglia_botanica | default: '' | escape }}" data-plant-life="{{ plant.ciclo_vita | default: 'non specificato' | escape }}" data-plant-scientific="{{ plant.nome_scientifico | default: plant.scientific_name | default: '' | escape }}" data-reproduction="{{ plant.fonti_riproduzione | jsonify | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
           </div>
           <div class="regen-plant-group"><strong>PIANTE PERENNI</strong>
-            {% for plant in regen_perennials %}<label><input type="checkbox" class="regen-plan-plant" value="perennial:{{ plant.slug | escape }}" data-plant-type="perennial" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
+            {% for plant in regen_perennials %}<label><input type="checkbox" class="regen-plan-plant" value="perennial:{{ plant.slug | escape }}" data-plant-type="perennial" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}" data-plant-family="{{ plant.famiglia | default: plant.famiglia_botanica | default: '' | escape }}" data-plant-life="{{ plant.ciclo_vita | default: 'non specificato' | escape }}" data-plant-scientific="{{ plant.nome_scientifico | default: plant.scientific_name | default: '' | escape }}" data-reproduction="{{ plant.fonti_riproduzione | jsonify | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
           </div>
         </div>
+        <div id="regen-plan-reproduction-preview" class="regen-reproduction-preview" aria-live="polite"><p class="regen-backup-help">Seleziona una pianta per visualizzare le evidenze di riproduzione disponibili. Le lacune non vengono interpretate come assenza di rischio.</p></div>
       </fieldset>
       <label class="regen-field-wide">
         <span>Note utili per la rotazione</span>

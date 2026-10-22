@@ -31,6 +31,32 @@ description: Venduto già come miscela di carote da Sativa, ho deciso di lasciar
 
 ciclo_vita: biennale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "incrocio mediato da insetti; specie allogama e spesso autoincompatibile"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Considerare anche carote spontanee o inselvatichite compatibili nelle vicinanze."
+  isolamento:
+    valore: "circa 488 m come riferimento domestico per varietà della stessa specie"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "biennale per produzione del seme; conservare le radici selezionate, reimpiantarle e raccogliere le ombrelle mature"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "circa 80 piante come riferimento per mantenimento genetico"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: 
 
 fiori: 
@@ -138,4 +164,16 @@ versione: 1
 ultimo_aggiornamento:
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "Apiaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/77249925-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "biennale"
+    fonte: "Utah State University Extension — Collecting and Storing Seeds from Your Garden"
+    url: "https://extension.usu.edu/yardandgarden/research/collecting-and-storing-seeds-from-your-garden"
+    data_verifica: "2026-10-22"
+
 ---

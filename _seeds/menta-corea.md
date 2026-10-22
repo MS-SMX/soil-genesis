@@ -140,4 +140,21 @@ versione: 1
 ultimo_aggiornamento: 1/8/26
 
 compilatore:
+
+# ==========================
+# FONTI BOTANICHE
+# ==========================
+
+fonti_botaniche:
+  famiglia:
+    valore: "Lamiaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:444504-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "perenne"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:444504-1/general-information"
+    data_verifica: "2026-10-22"
+
 ---

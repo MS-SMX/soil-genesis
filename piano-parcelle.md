@@ -83,13 +83,23 @@ permalink: /piano-parcelle/
         <input type="search" id="regen-plan-plant-search" placeholder="Filtra per nome…" aria-label="Cerca piante nell'archivio">
         <div id="regen-plan-plant-options" class="regen-plant-options">
           <div class="regen-plant-group"><strong>ARCHIVIO SEMENTI</strong>
-            {% for plant in regen_seeds %}<label><input type="checkbox" class="regen-plan-plant" value="seed:{{ plant.slug | escape }}" data-plant-type="seed" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}" data-plant-family="{{ plant.famiglia | default: plant.famiglia_botanica | default: '' | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
+            {% for plant in regen_seeds %}<label><input type="checkbox" class="regen-plan-plant" value="seed:{{ plant.slug | escape }}" data-plant-type="seed" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}" data-plant-family="{{ plant.famiglia | default: plant.famiglia_botanica | default: '' | escape }}" data-plant-life="{{ plant.ciclo_vita | default: 'non specificato' | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
           </div>
           <div class="regen-plant-group"><strong>PIANTE PERENNI</strong>
-            {% for plant in regen_perennials %}<label><input type="checkbox" class="regen-plan-plant" value="perennial:{{ plant.slug | escape }}" data-plant-type="perennial" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}" data-plant-family="{{ plant.famiglia | default: plant.famiglia_botanica | default: '' | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
+            {% for plant in regen_perennials %}<label><input type="checkbox" class="regen-plan-plant" value="perennial:{{ plant.slug | escape }}" data-plant-type="perennial" data-plant-slug="{{ plant.slug | escape }}" data-plant-label="{{ plant.nome_comune | default: plant.title | escape }}" data-plant-family="{{ plant.famiglia | default: plant.famiglia_botanica | default: '' | escape }}" data-plant-life="{{ plant.ciclo_vita | default: 'non specificato' | escape }}"> <span>{{ plant.nome_comune | default: plant.title | escape }}{% if plant.nome_scientifico %} <small>{{ plant.nome_scientifico | escape }}</small>{% endif %}</span></label>{% endfor %}
           </div>
         </div>
       </fieldset>
+      <details class="regen-parcel-conditions regen-field-wide">
+        <summary>Condizioni della parcella <small>facoltative · drenaggio, irrigazione, residui e stato fitosanitario</small></summary>
+        <p class="regen-backup-help">Registra solo ciò che hai osservato o verificato. “Non registrato” significa che l'informazione manca, non che la condizione sia assente.</p>
+        <div class="regen-condition-grid">
+          <label><span>Drenaggio</span><select id="regen-plan-drainage"><option value="unknown">Non registrato</option><option value="good">Adeguato / senza ristagni osservati</option><option value="poor">Scarso / ristagni osservati</option><option value="variable">Variabile o da verificare</option></select></label>
+          <label><span>Irrigazione</span><select id="regen-plan-irrigation"><option value="unknown">Non registrata</option><option value="ground">Al suolo / localizzata</option><option value="overhead">Soprachioma / a pioggia</option><option value="mixed">Mista</option></select></label>
+          <label><span>Residui colturali</span><select id="regen-plan-residues"><option value="unknown">Non registrati</option><option value="removed">Rimossi / gestiti</option><option value="healthy-retained">Residui sani lasciati in superficie</option><option value="suspect-retained">Residui sospetti o infetti presenti</option><option value="composted">Destinazione compost</option></select></label>
+          <label><span>Stato fitosanitario</span><select id="regen-plan-health"><option value="unknown">Non valutato / non registrato</option><option value="none-observed">Nessun sintomo osservato (non equivale ad assenza)</option><option value="symptoms">Sintomi osservati, causa ignota</option><option value="suspected">Problema sospetto, da verificare</option><option value="confirmed">Problema confermato da fonte competente</option></select></label>
+        </div>
+      </details>
       <label class="regen-field-wide">
         <span>Note utili per la rotazione</span>
         <textarea id="regen-plan-notes" rows="2" placeholder="Famiglia botanica, consociazione, fertilità, osservazioni…"></textarea>
@@ -104,23 +114,50 @@ permalink: /piano-parcelle/
       <label><span>Cerca coltura o parcella</span><input type="search" id="regen-plan-search" placeholder="Coltura, settore, note…"></label>
     </div>
     <div id="regen-plan-list" class="regen-plan-list"></div>
+
+    <section class="regen-condition-history" aria-labelledby="regen-condition-history-title">
+      <div class="regen-section-heading">
+        <span class="regen-index">00D</span>
+        <div><h2 id="regen-condition-history-title">STORICO DELLE CONDIZIONI</h2><p>Osservazioni datate e immutabili, separate dal piano colturale stagionale</p></div>
+      </div>
+      <p class="regen-backup-help">Registra ogni cambiamento quando lo osservi. Una nuova osservazione aggiunge un punto alla cronologia e non sovrascrive il riepilogo del piano. I campi lasciati su “Non registrato” non vengono aggiunti all'osservazione.</p>
+      <form id="regen-observation-form" class="regen-form regen-observation-form">
+        <label><span>Data dell'osservazione *</span><input type="date" id="regen-observation-date" required></label>
+        <label><span>Parcella *</span><select id="regen-observation-parcel" required><option value="">Seleziona una parcella</option></select></label>
+        <div class="regen-condition-grid regen-field-wide">
+          <label><span>Drenaggio osservato</span><select id="regen-observation-drainage"><option value="unknown">Non registrato</option><option value="good">Adeguato / senza ristagni osservati</option><option value="poor">Scarso / ristagni osservati</option><option value="variable">Variabile o da verificare</option></select></label>
+          <label><span>Irrigazione osservata</span><select id="regen-observation-irrigation"><option value="unknown">Non registrata</option><option value="ground">Al suolo / localizzata</option><option value="overhead">Soprachioma / a pioggia</option><option value="mixed">Mista</option></select></label>
+          <label><span>Residui colturali</span><select id="regen-observation-residues"><option value="unknown">Non registrati</option><option value="removed">Rimossi / gestiti</option><option value="healthy-retained">Residui sani lasciati in superficie</option><option value="suspect-retained">Residui sospetti o infetti presenti</option><option value="composted">Destinazione compost</option></select></label>
+          <label><span>Stato fitosanitario osservato</span><select id="regen-observation-health"><option value="unknown">Non valutato / non registrato</option><option value="none-observed">Nessun sintomo osservato</option><option value="symptoms">Sintomi osservati, causa ignota</option><option value="suspected">Problema sospetto, da verificare</option><option value="confirmed">Problema confermato da fonte competente</option></select></label>
+        </div>
+        <label class="regen-field-wide"><span>Nota dell'osservazione</span><textarea id="regen-observation-notes" rows="2" placeholder="Cambiamento osservato, durata del ristagno, gestione effettuata…"></textarea></label>
+        <div class="regen-form-actions regen-field-wide"><button type="submit" class="regen-primary-button">+ AGGIUNGI OSSERVAZIONE</button><span id="regen-observation-feedback" class="regen-feedback" aria-live="polite"></span></div>
+      </form>
+      <section class="regen-condition-trends-panel" aria-labelledby="regen-condition-trends-title">
+        <div class="regen-subsection-heading"><h3 id="regen-condition-trends-title">LETTURA NEL TEMPO</h3><p>Confronto descrittivo delle osservazioni fino alla stagione selezionata</p></div>
+        <p class="regen-backup-help">Un cambiamento tra due osservazioni non dimostra che una pratica o una condizione ne sia la causa. I campi non registrati non vengono interpretati come assenza.</p>
+        <div id="regen-condition-trends" class="regen-condition-trends" aria-live="polite"></div>
+      </section>
+      <div id="regen-observation-list" class="regen-condition-observation-list"></div>
+    </section>
     <p class="regen-backup-help">Ogni voce identifica la coltura di una parcella per una stagione, senza inventare una data. Per la pubblicazione, il pacchetto include il piano in <code>_data/plot-plantings.yml</code>, oltre agli eventi datati in <code>_logs/</code>.</p>
     <section class="regen-rotation-panel" aria-labelledby="regen-rotation-title">
       <div class="regen-section-heading">
         <span class="regen-index">03</span>
         <div><h2 id="regen-rotation-title">LETTURA DELLE ROTAZIONI</h2><p>Confronto tra stagioni registrate per la stessa parcella, usando le famiglie botaniche disponibili</p></div>
       </div>
-      <p class="regen-backup-help">Le segnalazioni sono promemoria, non prescrizioni: non considerano automaticamente fertilità, patogeni, durata delle colture perenni o condizioni locali. Le famiglie mancanti restano “da verificare”, senza essere indovinate.</p>
+      <p class="regen-backup-help">Il confronto considera tutte le piante registrate, controlla le famiglie annuali e biennali nello storico recente (fino a tre anni) e distingue le perenni, che non vengono suggerite come colture da spostare. La letteratura scientifica sostiene i benefici potenziali delle rotazioni diversificate, ma evidenzia anche che i risultati dipendono da colture, suolo, clima e gestione. Le segnalazioni sono quindi promemoria da verificare, non prescrizioni universali. Le famiglie e i cicli di vita mancanti restano da verificare, senza essere indovinati.</p>
       <div id="regen-rotation-list" class="regen-rotation-list"><p class="regen-backup-help">Lettura delle rotazioni in preparazione…</p></div>
     </section>
-    <div class="regen-section-heading regen-published-plan-heading">
-      <span class="regen-index">PUB</span>
-      <div><h2>PIANO PUBBLICATO</h2><p>Colture di base già versionate nel repository</p></div>
-    </div>
-    <div class="regen-plan-list regen-published-plan-list">
+    <details class="regen-published-plan-disclosure">
+      <summary><span class="regen-index">PUB</span><span><strong id="regen-published-plan-title">PIANO PUBBLICATO</strong><small>Colture di base già versionate nel repository</small></span><span class="regen-published-plan-count">Archivio</span></summary>
+      <div class="regen-plan-list regen-published-plan-list">
       {% assign plot_plantings_data = site.data['plot-plantings'] %}
       {% assign published_plantings = plot_plantings_data.plantings %}
       <script type="application/json" id="regen-published-plantings">{{ published_plantings | jsonify }}</script>
+      {% assign condition_history_data = site.data['parcel-condition-history'] %}
+      {% assign published_condition_observations = condition_history_data.observations %}
+      <script type="application/json" id="regen-published-condition-observations">{{ published_condition_observations | jsonify }}</script>
       {% for planting in published_plantings %}
         <article class="regen-plan-item" data-parcel="{{ planting.parcel_id | escape }}" data-season="{{ planting.season }}">
           <div><span class="regen-plan-season">STAGIONE {{ planting.season }}</span><h3>{{ planting.parcel_label | escape }}</h3><p class="regen-plan-crop">{{ planting.crop | escape }}</p>{% if planting.notes %}<p>{{ planting.notes | escape }}</p>{% endif %}<p class="regen-plan-no-date">Coltura di base · data non registrata</p></div>
@@ -128,7 +165,8 @@ permalink: /piano-parcelle/
       {% else %}
         <p class="regen-backup-help">Nessun piano parcelle pubblicato.</p>
       {% endfor %}
-    </div>
+      </div>
+    </details>
   </section>
 
   <section class="regen-form-panel" aria-labelledby="regen-form-title">

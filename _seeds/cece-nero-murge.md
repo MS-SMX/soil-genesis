@@ -35,6 +35,18 @@ description: Varietà di cece dall'interessante aspetto e dall'ottima resistenza
 # ==========================
 
 ciclo_vita: annuale
+fonti_botaniche:
+  famiglia:
+    valore: "fabaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:486336-1"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:486336-1"
+    data_verifica: "2026-10-22"
+
 
 impollinazione: 
  - autogama

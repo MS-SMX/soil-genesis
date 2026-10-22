@@ -31,6 +31,32 @@ description: Miscuglio di due varietà abbastanza comuni provenienti da due sole
 
 ciclo_vita: annuale
 
+fonti_riproduzione:
+  impollinazione:
+    valore: "incrocio mediato da insetti; fiori maschili e femminili separati sulla stessa pianta"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Le cultivar di Cucurbita pepo possono incrociarsi fra loro anche se hanno forme o nomi molto diversi."
+  isolamento:
+    valore: "circa 488 m come riferimento domestico riportato dalla guida; usare impollinazione manuale e protezione dei fiori se necessario"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Distanza indicativa per seed saving; non garantisce assenza di incroci."
+  maturita_seme:
+    valore: "attendere la piena maturità del frutto, spesso oltre la maturità alimentare, poi estrarre e asciugare"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://seedalliance.org/publications/seed-saving-guide/"
+    data_verifica: "2026-10-22"
+    note: "Controllare la maturità effettiva e asciugare prima dello stoccaggio."
+  popolazione:
+    valore: "5–10 piante come riferimento domestico; popolazioni maggiori migliorano la rappresentatività genetica"
+    fonte: "Seed Savers Exchange — Crop-Specific Seed Saving Guide"
+    url: "https://shop.seedsavers.org/site/pdf/crop_chart.pdf"
+    data_verifica: "2026-10-22"
+    note: "Numero orientativo, non soglia universale di vitalità genetica."
+
 impollinazione: entomofila
 
 fiori: monoici
@@ -195,4 +221,16 @@ versione: 1
 ultimo_aggiornamento: 13/10/26
 
 compilatore:
+fonti_botaniche:
+  famiglia:
+    valore: "cucurbitaceae"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/292416-1/general-information"
+    data_verifica: "2026-10-22"
+  ciclo_vita:
+    valore: "annuale"
+    fonte: "Royal Botanic Gardens, Kew — Plants of the World Online"
+    url: "https://powo.science.kew.org/taxon/292416-1/general-information"
+    data_verifica: "2026-10-22"
+
 ---
