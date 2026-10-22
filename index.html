@@ -1,0 +1,846 @@
+
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101714">
+  <title>Project Exodus v4.12.0</title>
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <main class="terminal" aria-labelledby="project-title">
+    <header class="topbar">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span class="brand-title">PROJECT EXODUS <small>// TERMINALE DI CAMPO</small></span>
+      <span class="topbar-right" id="engine-status">INITIALIZING</span>
+    </header>
+
+    <section class="screen">
+      <p class="eyebrow">WORLD SIMULATION / BUILD 4.12.0</p>
+      <h1 id="project-title">PROJECT EXODUS</h1>
+      <div class="rule"></div>
+
+      <nav class="main-menu" aria-label="Menu principale">
+        <button type="button" class="menu-tab is-active" data-view-target="game" aria-selected="true">Schermata</button>
+        <button type="button" class="menu-tab" data-view-target="map" aria-selected="false">Mappa di Kanto</button>
+        <button type="button" class="menu-tab" data-view-target="player" aria-selected="false">Zaino / Personaggio</button>
+        <button type="button" class="menu-tab" data-view-target="notebook" aria-selected="false">Taccuino</button>
+        <button type="button" class="menu-tab" data-view-target="log" aria-selected="false">Registro</button>
+      </nav>
+
+      <section id="kanto-map-panel" class="map-panel" hidden aria-labelledby="map-title">
+        <nav class="field-tabs" aria-label="Schermata centrale">
+          <button type="button" class="field-tab" data-field-view="map">▦ MAPPA</button>
+          <button type="button" class="field-tab is-active" data-field-view="place">▧ LUOGO</button>
+          <button type="button" class="field-tab" data-field-view="notes">▤ TACCUINO RAPIDO</button>
+        </nav>
+        <section class="field-view" data-field-panel="place">
+          <div class="readout-label">FEED VISIVO LOCALE // SEGNALE INSTABILE</div>
+          <div class="location-scene" role="img" aria-label="Ricostruzione schematica del luogo corrente">
+            <div class="scene-sky"></div><div class="scene-sun"></div><div class="scene-ridge ridge-back"></div><div class="scene-ridge ridge-front"></div>
+            <div class="scene-building building-one"><i></i></div><div class="scene-building building-two"><i></i></div><div class="scene-tower"></div><div class="scene-road"></div><div class="scene-noise">SEGNALE 63% // IMMAGINE RICOSTRUITA</div>
+          </div>
+          <h2 id="scene-location-title">BIANCAVILLA // CITTÀ</h2>
+          <p id="scene-location-description" class="scene-description">Il feed locale verrà ricostruito dai dati della zona.</p>
+          <div class="scene-hotspots" id="scene-hotspots"><span class="hotspot-empty">IN ATTESA DEL FEED LOCALE...</span></div>
+        </section>
+        <section class="field-view" data-field-panel="notes" hidden>
+          <div class="readout-label">ANNOTAZIONI OPERATIVE</div>
+          <h2>MEMORIA LOCALE</h2>
+          <p class="muted">Le note sono salvate in questo browser. Le annotazioni sulla mappa sono promemoria personali, non modificano automaticamente il mondo simulato.</p>
+          <label for="field-note-input">Nuova annotazione</label>
+          <textarea id="field-note-input" rows="4" placeholder="Es. sentito rumore di notte vicino al ponte..."></textarea>
+          <button type="button" class="action-button" id="field-note-save">ARCHIVIA NOTA</button>
+          <div id="field-notes-list" class="field-notes-list"></div>
+        </section>
+        <section class="field-view" data-field-panel="map" hidden>
+        <div class="readout-label">CARTOGRAFIA PROVVISORIA</div>
+        <h2 id="map-title">KANTO // MAPPA REGIONALE</h2>
+        <p class="muted map-note">Schema nostalgico non in scala. Le località raggiungibili sono evidenziate; le altre restano riferimenti geografici e non sono ancora esplorabili.</p>
+        <div class="kanto-map" role="group" aria-label="Mappa schematica interattiva della regione di Kanto">
+          <svg class="map-lines" viewBox="0 0 600 520" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M300 470 L300 415 L300 360 L300 305 L300 250 L370 230 L435 190 L435 140" />
+            <path d="M300 360 L200 330 L110 285 L110 225" />
+            <path d="M435 140 L500 145 L540 200 L540 260" />
+            <path d="M435 250 L435 305 L435 360 L435 415" />
+            <path d="M435 305 L350 285 L285 305" />
+            <path d="M435 305 L500 305 L540 260" />
+            <path d="M435 415 L375 460 L320 485" />
+            <path d="M300 305 L200 305 L110 330" />
+          </svg>
+          <button class="map-node town" style="--x:50%;--y:90%" data-map-location="pallet" aria-current="location">Biancavilla</button>
+          <button class="map-node route" style="--x:50%;--y:79%" data-map-location="route1" disabled>Percorso 1</button>
+          <button class="map-node town" style="--x:50%;--y:66%" data-map-location="viridian">Smeraldopoli</button>
+          <span class="map-node route future-node" style="--x:50%;--y:59%">Percorso 2</span>
+          <span class="map-node town future-node" style="--x:50%;--y:49%">Plumbeopoli</span>
+          <span class="map-node route future-node" style="--x:62%;--y:44%">Percorso 3</span>
+          <span class="map-node route future-node" style="--x:73%;--y:36%">Percorso 4</span>
+          <span class="map-node town future-node" style="--x:73%;--y:26%">Celestopoli</span>
+          <span class="map-node town future-node" style="--x:90%;--y:50%">Lavandonia</span>
+          <span class="map-node town future-node" style="--x:72%;--y:53%">Zafferanopoli</span>
+          <span class="map-node town future-node" style="--x:48%;--y:54%">Azzurropoli</span>
+          <span class="map-node town future-node" style="--x:72%;--y:66%">Aranciopoli</span>
+          <span class="map-node town future-node" style="--x:73%;--y:80%">Fucsiapoli</span>
+          <span class="map-node town future-node" style="--x:54%;--y:94%">Isola Cannella</span>
+          <span class="map-node town future-node" style="--x:18%;--y:64%">Altopiano Blu</span>
+          <span class="map-node route future-node" style="--x:69%;--y:31%">Percorso 5</span>
+          <span class="map-node route future-node" style="--x:72%;--y:60%">Percorso 6</span>
+          <span class="map-node route future-node" style="--x:58%;--y:53%">Percorso 7</span>
+          <span class="map-node route future-node" style="--x:83%;--y:52%">Percorso 8</span>
+          <span class="map-node route future-node" style="--x:84%;--y:21%">Percorso 9</span>
+          <span class="map-node route future-node" style="--x:92%;--y:33%">Percorso 10</span>
+          <span class="map-node route future-node" style="--x:82%;--y:68%">Percorso 11</span>
+          <span class="map-node route future-node" style="--x:89%;--y:76%">Percorso 12</span>
+          <span class="map-node route future-node" style="--x:91%;--y:82%">Percorso 13</span>
+          <span class="map-node route future-node" style="--x:89%;--y:88%">Percorso 14</span>
+          <span class="map-node route future-node" style="--x:80%;--y:89%">Percorso 15</span>
+          <span class="map-node route future-node" style="--x:38%;--y:39%">Percorso 16</span>
+          <span class="map-node route future-node" style="--x:33%;--y:47%">Percorso 17</span>
+          <span class="map-node route future-node" style="--x:34%;--y:56%">Percorso 18</span>
+          <span class="map-node route future-node" style="--x:62%;--y:91%">Percorso 19</span>
+          <span class="map-node route future-node" style="--x:43%;--y:96%">Percorso 20</span>
+          <span class="map-node route future-node" style="--x:32%;--y:90%">Percorso 21</span>
+          <span class="map-node route future-node" style="--x:28%;--y:61%">Percorso 22</span>
+          <span class="map-node route future-node" style="--x:13%;--y:52%">Percorso 23</span>
+          <span class="map-node route future-node" style="--x:64%;--y:19%">Percorso 24</span>
+          <span class="map-node route future-node" style="--x:68%;--y:14%">Percorso 25</span>
+        </div>
+        <div class="map-legend"><span><i class="legend-current"></i> Posizione attuale</span><span><i class="legend-available"></i> Percorso disponibile</span><span><i class="legend-future"></i> Da implementare</span></div>
+        <div class="map-travel"><div class="readout-label">SPOSTAMENTI DISPONIBILI</div><p id="map-travel-message" class="muted">Scegli una destinazione collegata alla posizione attuale.</p><div id="map-connections" class="map-connections"></div></div>
+        <details class="map-index"><summary>Indice dei luoghi ufficiali di Kanto</summary>
+          <div class="map-index-group"><strong>Città e località</strong><div class="map-index-items"><span>Biancavilla</span><span>Smeraldopoli</span><span>Plumbeopoli</span><span>Celestopoli</span><span>Lavandonia</span><span>Azzurropoli</span><span>Zafferanopoli</span><span>Aranciopoli</span><span>Fucsiapoli</span><span>Isola Cannella</span><span>Altopiano Blu</span></div></div>
+          <div class="map-index-group"><strong>Percorsi ufficiali</strong><div class="map-index-items route-index"><span>Percorso 1</span><span>Percorso 2</span><span>Percorso 3</span><span>Percorso 4</span><span>Percorso 5</span><span>Percorso 6</span><span>Percorso 7</span><span>Percorso 8</span><span>Percorso 9</span><span>Percorso 10</span><span>Percorso 11</span><span>Percorso 12</span><span>Percorso 13</span><span>Percorso 14</span><span>Percorso 15</span><span>Percorso 16</span><span>Percorso 17</span><span>Percorso 18</span><span>Percorso 19</span><span>Percorso 20</span><span>Percorso 21</span><span>Percorso 22</span><span>Percorso 23</span><span>Percorso 24</span><span>Percorso 25</span></div></div>
+        </details>
+        <div class="route-annotation-help">[SELEZIONA UN PERCORSO] Clic: annota ciclicamente · clic destro: cambia stato. Stati: <b>libero</b> / <b>interrotto</b> / <b>pericoloso</b> / <b>da verificare</b>. Un percorso segnato come INTERROTTO viene escluso dagli spostamenti. Gli altri stati restano promemoria personali.</div>
+        </section>
+      </section>
+      <section class="survival-strip" aria-label="Condizioni del personaggio">
+        <span><small>HP</small><strong id="quick-health">100/100</strong></span>
+        <span><small>ENERGIA</small><strong id="quick-energy">100/100</strong></span>
+        <span><small>FAME</small><strong id="quick-hunger">100/100</strong></span>
+        <span><small>SETE</small><strong id="quick-thirst">100/100</strong></span>
+      </section>
+
+      <section class="readout clock-card">
+        <div class="readout-label">REAL TIME</div>
+        <p id="clock" class="clock">--:--:--</p>
+      </section>
+
+      <section class="readout world-clock-card">
+        <div class="readout-label">WORLD DATE / TIME</div>
+        <p id="world-clock" class="world-clock">Inizializzazione...</p>
+      </section>
+
+      <section class="profile-section">
+        <div class="readout-label">SURVIVOR PROFILE</div>
+        <h2 id="profile-name">Sopravvissuto</h2>
+
+        <div class="profile-grid">
+          <div class="profile-stat">
+            <span class="stat-label">SALUTE</span>
+            <strong id="profile-health">100/100</strong>
+          </div>
+          <div class="profile-stat">
+            <span class="stat-label">ENERGIA</span>
+            <strong id="profile-energy">100/100</strong>
+          </div>
+          <div class="profile-stat">
+            <span class="stat-label">SAZIETÀ</span>
+            <strong id="profile-hunger">100/100</strong>
+          </div>
+          <div class="profile-stat">
+            <span class="stat-label">IDRATAZIONE</span>
+            <strong id="profile-thirst">100/100</strong>
+          </div>
+          <div class="profile-stat">
+            <span class="stat-label">LESIONI</span>
+            <strong id="profile-wounds">Nessuna</strong>
+          </div>
+          <div class="profile-stat">
+            <span class="stat-label">CONDIZIONE</span>
+            <strong id="profile-condition">Stabile</strong>
+          </div>
+          <div class="profile-stat">
+            <span class="stat-label">POSIZIONE</span>
+            <strong id="profile-location">Biancavilla</strong>
+          </div>
+        </div>
+
+        <form id="profile-form" class="profile-form">
+          <label for="player-name">Nome del personaggio</label>
+          <div class="name-controls">
+            <input
+              id="player-name"
+              name="player-name"
+              type="text"
+              maxlength="30"
+              autocomplete="off"
+              required
+              placeholder="Inserisci un nome"
+            >
+            <button type="submit" class="save-button">Salva nome</button>
+          </div>
+        </form>
+
+        <p id="notice-message" class="notice-message" role="status" hidden></p>
+      </section>
+
+      <section class="readout location-section">
+        <div class="readout-label">CURRENT LOCATION</div>
+        <h2 id="location">Caricamento...</h2>
+        <p id="description" class="description">
+          Collegamento al mondo in corso.
+        </p>
+        <p class="location-meta">
+          CONDIZIONI: <span id="weather">--</span>
+        </p>
+      </section>
+
+      <section class="action-section">
+        <div class="readout-label">AZIONI DISPONIBILI</div>
+        <p id="action-message" class="travel-message">
+          Preparazione delle azioni...
+        </p>
+        <div id="actions" class="actions"></div>
+      </section>
+      <section class="navigation" aria-labelledby="connections-title">
+        <div class="readout-label" id="connections-title">LUOGHI COLLEGATI</div>
+        <p id="travel-message" class="travel-message">
+          Ricerca dei collegamenti...
+        </p>
+        <div id="connections" class="connections"></div>
+      </section>
+
+      <section class="inventory-section">
+  <div class="readout-label">INVENTARIO</div>
+  <p id="inventory-message">Nessun oggetto trasportato.</p>
+  <div id="inventory-list"></div>
+</section>
+
+<section class="inventory-section">
+  <div class="readout-label">DEPOSITO LOCALE</div>
+  <p id="storage-message">Controllo del deposito...</p>
+  <div id="storage-list"></div>
+  <p class="muted">Il deposito è legato alla località: gli oggetti lasciati qui saranno disponibili quando tornerai.</p>
+</section>
+
+      <details class="context-card" open><summary>Esplorazione e tracce</summary>
+<section class="scavenging-section exploration-section">
+  <div class="readout-label">OSSERVAZIONE DEL TERRITORIO</div>
+  <p id="exploration-message">Puoi esaminare i dintorni o seguire una traccia.</p>
+  <div id="exploration-options" class="actions"></div>
+  <div id="clue-card" class="clue-card" hidden></div>
+</section>
+      </details>
+
+      <details class="context-card"><summary>Incontri</summary>
+<section class="scavenging-section encounter-section" id="encounter-section" hidden>
+  <div class="readout-label">PRESENZA NON IDENTIFICATA</div>
+  <p id="encounter-description"></p>
+  <p id="encounter-message" class="muted">Scegli come comportarti. Non ogni incontro richiede uno scontro.</p>
+  <div id="encounter-options" class="actions"></div>
+</section>
+      </details>
+
+      <details class="context-card"><summary>Punti d’interesse</summary>
+<section class="scavenging-section poi-section">
+  <div class="readout-label">PUNTI D'INTERESSE</div>
+  <p id="poi-message">Mappatura dei punti d'interesse...</p>
+  <div id="points-of-interest" class="points-of-interest"></div>
+</section>
+      </details>
+
+      <details class="context-card"><summary>Contatto locale</summary>
+<section class="scavenging-section contact-section" id="contact-section" hidden aria-live="polite">
+  <div class="readout-label">CONTATTO LOCALE</div>
+  <h3 id="contact-name"></h3>
+  <p class="contact-role" id="contact-role"></p>
+  <p id="contact-intro"></p>
+  <p class="muted" id="contact-message">La fiducia non si presume. Puoi ascoltare, ma non aspettarti che uno sconosciuto ti racconti tutto.</p>
+  <div id="contact-options" class="actions"></div>
+</section>
+      </details>
+
+      <details class="context-card"><summary>Taccuino di campo</summary>
+<section class="scavenging-section notebook-section">
+  <div class="readout-label">TACCUINO DI CAMPO</div>
+  <p id="notebook-message">Nessuna osservazione registrata.</p>
+  <div class="notebook-filters" role="group" aria-label="Filtra annotazioni">
+    <button type="button" class="notebook-filter is-active" data-notebook-filter="all">Tutto</button>
+    <button type="button" class="notebook-filter" data-notebook-filter="indizi">Indizi</button>
+    <button type="button" class="notebook-filter" data-notebook-filter="contatti">Contatti</button>
+    <button type="button" class="notebook-filter" data-notebook-filter="informazioni">Informazioni</button>
+    <button type="button" class="notebook-filter" data-notebook-filter="luoghi">Luoghi</button>
+    <button type="button" class="notebook-filter" data-notebook-filter="deduzioni">Deduzioni</button>
+    <button type="button" class="notebook-filter" data-notebook-filter="generali">Osservazioni</button>
+  </div>
+  <div id="field-notebook" class="field-notebook"></div>
+  <section class="deduction-board" aria-labelledby="deduction-title">
+    <div class="readout-label">LABORATORIO DI IPOTESI // SOLO PERSONALE</div>
+    <h3 id="deduction-title">Deduzioni del personaggio</h3>
+    <p class="muted">Le ipotesi non sono fatti confermati e non modificano il mondo. Servono a tenere insieme gli indizi raccolti.</p>
+    <form id="deduction-form" class="deduction-form">
+      <label for="deduction-title-input">Ipotesi</label>
+      <input id="deduction-title-input" maxlength="100" required placeholder="Es. qualcuno usa il pannello per comunicare">
+      <label for="deduction-basis-input">Natura principale dell’affermazione</label>
+      <select id="deduction-basis-input"><option value="observation">Osservazione diretta</option><option value="testimony">Testimonianza ricevuta</option><option value="inference">Deduzione personale</option><option value="mixed">Fonti miste / non chiarite</option></select>
+      <p class="muted">Classifica da dove nasce l’ipotesi. Non è una valutazione automatica di attendibilità.</p>
+      <label for="deduction-evidence-input">Indizi a sostegno / dubbi</label>
+      <textarea id="deduction-evidence-input" rows="2" maxlength="500" required placeholder="Quali osservazioni la sostengono? Cosa non torna ancora?"></textarea>
+      <fieldset class="deduction-source-fieldset"><legend>Fonti dal taccuino (facoltativo)</legend><p class="muted">Collega osservazioni già registrate. Le fonti restano citazioni personali, non verifiche automatiche.</p><div id="deduction-source-options"><p class="muted">Nessuna osservazione disponibile nel taccuino.</p></div><button id="deduction-source-refresh" type="button" class="action-button">AGGIORNA FONTI</button></fieldset>
+      <label for="deduction-confidence-input">Fiducia personale nell'ipotesi <output id="deduction-confidence-value" for="deduction-confidence-input">50%</output></label>
+      <input id="deduction-confidence-input" type="range" min="0" max="100" step="5" value="50">
+      <div class="deduction-form-row">
+        <label for="deduction-location-input">Località</label>
+        <select id="deduction-location-input"><option value="general">Generale</option><option value="pallet">Biancavilla</option><option value="route1">Percorso 1</option><option value="viridian">Smeraldopoli</option></select>
+        <label for="deduction-status-input">Valutazione</label>
+        <select id="deduction-status-input"><option value="open">Aperta</option><option value="plausible">Plausibile</option><option value="weak">Debole</option><option value="rejected">Scartata</option></select>
+      </div>
+      <button type="submit" class="action-button">ARCHIVIA IPOTESI</button>
+      <p id="deduction-feedback" aria-live="polite"></p>
+    </form>
+    <div id="deduction-overview" class="deduction-overview" aria-live="polite"></div>
+    <div class="deduction-list-tools" role="search" aria-label="Filtra le ipotesi">
+      <label class="sr-only" for="deduction-search">Cerca nelle ipotesi</label>
+      <input id="deduction-search" type="search" placeholder="Cerca ipotesi, indizi, fonti…" autocomplete="off">
+      <label class="sr-only" for="deduction-filter-status">Filtra per valutazione</label>
+      <select id="deduction-filter-status"><option value="all">Tutte le valutazioni</option><option value="open">Aperte</option><option value="plausible">Plausibili</option><option value="weak">Deboli</option><option value="rejected">Scartate</option></select>
+      <output id="deduction-filter-count" aria-live="polite"></output>
+    </div>
+    <div id="deduction-list" class="deduction-list"><p class="muted">Nessuna ipotesi personale archiviata.</p></div>
+  </section>
+</section>
+      </details>
+
+      <details class="context-card"><summary>Risorse locali</summary>
+<section class="scavenging-section">
+  <div class="readout-label">RISORSE LOCALI</div>
+  <p id="scavenging-message">
+    Controllo delle risorse disponibili...
+  </p>
+  <div id="scavenging-options"></div>
+</section>
+      </details>
+<section class="event-section" id="event-section">
+        <div class="event-heading"><div class="readout-label">REGISTRO EVENTI</div><span class="event-live">LIVE</span></div>
+        <p class="event-hint">Ultime attività, senza lasciare la schermata di gioco.</p>
+        <ol id="event-log" class="event-log">
+          <li>In attesa di eventi...</li>
+        </ol>
+      </section>
+
+      <p id="error-message" class="error-message" role="alert" hidden></p>
+
+      <footer>
+        <span>WORLD STATE: <strong id="world-status">LOADING</strong></span>
+        <span>SAVE: LOCAL BROWSER</span>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // v4.6.0: struttura DOM montata indipendentemente dagli script dell'interfaccia.
+    // Se un vecchio handler dovesse fallire, i pannelli hanno comunque contenitori reali.
+    (() => {
+      const screen = document.querySelector('.screen');
+      if (!screen || screen.dataset.layoutMounted === 'true') return;
+      const area = (name) => {
+        let node = screen.querySelector(`:scope > .layout-${name}`);
+        if (!node) { node = document.createElement('div'); node.className = `layout-${name}`; }
+        return node;
+      };
+      const left = area('left'), center = area('center'), right = area('right'), bottom = area('bottom');
+      const move = (selector, target) => screen.querySelectorAll(selector).forEach(node => {
+        if (node !== target && !target.contains(node)) target.appendChild(node);
+      });
+      move('.profile-section, .location-section, .action-section, .navigation, .inventory-section', left);
+      move('#kanto-map-panel, .survival-strip, .clock-card, .world-clock-card', center);
+      move('.context-card', right);
+      move('.event-section, #error-message', bottom);
+      const menu = screen.querySelector(':scope > .main-menu');
+      const footer = screen.querySelector(':scope > footer');
+      [left, center, right, bottom].forEach(node => { if (node.parentElement !== screen) screen.insertBefore(node, footer || null); });
+      if (menu) menu.after(left, center, right, bottom);
+      screen.dataset.layoutMounted = 'true';
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const tabs = [...document.querySelectorAll('[data-view-target]')];
+      const mapPanel = document.getElementById('kanto-map-panel');
+      const viewSelectors = ['.clock-card', '.world-clock-card', '.survival-strip', '.profile-section', '.location-section', '.action-section', '.inventory-section', '.context-card', '.navigation', '.event-section'];
+      function setView(view) {
+        document.body.dataset.view = view;
+        tabs.forEach(tab => {
+          const active = tab.dataset.viewTarget === view;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', String(active));
+        });
+        mapPanel.hidden = !['game', 'map'].includes(view);
+        document.querySelectorAll(viewSelectors.join(',')).forEach(el => {
+          let show = view === 'game';
+          if (el.matches('.profile-section')) show = view === 'game' || view === 'player';
+          if (el.matches('.inventory-section')) show = view === 'player';
+          if (el.matches('.context-card') && el.querySelector('.notebook-section')) show = view === 'notebook';
+          if (el.matches('.survival-strip')) show = view === 'game' || view === 'map';
+          if (view === 'player') show = el.matches('.profile-section, .inventory-section');
+          if (view === 'notebook') show = el.matches('.context-card') && Boolean(el.querySelector('.notebook-section')); 
+          if (view === 'log') show = el.matches('.event-section');
+          if (view === 'map') show = el.matches('.location-section, .survival-strip');
+          el.classList.toggle('menu-hidden', !show);
+        });
+      }
+      tabs.forEach(tab => tab.addEventListener('click', () => setView(tab.dataset.viewTarget)));
+      document.querySelectorAll('[data-notebook-filter]').forEach(button => button.addEventListener('click', () => {
+        const filter = button.dataset.notebookFilter;
+        document.querySelectorAll('[data-notebook-filter]').forEach(b => b.classList.toggle('is-active', b === button));
+        document.querySelectorAll('.notebook-entry').forEach(card => {
+          const category = (card.dataset.category || '').toLowerCase();
+          const match = filter === 'all' || (filter === 'indizi' && /indizio|traccia|ambiente|fauna|avvistamento/.test(category)) || (filter === 'contatti' && category === 'contatto') || (filter === 'informazioni' && category === 'informazione') || (filter === 'luoghi' && category.includes('punto')) || (filter === 'deduzioni' && category === 'deduzione') || (filter === 'generali' && !/indizio|traccia|ambiente|fauna|avvistamento|contatto|informazione|punto d'interesse|deduzione/.test(category));
+          card.hidden = !match;
+        });
+      }));
+      document.getElementById('notebook-search')?.addEventListener('input', () => {
+        const query = document.getElementById('notebook-search').value.trim().toLocaleLowerCase('it');
+        document.querySelectorAll('.notebook-entry').forEach(card => { card.hidden = Boolean(query) && !card.textContent.toLocaleLowerCase('it').includes(query); });
+      });
+      document.querySelectorAll('[data-map-location]').forEach(node => node.addEventListener('click', () => {
+        if (node.classList.contains('route')) return; // le strade si annotano direttamente; si viaggia dalla lista collegamenti
+        const target = node.dataset.mapLocation;
+        if (node.getAttribute('aria-current') === 'location' || node.disabled) return;
+        const button = [...document.querySelectorAll('#map-connections .map-connection')]
+          .find(item => item.dataset.destination === target);
+        if (button && !button.disabled) button.click();
+      }));
+      // Schede del pannello centrale: mappa, scena del luogo e note operative.
+      const fieldTabs = [...document.querySelectorAll('[data-field-view]')];
+      function setFieldView(view) {
+        fieldTabs.forEach(tab => {
+          const active = tab.dataset.fieldView === view;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', String(active));
+        });
+        document.querySelectorAll('[data-field-panel]').forEach(panel => { panel.hidden = panel.dataset.fieldPanel !== view; });
+      }
+      fieldTabs.forEach(tab => tab.addEventListener('click', () => setFieldView(tab.dataset.fieldView)));
+      setFieldView('place');
+
+      const annotationKey = 'exodus.map.annotations.v1';
+      const routeStatus = { clear: 'NESSUNA NOTA', blocked: 'INTERROTTO (NOTA)', danger: 'PERICOLOSO (NOTA)', check: 'DA VERIFICARE (NOTA)' };
+      const routeNotesKey = 'exodus.map.route-notes.v1';
+      function readRouteNotes() { try { return JSON.parse(localStorage.getItem(routeNotesKey) || '{}'); } catch { return {}; } }
+      function readAnnotations() { try { return JSON.parse(localStorage.getItem(annotationKey) || '{}'); } catch { return {}; } }
+      function saveAnnotations(data) { localStorage.setItem(annotationKey, JSON.stringify(data)); }
+      function applyRouteAnnotations() {
+        const data = readAnnotations();
+        document.querySelectorAll('[data-map-location^="route"], .map-node.route').forEach(node => {
+          const id = node.dataset.mapLocation || (node.textContent.match(/\d+/) ? `route${node.textContent.match(/\d+/)[0]}` : '');
+          if (!id) return;
+          const status = data[id] || 'clear';
+          node.dataset.routeStatus = status;
+          const note = readRouteNotes()[id];
+          node.title = `${node.textContent.trim()} · ${routeStatus[status] || routeStatus.clear}${note ? ` · ${note}` : ''}. Clicca per annotare.`;
+          node.classList.toggle('route-blocked', status === 'blocked');
+          node.classList.toggle('route-danger', status === 'danger');
+          node.classList.toggle('route-check', status === 'check');
+          if (!node.dataset.annotationBound) {
+            node.dataset.annotationBound = 'true';
+            node.addEventListener('contextmenu', event => { event.preventDefault(); cycleRouteAnnotation(node); });
+          }
+        });
+      }
+      function cycleRouteAnnotation(node) {
+        const id = node.dataset.mapLocation || (node.textContent.match(/\d+/) ? `route${node.textContent.match(/\d+/)[0]}` : '');
+        if (!id) return;
+        const states = ['clear', 'blocked', 'danger', 'check'];
+        const data = readAnnotations();
+        data[id] = states[(states.indexOf(data[id] || 'clear') + 1) % states.length];
+        if (data[id] === 'clear') delete data[id];
+        saveAnnotations(data); applyRouteAnnotations();
+        const old = document.getElementById('route-annotation-notice');
+        if (old) old.remove();
+        const notice = document.createElement('p'); notice.id = 'route-annotation-notice'; notice.className = 'route-annotation-notice';
+        notice.textContent = `${node.textContent.trim()}: ${routeStatus[data[id] || 'clear']}. Promemoria personale, nessun effetto sul mondo.`;
+        document.querySelector('.route-annotation-help')?.appendChild(notice);
+      }
+      // Anche le strade future, normalmente non cliccabili per il viaggio, sono annotabili.
+      document.querySelectorAll('.map-node.route, [data-map-location^="route"]').forEach(node => {
+        node.addEventListener('click', event => { event.preventDefault(); cycleRouteAnnotation(node); });
+      });
+      applyRouteAnnotations();
+      const annotationHelp = document.querySelector('.route-annotation-help');
+      if (annotationHelp && !document.getElementById('route-note-editor')) {
+        const editor = document.createElement('div'); editor.id = 'route-note-editor'; editor.className = 'route-note-editor';
+        editor.innerHTML = '<label for="route-note-select">PROMEMORIA PER UN PERCORSO</label><select id="route-note-select"><option value="route1">Percorso 1</option><option value="route2">Percorso 2</option><option value="route3">Percorso 3</option><option value="route4">Percorso 4</option><option value="route5">Percorso 5</option></select><textarea id="route-note-text" maxlength="300" rows="2" placeholder="Es. ponte crollato secondo Mara, informazione da verificare..."></textarea><button id="route-note-save" type="button">SALVA PROMEMORIA</button><span id="route-note-feedback" aria-live="polite"></span>';
+        annotationHelp.appendChild(editor);
+        const select = editor.querySelector('#route-note-select'); const textarea = editor.querySelector('#route-note-text');
+        const refresh = () => { textarea.value = readRouteNotes()[select.value] || ''; };
+        select.addEventListener('change', refresh); refresh();
+        editor.querySelector('#route-note-save').addEventListener('click', () => {
+          const notes = readRouteNotes(); const value = textarea.value.trim();
+          if (value) notes[select.value] = value; else delete notes[select.value];
+          localStorage.setItem(routeNotesKey, JSON.stringify(notes)); applyRouteAnnotations();
+          editor.querySelector('#route-note-feedback').textContent = value ? 'PROMEMORIA SALVATO LOCALMENTE.' : 'PROMEMORIA RIMOSSO.';
+        });
+      }
+
+      const noteInput = document.getElementById('field-note-input');
+      const noteList = document.getElementById('field-notes-list');
+      function renderFieldNotes() {
+        if (!noteList) return;
+        let notes = []; try { notes = JSON.parse(localStorage.getItem('exodus.field.notes.v1') || '[]'); } catch {}
+        noteList.replaceChildren();
+        if (!notes.length) { const empty = document.createElement('p'); empty.className = 'muted'; empty.textContent = 'NESSUNA NOTA ARCHIVIATA.'; noteList.appendChild(empty); return; }
+        notes.slice().reverse().forEach((note, reverseIndex) => {
+          const row = document.createElement('article'); row.className = 'field-note';
+          const time = document.createElement('small'); time.textContent = note.time;
+          const body = document.createElement('p'); body.textContent = note.text;
+          const edit = document.createElement('button'); edit.type = 'button'; edit.textContent = 'MODIFICA NOTE'; edit.addEventListener('click', () => { const next = window.prompt('Modifica indizi e dubbi (max 500 caratteri):', item.evidence); if (next === null) return; const all = read(); const target = all.find(x => x.id === item.id); if (target && next.trim()) { target.evidence = next.trim().slice(0,500); target.updatedAt = new Date().toLocaleString('it-IT'); write(all); render(); } });
+            const conflictEdit = document.createElement('button'); conflictEdit.type = 'button'; conflictEdit.textContent = item.conflictNote ? 'AGGIORNA CONTRADDIZIONI' : 'ANNOTА CONTRADDIZIONE'; conflictEdit.addEventListener('click', () => { const next = window.prompt('Annota versioni incompatibili o verifiche necessarie (max 500 caratteri). Non è una verifica automatica:', item.conflictNote || ''); if (next === null) return; const all = read(); const target = all.find(x => x.id === item.id); if (target) { target.conflictNote = next.trim().slice(0,500); target.updatedAt = new Date().toLocaleString('it-IT'); write(all); render(); } });
+            const confidenceSelect = document.createElement('input'); confidenceSelect.type = 'range'; confidenceSelect.min = '0'; confidenceSelect.max = '100'; confidenceSelect.step = '5'; confidenceSelect.value = String(Math.max(0, Math.min(100, Number(item.confidence ?? 50)))); confidenceSelect.setAttribute('aria-label', `Fiducia personale per ${item.title}`); confidenceSelect.addEventListener('change', () => { const all = read(); const target = all.find(x => x.id === item.id); if (target) { target.confidence = Number(confidenceSelect.value); target.updatedAt = new Date().toLocaleString('it-IT'); write(all); render(); } });
+            const remove = document.createElement('button'); remove.type = 'button'; remove.textContent = 'ELIMINA'; remove.addEventListener('click', () => { notes.splice(notes.length - 1 - reverseIndex, 1); localStorage.setItem('exodus.field.notes.v1', JSON.stringify(notes)); renderFieldNotes(); });
+          row.append(time, body, remove); noteList.appendChild(row);
+        });
+      }
+      document.getElementById('field-note-save')?.addEventListener('click', () => {
+        const text = noteInput.value.trim(); if (!text) return;
+        let notes = []; try { notes = JSON.parse(localStorage.getItem('exodus.field.notes.v1') || '[]'); } catch {}
+        notes.push({ text, time: new Date().toLocaleString('it-IT') }); localStorage.setItem('exodus.field.notes.v1', JSON.stringify(notes)); noteInput.value = ''; renderFieldNotes();
+      });
+      renderFieldNotes();
+      document.getElementById('notebook-export')?.addEventListener('click', () => {
+        let entries = []; try { entries = JSON.parse(localStorage.getItem('project-exodus-field-notebook-v1') || '[]'); } catch {}
+        const routeNotes = (() => { try { return JSON.parse(localStorage.getItem(routeNotesKey) || '{}'); } catch { return {}; } })();
+        const statuses = readAnnotations();
+        const lines = ['PROJECT EXODUS // TACCUINO ESPORTATO', `Esportazione: ${new Date().toLocaleString('it-IT')}`, '', '=== OSSERVAZIONI E INDIZI ==='];
+        entries.forEach(entry => lines.push('', `[${entry.timestamp || 'SENZA DATA'}] ${entry.title}`, `${entry.category || 'Osservazione'} · ${entry.locationName || entry.locationId || 'Luogo sconosciuto'}`, entry.detail));
+        lines.push('', '=== PROMEMORIA CARTOGRAFICI PERSONALI ===');
+        const labels = { clear: 'NESSUNA NOTA', blocked: 'INTERROTTO (NOTA)', danger: 'PERICOLOSO (NOTA)', check: 'DA VERIFICARE (NOTA)' };
+        for (let i = 1; i <= 25; i++) { const id = `route${i}`; if (statuses[id] || routeNotes[id]) lines.push('', `Percorso ${i}: ${labels[statuses[id] || 'clear']}`, routeNotes[id] || 'Nessun dettaglio aggiuntivo.'); }
+        lines.push('', '=== DEDUZIONI PERSONALI ===');
+        let hypotheses = []; try { hypotheses = JSON.parse(localStorage.getItem('exodus.hypotheses.v1') || '[]'); } catch {}
+        const hypothesisLabels = { open: 'APERTA', plausible: 'PLAUSIBILE', weak: 'DEBOLE', rejected: 'SCARTATA' };
+        const hypothesisTitles = new Map(hypotheses.map(item => [item.id, item.title]));
+        const relationLabels = { supports: 'SOSTIENE', contradicts: 'CONTRADDICE', independent: 'CONFERMA INDIPENDENTE' };
+        const basisLabels = { observation: 'OSSERVAZIONE DIRETTA', testimony: 'TESTIMONIANZA RICEVUTA', inference: 'DEDUZIONE PERSONALE', mixed: 'FONTI MISTE / NON CHIARITE' };
+        hypotheses.forEach(item => {
+          lines.push('', `[${hypothesisLabels[item.status] || 'APERTA'}] ${item.title}`, `Natura: ${basisLabels[item.basisType] || 'FONTI MISTE / NON CHIARITE'}`, `${item.locationName || 'Generale'} · fiducia personale ${Number(item.confidence ?? 50)}% · aggiornata ${item.updatedAt || 'senza data'}`, item.evidence || 'Nessun dettaglio.');
+          if (item.conflictNote) lines.push(`  CONFLITTI / VERIFICHE NECESSARIE: ${item.conflictNote}`);
+          (Array.isArray(item.sourceSignatures) ? item.sourceSignatures : []).forEach(signature => { const source = fieldEntryMap.get(signature); if (source) { const provenance = { direct: 'OSSERVAZIONE DIRETTA', character: 'PERSONAGGIO', event: 'EVENTO / ESITO', inference: 'DEDUZIONE', unclassified: 'NON CLASSIFICATA' }; lines.push(`  [FONTE: ${source.title}] ${source.category || 'Osservazione'} · ${source.locationName || source.locationId || 'Luogo sconosciuto'} · ${source.timestamp || 'SENZA DATA'}`, `    Provenienza: ${provenance[source.sourceType] || provenance.unclassified}${source.sourceName ? ` · ${source.sourceName}` : ''}`, `    Contesto: ${source.context || 'non specificato'}`, `    ${source.detail || ''}`); } });
+          (Array.isArray(item.links) ? item.links : []).forEach(link => { if (hypothesisTitles.has(link.targetId)) lines.push(`  → ${relationLabels[link.type] || 'COLLEGATA'}: ${hypothesisTitles.get(link.targetId)}`); });
+        });
+        const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' }); const url = URL.createObjectURL(blob);
+        const link = document.createElement('a'); link.href = url; link.download = 'project-exodus-taccuino.txt'; document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+      });
+      // Registro locale delle ipotesi: non ha alcun effetto sulle regole del mondo.
+      (() => {
+        const KEY = 'exodus.hypotheses.v1';
+        const form = document.getElementById('deduction-form');
+        const list = document.getElementById('deduction-list');
+        const feedback = document.getElementById('deduction-feedback');
+        const overview = document.getElementById('deduction-overview');
+        const searchInput = document.getElementById('deduction-search');
+        const statusFilter = document.getElementById('deduction-filter-status');
+        const filterCount = document.getElementById('deduction-filter-count');
+        if (!form || !list) return;
+        const labels = { open: 'APERTA', plausible: 'PLAUSIBILE', weak: 'DEBOLE', rejected: 'SCARTATA' };
+        const locations = { general: 'Generale', pallet: 'Biancavilla', route1: 'Percorso 1', viridian: 'Smeraldopoli' };
+        const basisLabels = { observation: 'OSSERVAZIONE DIRETTA', testimony: 'TESTIMONIANZA RICEVUTA', inference: 'DEDUZIONE PERSONALE', mixed: 'FONTI MISTE / NON CHIARITE' };
+        const read = () => { try { const value = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(value) ? value.filter(x => x && typeof x.id === 'string' && typeof x.title === 'string' && typeof x.evidence === 'string') : []; } catch { return []; } };
+        const write = value => { try { localStorage.setItem(KEY, JSON.stringify(value.slice(0, 100))); return true; } catch { return false; } };
+        const sourceOptions = document.getElementById('deduction-source-options');
+        const readSources = () => { try { const value = JSON.parse(localStorage.getItem('project-exodus-field-notebook-v1') || '[]'); return Array.isArray(value) ? value.filter(entry => entry && typeof entry.signature === 'string' && typeof entry.title === 'string') : []; } catch { return []; } };
+        const renderSourceOptions = () => {
+          if (!sourceOptions) return;
+          const sources = readSources(); sourceOptions.replaceChildren();
+          if (!sources.length) { const empty = document.createElement('p'); empty.className = 'muted'; empty.textContent = 'Nessuna osservazione disponibile nel taccuino.'; sourceOptions.appendChild(empty); return; }
+          sources.forEach((source, index) => { const label = document.createElement('label'); label.className = 'deduction-source-option'; const input = document.createElement('input'); input.type = 'checkbox'; input.name = 'deduction-source'; input.value = source.signature; input.id = `deduction-source-${index}`; const text = document.createElement('span'); text.textContent = `${source.title} · ${source.category || 'Osservazione'} · ${source.locationName || source.locationId || 'Luogo sconosciuto'}`; label.append(input, text); sourceOptions.appendChild(label); });
+        };
+        document.getElementById('deduction-source-refresh')?.addEventListener('click', () => { renderSourceOptions(); if (feedback) feedback.textContent = 'ELENCO DELLE FONTI AGGIORNATO DAL TACCUINO.'; });
+        // Definisci render prima di registrare callback che lo invocano.
+        // Con const, il riferimento anticipato causa una ReferenceError nella TDZ:
+        // l'intera IIFE si interrompe e il layout non viene mai montato.
+        const render = () => {
+          list.replaceChildren(); const items = read();
+          if (overview) {
+            overview.replaceChildren();
+            const sources = readSources();
+            const usage = new Map();
+            items.forEach(item => (Array.isArray(item.sourceSignatures) ? item.sourceSignatures : []).forEach(signature => usage.set(signature, (usage.get(signature) || 0) + 1)));
+            const linked = items.flatMap(item => (Array.isArray(item.sourceSignatures) ? item.sourceSignatures : []).map(signature => ({ item, source: sources.find(entry => entry.signature === signature) })).filter(entry => entry.source));
+            const repeated = [...usage.entries()].filter(([, count]) => count > 1);
+            const conflictCount = items.filter(item => Boolean(item.conflictNote && item.conflictNote.trim())).length;
+            const characterNames = new Set(linked.filter(({source}) => source.sourceType === 'character' && source.sourceName).map(({source}) => source.sourceName));
+            const eventCount = linked.filter(({source}) => source.sourceType === 'event').length;
+            const metrics = [
+              ['IPOTESI', items.length], ['PERSONAGGI CITATI', characterNames.size], ['EVENTI COLLEGATI', eventCount],
+              ['FONTI RIUTILIZZATE', repeated.length], ['CONFLITTI ANNOTATI', conflictCount]
+            ];
+            metrics.forEach(([label, value]) => { const metric = document.createElement('div'); metric.className = 'deduction-metric'; const name = document.createElement('span'); name.textContent = label; const number = document.createElement('strong'); number.textContent = String(value); metric.append(name, number); overview.appendChild(metric); });
+            if (repeated.length) {
+              const warning = document.createElement('p'); warning.className = 'deduction-overview-note';
+              const repeatedTitles = repeated.map(([signature]) => sources.find(source => source.signature === signature)?.title || 'Fonte non disponibile').slice(0, 3);
+              warning.textContent = `ATTENZIONE: ${repeated.length} ${repeated.length === 1 ? 'fonte è collegata' : 'fonti sono collegate'} a più ipotesi (${repeatedTitles.join('; ')}). Il riutilizzo della stessa fonte non equivale a una conferma indipendente.`;
+              overview.appendChild(warning);
+            } else {
+              const note = document.createElement('p'); note.className = 'deduction-overview-note'; note.textContent = 'Le fonti condivise tra ipotesi verranno segnalate qui. Una fonte ripetuta non diventa una conferma indipendente.'; overview.appendChild(note);
+            }
+          }
+          if (!items.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Nessuna ipotesi personale archiviata.'; list.appendChild(p); if (filterCount) filterCount.textContent = '0 IPOTESI'; return; }
+          const query = (searchInput?.value || '').trim().toLocaleLowerCase('it-IT');
+          const wantedStatus = statusFilter?.value || 'all';
+          const visibleItems = items.filter(item => {
+            if (wantedStatus !== 'all' && item.status !== wantedStatus) return false;
+            if (!query) return true;
+            const sourceText = (Array.isArray(item.sourceSignatures) ? item.sourceSignatures : []).map(signature => { const source = readSources().find(entry => entry.signature === signature); return source ? `${source.title} ${source.detail} ${source.sourceName} ${source.context}` : ''; }).join(' ');
+            return `${item.title} ${item.evidence} ${item.conflictNote || ''} ${item.locationName || ''} ${sourceText}`.toLocaleLowerCase('it-IT').includes(query);
+          });
+          if (filterCount) filterCount.textContent = `${visibleItems.length} / ${items.length} IPOTESI`;
+          if (!visibleItems.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Nessuna ipotesi corrisponde ai filtri.'; list.appendChild(p); return; }
+          visibleItems.forEach(item => {
+            const card = document.createElement('article'); card.className = 'deduction-card'; card.dataset.status = item.status;
+            const header = document.createElement('div'); header.className = 'deduction-card-head';
+            const title = document.createElement('h4'); title.textContent = item.title;
+            const badge = document.createElement('span'); badge.className = 'deduction-status'; badge.textContent = labels[item.status] || labels.open;
+            header.append(title, badge);
+            const meta = document.createElement('p'); meta.className = 'deduction-meta'; meta.textContent = `${locations[item.location] || item.locationName || 'Generale'} · ${basisLabels[item.basisType] || basisLabels.mixed} · ${item.updatedAt || ''}`;
+            const detail = document.createElement('p'); detail.textContent = item.evidence;
+            const conflictSummary = document.createElement('div'); conflictSummary.className = 'deduction-relations';
+            if (item.conflictNote) { const conflictTitle = document.createElement('p'); conflictTitle.textContent = 'CONTRADDIZIONI / DA VERIFICARE'; const conflictText = document.createElement('p'); conflictText.textContent = item.conflictNote; conflictSummary.append(conflictTitle, conflictText); }
+            const sourceSummary = document.createElement('div'); sourceSummary.className = 'deduction-source-summary';
+            const availableSources = readSources(); const linkedSources = (Array.isArray(item.sourceSignatures) ? item.sourceSignatures : []).map(signature => availableSources.find(source => source.signature === signature)).filter(Boolean);
+            if (linkedSources.length) { const sourceHeading = document.createElement('p'); sourceHeading.textContent = 'FONTI COLLEGATE'; sourceSummary.appendChild(sourceHeading); linkedSources.forEach(source => { const sourceLine = document.createElement('p'); const provenance = { direct: 'OSSERVAZIONE DIRETTA', character: `PERSONAGGIO${source.sourceName ? `: ${source.sourceName}` : ''}`, event: 'EVENTO / ESITO', inference: 'DEDUZIONE', unclassified: 'PROVENIENZA NON CLASSIFICATA' }; sourceLine.textContent = `↳ ${source.title} · ${source.category || 'Osservazione'} · ${source.locationName || source.locationId || 'Luogo sconosciuto'} · ${provenance[source.sourceType] || provenance.unclassified}${source.context ? ` · ${source.context}` : ''}`; sourceSummary.appendChild(sourceLine); }); }
+            const confidence = document.createElement('div'); confidence.className = 'deduction-confidence';
+            const confidenceLabel = document.createElement('span'); confidenceLabel.textContent = `FIDUCIA PERSONALE ${Math.max(0, Math.min(100, Number(item.confidence ?? 50)))}%`;
+            const confidenceTrack = document.createElement('span'); confidenceTrack.className = 'deduction-confidence-track';
+            const confidenceFill = document.createElement('span'); confidenceFill.style.width = `${Math.max(0, Math.min(100, Number(item.confidence ?? 50)))}%`; confidenceTrack.appendChild(confidenceFill); confidence.append(confidenceLabel, confidenceTrack);
+            const relationSummary = document.createElement('div'); relationSummary.className = 'deduction-relations';
+            const validLinks = (Array.isArray(item.links) ? item.links : []).filter(link => items.some(other => other.id === link.targetId));
+            if (validLinks.length) {
+              const relationTitle = document.createElement('p'); relationTitle.textContent = 'RELAZIONI TRA IPOTESI'; relationSummary.appendChild(relationTitle);
+              validLinks.forEach(link => { const other = items.find(entry => entry.id === link.targetId); if (!other) return; const line = document.createElement('p'); const relationNames = { supports: 'SOSTIENE', contradicts: 'CONTRADDICE', independent: 'CONFERMA INDIPENDENTE' }; line.textContent = `${relationNames[link.type] || 'COLLEGATA'} → ${other.title}`; relationSummary.appendChild(line); });
+            }
+            const controls = document.createElement('div'); controls.className = 'deduction-controls';
+            const select = document.createElement('select'); select.setAttribute('aria-label', `Valutazione per ${item.title}`);
+            Object.entries(labels).forEach(([value, label]) => { const option = document.createElement('option'); option.value = value; option.textContent = label; option.selected = value === item.status; select.appendChild(option); });
+            select.addEventListener('change', () => { const all = read(); const target = all.find(x => x.id === item.id); if (target) { target.status = select.value; target.updatedAt = new Date().toLocaleString('it-IT'); write(all); render(); } });
+            const edit = document.createElement('button'); edit.type = 'button'; edit.textContent = 'MODIFICA NOTE'; edit.addEventListener('click', () => { const next = window.prompt('Modifica indizi e dubbi (max 500 caratteri):', item.evidence); if (next === null) return; const all = read(); const target = all.find(x => x.id === item.id); if (target && next.trim()) { target.evidence = next.trim().slice(0,500); target.updatedAt = new Date().toLocaleString('it-IT'); write(all); render(); } });
+            const conflictEdit = document.createElement('button'); conflictEdit.type = 'button'; conflictEdit.textContent = item.conflictNote ? 'AGGIORNA CONTRADDIZIONI' : 'ANNOTА CONTRADDIZIONE'; conflictEdit.addEventListener('click', () => { const next = window.prompt('Annota versioni incompatibili o verifiche necessarie (max 500 caratteri). Non è una verifica automatica:', item.conflictNote || ''); if (next === null) return; const all = read(); const target = all.find(x => x.id === item.id); if (target) { target.conflictNote = next.trim().slice(0,500); target.updatedAt = new Date().toLocaleString('it-IT'); write(all); render(); } });
+            const confidenceSelect = document.createElement('input'); confidenceSelect.type = 'range'; confidenceSelect.min = '0'; confidenceSelect.max = '100'; confidenceSelect.step = '5'; confidenceSelect.value = String(Math.max(0, Math.min(100, Number(item.confidence ?? 50)))); confidenceSelect.setAttribute('aria-label', `Fiducia personale per ${item.title}`); confidenceSelect.addEventListener('change', () => { const all = read(); const target = all.find(x => x.id === item.id); if (target) { target.confidence = Number(confidenceSelect.value); target.updatedAt = new Date().toLocaleString('it-IT'); write(all); render(); } });
+            const remove = document.createElement('button'); remove.type = 'button'; remove.textContent = 'ELIMINA'; remove.addEventListener('click', () => { write(read().filter(x => x.id !== item.id)); render(); });
+            const relationControls = document.createElement('div'); relationControls.className = 'deduction-link-controls';
+            const targetSelect = document.createElement('select'); targetSelect.setAttribute('aria-label', `Ipotesi da collegare a ${item.title}`);
+            const targetPlaceholder = document.createElement('option'); targetPlaceholder.value = ''; targetPlaceholder.textContent = 'Collega a un’altra ipotesi…'; targetSelect.appendChild(targetPlaceholder);
+            items.filter(other => other.id !== item.id).forEach(other => { const option = document.createElement('option'); option.value = other.id; option.textContent = other.title; targetSelect.appendChild(option); });
+            const relationSelect = document.createElement('select'); relationSelect.setAttribute('aria-label', 'Tipo di relazione');
+            [['supports','Sostiene'],['contradicts','Contraddice'],['independent','Conferma indipendente']].forEach(([value,label]) => { const option = document.createElement('option'); option.value = value; option.textContent = label; relationSelect.appendChild(option); });
+            const linkButton = document.createElement('button'); linkButton.type = 'button'; linkButton.textContent = 'COLLEGA'; linkButton.disabled = items.length < 2;
+            linkButton.addEventListener('click', () => { if (!targetSelect.value) return; const all = read(); const source = all.find(x => x.id === item.id); if (!source || !all.some(x => x.id === targetSelect.value)) return; const links = Array.isArray(source.links) ? source.links.filter(link => link.targetId !== targetSelect.value) : []; links.push({ targetId: targetSelect.value, type: relationSelect.value }); source.links = links; source.updatedAt = new Date().toLocaleString('it-IT'); if (write(all)) { feedback.textContent = 'RELAZIONE ARCHIVIATA. È un collegamento interpretativo, non un fatto del mondo.'; render(); } });
+            relationControls.append(targetSelect, relationSelect, linkButton);
+            controls.append(select, edit, conflictEdit, remove); card.append(header, meta, detail, sourceSummary, conflictSummary, confidence, confidenceSelect, relationSummary, relationControls, controls); list.appendChild(card);
+          });
+        };
+        searchInput?.addEventListener('input', render);
+        statusFilter?.addEventListener('change', render);
+        window.addEventListener('exodus:notebook-updated', () => { renderSourceOptions(); render(); });
+        form.addEventListener('submit', event => {
+          event.preventDefault();
+          const title = document.getElementById('deduction-title-input').value.trim();
+          const evidence = document.getElementById('deduction-evidence-input').value.trim();
+          if (!title || !evidence) { feedback.textContent = 'Inserisci sia l’ipotesi sia gli indizi o i dubbi.'; return; }
+          const items = read();
+          const sourceSignatures = Array.from(form.querySelectorAll('input[name="deduction-source"]:checked')).map(input => input.value).slice(0, 40);
+          items.unshift({ id: `hyp-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`, title: title.slice(0,100), evidence: evidence.slice(0,500), basisType: document.getElementById('deduction-basis-input').value, sourceSignatures, location: document.getElementById('deduction-location-input').value, locationName: locations[document.getElementById('deduction-location-input').value] || 'Generale', status: document.getElementById('deduction-status-input').value, confidence: Number(document.getElementById('deduction-confidence-input').value), createdAt: new Date().toLocaleString('it-IT'), updatedAt: new Date().toLocaleString('it-IT') });
+          if (!write(items)) { feedback.textContent = 'Impossibile salvare: spazio locale esaurito.'; return; }
+          form.reset(); const confidenceValue = document.getElementById('deduction-confidence-value'); if (confidenceValue) confidenceValue.textContent = '50%'; feedback.textContent = 'IPOTESI ARCHIVIATA. Nessun effetto sul mondo simulato.'; render();
+        });
+        const confidenceInput = document.getElementById('deduction-confidence-input');
+        const confidenceOutput = document.getElementById('deduction-confidence-value');
+        if (confidenceInput && confidenceOutput) confidenceInput.addEventListener('input', () => { confidenceOutput.textContent = `${confidenceInput.value}%`; });
+        renderSourceOptions();
+        render();
+      })();
+      // Il feed usa dati reali della località corrente, senza fingere che la scena sia ancora esplorabile.
+      window.addEventListener('exodus:location-rendered', event => {
+        window.dispatchEvent(new CustomEvent('exodus:notebook-updated'));
+        const data = event.detail || {};
+        const title = document.getElementById('scene-location-title');
+        const description = document.getElementById('scene-location-description');
+        const scene = document.querySelector('.location-scene');
+        if (title) title.textContent = `${data.name || 'LOCALITÀ SCONOSCIUTA'} // FEED LOCALE`;
+        if (description) description.textContent = data.description || 'Nessuna descrizione disponibile nel database locale.';
+        if (scene) scene.dataset.location = data.id || 'unknown';
+      });
+      // v4.5.0: costruzione deterministica delle quattro aree di gioco.
+      // I nodi vengono spostati anche se una release precedente li ha annidati
+      // in un contenitore intermedio: non dipendiamo più da parentElement===screen.
+      const screen = document.querySelector('.screen');
+      if (screen) {
+        let left = screen.querySelector(':scope > .layout-left');
+        let center = screen.querySelector(':scope > .layout-center');
+        let right = screen.querySelector(':scope > .layout-right');
+        let bottom = screen.querySelector(':scope > .layout-bottom');
+        const makeArea = (node, className) => {
+          if (node) return node;
+          node = document.createElement('div');
+          node.className = className;
+          return node;
+        };
+        left = makeArea(left, 'layout-left');
+        center = makeArea(center, 'layout-center');
+        right = makeArea(right, 'layout-right');
+        bottom = makeArea(bottom, 'layout-bottom');
+        const moveInto = (selector, target) => {
+          screen.querySelectorAll(selector).forEach(node => {
+            if (node === target || target.contains(node)) return;
+            target.appendChild(node);
+          });
+        };
+        moveInto('.profile-section, .location-section, .action-section, .navigation, .inventory-section', left);
+        moveInto('#kanto-map-panel, .survival-strip, .clock-card, .world-clock-card', center);
+        moveInto('.context-card', right);
+        moveInto('.event-section, #error-message', bottom);
+        const menu = screen.querySelector(':scope > .main-menu');
+        const footer = screen.querySelector(':scope > footer');
+        [left, center, right, bottom].forEach(area => {
+          if (area.parentElement !== screen) screen.insertBefore(area, footer || null);
+        });
+        // Ordine stabile: menu, tre colonne, registro, footer.
+        if (menu) menu.after(left, center, right, bottom);
+      }
+      // Layout hooks espliciti: evitare nth-of-type, fragile quando cambia il markup.
+      document.querySelector('.profile-section')?.classList.add('layout-profile');
+      document.querySelector('.location-section')?.classList.add('layout-location');
+      document.querySelector('.action-section')?.classList.add('layout-actions');
+      document.querySelector('.navigation')?.classList.add('layout-navigation');
+      document.querySelector('.survival-strip')?.classList.add('layout-survival');
+      document.querySelector('.clock-card')?.classList.add('layout-clock');
+      document.querySelector('.event-section')?.classList.add('layout-events');
+      document.querySelectorAll('.context-card').forEach((card, index) => card.classList.add(`layout-context-${index + 1}`));
+      document.querySelectorAll('.inventory-section').forEach((section, index) => section.classList.add(`layout-inventory-${index + 1}`));
+      setView('game');
+      window.exodusSetView = setView;
+    })();
+  </script>
+
+  <script>
+    // v4.9.0: bootstrap isolato per layout e archivio ipotesi. Non dipende
+    // dall'esecuzione completa dello script UI precedente.
+    (() => {
+      const screen = document.querySelector('.screen');
+      if (!screen) return;
+      const getArea = name => {
+        let area = screen.querySelector(`:scope > .layout-${name}`);
+        if (!area) { area = document.createElement('div'); area.className = `layout-${name}`; }
+        return area;
+      };
+      const areas = {
+        left: getArea('left'), center: getArea('center'), right: getArea('right'), bottom: getArea('bottom')
+      };
+      const move = (selector, target) => screen.querySelectorAll(selector).forEach(node => {
+        if (node !== target && !target.contains(node)) target.appendChild(node);
+      });
+      move('.profile-section, .location-section, .action-section, .navigation, .inventory-section', areas.left);
+      move('#kanto-map-panel, .survival-strip, .clock-card, .world-clock-card', areas.center);
+      move('.context-card', areas.right);
+      move('.event-section, #error-message', areas.bottom);
+      const menu = screen.querySelector(':scope > .main-menu');
+      const footer = screen.querySelector(':scope > footer');
+      Object.values(areas).forEach(area => { if (area.parentElement !== screen) screen.insertBefore(area, footer || null); });
+      if (menu) menu.after(areas.left, areas.center, areas.right, areas.bottom);
+      document.body.dataset.view = document.body.dataset.view || 'game';
+
+      const form = document.getElementById('deduction-form');
+      const list = document.getElementById('deduction-list');
+      const feedback = document.getElementById('deduction-feedback');
+      const key = 'exodus.hypotheses.v1';
+      if (form && list && !form.dataset.exodusRecoveryBound) {
+        form.dataset.exodusRecoveryBound = 'true';
+        // Remove any partially registered submit handler from the broken bootstrap.
+        const cleanForm = form.cloneNode(true);
+        form.replaceWith(cleanForm);
+        cleanForm.dataset.exodusRecoveryBound = 'true';
+        const safeRead = () => { try { const v = JSON.parse(localStorage.getItem(key) || '[]'); return Array.isArray(v) ? v : []; } catch { return []; } };
+        const safeRender = () => {
+          const items = safeRead();
+          list.replaceChildren();
+          if (!items.length) { const p = document.createElement('p'); p.className = 'muted'; p.textContent = 'Nessuna ipotesi personale archiviata.'; list.appendChild(p); }
+          items.forEach(item => {
+            const card = document.createElement('article'); card.className = 'deduction-card';
+            const title = document.createElement('h4'); title.textContent = item.title || 'Ipotesi senza titolo';
+            const meta = document.createElement('p'); meta.className = 'muted'; meta.textContent = `${item.locationName || 'Generale'} · ${({open:'APERTA',plausible:'PLAUSIBILE',weak:'DEBOLE',rejected:'SCARTATA'})[item.status] || 'APERTA'} · fiducia personale ${Number(item.confidence ?? 50)}%`;
+            const evidence = document.createElement('p'); evidence.textContent = item.evidence || '';
+            const remove = document.createElement('button'); remove.type = 'button'; remove.className = 'action-button'; remove.textContent = 'ELIMINA';
+            remove.addEventListener('click', () => { try { localStorage.setItem(key, JSON.stringify(safeRead().filter(x => x.id !== item.id))); safeRender(); } catch { if (feedback) feedback.textContent = 'Impossibile aggiornare l’archivio locale.'; } });
+            card.append(title, meta, evidence, remove); list.appendChild(card);
+          });
+        };
+        cleanForm.addEventListener('submit', event => {
+          event.preventDefault();
+          const title = cleanForm.querySelector('#deduction-title-input')?.value.trim();
+          const evidence = cleanForm.querySelector('#deduction-evidence-input')?.value.trim();
+          if (!title || !evidence) { if (feedback) feedback.textContent = 'Inserisci sia l’ipotesi sia gli indizi o i dubbi.'; return; }
+          const location = cleanForm.querySelector('#deduction-location-input')?.value || 'general';
+          const locations = {general:'Generale',pallet:'Biancavilla',route1:'Percorso 1',viridian:'Smeraldopoli'};
+          const item = { id:`hyp-${Date.now()}-${Math.random().toString(36).slice(2,7)}`, title:title.slice(0,100), evidence:evidence.slice(0,500), basisType:cleanForm.querySelector('#deduction-basis-input')?.value || 'mixed', location, locationName:locations[location] || 'Generale', status:cleanForm.querySelector('#deduction-status-input')?.value || 'open', confidence:Number(cleanForm.querySelector('#deduction-confidence-input')?.value || 50), sourceSignatures:Array.from(cleanForm.querySelectorAll('input[name="deduction-source"]:checked')).map(x=>x.value), createdAt:new Date().toLocaleString('it-IT'), updatedAt:new Date().toLocaleString('it-IT') };
+          try { const items = safeRead(); items.unshift(item); localStorage.setItem(key, JSON.stringify(items.slice(0,100))); cleanForm.reset(); if (feedback) feedback.textContent = 'IPOTESI ARCHIVIATA. Nessun effetto sul mondo simulato.'; safeRender(); }
+          catch { if (feedback) feedback.textContent = 'Impossibile salvare: spazio locale esaurito.'; }
+        });
+        safeRender();
+      }
+    })();
+  </script>
+
+  <script type="module">
+    import Engine from "./main/engine/engine.js";
+
+    const engine = new Engine();
+
+    engine.start().then(() => {
+      // Il motore renderizza i dati in modo asincrono. In alcuni avvii il browser
+      // non aggiorna il pannello centrale finché la vista non viene cambiata.
+      // Eseguiamo quindi una transizione reale map -> game dopo il render, poi
+      // ripristiniamo esplicitamente il pannello LUOGO senza richiedere click.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const applyView = window.exodusSetView;
+          const mapPanel = document.getElementById("kanto-map-panel");
+          const placePanel = document.querySelector('[data-field-panel="place"]');
+          const placeTab = document.querySelector('[data-field-view="place"]');
+          if (typeof applyView === "function") {
+            applyView("map");
+            applyView("game");
+          }
+          if (mapPanel) mapPanel.hidden = false;
+          document.querySelectorAll("[data-field-panel]").forEach(panel => {
+            panel.hidden = panel !== placePanel;
+          });
+          document.querySelectorAll("[data-field-view]").forEach(tab => {
+            const active = tab === placeTab;
+            tab.classList.toggle("is-active", active);
+            tab.setAttribute("aria-selected", String(active));
+          });
+          window.dispatchEvent(new Event("resize"));
+        });
+      });
+    }).catch((error) => {
+      console.error(error);
+
+      document.getElementById("engine-status").textContent = "ERROR";
+      document.getElementById("world-status").textContent = "OFFLINE";
+
+      const errorMessage = document.getElementById("error-message");
+      errorMessage.hidden = false;
+      errorMessage.textContent =
+        "Impossibile avviare Exodus. Controlla la console del browser (F12) e verifica che il server locale sia attivo.";
+    });
+
+    window.addEventListener("beforeunload", () => {
+      
+      engine.stop();
+    });
+  </script>
+</body>
+</html>

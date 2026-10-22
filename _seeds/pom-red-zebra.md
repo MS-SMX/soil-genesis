@@ -107,12 +107,6 @@ usi:
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
  1- https://www.cercatoridisemi.com/product-page/pomodoro-red-zebra-l-lycopersicum
  <br>

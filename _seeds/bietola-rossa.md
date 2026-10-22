@@ -109,12 +109,6 @@ usi: baby leaf, germogli, verdura, surgelazione
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
 - A.Pasin - Di Seme in Meglio (Edizioni SemiRurali, 2023)
 

@@ -119,12 +119,6 @@ usi: La polpa ha un gusto delicato, poco aromatico e una consistenza che tende a
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: A. Botanica, tassonomia e agronomia <br>
  1. Royal Botanic Gardens, Kew — Plants of the World Online. Benincasa hispida (Thunb.) Cogn.
  Fonte per nomenclatura accettata, distribuzione nativa, sinonimi e inquadramento botanico.

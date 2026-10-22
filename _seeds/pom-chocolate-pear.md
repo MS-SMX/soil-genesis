@@ -111,12 +111,6 @@ usi:
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
  1- A.Pasin - Di Seme in Meglio (Edizioni SemiRurali, 2023) <br>
 

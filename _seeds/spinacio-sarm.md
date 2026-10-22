@@ -112,12 +112,6 @@ usi:
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
   - titolo: Basella Rubra / Alba - Piante Innovative
     url: https://www.pianteinnovative.it/basella-rubra-basella-alba/

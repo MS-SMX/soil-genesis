@@ -7,8 +7,9 @@ layout: default
       <div class="log-entry-kicker">SOIL GENESIS // FIELD RECORD</div>
       <div class="log-entry-type">DIARIO DI RIGENERAZIONE // {{ page.date | date: "%d.%m.%Y" }}</div>
       <h1>{{ page.title | escape }}</h1>
-      {% if page.seed_slug %}<p class="log-entry-description">Accessione: <a href="{{ '/sementi/' | append: page.seed_slug | append: '/' | relative_url }}">{{ page.seed_name | default: page.seed_slug | escape }}</a></p>{% endif %}
+      {% if page.seed_slug %}<p class="log-entry-description">Accessione: <a href="{{ '/sementi/' | append: page.seed_slug | append: '/' | relative_url }}">{{ page.seed_name | default: page.seed_slug | escape }}</a></p>{% elsif page.perennial_slug %}<p class="log-entry-description">Pianta perenne: <a href="{{ '/sementi/perenni/' | append: page.perennial_slug | append: '/' | relative_url }}">{{ page.seed_name | default: page.perennial_slug | escape }}</a></p>{% endif %}
       {% if page.category %}<p class="log-entry-description">Categoria: {{ page.category | escape }}</p>{% endif %}
+      {% if page.parcel_label %}<p class="log-entry-description">Parcella: {{ page.parcel_label | escape }}</p>{% endif %}
     </header>
     <div class="log-entry-divider"></div>
     <section class="log-entry-content">{{ content }}</section>

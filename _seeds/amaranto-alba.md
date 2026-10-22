@@ -111,12 +111,6 @@ usi: foglie - in padella come spinaci, anche a crudo da giovani. semi - preparaz
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: A. Tassonomia, distribuzione e botanica <br>
  1. Royal Botanic Gardens, Kew — Plants of the World Online. Amaranthus caudatus L.
  Fonte per nome accettato, famiglia botanica, areale nativo, distribuzione introdotta e sinonimia.

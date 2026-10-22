@@ -80,16 +80,20 @@
     RICETTE
 </a>
 
-    <a href="{{ '/diario-rigenerazione/' | relative_url }}">
-        DIARIO
-    </a>
-
-    <a href="{{ '/custode/' | relative_url }}">
-        CUSTODE
-    </a>
 
         </div>
 
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">GESTIONE ▾</button>
+        <div class="dropdown-content">
+            <a href="{{ '/diario-rigenerazione/' | relative_url }}">REGISTRO EVENTI</a>
+            <a href="{{ '/piano-parcelle/' | relative_url }}">PIANO PARCELLE</a>
+            <a href="{{ '/storico-parcelle/' | relative_url }}">STORICO PARCELLE</a>
+            <a href="{{ '/custode/' | relative_url }}">CUSTODE</a>
+            <a href="{{ '/mappa-miceliale/' | relative_url }}">MAPPA MICELIALE</a>
+        </div>
     </div>
 
 <!--<div class="dropdown">

@@ -113,12 +113,6 @@ usi: fresco come verdura, secco come legume o reso farina.
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
  1- A.Pasin - Di Seme in Meglio (Edizioni SemiRurali, 2023) <br>
 

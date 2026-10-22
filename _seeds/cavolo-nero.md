@@ -118,12 +118,6 @@ usi: zuppe, in padella, farinate, chips, pesto, risotti, ripieni. <br>
 ricette: 
 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
  Botanica, evoluzione e domesticazione <br>
  1- The Evolutionary History of Wild, Domesticated, and Feral Brassica oleracea (Brassicaceae). Molecular Biology and Evolution, 2021. Studio sull'evoluzione, la diversità delle popolazioni selvatiche e coltivate e le difficoltà nell'identificare il progenitore esatto.

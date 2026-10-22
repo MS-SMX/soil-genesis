@@ -111,12 +111,6 @@ usi: i semi sono notoriamente commestibili, previa rimozione del tegumento. Poss
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
 
 

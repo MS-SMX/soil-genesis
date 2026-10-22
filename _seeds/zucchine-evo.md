@@ -128,12 +128,6 @@ usi: consumo crudo, in insalata o carpaccio;
 ricette: 
 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: A. Articoli scientifici e studi sulla biologia <br> 
  1- Nepi, M. & Pacini, E. (1993). “Pollination, Pollen Viability and Pistil Receptivity in Cucurbita pepo.” Annals of Botany, 72(6), 527–536.
  Studio fondamentale per la biologia dei fiori, la vitalità del polline, la ricettività dello stigma e il ruolo degli insetti. Leggi l'articolo su ScienceDirect.

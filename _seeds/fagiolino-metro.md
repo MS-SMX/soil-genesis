@@ -121,12 +121,6 @@ usi: fresco, surgelato
 
 ricette: 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
  - titolo: Luigi Caneve - Fagiolo Metro
    url: https://www.youtube.com/watch?v=AJZDz8dS4O8

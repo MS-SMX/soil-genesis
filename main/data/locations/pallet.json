@@ -1,0 +1,27 @@
+{
+  "id": "pallet",
+  "name": "Biancavilla",
+  "description": "Il vento attraversa lentamente il paese. Qualche finestra è chiusa da assi di legno; dalla collina, la casa del professor Oak resta in silenzio.",
+  "connections": [
+    {
+      "id": "route1",
+      "label": "Percorso 1",
+      "travelMinutes": 180
+    }
+  ],
+  "weather": "cloudy",
+  "scavenging": [
+    {
+      "id": "pallet-conserve",
+      "itemId": "scatola-conserve",
+      "quantity": 1,
+      "label": "Controlla le provviste abbandonate"
+    },
+    {
+      "id": "pallet-acqua",
+      "itemId": "bottiglia-acqua",
+      "quantity": 1,
+      "label": "Cerca acqua potabile"
+    }
+  ]
+}

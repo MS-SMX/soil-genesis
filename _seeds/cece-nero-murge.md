@@ -114,12 +114,6 @@ criticita:
 usi: 
 
 
-# ==========================
-# FONTI
-# ==========================
-
-fonti: 
-
 bibliografia: 
   - A.Pasin - Di Seme in Meglio (Edizioni SemiRurali, 2023)
 

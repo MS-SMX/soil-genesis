@@ -68,3 +68,95 @@
   .regen-delete-button { grid-column: 2; grid-row: 2; }
   .regen-storage-note { align-items: flex-start; }
 }
+
+
+/* Parcelle e piano delle rotazioni */
+.regen-form select#regen-parcel, #regen-filter-parcel, #regen-plan-parcel { max-width: 100%; }
+.regen-event-parcel { display: inline-block; border: 1px solid rgba(122, 215, 202, .22); padding: 4px 7px; color: #b6d9cf; background: rgba(50, 115, 104, .12); font: .66rem/1.4 "IBM Plex Mono", monospace; }
+.regen-plan-tools { display: grid; grid-template-columns: minmax(140px, .45fr) minmax(220px, 1fr); gap: 14px; margin: 22px 0 4px; }
+.regen-plan-tools label { display: flex; flex-direction: column; gap: 7px; }
+.regen-plan-tools label > span { color: rgba(190, 220, 213, .66); font: .72rem "IBM Plex Mono", monospace; }
+.regen-plan-tools input { box-sizing: border-box; width: 100%; min-height: 43px; border: 1px solid rgba(122, 215, 202, .2); padding: 10px 12px; background: rgba(2, 10, 11, .84); color: #d2e8e2; font: .88rem/1.5 "IBM Plex Mono", monospace; }
+.regen-plan-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding-top: 16px; }
+.regen-plan-item { display: flex; justify-content: space-between; gap: 12px; min-width: 0; padding: 16px; border: 1px solid rgba(122, 215, 202, .15); background: rgba(8, 24, 23, .42); }
+.regen-plan-item > div { min-width: 0; }
+.regen-plan-item h3 { margin: 6px 0; font: 500 .82rem/1.55 "IBM Plex Mono", monospace; color: #bfe2d8; }
+.regen-plan-item p { margin: 6px 0; font-size: .82rem; line-height: 1.65; overflow-wrap: anywhere; }
+.regen-plan-season { color: #83cdb7; font: .64rem "IBM Plex Mono", monospace; letter-spacing: .08em; }
+.regen-plan-crop { font-size: 1rem !important; color: #e0eee9; }
+.regen-plan-no-date { color: rgba(211, 235, 229, .45); font: .65rem "IBM Plex Mono", monospace !important; }
+.regen-published-plan-heading { margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(122, 215, 202, .1); }
+.regen-published-plan-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.regen-published-event[hidden] { display: none; }
+@media (max-width: 700px) { .regen-plan-tools, .regen-plan-list, .regen-published-plan-list { grid-template-columns: minmax(0, 1fr); } }
+
+
+/* Separazione funzionale tra registro eventi e piano parcelle. Il markup condiviso mantiene un solo motore dati. */
+.regen-events-page .regen-plan-panel { display: none !important; }
+.regen-plan-page .regen-form-panel,
+.regen-plan-page .regen-history-panel:not(.regen-plan-panel),
+.regen-plan-page .regen-published-panel,
+.regen-plan-page .regen-backup-panel { display: none !important; }
+.regen-plant-picker { min-width: 0; border: 1px solid rgba(122,215,202,.2); padding: 14px; }
+.regen-plant-picker legend { padding: 0 6px; color: #bfe2d8; font: .78rem "IBM Plex Mono", monospace; }
+.regen-plant-picker > input[type="search"] { box-sizing: border-box; width: 100%; min-height: 42px; margin: 8px 0 12px; padding: 10px; background: rgba(2,10,11,.84); border: 1px solid rgba(122,215,202,.2); color: #d2e8e2; }
+.regen-plant-options { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; max-height: 340px; overflow: auto; padding: 8px; background: rgba(2,10,11,.35); }
+.regen-plant-group { display: flex; flex-direction: column; gap: 6px; }
+.regen-plant-group > strong { color: #83cdb7; font: .68rem "IBM Plex Mono", monospace; margin-bottom: 4px; }
+.regen-plant-group label { display: flex; align-items: flex-start; gap: 8px; padding: 5px; border-bottom: 1px solid rgba(122,215,202,.08); font-size: .8rem; }
+.regen-plant-group label[hidden] { display: none; }
+.regen-plant-group label input { margin-top: 4px; accent-color: #83cdb7; }
+.regen-plant-group small { display: block; color: rgba(211,235,229,.48); font-size: .68rem; }
+@media(max-width:700px){ .regen-plant-options { grid-template-columns: minmax(0,1fr); } }
+
+
+/* Selettore piante: checkbox compatte, senza ereditare le dimensioni dei campi testuali. */
+.regen-plant-group label { display: grid; grid-template-columns: 15px minmax(0, 1fr); align-items: start; gap: 8px; }
+.regen-plant-group label input[type="checkbox"].regen-plan-plant,
+.regen-plant-group label input[type="checkbox"] {
+  appearance: auto; -webkit-appearance: checkbox;
+  width: 14px !important; min-width: 14px; max-width: 14px;
+  height: 14px !important; min-height: 14px !important;
+  margin: 3px 0 0; padding: 0; box-sizing: border-box;
+  border: initial; border-radius: 2px; background: transparent;
+  accent-color: #83cdb7; cursor: pointer;
+}
+.regen-plant-group label span { min-width: 0; line-height: 1.45; }
+
+/* Lettura prudente delle rotazioni: segnala ricorrenze di famiglia, non prescrizioni agronomiche assolute. */
+.regen-rotation-panel { margin-top: 24px; padding: 18px; border: 1px solid rgba(122,215,202,.18); background: rgba(8,24,23,.35); }
+.regen-rotation-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; margin-top: 14px; }
+.regen-rotation-item { padding: 13px; border: 1px solid rgba(122,215,202,.12); background: rgba(2,10,11,.32); }
+.regen-rotation-item h3 { margin: 0 0 7px; color: #bfe2d8; font: 500 .78rem/1.5 "IBM Plex Mono", monospace; }
+.regen-rotation-item p { margin: 5px 0; font-size: .8rem; line-height: 1.65; }
+.regen-rotation-status { display: inline-block; margin-bottom: 7px; padding: 3px 6px; border: 1px solid rgba(122,215,202,.22); color: #a9ded2; font: .62rem "IBM Plex Mono", monospace; }
+.regen-rotation-status.is-warning { border-color: rgba(218,166,103,.45); color: #e7c08c; }
+.regen-rotation-status.is-unknown { color: rgba(211,235,229,.58); }
+@media(max-width:700px){ .regen-rotation-list { grid-template-columns: minmax(0,1fr); } }
+
+/* Hard reset del selettore: evita che regole globali trasformino le checkbox in campi grandi. */
+.regen-plan-page .regen-plant-options input[type="checkbox"],
+.regen-plant-group input[type="checkbox"] {
+  display: inline-block !important; flex: 0 0 14px !important;
+  inline-size: 14px !important; block-size: 14px !important;
+  min-inline-size: 14px !important; max-inline-size: 14px !important;
+  min-block-size: 14px !important; max-block-size: 14px !important;
+  padding: 0 !important; margin: 3px 0 0 !important;
+  transform: none !important; box-sizing: border-box !important;
+}
+
+
+/* Cronologia agronomica unificata per parcella. */
+.parcel-history-filters { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.parcel-history-filters input { width:100%; min-height:43px; box-sizing:border-box; border:1px solid rgba(122,215,202,.2); padding:10px 12px; background:rgba(2,10,11,.84); color:#d2e8e2; font: .88rem/1.5 "IBM Plex Mono",monospace; }
+.parcel-history-timeline { display:flex; flex-direction:column; gap:10px; margin-top:18px; }
+.parcel-history-entry { display:grid; grid-template-columns:125px minmax(0,1fr); gap:18px; padding:16px; border:1px solid rgba(122,215,202,.14); background:rgba(8,24,23,.42); }
+.parcel-history-date { color:#92cbbd; font:.75rem/1.6 "IBM Plex Mono",monospace; }
+.parcel-history-entry-body { min-width:0; }
+.parcel-history-entry-body h3 { margin:4px 0 8px; color:#c4e2d9; font:500 .9rem/1.5 "IBM Plex Mono",monospace; }
+.parcel-history-entry-body h3 a { color:inherit; text-decoration:none; }
+.parcel-history-entry-body p { margin:5px 0; font-size:.84rem; line-height:1.7; overflow-wrap:anywhere; }
+.parcel-history-crop { color:#e0eee9; }
+.parcel-history-source { display:inline-block; padding:3px 6px; border:1px solid rgba(122,215,202,.22); color:#9dd9c9; font:.6rem "IBM Plex Mono",monospace; }
+.parcel-history-source.is-local { border-color:rgba(218,166,103,.4); color:#e7c08c; }
+@media(max-width:700px){.parcel-history-filters{grid-template-columns:minmax(0,1fr)}.parcel-history-entry{grid-template-columns:minmax(0,1fr);gap:5px}}
