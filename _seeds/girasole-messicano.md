@@ -20,11 +20,11 @@ immagini:
   - file: fiore3.jpg
     titolo: fiore3
 
-stato_conservazione: new entry
+stato_conservazione: abbondante
 
 provenienza: Cercatori di Semi
 
-ultimo_anno_riproduzione:
+ultimo_anno_riproduzione: 2026
 
 description: Pianta che sviluppa un vero e proprio cespuglio di fiori alto fino a 2 metri, particolarmente resistente alla siccità e sempre ricoperta di insetti impollinatori. Un must have.
 

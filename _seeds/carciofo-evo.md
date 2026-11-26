@@ -20,11 +20,11 @@ immagini:
   - file: fiore3.jpg
     titolo: fiore3
 
-stato_conservazione: new entry
+stato_conservazione: stabile
 
 provenienza: A.Di.P.a. / Sativa
 
-ultimo_anno_riproduzione:
+ultimo_anno_riproduzione: 2026
 
 description: Diversi carciofi, varietà Hegi e varietà Romano, lasciati crescere assieme.
 
@@ -140,7 +140,8 @@ annotazioni:
 
 cronologia: 
   ⊛ 2025 - Acquisizione varietà Hegi da A.Di.P.a. <br>
-  ⊛ 2026 - Acquisizione varietà Romana da Sativa.
+  ⊛ 2026 - Acquisizione varietà Romana da Sativa. <br>
+  ⊛ 2026 - Prima riproduzione
 
 # ==========================
 # REVISIONE

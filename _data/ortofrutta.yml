@@ -26,7 +26,7 @@ prodotti:
 
     immagine: "fiori-zucchina-evo.jpg"
 
-    disponibile: true
+    disponibile: false
 
     prezzo:
       valore: 3.00
@@ -42,7 +42,7 @@ prodotti:
 
     immagine: "amaranto-foglie-gio.jpg"
 
-    disponibile: true
+    disponibile: false
 
     prezzo:
       valore: 2.50
@@ -58,7 +58,7 @@ prodotti:
 
     immagine: "amaranto-foglie.jpg"
 
-    disponibile: true
+    disponibile: false
 
     prezzo:
       valore: 1.50
@@ -74,7 +74,7 @@ prodotti:
 
     immagine: "cavolo-nero.jpg"
 
-    disponibile: true
+    disponibile: false
 
     prezzo:
       valore: 5.00
@@ -106,7 +106,7 @@ prodotti:
 
     immagine: "bietole.jpg"
 
-    disponibile: true
+    disponibile: false
 
     prezzo:
       valore: 5.00
@@ -127,22 +127,6 @@ prodotti:
     prezzo:
       valore: 8.00
       unita: kg
-
-  - id: nuovo-prodotto-1791321183257
-    nome: "Mizuna - Senape Rossa (baby leaf)"
-    categoria: foglie
-
-    source:
-      archivio: seeds
-      slug: senape-rossa
-
-    immagine: "senape.jpg"
-
-    disponibile: false
-
-    prezzo:
-      valore: 2.50
-      unita: etto
 
   - id: nuovo-prodotto-1791321360474
     nome: "Mizuna - Senape Rossa"
@@ -283,6 +267,38 @@ prodotti:
     immagine: "pepe-rosso-asti.jpg"
 
     disponibile: false
+
+    prezzo:
+      valore: 5.00
+      unita: kg
+
+  - id: nuovo-prodotto-1795711136712
+    nome: "Prezzemolo Francese Riccio"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: prezzemolo-riccio
+
+    immagine: ""
+
+    disponibile: true
+
+    prezzo:
+      valore: 2.00
+      unita: etto
+
+  - id: nuovo-prodotto-1795711201319
+    nome: "Catalogna a Coste Rosse"
+    categoria: ortaggio
+
+    source:
+      archivio: seeds
+      slug: catalogna-rossa
+
+    immagine: ""
+
+    disponibile: true
 
     prezzo:
       valore: 5.00

@@ -5,7 +5,7 @@ slug: spinacio-sarm
 
 sg_id: SG-000009
 
-nome_comune: Spinacio Sarmentoso
+nome_comune: Spinacio di Malabar
 
 nome_scientifico: Basella rubra
 

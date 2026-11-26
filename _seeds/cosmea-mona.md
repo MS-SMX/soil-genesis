@@ -22,11 +22,11 @@ immagini:
 
 
 
-stato_conservazione: new entry
+stato_conservazione: stabile
 
 provenienza: Cercatori di Semi
 
-ultimo_anno_riproduzione:
+ultimo_anno_riproduzione: 2026
 
 description: Mi spiace, la foto principale è ingannevole, ma complice il tramonto è venuta troppo bene per non usarla.
 

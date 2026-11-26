@@ -17,7 +17,7 @@ immagini:
     titolo: plant
   
 
-stato_conservazione: new entry
+stato_conservazione: da rigenerare
 
 provenienza: Sativa
 

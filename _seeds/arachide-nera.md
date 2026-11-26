@@ -18,7 +18,7 @@ immagini:
     titolo: pianta
 
 
-stato_conservazione: da rigenerare
+stato_conservazione: critico
 
 provenienza: A.Di.P.a
 
@@ -123,7 +123,8 @@ annotazioni:
 # ==========================
 
 cronologia: 
-  ⊛ 2025 - Acquisizione da A.Di.P.a e prima riproduzione
+  ⊛ 2025 - Acquisizione da A.Di.P.a e prima riproduzione <br>
+  ⊛ 2026 - la nuova produzione è ammuffita, valutare nuovo acquisto.
 
 # ==========================
 # REVISIONE
